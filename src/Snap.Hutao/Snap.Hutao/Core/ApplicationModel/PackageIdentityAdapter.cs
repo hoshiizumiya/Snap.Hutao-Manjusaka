@@ -1,4 +1,4 @@
-// Copyright (c) DGP Studio. All rights reserved.
+// Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
 // Licensed under the MIT license.
 
 using System.Diagnostics;
@@ -104,6 +104,6 @@ internal static class PackageIdentityAdapter
         }
 
         // Unpackaged: use a fallback
-        return "CN=DGPStudio";
+        return "CN=Millennium-Science-Technology-R-D-Inst";
     }
 }
