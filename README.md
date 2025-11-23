@@ -31,11 +31,15 @@ Snap Hutao is an open-source Genshin Impact toolkit under MIT license, designed 
 > 这些东西必须要专人维护，我对游戏内数据一窍不通
 
 **若需编译项目，请使用[Visual Studio 2026](https://visualstudio.microsoft.com/zh-hans/)**  
+调试选项请选择unpackaged（不打包）
 **原开发文档现在还可使用（其中的AI功能很好用），以下是开发文档链接：**  
 
 https://deepwiki.com/DGP-Studio/Snap.Hutao
 
 https://deepwiki.com/DGP-Studio/Snap.Hutao.Server
+## 打包测试
+
+由于采用了 wix 进行打包程序，VS 需要安装 **HeatWave for VS2022**（2026兼容）。需要 msi 安装包时，右键选中 Snap.Hutao.Installer 生成后即可在目标目录找到。默认目录：Snap.Hutao.Installer\bin\x64\Release\en-US\Snap.Hutao.Installer.msi
 
 ### 资源
 
