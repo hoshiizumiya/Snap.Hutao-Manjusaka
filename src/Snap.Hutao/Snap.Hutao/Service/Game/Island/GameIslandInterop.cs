@@ -101,7 +101,8 @@ internal sealed class GameIslandInterop : IGameIslandInterop
                         try
                         {
                             // Wait a bit for process to initialize
-                            // await Task.Delay(5000, token).ConfigureAwait(false);
+                            // await Task.Delay(500, token).ConfigureAwait(false);
+                            // ⚠️此处需要更多调查
                             
                             // Inject using RemoteThread
                             DllInjectionUtilities.InjectUsingRemoteThread(islandPath, context.Process.Id);
