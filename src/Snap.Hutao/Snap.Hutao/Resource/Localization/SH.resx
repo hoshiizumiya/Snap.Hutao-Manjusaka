@@ -4020,4 +4020,7 @@
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>显示器编号</value>
   </data>
+  <data name="UIViewMainTitleBarInvertTheme" xml:space="preserve">
+    <value>主题切换</value>
+  </data>
 </root>
