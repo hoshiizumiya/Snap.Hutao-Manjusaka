@@ -4,7 +4,7 @@
 **中文**  
 胡桃工具箱是一款以 MIT 协议开源的原神工具箱，专为现代化 Windows 平台设计，旨在改善桌面端玩家的游戏体验。
 
-该版本已禁用注入功能，并且由于缺失资源和开发能力，可能会在下次游戏更新后立即失效（除非有人愿意继续维护），不建议长期使用
+该版本注入功能暂不可用，并且由于缺失资源和开发能力，可能会在下次游戏更新后立即失效（除非有人愿意继续维护），不建议长期使用
 
 **English**  
 Snap Hutao is an open-source Genshin Impact toolkit under MIT license, designed for modern Windows platform to improve the gaming experience for desktop players.
@@ -15,7 +15,7 @@ Snap Hutao is an open-source Genshin Impact toolkit under MIT license, designed 
 
 > 如果你的设备不支持ipv6，请下载末尾带有`ipv4`的压缩包，正常情况下请尽量下载普通包（服务器速度快）
 
-前往[releases](https://github.com/wangdage12/Snap.Hutao/releases/tag/1.17.1.0)中下载zip，解压后右键`Add-AppDevPackage.ps1`，点击`使用PowerShell运行`来安装  
+目前 Sanp.Hutao.Rev 更新了打包方式，并采用了标准现代的 msi 安装，方便程序获取管理员权限和更多的功能设置，不再需要原 Depolyment
 可以和之前的版本共存，将之前版本的数据文件夹里面的文件复制到该版本的数据文件夹中即可恢复数据
 
 ---
