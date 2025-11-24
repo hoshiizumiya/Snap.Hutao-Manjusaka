@@ -79,9 +79,8 @@
                         <Button
                             Padding="6"
                             Command="{Binding InvertAppThemeCommand}"
-                            Content="[Dev] Invert Theme"
-                            Style="{ThemeResource SettingButtonStyle}"
-                            Visibility="{Binding IsDebug}"/>
+                            Content="{shuxm:ResourceString Name=UIViewMainTitleBarInvertTheme}"
+                            Style="{ThemeResource SettingButtonStyle}"/>
 
                         <Button
                             Padding="0"

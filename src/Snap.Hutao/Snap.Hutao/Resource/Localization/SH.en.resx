@@ -1181,6 +1181,9 @@ Space Available: {2}</value>
   <data name="ServiceYaeWaitForGameResponseMessage" xml:space="preserve">
     <value>Waiting for game data</value>
   </data>
+  <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
+    <value>Background task</value>
+  </data>
   <data name="UIViewPageAvatarPropertyRecommendedAppendProperties" xml:space="preserve">
     <value>Additional Property Recommendation</value>
   </data>
@@ -3988,5 +3991,8 @@ Space Available: {2}</value>
   </data>
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>Monitor ID</value>
+  </data>
+  <data name="UIViewMainTitleBarInvertTheme" xml:space="preserve">
+    <value>Invert Theme</value>
   </data>
 </root>
