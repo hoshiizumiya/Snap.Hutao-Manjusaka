@@ -2,17 +2,17 @@
 // Licensed under the MIT license.
 
 using Snap.Hutao.Core.IO.Hashing;
+using Snap.Hutao.Core.Setting;
 using Snap.Hutao.Web.Hutao;
 using System.Collections.Immutable;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
-using Windows.Storage;
 
 namespace Snap.Hutao.Service.Git;
 
 internal static class RepositoryAffinity
 {
-    private static readonly ApplicationDataContainer RepositoryContainer = ApplicationData.Current.LocalSettings.CreateContainer("RepositoryAffinity", ApplicationDataCreateDisposition.Always);
+    private const string RepositoryAffinityPrefix = "RepositoryAffinity::";
     private static readonly Lock SyncRoot = new();
 
     public static ImmutableArray<GitRepository> Sort(ImmutableArray<GitRepository> repositories)
@@ -23,9 +23,11 @@ internal static class RepositoryAffinity
             for (int i = 0; i < repositories.Length; i++)
             {
                 GitRepository repository = repositories[i];
-                ApplicationDataContainer container = RepositoryContainer.CreateContainer(repository.Name, ApplicationDataCreateDisposition.Always);
-                string key = Hash.ToHexString(HashAlgorithmName.SHA256, repository.HttpsUrl.OriginalString.ToUpperInvariant());
-                counts[i] = container.Values[key] is int c ? c : 0;
+                string key = GetSettingKey(repository.Name, repository.HttpsUrl.OriginalString);
+
+                // 对读取值做下限保护，确保排序使用的是非负失败计数
+                int raw = LocalSetting.Get(key, 0);
+                counts[i] = Math.Max(0, raw);
             }
 
             Array.Sort(counts, ImmutableCollectionsMarshal.AsArray(repositories));
@@ -42,10 +44,14 @@ internal static class RepositoryAffinity
     {
         lock (SyncRoot)
         {
-            ApplicationDataContainer container = RepositoryContainer.CreateContainer(name, ApplicationDataCreateDisposition.Always);
-            string key = Hash.ToHexString(HashAlgorithmName.SHA256, url.ToUpperInvariant());
-            object box = container.Values[key];
-            container.Values[key] = box is int count ? unchecked(count + 1) : 1;
+            string key = GetSettingKey(name, url);
+            int currentCount = LocalSetting.Get(key, 0);
+
+            // 防止整数上溢：当已到达 int.MaxValue 时不再自增
+            if (currentCount < int.MaxValue)
+            {
+                LocalSetting.Set(key, currentCount + 1);
+            }
         }
     }
 
@@ -58,10 +64,20 @@ internal static class RepositoryAffinity
     {
         lock (SyncRoot)
         {
-            ApplicationDataContainer container = RepositoryContainer.CreateContainer(name, ApplicationDataCreateDisposition.Always);
-            string key = Hash.ToHexString(HashAlgorithmName.SHA256, url.ToUpperInvariant());
-            object box = container.Values[key];
-            container.Values[key] = box is int count ? unchecked(count - 1) : 0;
+            string key = GetSettingKey(name, url);
+            int currentCount = LocalSetting.Get(key, 0);
+
+            // 失败次数不允许小于 0，避免出现负数或整型下溢
+            if (currentCount > 0)
+            {
+                LocalSetting.Set(key, currentCount - 1);
+            }
         }
+    }
+
+    private static string GetSettingKey(string name, string url)
+    {
+        string urlHash = Hash.ToHexString(HashAlgorithmName.SHA256, url.ToUpperInvariant());
+        return $"{RepositoryAffinityPrefix}{name}::{urlHash}";
     }
 }

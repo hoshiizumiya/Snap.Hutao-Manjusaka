@@ -1,0 +1,79 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <Package
+        Name="Snap.Hutao"
+        Manufacturer="Millennium Science Technology R-D Inst"
+        Version="1.0.0.0"
+        UpgradeCode="121203be-60cb-408f-92cc-7080f6598e68"
+        Scope="perMachine">
+
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate EmbedCab="yes" />
+
+        <Feature Id="ProductFeature" Title="Snap.Hutao" Level="1">
+            <ComponentGroupRef Id="MainAppComponents" />
+
+            <!-- 快捷方式组件 -->
+            <ComponentRef Id="ApplicationShortcut" />
+            <ComponentRef Id="DesktopShortcut" />
+        </Feature>
+    </Package>
+
+    <!-- 安装目录 -->
+    <Fragment>
+        <StandardDirectory Id="ProgramFiles64Folder">
+            <Directory Id="INSTALLFOLDER" Name="Snap.Hutao" />
+        </StandardDirectory>
+
+        <StandardDirectory Id="ProgramMenuFolder">
+            <Directory Id="ApplicationProgramsFolder" Name="Snap Hutao" />
+        </StandardDirectory>
+
+        <StandardDirectory Id="DesktopFolder" />
+    </Fragment>
+
+    <!-- 桌面快捷方式 -->
+    <Fragment>
+        <Component Id="DesktopShortcut" Directory="DesktopFolder" Guid="*">
+
+            <Shortcut
+                Id="DesktopShortcut_Normal"
+                Name="Snap Hutao"
+                Description="Snap Hutao Client"
+                Target="[INSTALLFOLDER]Snap.Hutao.exe"
+                WorkingDirectory="INSTALLFOLDER" />
+
+            <!-- KeyPath 必须是 HKCU，因为快捷方式安装到用户目录 -->
+            <RegistryValue
+                Root="HKCU"
+                Key="Software\Snap.Hutao"
+                Name="DesktopShortcutInstalled"
+                Type="integer"
+                Value="1"
+                KeyPath="yes" />
+        </Component>
+    </Fragment>
+
+    <!-- 开始菜单快捷方式 -->
+    <Fragment>
+        <Component Id="ApplicationShortcut" Directory="ApplicationProgramsFolder" Guid="*">
+
+            <Shortcut
+                Id="ApplicationStartMenuShortcut"
+                Name="Snap Hutao"
+                Description="Snap Hutao Client"
+                Target="[INSTALLFOLDER]Snap.Hutao.exe"
+                WorkingDirectory="INSTALLFOLDER" />
+
+            <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall" />
+
+            <!-- KeyPath 依然必须改为 HKCU -->
+            <RegistryValue
+                Root="HKCU"
+                Key="Software\Snap.Hutao"
+                Name="StartMenuShortcutInstalled"
+                Type="integer"
+                Value="1"
+                KeyPath="yes" />
+        </Component>
+    </Fragment>
+</Wix>
