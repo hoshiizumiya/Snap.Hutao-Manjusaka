@@ -50,18 +50,30 @@ https://deepwiki.com/DGP-Studio/Snap.Hutao.Server
 > `C:\Users\<用户名>\AppData\Local\Packages\xxxDGPStudio.SnapHutao_xxx\LocalCache\ImageCache`  
 > 并将`ImageCache`文件夹提供给我，我会尽力恢复资源
 
+[服务器状态页面](http://serverjp.wdg.cloudns.ch:3001/status/hts)
+
 **元数据仓库：**  
 https://github.com/wangdage12/Snap.Metadata
 
 镜像：  
+![http://serverjp.wdg.cloudns.ch:3001/api/badge/6/status?style=flat-square](http://serverjp.wdg.cloudns.ch:3001/api/badge/6/status?style=flat-square)
+
 http://server.wdg.cloudns.ch:3000/wdg1122/Snap.Metadata
+
+![http://serverjp.wdg.cloudns.ch:3001/api/badge/7/status?style=flat-square](http://serverjp.wdg.cloudns.ch:3001/api/badge/7/status?style=flat-square)
 
 http://serverjp.wdg.cloudns.ch:3000/wdg1122/Snap.Metadata
 
 ---
 
 **临时API：**  
+
+![http://serverjp.wdg.cloudns.ch:3001/api/badge/8/status?style=flat-square](http://serverjp.wdg.cloudns.ch:3001/api/badge/8/status?style=flat-square)
+
 http://server.wdg.cloudns.ch:5222/
+
+
+![http://serverjp.wdg.cloudns.ch:3001/api/badge/9/status?style=flat-square](http://serverjp.wdg.cloudns.ch:3001/api/badge/9/status?style=flat-square)
 
 http://serverjp.wdg.cloudns.ch:5222/
 
