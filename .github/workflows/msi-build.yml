@@ -28,7 +28,7 @@ jobs:
         run: dotnet build src/Snap.Hutao/Snap.Hutao/Snap.Hutao.csproj -c Release
 
       - name: Build MSI installer
-        run: dotnet build src/Snap.Hutao/Snap.Hutao.Installer/Snap.Hutao.Installer.wixproj
+        run: dotnet build src/Snap.Hutao/Snap.Hutao.Installer/Snap.Hutao.Installer.wixproj -c Release
 
       - name: Upload MSI Artifact
         uses: actions/upload-artifact@v4
