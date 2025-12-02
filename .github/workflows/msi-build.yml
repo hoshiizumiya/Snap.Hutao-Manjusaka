@@ -35,4 +35,4 @@ jobs:
         with:
           name: Snap.Hutao-MSI
           path: |
-            src/Snap.Hutao.Installer/bin/Release/*.msi
+            src/Snap.Hutao/Snap.Hutao.Installer/bin/x64/Release/en-US/*.msi
