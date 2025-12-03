@@ -4,7 +4,7 @@
 **中文**  
 胡桃工具箱是一款以 MIT 协议开源的原神工具箱，专为现代化 Windows 平台设计，旨在改善桌面端玩家的游戏体验。
 
-该版本注入功能暂不可用，并且由于缺失资源和开发能力，可能会在下次游戏更新后立即失效（除非有人愿意继续维护），不建议长期使用
+该版本注入功能暂不可用，并且由于缺失资源和开发能力，不建议长期使用
 
 **English**  
 Snap Hutao is an open-source Genshin Impact toolkit under MIT license, designed for modern Windows platform to improve the gaming experience for desktop players.
@@ -16,6 +16,7 @@ Snap Hutao is an open-source Genshin Impact toolkit under MIT license, designed 
 > 如果你的设备不支持ipv6，请下载末尾带有`ipv4`的压缩包，正常情况下请尽量下载普通包（服务器速度快）
 
 目前 Sanp.Hutao.Rev 更新了打包方式，并采用了标准现代的 msi 安装，方便程序获取管理员权限和更多的功能设置，不再需要原 Depolyment
+
 可以和之前的版本共存，将之前版本的数据文件夹里面的文件复制到该版本的数据文件夹中即可恢复数据
 
 ---
@@ -24,11 +25,35 @@ Snap Hutao is an open-source Genshin Impact toolkit under MIT license, designed 
 项目启动位置已升级为 VS2026 的 slnx 格式 Snap.Hutao\src\Snap.Hutao\Snap.Hutao.slnx
 > [!WARNING]
 > 要使该项目可以长期运行，我们需要以下资源
-> 1. `src/Snap.Hutao/Snap.Hutao/Web/Hoyolab/DataSigning/SaltConstants.cs`中的签名值
+> 1. `src/Snap.Hutao/Snap.Hutao/Web/Hoyolab/DataSigning/SaltConstants.cs`中的新签名值
 > 2. 元数据的编写
 > 3. 图片资源
->
-> 这些东西必须要专人维护，我对游戏内数据一窍不通
+
+V6.2的元数据已在编写中  
+仓库位置：http://server.wdg.cloudns.ch:3000/wdg1122/Snap.Metadata.Test  
+**目前元数据的编写进度：**
+
+| 项目（V6.2） | 是否完成     |
+| ----------- | ----------- |
+| 新角色的基本数据 | ✔️ |
+| 新版本角色/怪物基础数值 | ❔ |
+| 新角色的详细资料、名片等 | ❌ |
+| 新武器 | ✔️ |
+| 新材料 | ❇️ |
+| 新怪物 | ❇️ |
+| 新圣遗物 | / |
+| 新卡池 | ❇️ |
+| 新成就 | ✔️ |
+| 深境螺旋 | 💠 |
+| 幻想真境剧诗 | 💠 |
+| 幽境危战 | ✔️ |
+
+✔️：已完成  
+❌：未编写  
+❇️：编写中  
+❔：数据暂时无法得到  
+ / ：似乎不需要变动  
+💠：低优先级，以后编写  
 
 **若需编译项目，请使用[Visual Studio 2026](https://visualstudio.microsoft.com/zh-hans/)**  
 调试选项请选择unpackaged（不打包）

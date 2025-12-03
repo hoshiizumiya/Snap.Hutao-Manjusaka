@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
@@ -35,4 +35,4 @@ jobs:
         with:
           name: Snap.Hutao-MSI
           path: |
-            src/Snap.Hutao.Installer/bin/Release/*.msi
+            src/Snap.Hutao/Snap.Hutao.Installer/bin/x64/Release/en-US/*.msi
