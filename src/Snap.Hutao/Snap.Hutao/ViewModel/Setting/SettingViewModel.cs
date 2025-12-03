@@ -152,7 +152,7 @@ internal sealed partial class SettingViewModel : Abstraction.ViewModel, INavigat
                 }
                 catch
                 {
-                    // ignore
+                    // ignore is a must
                 }
             };
             
