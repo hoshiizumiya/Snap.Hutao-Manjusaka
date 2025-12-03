@@ -45,7 +45,6 @@
                                     Grid.Row="0"
                                     MaxWidth="120"
                                     MaxHeight="120"
-                                    Margin="36,36"
                                     Source="ms-appx:///Assets/InAppLogo.png"/>
                                 <!--<cwc:UniformGrid
                                     Grid.Row="1"
@@ -108,7 +107,7 @@
                                     Content="{shuxm:ResourceString Name=ViewPageSettingElevatedModeRestartAction}"
                                     IsEnabled="{shuxm:IsProcessNotElevated}"/>
                                 <cwc:SettingsExpander.Items>
-                                    <cwc:SettingsCard ContentAlignment="Left" IsEnabled="{shuxm:IsProcessElevated}">
+                                    <cwc:SettingsCard ContentAlignment="Left">
                                         <shuxc:CheckBoxWithDescriptionControl
                                             Description="{shuxm:ResourceString Name=ViewPageSettingAlwaysRunAsAdminTextDes}"
                                             FontSize="12"
@@ -129,7 +128,8 @@
                                 Description="{shuxm:ResourceString Name=ViewPageSettingAutoStartDescription}"
                                 Header="{shuxm:ResourceString Name=ViewPageSettingAutoStartHeader}"
                                 HeaderIcon="{shuxm:FontIcon Glyph=&#xE7E8;}"
-                                IsClickEnabled="False">
+                                IsClickEnabled="False"
+                                IsEnabled="{shuxm:IsProcessElevated}">
                                 <ToggleSwitch IsOn="{Binding IsStartupEnabled, Mode=TwoWay}"/>
                             </cwc:SettingsCard>
 
@@ -213,7 +213,6 @@
                                     Header="{shuxm:ResourceString Name=ViewPageSettingCheckUpdateHeader}"
                                     HeaderIcon="{shuxm:FontIcon Glyph=&#xE895;}"
                                     IsClickEnabled="True"/>
-
                                 <cwc:SettingsExpander
                                     Header="{shuxm:ResourceString Name=ViewPageSettingElevatedModeHeader}"
                                     HeaderIcon="{shuxm:FontIcon Glyph=&#xE7EF;}"
@@ -224,7 +223,7 @@
                                         Content="{shuxm:ResourceString Name=ViewPageSettingElevatedModeRestartAction}"
                                         IsEnabled="{shuxm:IsProcessNotElevated}"/>
                                     <cwc:SettingsExpander.Items>
-                                        <cwc:SettingsCard ContentAlignment="Left" IsEnabled="{shuxm:IsProcessElevated}">
+                                        <cwc:SettingsCard ContentAlignment="Left">
                                             <shuxc:CheckBoxWithDescriptionControl
                                                 Description="{shuxm:ResourceString Name=ViewPageSettingAlwaysRunAsAdminTextDes}"
                                                 FontSize="12"
@@ -245,7 +244,8 @@
                                     Description="{shuxm:ResourceString Name=ViewPageSettingAutoStartDescription}"
                                     Header="{shuxm:ResourceString Name=ViewPageSettingAutoStartHeader}"
                                     HeaderIcon="{shuxm:FontIcon Glyph=&#xE7E8;}"
-                                    IsClickEnabled="False">
+                                    IsClickEnabled="False"
+                                    IsEnabled="{shuxm:IsProcessElevated}">
                                     <ToggleSwitch IsOn="{Binding IsStartupEnabled, Mode=TwoWay}"/>
                                 </cwc:SettingsCard>
 

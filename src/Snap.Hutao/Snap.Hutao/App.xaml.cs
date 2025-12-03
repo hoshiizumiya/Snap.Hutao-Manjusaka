@@ -12,6 +12,9 @@ using Snap.Hutao.Factory.Process;
 using Snap.Hutao.Service;
 using Snap.Hutao.UI.Xaml;
 using Snap.Hutao.UI.Xaml.Control.Theme;
+using Snap.Hutao.Core.Setting;
+using Snap.Hutao.Core;
+using Snap.Hutao.Core.Shell;
 using System.Diagnostics;
 using System.IO;
 
@@ -74,10 +77,52 @@ public sealed partial class App : Application
 
         try
         {
+            // Check user preference to always run elevated and request elevation if needed
+            try
+            {
+                // Only attempt when not already elevated
+                if (!HutaoRuntime.IsProcessElevated)
+                {
+                    bool runElevated = false;
+                    try
+                    {
+                        // Read persisted setting for RunElevated (does not require AppOptions initialization)
+                        runElevated = LocalSetting.Get(SettingKeys.RunElevated, false);
+                    }
+                    catch
+                    {
+                        // ignore read failures
+                    }
+
+                    if (runElevated)
+                    {
+                        SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateInfo("Requesting elevation based on user setting", "Startup"));
+
+                        // Ask OS to restart this process as administrator. If succeeds, the current process will exit.
+                        try
+                        {
+                            if (NativeMethods.RestartAsAdministrator())
+                            {
+                                // Restart requested; terminate further initialization.
+                                return;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            SentrySdk.CaptureException(ex);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // tolerate any failures in elevation logic
+            }
+
             // Important: You must call AppNotificationManager::Default().Register
             // before calling AppInstance.GetCurrent.GetActivatedEventArgs.
             AppNotificationManager.Default.NotificationInvoked += activation.NotificationInvoked;
-            
+
             try
             {
                 AppNotificationManager.Default.Register();
@@ -119,7 +164,7 @@ public sealed partial class App : Application
 
             // Manually invoke
             SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateInfo("Activate and Initialize", "Application"));
-            
+
             HutaoActivationArguments hutaoArgs = activatedEventArgs is not null
                 ? HutaoActivationArguments.FromAppActivationArguments(activatedEventArgs)
                 : HutaoActivationArguments.CreateDefaultLaunchArguments();

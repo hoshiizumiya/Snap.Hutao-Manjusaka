@@ -51,6 +51,7 @@
 	  <AppxPackage>false</AppxPackage>
 	  <!-- 不设置打包类型 -->
 	  <WindowsPackageType>None</WindowsPackageType>
+	  <Version>1.17.3</Version>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Package.appxmanifest" />

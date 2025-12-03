@@ -4030,12 +4030,12 @@
     <value>始终以管理员身份运行</value>
   </data>
   <data name="ViewPageSettingAlwaysRunAsAdminTextDes" xml:space="preserve">
-    <value>仅当以管理员身份运行时，才能更改此设置</value>
+    <value>设置将在应用以后的启动时生效，建议开启自启动以免启动时反复UAC弹窗打扰</value>
   </data>
   <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
     <value>开机自启动</value>
   </data>
   <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
-    <value>程序将开机自启动（与始终以管理员身份运行一起勾选将始终保持管理员状态）</value>
+    <value>程序将开机自启动（仅以管理费身份运行时可修改，与始终以管理员身份运行一起勾选将始终保持管理员状态）</value>
   </data>
 </root>

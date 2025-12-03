@@ -89,14 +89,14 @@
                         <ControlTemplate TargetType="shuxc:IsEnabledTextBlock">
                             <Grid>
                                 <TextBlock
-                            x:Name="Label"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            FontSize="{TemplateBinding FontSize}"
-                            FontWeight="{TemplateBinding FontWeight}"
-                            Foreground="{TemplateBinding Foreground}"
-                            Opacity="0.8"
-                            Text="{TemplateBinding Text}"
-                            TextWrapping="WrapWholeWords"/>
+                                    x:Name="Label"
+                                    FontFamily="{TemplateBinding FontFamily}"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    FontWeight="{TemplateBinding FontWeight}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Opacity="0.8"
+                                    Text="{TemplateBinding Text}"
+                                    TextWrapping="WrapWholeWords"/>
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup x:Name="CommonStates">
                                         <VisualState x:Name="Normal"/>
@@ -113,9 +113,9 @@
                 </Setter>
             </Style>
             <Style
-        x:Key="SecondaryIsEnabledTextBlockStyle"
-        BasedOn="{StaticResource DefaultIsEnabledTextBlockStyle}"
-        TargetType="shuxc:IsEnabledTextBlock">
+                x:Key="SecondaryIsEnabledTextBlockStyle"
+                BasedOn="{StaticResource DefaultIsEnabledTextBlockStyle}"
+                TargetType="shuxc:IsEnabledTextBlock">
                 <Setter Property="FontSize" Value="{StaticResource SecondaryTextFontSize}"/>
                 <Setter Property="Foreground" Value="{ThemeResource TextFillColorSecondaryBrush}"/>
             </Style>

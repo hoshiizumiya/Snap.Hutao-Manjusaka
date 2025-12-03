@@ -3999,12 +3999,12 @@ Space Available: {2}</value>
     <value>Always run as administrator</value>
   </data>
   <data name="ViewPageSettingAlwaysRunAsAdminTextDes" xml:space="preserve">
-    <value>This setting can only be changed when running as administrator</value>
+    <value>The settings will take effect at the startup of the application in the future. Suggest enabling self startup to avoid repeated UAC pop ups during startup</value>
   </data>
   <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
     <value>start on boot</value>
   </data>
   <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
-    <value>The program will run at startup. (Checking this together with "Always run as administrator" will keep it in administrator mode permanently.)</value>
+    <value>The program will run at startup. (Can only be modified when running as a management fee, checking this together with "Always run as administrator" will keep it in administrator mode permanently.)</value>
   </data>
 </root>

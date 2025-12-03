@@ -93,7 +93,7 @@
                                     <cwcont:SettingsExpander.Items>
                                         <cwcont:SettingsCard
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://github.com/DGP-Studio/Snap.Hutao/issues/new/choose"
+                                            CommandParameter="https://github.com/hoshiizumiya/Snap.Hutao-rev/issues"
                                             Description="{shuxm:ResourceString Name=ViewPageFeedbackGithubIssuesDescription}"
                                             Header="GitHub Issues"
                                             IsClickEnabled="True"/>
@@ -103,11 +103,16 @@
                                             Description="{shuxm:ResourceString Name=ViewPageFeedbackServerStatusDescription}"
                                             Header="{shuxm:ResourceString Name=ViewPageFeedbackServerStatusHeader}"
                                             IsClickEnabled="True"/>
+                                        <cwcont:SettingsCard
+                                            Command="{Binding NavigateToUriCommand}"
+                                            CommandParameter="https://qm.qq.com/q/NTwagkSm0o"
+                                            Header="QQ Group"
+                                            IsClickEnabled="True"/>
                                     </cwcont:SettingsExpander.Items>
                                 </cwcont:SettingsExpander>
                             </Border>
                         </Border>
-                        <Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
+                        <!--<Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
                             <Border Style="{ThemeResource AcrylicBorderCardStyle}">
                                 <cwcont:SettingsExpander
                                     Header="{shuxm:ResourceString Name=ViewPageFeedbackFeatureGuideHeader}"
@@ -128,7 +133,7 @@
                                             Header="{shuxm:ResourceString Name=ViewLaunchGameHeader}"
                                             IsClickEnabled="True">
                                             <cwcont:SettingsCard.HeaderIcon>
-                                                <!--  This icon is not a square  -->
+                                                This icon is not a square
                                                 <BitmapIcon
                                                     Width="24"
                                                     Height="24"
@@ -216,11 +221,11 @@
                                     </cwcont:SettingsExpander.Items>
                                 </cwcont:SettingsExpander>
                             </Border>
-                        </Border>
+                        </Border>-->
                     </StackPanel>
                 </ScrollViewer>
             </SplitView.Pane>
-            <Border Margin="16,16,0,16" cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
+            <!--<Border Margin="16,16,0,16" cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
                 <Grid Style="{ThemeResource AcrylicGridCardStyle}">
                     <shuxc:StandardView ShowCondition="{Binding IsInitialized, Mode=OneWay}">
                         <shuxc:StandardView.EmptyContent>
@@ -300,7 +305,7 @@
 
 
                 </Grid>
-            </Border>
+            </Border>-->
         </SplitView>
     </Grid>
 </shuxc:ScopedPage>

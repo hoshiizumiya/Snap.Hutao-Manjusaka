@@ -217,11 +217,4 @@ internal sealed partial class SettingViewModel : Abstraction.ViewModel, INavigat
             : messenger.Send(InfoBarMessage.Warning(SH.ViewModelSettingCreateDesktopShortcutFailed));
     }
 
-    [Command("SetRunElevatedCommand")]
-    private void SetRunElevated(bool runElevated)
-    {
-        AppOptions options = Ioc.Default.GetRequiredService<AppOptions>();
-        options.RunElevated.Value = runElevated;
-        messenger.Send(InfoBarMessage.Success(SH.ViewModelSettingActionComplete));
-    }
 }

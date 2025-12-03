@@ -79,7 +79,7 @@ internal static class PackageIdentityAdapter
             return Windows.ApplicationModel.Package.Current.Id.Version.ToVersion();
         }
 
-        // Unpackaged: use assembly version
+        // Unpackaged: use assembly version, defined at .csproj file, do not edit here
         Assembly assembly = Assembly.GetExecutingAssembly();
         Version? version = assembly.GetName().Version;
         return version ?? new Version(1, 0, 0, 0);

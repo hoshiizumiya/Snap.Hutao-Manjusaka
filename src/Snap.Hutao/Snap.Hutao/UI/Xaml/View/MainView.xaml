@@ -188,11 +188,11 @@
                     <!--<NavigationViewItem
                         shuxc:NavigationViewItemHelper.NavigateTo="shuxvp:HutaoPassportPage"
                         Content="{shuxm:ResourceString Name=ViewHutaoPassportHeader}"
-                        Icon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/Passport.png}"/>
+                        Icon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/Passport.png}"/>-->
                     <NavigationViewItem
                         shuxc:NavigationViewItemHelper.NavigateTo="shuxvp:FeedbackPage"
                         Content="{shuxm:ResourceString Name=ViewFeedbackHeader}"
-                        Icon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/Feedback.png}"/>-->
+                        Icon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/Feedback.png}"/>
 
                     <NavigationViewItemHeader Content="{shuxm:ResourceString Name=ViewToolHeader}"/>
 
