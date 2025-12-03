@@ -38,14 +38,16 @@
                                     <RowDefinition/>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                                 <Image
                                     Grid.Row="0"
                                     MaxWidth="120"
                                     MaxHeight="120"
-                                    Margin="48,48"
+                                    Margin="36,36"
                                     Source="ms-appx:///Assets/InAppLogo.png"/>
-                                <cwc:UniformGrid
+                                <!--<cwc:UniformGrid
                                     Grid.Row="1"
                                     Margin="16"
                                     VerticalAlignment="Bottom"
@@ -72,14 +74,21 @@
                                         HorizontalContentAlignment="Left"
                                         Content="{shuxm:ResourceString Name=ViewPageSettingSponsorNavigate}"
                                         NavigateUri="{StaticResource DocumentLink_Sponsor}"/>
-                                </cwc:UniformGrid>
+                                </cwc:UniformGrid>-->
                                 <TextBlock
                                     Grid.Row="2"
-                                    Margin="8"
-                                    HorizontalAlignment="Center"
+                                    Margin="12,10,0,10"
+                                    HorizontalAlignment="Left"
                                     Opacity="0.7"
                                     Style="{StaticResource CaptionTextBlockStyle}"
                                     Text="Copyright © 2022 - 2025 DGP Studio. All Rights Reserved."/>
+                                <TextBlock
+                                    Grid.Row="3"
+                                    Margin="12,10,0,10"
+                                    HorizontalAlignment="Left"
+                                    Opacity="0.7"
+                                    Style="{StaticResource CaptionTextBlockStyle}"
+                                    Text="Copyright © 2025 - 2026 Millennium Science Technology R-D Inst. All Rights Reserved."/>
                             </Grid>
 
                             <cwc:SettingsCard
@@ -93,7 +102,19 @@
                                 Header="{shuxm:ResourceString Name=ViewPageSettingElevatedModeHeader}"
                                 HeaderIcon="{shuxm:FontIcon Glyph=&#xE7EF;}"
                                 IsExpanded="True">
+                                <Button
+                                    HorizontalAlignment="Right"
+                                    Command="{Binding RestartAsElevatedCommand}"
+                                    Content="{shuxm:ResourceString Name=ViewPageSettingElevatedModeRestartAction}"
+                                    IsEnabled="{shuxm:IsProcessNotElevated}"/>
                                 <cwc:SettingsExpander.Items>
+                                    <cwc:SettingsCard ContentAlignment="Left" IsEnabled="{shuxm:IsProcessElevated}">
+                                        <shuxc:CheckBoxWithDescriptionControl
+                                            Description="{shuxm:ResourceString Name=ViewPageSettingAlwaysRunAsAdminTextDes}"
+                                            FontSize="12"
+                                            Header="{shuxm:ResourceString Name=ViewPageSettingAlwaysRunAsAdminText}"
+                                            IsChecked="{Binding RunElevated, Mode=TwoWay}"/>
+                                    </cwc:SettingsCard>
                                     <cwc:SettingsCard
                                         ActionIconToolTip="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutAction}"
                                         Command="{Binding CreateDesktopShortcutCommand}"
@@ -102,6 +123,15 @@
                                         IsClickEnabled="True"/>
                                 </cwc:SettingsExpander.Items>
                             </cwc:SettingsExpander>
+
+                            <!--  Auto start  -->
+                            <cwc:SettingsCard
+                                Description="{shuxm:ResourceString Name=ViewPageSettingAutoStartDescription}"
+                                Header="{shuxm:ResourceString Name=ViewPageSettingAutoStartHeader}"
+                                HeaderIcon="{shuxm:FontIcon Glyph=&#xE7E8;}"
+                                IsClickEnabled="False">
+                                <ToggleSwitch IsOn="{Binding IsStartupEnabled, Mode=TwoWay}"/>
+                            </cwc:SettingsCard>
 
                         </StackPanel>
                     </Grid>
@@ -139,7 +169,7 @@
                                                 ColumnSpacing="8"
                                                 Columns="2"
                                                 RowSpacing="8">
-                                                <HyperlinkButton
+                                                <!--<HyperlinkButton
                                                     HorizontalAlignment="Stretch"
                                                     HorizontalContentAlignment="Left"
                                                     Content="{shuxm:ResourceString Name=ViewPageSettingOfficialSiteNavigate}"
@@ -158,13 +188,21 @@
                                                     HorizontalAlignment="Stretch"
                                                     HorizontalContentAlignment="Left"
                                                     Content="{shuxm:ResourceString Name=ViewPageSettingSponsorNavigate}"
-                                                    NavigateUri="{StaticResource DocumentLink_Sponsor}"/>
+                                                    NavigateUri="{StaticResource DocumentLink_Sponsor}"/>-->
                                             </cwc:UniformGrid>
                                             <TextBlock
                                                 Margin="12,0,0,0"
+                                                HorizontalAlignment="Left"
                                                 Opacity="0.7"
                                                 Style="{StaticResource CaptionTextBlockStyle}"
                                                 Text="Copyright © 2022 - 2025 DGP Studio. All Rights Reserved."/>
+                                            <TextBlock
+                                                Grid.Row="3"
+                                                Margin="12,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                Opacity="0.7"
+                                                Style="{StaticResource CaptionTextBlockStyle}"
+                                                Text="Copyright © 2025 - 2026 Millennium Science Technology R-D Inst. All Rights Reserved."/>
                                         </StackPanel>
                                     </Grid>
                                 </Grid>
@@ -180,7 +218,19 @@
                                     Header="{shuxm:ResourceString Name=ViewPageSettingElevatedModeHeader}"
                                     HeaderIcon="{shuxm:FontIcon Glyph=&#xE7EF;}"
                                     IsExpanded="True">
+                                    <Button
+                                        HorizontalAlignment="Right"
+                                        Command="{Binding RestartAsElevatedCommand}"
+                                        Content="{shuxm:ResourceString Name=ViewPageSettingElevatedModeRestartAction}"
+                                        IsEnabled="{shuxm:IsProcessNotElevated}"/>
                                     <cwc:SettingsExpander.Items>
+                                        <cwc:SettingsCard ContentAlignment="Left" IsEnabled="{shuxm:IsProcessElevated}">
+                                            <shuxc:CheckBoxWithDescriptionControl
+                                                Description="{shuxm:ResourceString Name=ViewPageSettingAlwaysRunAsAdminTextDes}"
+                                                FontSize="12"
+                                                Header="{shuxm:ResourceString Name=ViewPageSettingAlwaysRunAsAdminText}"
+                                                IsChecked="{Binding RunElevated, Mode=TwoWay}"/>
+                                        </cwc:SettingsCard>
                                         <cwc:SettingsCard
                                             ActionIconToolTip="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutAction}"
                                             Command="{Binding CreateDesktopShortcutCommand}"

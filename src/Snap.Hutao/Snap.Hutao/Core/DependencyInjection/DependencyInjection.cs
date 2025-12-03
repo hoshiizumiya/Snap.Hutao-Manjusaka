@@ -43,7 +43,9 @@ internal static class DependencyInjection
             .AddConfiguredHttpClients()
 
             // Discrete services
-            .AddSingleton<IMessenger, WeakReferenceMessenger>();
+            .AddSingleton<IMessenger, WeakReferenceMessenger>()
+            .AddSingleton<AutoStartService>()
+            ;
 
         ServiceProvider serviceProvider = services.BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true, ValidateScopes = true });
 

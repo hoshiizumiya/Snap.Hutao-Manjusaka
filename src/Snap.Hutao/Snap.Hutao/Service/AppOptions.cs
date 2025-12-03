@@ -83,4 +83,42 @@ internal sealed partial class AppOptions : DbStoreOptions
 
     [field: MaybeNull]
     public IObservableProperty<LastWindowCloseBehavior> LastWindowCloseBehavior { get => field ??= CreateProperty(SettingKeys.LastWindowCloseBehavior, Service.LastWindowCloseBehavior.EnsureNotifyIconCreated); }
+
+    [field: MaybeNull]
+    public IObservableProperty<bool> IsStartupEnabled { get => field ??= CreateProperty(SettingKeys.StartupEnabled, false).WithValueChangedCallback(OnStartupEnabledChanged, this); }
+
+    [field: MaybeNull]
+    public IObservableProperty<bool> RunElevated { get => field ??= CreateProperty(SettingKeys.RunElevated, false).WithValueChangedCallback(OnRunElevatedChanged, this); }
+
+    private static void OnStartupEnabledChanged(bool value, AppOptions options)
+    {
+        try
+        {
+            IServiceProvider sp = Ioc.Default;
+            AutoStartService autoStart = sp.GetRequiredService<AutoStartService>();
+            autoStart.SetStartup(value, options.RunElevated.Value);
+        }
+        catch
+        {
+            // ignore
+        }
+    }
+
+    private static void OnRunElevatedChanged(bool value, AppOptions options)
+    {
+        try
+        {
+            IServiceProvider sp = Ioc.Default;
+            AutoStartService autoStart = sp.GetRequiredService<AutoStartService>();
+            // update registration if startup enabled
+            if (options.IsStartupEnabled.Value)
+            {
+                autoStart.SetStartup(true, value);
+            }
+        }
+        catch
+        {
+            // ignore
+        }
+    }
 }

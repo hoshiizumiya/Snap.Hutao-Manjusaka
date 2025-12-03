@@ -3180,7 +3180,7 @@ Dung lượng còn trống: {2}</value>
     <value>Tạo</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Tạo lối tắt trên màn hình nền với quyền quản trị viên</value>
+    <value>Tạo phím tắt trên màn hình (Về hành vi quản trị/UAC, vui lòng thay đổi trong cài đặt Chế độ Quản trị)</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
     <value>Tạo lối tắt trên màn hình nền</value>

@@ -8,6 +8,7 @@ using Microsoft.Windows.AppNotifications.Builder;
 using Snap.Hutao.Core;
 using Snap.Hutao.Core.LifeCycle;
 using Snap.Hutao.Core.Logging;
+using Snap.Hutao.Core.Shell;
 using Snap.Hutao.Factory.Process;
 using Snap.Hutao.UI.Windowing;
 using Snap.Hutao.UI.Xaml.View.Window;
@@ -49,29 +50,46 @@ internal sealed partial class NotifyIconViewModel : ObservableObject
     private static void RestartAsElevated()
     {
         SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Restart as elevated", "NotifyIconViewModel.Command"));
+        NativeMethods.RestartAsAdministrator();
+        //try
+        //{
+        //    if (Core.ApplicationModel.PackageIdentityAdapter.HasPackageIdentity)
+        //    {
+        //        ProcessFactory.StartUsingShellExecuteRunAs($"shell:AppsFolder\\{HutaoRuntime.FamilyName}!App");
+        //    }
+        //    else
+        //    {
+        //        // Unpackaged: launch elevated helper executable copied to data directory
+        //        string elevatedLauncher = HutaoRuntime.GetDataDirectoryFile("Snap.Hutao.Elevated.Launcher.exe");
+        //        if (File.Exists(elevatedLauncher))
+        //        {
+        //            ProcessFactory.StartUsingShellExecuteRunAs(elevatedLauncher);
+        //        }
+        //        else
+        //        {
+        //            // Fallback to try launching current exe as runas
+        //            ProcessFactory.StartUsingShellExecuteRunAs(System.Diagnostics.Process.GetCurrentProcess().MainModule?.FileName ?? string.Empty);
+        //        }
+        //    }
+        //}
+        //catch (Win32Exception ex)
+        //{
+        //    // 组或资源的状态不是执行请求操作的正确状态
+        //    if (ex.HResult is HRESULT.E_FAIL)
+        //    {
+        //        try
+        //        {
+        //            new AppNotificationBuilder().AddText(SH.ViewModelNotifyIconRestartAsElevatedErrorHint).Show();
+        //            return;
+        //        }
+        //        catch
+        //        {
+        //            // Ignored
+        //        }
+        //    }
 
-        try
-        {
-            ProcessFactory.StartUsingShellExecuteRunAs($"shell:AppsFolder\\{HutaoRuntime.FamilyName}!App");
-        }
-        catch (Win32Exception ex)
-        {
-            // 组或资源的状态不是执行请求操作的正确状态
-            if (ex.HResult is HRESULT.E_FAIL)
-            {
-                try
-                {
-                    new AppNotificationBuilder().AddText(SH.ViewModelNotifyIconRestartAsElevatedErrorHint).Show();
-                    return;
-                }
-                catch
-                {
-                    // Ignored
-                }
-            }
-
-            throw;
-        }
+        //    throw;
+        //}
 
         // Current process will exit in PrivatePipeServer
     }

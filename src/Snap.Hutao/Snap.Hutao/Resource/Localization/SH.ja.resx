@@ -3182,7 +3182,7 @@
     <value>新規作成</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>管理者権限でデスクトップショートカットを作成します</value>
+    <value>デスクトップにショートカットを作成する（管理者／UAC の動作は管理者モードの設定で変更してください）</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
     <value>ショートカットを作成する</value>

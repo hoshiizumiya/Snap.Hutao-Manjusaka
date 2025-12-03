@@ -3180,7 +3180,7 @@
     <value>สร้าง</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>สร้างทางลัดบนเดสก์ท็อปโดยเริ่มทำงานด้วยสิทธิ์ของผู้ดูแลระบบ</value>
+    <value>สร้างทางลัดบนเดสก์ท็อป (สำหรับพฤติกรรมผู้ดูแลระบบ/UAC โปรดเปลี่ยนในการตั้งค่าโหมดผู้ดูแลระบบ)</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
     <value>สร้างทางลัดบนเดสก์ท็อป</value>

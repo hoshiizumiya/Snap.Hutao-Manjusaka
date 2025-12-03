@@ -3183,7 +3183,7 @@ Space Available: {2}</value>
     <value>Create</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Create desktop shortcut with administrator privilege</value>
+    <value>Create desktop shortcut (For administrator/UAC behavior, please change it in Administrator Mode settings)</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
     <value>Create Desktop Shortcut</value>
@@ -3994,5 +3994,17 @@ Space Available: {2}</value>
   </data>
   <data name="UIViewMainTitleBarInvertTheme" xml:space="preserve">
     <value>Invert Theme</value>
+  </data>
+  <data name="ViewPageSettingAlwaysRunAsAdminText" xml:space="preserve">
+    <value>Always run as administrator</value>
+  </data>
+  <data name="ViewPageSettingAlwaysRunAsAdminTextDes" xml:space="preserve">
+    <value>This setting can only be changed when running as administrator</value>
+  </data>
+  <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
+    <value>start on boot</value>
+  </data>
+  <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
+    <value>The program will run at startup. (Checking this together with "Always run as administrator" will keep it in administrator mode permanently.)</value>
   </data>
 </root>

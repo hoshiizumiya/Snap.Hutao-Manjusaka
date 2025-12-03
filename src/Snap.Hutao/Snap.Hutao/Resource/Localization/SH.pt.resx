@@ -3180,7 +3180,7 @@ Espaço disponível: {2}</value>
     <value>Criar</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Criar atalho para a área de trabalho com privilégio de administrador</value>
+    <value>Criar atalho na área de trabalho (Para o comportamento de administrador/UAC, altere-o nas configurações do Modo Administrador)</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
     <value>Criar atalho para a área de trabalho</value>

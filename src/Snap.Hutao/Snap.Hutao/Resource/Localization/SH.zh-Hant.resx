@@ -3180,7 +3180,7 @@
     <value>建立</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>在桌面上建立預設以系統管理員身份啟動的捷徑</value>
+    <value>建立桌面捷徑（有關管理員/UAC 的行為，請在管理員模式設定中更改）</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
     <value>建立捷徑</value>

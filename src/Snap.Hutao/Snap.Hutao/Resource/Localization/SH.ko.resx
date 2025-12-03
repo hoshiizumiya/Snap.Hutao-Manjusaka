@@ -3180,7 +3180,7 @@
     <value>생성</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>在桌面上创建默认以管理员方式启动的快捷方式</value>
+    <value>바탕화면에 바로가기 만들기 (관리자/UAC 동작은 관리자 모드 설정에서 변경하세요)</value>
   </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
     <value>바로 가기 생성</value>

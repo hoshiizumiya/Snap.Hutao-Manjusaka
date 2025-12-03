@@ -9,7 +9,10 @@ using Snap.Hutao.Core.Shell;
 using Snap.Hutao.Service.Navigation;
 using Snap.Hutao.Service.Notification;
 using Snap.Hutao.Service.Update;
+using System.ComponentModel;
 using Windows.Foundation;
+using Snap.Hutao.Service;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Snap.Hutao.ViewModel.Setting;
 
@@ -22,9 +25,12 @@ internal sealed partial class SettingViewModel : Abstraction.ViewModel, INavigat
     private readonly IUpdateService updateService;
     private readonly ITaskContext taskContext;
     private readonly IMessenger messenger;
+    private readonly AutoStartService autoStartService;
 
     private readonly WeakReference<ScrollViewer> weakScrollViewer = new(default!);
     private readonly WeakReference<Border> weakGachaLogBorder = new(default!);
+
+    private AppOptions? appOptions;
 
     [GeneratedConstructor]
     public partial SettingViewModel(IServiceProvider serviceProvider);
@@ -47,6 +53,46 @@ internal sealed partial class SettingViewModel : Abstraction.ViewModel, INavigat
 
     [ObservableProperty]
     public partial string? UpdateInfo { get; set; }
+
+    public bool RunElevated
+    {
+        get => appOptions?.RunElevated?.Value ?? false;
+        set
+        {
+            if (appOptions is null)
+            {
+                return;
+            }
+
+            if (appOptions.RunElevated.Value == value)
+            {
+                return;
+            }
+
+            appOptions.RunElevated.Value = value;
+            OnPropertyChanged(nameof(RunElevated));
+        }
+    }
+
+    public bool IsStartupEnabled
+    {
+        get => appOptions?.IsStartupEnabled?.Value ?? false;
+        set
+        {
+            if (appOptions is null)
+            {
+                return;
+            }
+
+            if (appOptions.IsStartupEnabled.Value == value)
+            {
+                return;
+            }
+
+            appOptions.IsStartupEnabled.Value = value;
+            OnPropertyChanged(nameof(IsStartupEnabled));
+        }
+    }
 
     public void AttachXamlElement(ScrollViewer scrollViewer, Border gachaLogBorder)
     {
@@ -87,6 +133,51 @@ internal sealed partial class SettingViewModel : Abstraction.ViewModel, INavigat
 
         UpdateInfo = updateService.UpdateInfo;
 
+        try
+        {
+            bool startup = autoStartService.IsStartupEnabled();
+            bool runElevated = autoStartService.IsRunElevatedEnabled();
+            AppOptions options = Ioc.Default.GetRequiredService<AppOptions>();
+            options.IsStartupEnabled.Value = startup;
+            options.RunElevated.Value = runElevated;
+
+            appOptions = options;
+            
+            // Keep RunElevated property in sync when AppOptions.RunElevated changes
+            options.RunElevated.PropertyChanged += (s, e) =>
+            {
+                try
+                {
+                    taskContext.InvokeOnMainThread(() => OnPropertyChanged(nameof(RunElevated)));
+                }
+                catch
+                {
+                    // ignore
+                }
+            };
+            
+            // Keep IsStartupEnabled property in sync when AppOptions.IsStartupEnabled changes
+            options.IsStartupEnabled.PropertyChanged += (s, e) =>
+            {
+                try
+                {
+                    taskContext.InvokeOnMainThread(() => OnPropertyChanged(nameof(IsStartupEnabled)));
+                }
+                catch
+                {
+                    // ignore
+                }
+            };
+            
+            // Manually trigger PropertyChanged to update UI with initial values
+            OnPropertyChanged(nameof(RunElevated));
+            OnPropertyChanged(nameof(IsStartupEnabled));
+        }
+        catch
+        {
+            // ignore
+        }
+
         return ValueTask.FromResult(true);
     }
 
@@ -109,6 +200,13 @@ internal sealed partial class SettingViewModel : Abstraction.ViewModel, INavigat
         await updateService.TriggerUpdateAsync(result).ConfigureAwait(false);
     }
 
+    [Command("RestartAsElevatedCommand")]
+    private void RestartAsElevated()
+    {
+        SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Restart as elevated", "NotifyIconViewModel.Command"));
+        NativeMethods.RestartAsAdministrator();
+    }
+
     [Command("CreateDesktopShortcutCommand")]
     private void CreateDesktopShortcutForElevatedLaunchAsync()
     {
@@ -117,5 +215,13 @@ internal sealed partial class SettingViewModel : Abstraction.ViewModel, INavigat
         _ = shellLinkInterop.TryCreateDesktopShortcutForElevatedLaunch()
             ? messenger.Send(InfoBarMessage.Success(SH.ViewModelSettingActionComplete))
             : messenger.Send(InfoBarMessage.Warning(SH.ViewModelSettingCreateDesktopShortcutFailed));
+    }
+
+    [Command("SetRunElevatedCommand")]
+    private void SetRunElevated(bool runElevated)
+    {
+        AppOptions options = Ioc.Default.GetRequiredService<AppOptions>();
+        options.RunElevated.Value = runElevated;
+        messenger.Send(InfoBarMessage.Success(SH.ViewModelSettingActionComplete));
     }
 }
