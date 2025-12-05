@@ -106,15 +106,20 @@ internal sealed partial class AppOptions : DbStoreOptions
 
     private static void OnRunElevatedChanged(bool value, AppOptions options)
     {
-        // Persist to LocalSetting so non-Options code (Bootstrap, AutoStartService) can read it.
         try
         {
             LocalSetting.Set(SettingKeys.RunElevated, value);
+
+            if (options.IsStartupEnabled.Value)
+            {
+                IServiceProvider sp = Ioc.Default;
+                AutoStartService autoStart = sp.GetRequiredService<AutoStartService>();
+                autoStart.SetStartup(true, value);
+            }
         }
         catch
         {
-            // ignore persistence failures
+            // ignore persistence / scheduler failures
         }
-
     }
 }

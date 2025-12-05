@@ -53,47 +53,6 @@ internal sealed partial class NotifyIconViewModel : ObservableObject
     {
         SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Restart as elevated", "NotifyIconViewModel.Command"));
         NativeMethods.RestartAsAdministrator();
-        //try
-        //{
-        //    if (Core.ApplicationModel.PackageIdentityAdapter.HasPackageIdentity)
-        //    {
-        //        ProcessFactory.StartUsingShellExecuteRunAs($"shell:AppsFolder\\{HutaoRuntime.FamilyName}!App");
-        //    }
-        //    else
-        //    {
-        //        // Unpackaged: launch elevated helper executable copied to data directory
-        //        string elevatedLauncher = HutaoRuntime.GetDataDirectoryFile("Snap.Hutao.Elevated.Launcher.exe");
-        //        if (File.Exists(elevatedLauncher))
-        //        {
-        //            ProcessFactory.StartUsingShellExecuteRunAs(elevatedLauncher);
-        //        }
-        //        else
-        //        {
-        //            // Fallback to try launching current exe as runas
-        //            ProcessFactory.StartUsingShellExecuteRunAs(System.Diagnostics.Process.GetCurrentProcess().MainModule?.FileName ?? string.Empty);
-        //        }
-        //    }
-        //}
-        //catch (Win32Exception ex)
-        //{
-        //    // 组或资源的状态不是执行请求操作的正确状态
-        //    if (ex.HResult is HRESULT.E_FAIL)
-        //    {
-        //        try
-        //        {
-        //            new AppNotificationBuilder().AddText(SH.ViewModelNotifyIconRestartAsElevatedErrorHint).Show();
-        //            return;
-        //        }
-        //        catch
-        //        {
-        //            // Ignored
-        //        }
-        //    }
-
-        //    throw;
-        //}
-
-        // Current process will exit in PrivatePipeServer
     }
 
     [Command("OpenCompactWebView2WindowCommand")]

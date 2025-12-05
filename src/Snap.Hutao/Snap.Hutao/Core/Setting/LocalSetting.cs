@@ -10,7 +10,6 @@ using System.Collections.Concurrent;
 using System.Collections.Frozen;
 using System.Diagnostics;
 using System.IO;
-using System.Text.Json;
 using Windows.Storage;
 
 namespace Snap.Hutao.Core.Setting;

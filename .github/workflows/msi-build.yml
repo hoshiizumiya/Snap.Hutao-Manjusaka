@@ -1,4 +1,4 @@
-name: Build MSI Installer
+﻿name: Build MSI Installer
 
 on:
   push:
@@ -23,6 +23,9 @@ jobs:
 
       - name: Restore NuGet packages
         run: dotnet restore src/Snap.Hutao/Snap.Hutao.slnx
+        
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
 
       - name: Build WinUI 3 project (self-contained)
         run: dotnet build src/Snap.Hutao/Snap.Hutao/Snap.Hutao.csproj -c Release

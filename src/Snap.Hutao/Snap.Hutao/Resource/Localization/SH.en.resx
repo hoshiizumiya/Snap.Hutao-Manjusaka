@@ -4005,7 +4005,7 @@ Space Available: {2}</value>
     <value>start on boot</value>
   </data>
   <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
-    <value>The program will run at startup. (Can only be modified when running as a management fee, checking this together with "Always run as administrator" will keep it in administrator mode permanently.)</value>
+    <value>The program will run at this user login. (Can only be modified when running as a management fee, checking this together with "Always run as administrator" will keep it in administrator mode permanently.)</value>
   </data>
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>App behavior</value>

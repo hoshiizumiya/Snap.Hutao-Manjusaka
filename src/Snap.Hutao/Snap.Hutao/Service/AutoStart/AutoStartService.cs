@@ -44,9 +44,6 @@ internal sealed partial class AutoStartService
 
     public void SetStartup(bool enable, bool runElevated)
     {
-        LocalSetting.Set(SettingKeys.StartupEnabled, enable);
-        LocalSetting.Set(SettingKeys.RunElevated, runElevated);
-
         try
         {
             if (enable)
@@ -57,6 +54,8 @@ internal sealed partial class AutoStartService
             {
                 UnregisterAutoStartTask();
             }
+            LocalSetting.Set(SettingKeys.StartupEnabled, enable);
+            LocalSetting.Set(SettingKeys.RunElevated, runElevated);
         }
         catch (Exception ex)
         {

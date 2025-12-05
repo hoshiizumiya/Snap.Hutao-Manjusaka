@@ -138,8 +138,8 @@ internal sealed partial class SettingViewModel : Abstraction.ViewModel, INavigat
             bool startup = autoStartService.IsStartupEnabled();
             bool runElevated = autoStartService.IsRunElevatedEnabled();
             AppOptions options = Ioc.Default.GetRequiredService<AppOptions>();
-            options.IsStartupEnabled.Value = startup;
             options.RunElevated.Value = runElevated;
+            options.IsStartupEnabled.Value = startup;
 
             appOptions = options;
             

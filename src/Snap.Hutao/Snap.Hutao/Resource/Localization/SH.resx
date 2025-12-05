@@ -4036,7 +4036,7 @@
     <value>开机自启动</value>
   </data>
   <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
-    <value>程序将开机自启动（仅以管理费身份运行时可修改，与始终以管理员身份运行一起勾选将始终保持管理员状态）</value>
+    <value>程序将在当前用户登录时启动（修改需以管理员身份运行，且与始终以管理员身份运行一起勾选将始终保持管理员状态）</value>
   </data>
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>应用行为</value>
