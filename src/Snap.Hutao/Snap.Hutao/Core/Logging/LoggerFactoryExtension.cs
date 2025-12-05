@@ -20,9 +20,9 @@ internal static class LoggerFactoryExtension
 
 #if DEBUG || IS_ALPHA_BUILD || IS_CANARY_BUILD
                 // Alpha and Canary produces noisy events
-                options.Dsn = "https://ec3799184191c344ca06c592cb97a464@sentry.snapgenshin.com/4";
+                options.Dsn = "https://2d3047ff2d451986bc7ef395d1f1fe63@o4507525750521856.ingest.us.sentry.io/4510413123682304";
 #else
-                options.Dsn = "https://1a1151ce5ac4e7f1536edf085bd483ec@sentry.snapgenshin.com/2";
+                options.Dsn = "https://2d3047ff2d451986bc7ef395d1f1fe63@o4507525750521856.ingest.us.sentry.io/4510413123682304";
 #endif
 
 #if DEBUG
@@ -36,8 +36,8 @@ internal static class LoggerFactoryExtension
                 options.Environment = GetBuildEnvironment();
 
                 // Suppress logs to generate events and breadcrumbs
-                options.MinimumBreadcrumbLevel = LogLevel.None;
-                options.MinimumEventLevel = LogLevel.None;
+                options.MinimumBreadcrumbLevel = LogLevel.Information;
+                options.MinimumEventLevel = LogLevel.Error;
 
                 options.ProfilesSampleRate = 1.0D;
                 options.TracesSampleRate = 1.0D;

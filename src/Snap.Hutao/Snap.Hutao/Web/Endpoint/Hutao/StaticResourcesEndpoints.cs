@@ -5,7 +5,7 @@ namespace Snap.Hutao.Web.Endpoint.Hutao;
 
 internal static class StaticResourcesEndpoints
 {
-    public static string Root { get => "http://server.wdg.cloudns.ch:8007"; }
+    public static string Root { get => "https://htserver.wdg.cloudns.ch"; }
 
     public static Uri UIIconNone { get; } = StaticRaw("Bg", "UI_Icon_None.png").ToUri();
 
