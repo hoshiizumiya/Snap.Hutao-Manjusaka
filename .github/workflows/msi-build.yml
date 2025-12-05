@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10.0.x
 
@@ -31,7 +31,7 @@ jobs:
         run: dotnet build src/Snap.Hutao/Snap.Hutao.Installer/Snap.Hutao.Installer.wixproj -c Release
 
       - name: Upload MSI Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Snap.Hutao-MSI
           path: |

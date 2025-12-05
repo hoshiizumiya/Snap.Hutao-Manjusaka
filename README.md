@@ -17,7 +17,7 @@ Snap Hutao is an open-source Genshin Impact toolkit under MIT license, designed 
 
 目前 Sanp.Hutao.Rev 更新了打包方式，并采用了标准现代的 msi 安装，方便程序获取管理员权限和更多的功能设置，不再需要原 Depolyment
 
-可以和之前的版本共存，将之前版本的数据文件夹里面的文件复制到该版本的数据文件夹中即可恢复数据
+只有`.msi`安装包安装的可以和之前的版本共存，如果通过`.msix`安装包安装则可能出现`0x80073CF3`，备份旧版本数据文件夹后卸载旧版本即可继续安装，将旧版本数据文件夹里面的文件复制到该版本的数据文件夹中即可恢复数据
 
 ---
 
@@ -30,7 +30,7 @@ Snap Hutao is an open-source Genshin Impact toolkit under MIT license, designed 
 > 3. 图片资源
 
 V6.2的元数据已在编写中  
-仓库位置：http://server.wdg.cloudns.ch:3000/wdg1122/Snap.Metadata.Test  
+测试仓库位置：http://server.wdg.cloudns.ch:3000/wdg1122/Snap.Metadata.Test  
 **目前元数据的编写进度：**
 
 | 项目（V6.2） | 是否完成     |
