@@ -29,7 +29,7 @@ jobs:
         
         # 使用 MSBuild 构建 WiX installer 项目（已包含项目依赖）
       - name: Build MSI installer with MSBuild
-        run: msbuild src/Snap.Hutao/Snap.Hutao.Installer/Snap.Hutao.Installer.wixproj /p:Configuration=Release /p:Platform=x64 /m 
+        run: msbuild src/Snap.Hutao/Snap.Hutao.Installer/Snap.Hutao.Installer.wixproj /p:Configuration=Release /p:Platform=x64 /m /p:PlatformToolset=v143
 
       - name: Upload MSI Artifact
         uses: actions/upload-artifact@v5
