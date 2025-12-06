@@ -2,11 +2,16 @@
     <Package
         Name="Snap.Hutao"
         Manufacturer="Millennium Science Technology R-D Inst"
-        Version="1.17.3.1"
+        Version="1.17.4.0"
         UpgradeCode="121203be-60cb-408f-92cc-7080f6598e68"
         Scope="perMachine">
 
-        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <!-- MajorUpgrade: 当新版本安装时自动卸载旧的主要版本，阻止降级，发布新版最好不要使用小版本号更新 -->
+        <MajorUpgrade
+            AllowDowngrades="no"
+            AllowSameVersionUpgrades="yes"
+            DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
         <MediaTemplate EmbedCab="yes" />
 
         <Feature Id="ProductFeature" Title="Snap.Hutao" Level="1">
@@ -29,6 +34,15 @@
         </StandardDirectory>
 
         <StandardDirectory Id="DesktopFolder" />
+    </Fragment>
+
+    <!-- 应用图标（把实际的 .ico 文件放到 repo 中并更新 SourceFile 路径） -->
+    <Fragment>
+        <!-- Icon Id 一般使用文件名，SourceFile 指向项目中的 .ico 文件 -->
+        <Icon Id="SnapHutao.ico" SourceFile="..\Snap.Hutao\bin\x64\Release\net10.0-windows10.0.26100.0\win-x64\Assets\Logo.ico" />
+
+        <!-- 在“程序和功能”中显示的图标，Value 使用上面 Icon 的 Id -->
+        <Property Id="ARPPRODUCTICON" Value="SnapHutao.ico" />
     </Fragment>
 
     <!-- 桌面快捷方式 -->

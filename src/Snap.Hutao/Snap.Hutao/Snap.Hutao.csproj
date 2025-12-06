@@ -51,16 +51,16 @@
 		<AppxPackage>false</AppxPackage>
 		<!-- 不设置打包类型 -->
 		<WindowsPackageType>None</WindowsPackageType>
-		<Version>1.17.3.1</Version>
+		<Version>1.17.4.0</Version>
 		<PublishAot>False</PublishAot>
 		<PublishTrimmed>False</PublishTrimmed>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-	  <DebugType>none</DebugType>
+	  <DebugType>embedded</DebugType>
 	  <IsPublishable>True</IsPublishable>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-	  <DebugType>none</DebugType>
+	  <DebugType>embedded</DebugType>
 	  <IsPublishable>True</IsPublishable>
 	</PropertyGroup>
 	<ItemGroup>

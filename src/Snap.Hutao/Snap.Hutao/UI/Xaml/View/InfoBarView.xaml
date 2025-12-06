@@ -111,14 +111,16 @@
             <Border Padding="16" Style="{ThemeResource AcrylicBorderCardStyle}">
                 <Grid RowSpacing="16">
                     <Grid.RowDefinitions>
-
                         <RowDefinition/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
-                    <ScrollView Grid.Row="0">
+                    <ScrollView
+                        Grid.Row="0"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Hidden">
                         <ItemsControl
-                            MaxWidth="480"
+                            MaxWidth="400"
                             ItemContainerTransitions="{StaticResource AddDeleteThemeTransitions}"
                             ItemTemplateSelector="{StaticResource InfoBarTemplateSelector}"
                             ItemsPanel="{StaticResource StackPanelSpacing8Template}"

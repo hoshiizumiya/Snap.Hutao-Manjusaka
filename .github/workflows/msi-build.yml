@@ -26,12 +26,10 @@ jobs:
         
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
-
-      - name: Build WinUI 3 project (self-contained)
-        run: dotnet build src/Snap.Hutao/Snap.Hutao/Snap.Hutao.csproj -c Release
-
-      - name: Build MSI installer
-        run: dotnet build src/Snap.Hutao/Snap.Hutao.Installer/Snap.Hutao.Installer.wixproj -c Release
+        
+        # 使用 MSBuild 构建 WiX installer 项目（已包含项目依赖）
+      - name: Build MSI installer with MSBuild
+        run: msbuild src/Snap.Hutao/Snap.Hutao.Installer/Snap.Hutao.Installer.wixproj /p:Configuration=Release /p:Platform=x64 /m 
 
       - name: Upload MSI Artifact
         uses: actions/upload-artifact@v5
