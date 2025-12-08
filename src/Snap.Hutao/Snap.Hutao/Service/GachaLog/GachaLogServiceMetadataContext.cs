@@ -13,6 +13,8 @@ using Snap.Hutao.Service.Metadata.ContextAbstraction.ImmutableArray;
 using Snap.Hutao.Service.Metadata.ContextAbstraction.ImmutableDictionary;
 using Snap.Hutao.Web.Hoyolab.Hk4e.Event.GachaInfo;
 using System.Collections.Immutable;
+using Snap.Hutao.Model.Intrinsic;
+using Snap.Hutao.Service.Notification;
 
 namespace Snap.Hutao.Service.GachaLog;
 
@@ -66,11 +68,71 @@ internal sealed class GachaLogServiceMetadataContext : IMetadataContext,
     public INameQualityAccess GetNameQualityByItemId(uint id)
     {
         uint place = id.StringLength;
-        return place switch
+        switch (place)
         {
-            8U => IdAvatarMap[id],
-            5U => IdWeaponMap[id],
-            _ => throw HutaoException.NotSupported($"Id places: {place}"),
-        };
+            case 8U:
+            {
+                if (IdAvatarMap.TryGetValue(id, out Avatar? avatar))
+                {
+                    return avatar;
+                }
+
+                // notify user and return placeholder
+                try
+                {
+                    Ioc.Default.GetRequiredService<IMessenger>().Send(InfoBarMessage.Warning(SH.ServiceGachaLogAvatarIdNotFound ?? "Avatar id not found", $"{id}"));
+                }
+                catch
+                {
+                    // ignore notification failures
+                }
+
+                return new UnknownNameQuality($"Unknown Avatar ({id})", QualityType.QUALITY_NONE);
+            }
+
+            case 5U:
+            {
+                if (IdWeaponMap.TryGetValue(id, out Weapon? weapon))
+                {
+                    return weapon;
+                }
+
+                try
+                {
+                    Ioc.Default.GetRequiredService<IMessenger>().Send(InfoBarMessage.Warning(SH.ServiceGachaLogWeaponIdNotFound ?? "Weapon id not found", $"{id}"));
+                }
+                catch
+                {
+                }
+
+                return new UnknownNameQuality($"Unknown Weapon ({id})", QualityType.QUALITY_NONE);
+            }
+
+            default:
+            {
+                try
+                {
+                    Ioc.Default.GetRequiredService<IMessenger>().Send(InfoBarMessage.Warning(SH.ServiceGachaLogIdPlacesUnsupported ?? "Unsupported id places", $"{id} has places {place}"));
+                }
+                catch
+                {
+                }
+
+                return new UnknownNameQuality($"Unknown ({id})", QualityType.QUALITY_NONE);
+            }
+        }
+    }
+
+    private sealed class UnknownNameQuality : INameQualityAccess
+    {
+        public UnknownNameQuality(string name, QualityType quality)
+        {
+            Name = name;
+            Quality = quality;
+        }
+
+        public string Name { get; }
+
+        public QualityType Quality { get; }
     }
 }

@@ -49,6 +49,9 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
     [ObservableProperty]
     public partial bool IsTodaySigned { get; set; }
 
+    [ObservableProperty]
+    public partial bool IsAutoCheckIn { get; set; }
+
     public void Receive(UserAndUidChangedMessage message)
     {
         if (Volatile.Read(ref updating))
@@ -246,5 +249,25 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
         {
             await UpdateSignInInfoAsync(userAndUid, postResign: true).ConfigureAwait(false);
         }
+    }
+
+    private void CheckBox_Unchecked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+    {
+
+    }
+
+    private void CheckBox_Checked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+    {
+
+    }
+
+    public static bool IsDebug
+    {
+        get =>
+#if DEBUG
+            true;
+#else
+            false;
+#endif
     }
 }

@@ -1,6 +1,7 @@
 // Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
 
+using CommunityToolkit.Mvvm.Messaging;
 using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Model;
 using Snap.Hutao.Model.Intrinsic;
@@ -10,6 +11,7 @@ using Snap.Hutao.Model.Metadata.Weapon;
 using Snap.Hutao.Model.Primitive;
 using Snap.Hutao.Service.AvatarInfo.Factory.Builder;
 using Snap.Hutao.Service.Metadata.ContextAbstraction;
+using Snap.Hutao.Service.Notification;
 using Snap.Hutao.ViewModel.AvatarProperty;
 using Snap.Hutao.ViewModel.Wiki;
 using Snap.Hutao.Web.Hoyolab.Takumi.GameRecord.Avatar;
@@ -42,6 +44,27 @@ internal sealed class SummaryAvatarFactory
     public AvatarView Create()
     {
         MetadataAvatar avatar = context.GetAvatar(character.Base.Id);
+
+        if (avatar.SkillDepot is null)
+        {
+
+            try
+            {
+                IMessenger? messenger = null;
+                messenger ??= Ioc.Default.GetRequiredService<IMessenger>();
+                messenger.Send(InfoBarMessage.Warning("技能数据缺失", $"缺失技能等级映射: {string.Join(", ", avatar.Id)}"));
+            }
+            catch
+            {
+                // 通知不可用时忽略，不影响后续构建
+            }
+            // 返回一个最小化的 AvatarView（方案 1：保留在列表中但禁用交互（需要修改 XAML 绑定 IsEnabled））
+            return new AvatarViewBuilder()
+                .SetId(avatar.Id)
+                .SetName(avatar.Name)
+                .SetQuality(avatar.Quality)
+                .View;
+        }
 
         ProcessConstellations(
             avatar.SkillDepot,

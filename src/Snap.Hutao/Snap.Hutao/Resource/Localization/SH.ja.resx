@@ -845,6 +845,21 @@
   <data name="ServiceAvatarInfoPropertySkillCDReduce" xml:space="preserve">
     <value>クールダウン短縮</value>
   </data>
+  <data name="ServiceBackgroundActivityDefaultDescription" xml:space="preserve">
+    <value>準備中..</value>
+  </data>
+  <data name="ServiceBackgroundActivityFullTrustInitialization" xml:space="preserve">
+    <value>注入アセンブリの初期化</value>
+  </data>
+  <data name="ServiceBackgroundActivityFullTrustInitializationDescription" xml:space="preserve">
+    <value>必要に応じてのみ実行</value>
+  </data>
+  <data name="ServiceBackgroundActivityMetadataInitialization" xml:space="preserve">
+    <value>メタデータの初期化</value>
+  </data>
+  <data name="ServiceBackgroundActivityMetadataInitializationDescription" xml:space="preserve">
+    <value>準備中、長時間反応しない場合はネットワークとサーバの状態を再起動または確認してみてください</value>
+  </data>
   <data name="ServiceBackgroundImageTypeBing" xml:space="preserve">
     <value>Bing 日替わり画像</value>
   </data>
@@ -987,6 +1002,9 @@
   <data name="ServiceGameIslandFileSystemGetGameVersionFailed" xml:space="preserve">
     <value>ローカルゲームバージョンの取得に失敗しました。注入配置情報を取得できません</value>
   </data>
+  <data name="ServiceGameIslandTargetVersionFileNotExists" xml:space="preserve">
+    <value>現在のゲームバージョンはサポートされていません</value>
+  </data>
   <data name="ServiceGameLaunchExecutionBetterGenshinImpactStarted" xml:space="preserve">
     <value>Better GI が起動しました</value>
   </data>
@@ -1029,6 +1047,9 @@
   </data>
   <data name="ServiceGameLaunchingHandlerEmbeddedYaeIslandNotEnabled" xml:space="preserve">
     <value>Embedded Yae を使う前に、関連するリスクを理解し「ゲームランチャー」ページで注入機能を有効にする必要があります</value>
+  </data>
+  <data name="ServiceGameLaunchingHandlerGameProcessStartRepositorySyncFailed" xml:space="preserve">
+    <value>必要な起動ゲームコンポーネントの取得中にエラーが発生しました</value>
   </data>
   <data name="ServiceGameLocatorFileOpenPickerCommitText" xml:space="preserve">
     <value>ゲーム本体を選択する</value>
@@ -1106,6 +1127,12 @@
   </data>
   <data name="ServiceGameSetMultiChannelUnauthorizedAccess" xml:space="preserve">
     <value>設定ファイルの読み込み又は保存ができません。管理者モードで再試行してください。</value>
+  </data>
+  <data name="ServiceGitRepositoryOperationCompleted" xml:space="preserve">
+    <value>操作完了</value>
+  </data>
+  <data name="ServiceGitRepositoryOperationFailed" xml:space="preserve">
+    <value>操作に失敗しました</value>
   </data>
   <data name="ServiceHutaoUserGachaLogExpiredAt" xml:space="preserve">
     <value>祈願履歴のアップロードサービス期限は</value>
@@ -3748,6 +3775,9 @@
   <data name="ViewWindowCompactWebViewTitle" xml:space="preserve">
     <value>コンパクトウェブ (管理者のみ)</value>
   </data>
+  <data name="ViewWindowCompactWebView2HotKeyDisabledMessage" xml:space="preserve">
+    <value>管理者として実行してグローバルショートカット機能を有効にする</value>
+  </data>
   <data name="ViewWindowExceptionClose" xml:space="preserve">
     <value>閉じる</value>
   </data>
@@ -3990,5 +4020,20 @@
   </data>
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>モニターID</value>
+  </data>
+  <data name="ViewPageSettingAlwaysRunAsAdminText" xml:space="preserve">
+    <value>常に管理者として実行</value>
+  </data>
+  <data name="ViewPageSettingAlwaysRunAsAdminTextDes" xml:space="preserve">
+    <value>設定は適用後の起動時に有効になります。起動時にUACポップアップを繰り返し邪魔しないように自己起動をオンにすることをお勧めします</value>
+  </data>
+  <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
+    <value>ブートセルフスタート</value>
+  </data>
+  <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
+    <value>プログラムは現在のユーザーログイン時に起動します（変更は管理者として実行し、常に管理者として実行する場合とチェックすると常に管理者の状態が維持されます）</value>
+  </data>
+  <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
+    <value>動作の適用</value>
   </data>
 </root>

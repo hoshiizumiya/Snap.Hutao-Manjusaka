@@ -845,6 +845,21 @@
   <data name="ServiceAvatarInfoPropertySkillCDReduce" xml:space="preserve">
     <value>CD Reduction</value>
   </data>
+  <data name="ServiceBackgroundActivityDefaultDescription" xml:space="preserve">
+    <value>Preparing...</value>
+  </data>
+  <data name="ServiceBackgroundActivityFullTrustInitialization" xml:space="preserve">
+    <value>Inject component initialization</value>
+  </data>
+  <data name="ServiceBackgroundActivityFullTrustInitializationDescription" xml:space="preserve">
+    <value>Only execute when necessary</value>
+  </data>
+  <data name="ServiceBackgroundActivityMetadataInitialization" xml:space="preserve">
+    <value>Metadata initialization</value>
+  </data>
+  <data name="ServiceBackgroundActivityMetadataInitializationDescription" xml:space="preserve">
+    <value>Preparing, if there is no response for a long time, please try restarting or checking the server status and network</value>
+  </data>
   <data name="ServiceBackgroundImageTypeBing" xml:space="preserve">
     <value>Bing Daily Wallpaper</value>
   </data>
@@ -987,6 +1002,9 @@
   <data name="ServiceGameIslandFileSystemGetGameVersionFailed" xml:space="preserve">
     <value>Failed to get local game version, unable to obtain injection configuration information</value>
   </data>
+  <data name="ServiceGameIslandTargetVersionFileNotExists" xml:space="preserve">
+    <value>The current game version is not yet supported</value>
+  </data>
   <data name="ServiceGameLaunchExecutionBetterGenshinImpactStarted" xml:space="preserve">
     <value>BetterGI launched</value>
   </data>
@@ -1028,6 +1046,9 @@
   </data>
   <data name="ServiceGameLaunchingHandlerEmbeddedYaeIslandNotEnabled" xml:space="preserve">
     <value>You should know about the related risks and turn on the embedding function in Launch Game page before using Embedded Yae</value>
+  </data>
+  <data name="ServiceGameLaunchingHandlerGameProcessStartRepositorySyncFailed" xml:space="preserve">
+    <value>An error occurred while obtaining the necessary startup game components</value>
   </data>
   <data name="ServiceGameLocatorFileOpenPickerCommitText" xml:space="preserve">
     <value>Select game executable</value>
@@ -1105,6 +1126,12 @@ Space Available: {2}</value>
   </data>
   <data name="ServiceGameSetMultiChannelUnauthorizedAccess" xml:space="preserve">
     <value>Unable to read or save profile, please try again in administrator mode</value>
+  </data>
+  <data name="ServiceGitRepositoryOperationCompleted" xml:space="preserve">
+    <value>Operation Completed</value>
+  </data>
+  <data name="ServiceGitRepositoryOperationFailed" xml:space="preserve">
+    <value>Operation Failed</value>
   </data>
   <data name="ServiceHutaoUserGachaLogExpiredAt" xml:space="preserve">
     <value>Wish record uploading service is valid until</value>
@@ -3749,6 +3776,9 @@ Space Available: {2}</value>
   <data name="ViewWindowCompactWebViewTitle" xml:space="preserve">
     <value>Compact web window (Admin only)</value>
   </data>
+  <data name="ViewWindowCompactWebView2HotKeyDisabledMessage" xml:space="preserve">
+    <value>Run as administrator to enable global shortcut key</value>
+  </data>
   <data name="ViewWindowExceptionClose" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -4002,12 +4032,30 @@ Space Available: {2}</value>
     <value>The settings will take effect at the startup of the application in the future. Suggest enabling self startup to avoid repeated UAC pop ups during startup</value>
   </data>
   <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
-    <value>start on boot</value>
+    <value>Start on boot</value>
   </data>
   <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
     <value>The program will run at this user login. (Can only be modified when running as a management fee, checking this together with "Always run as administrator" will keep it in administrator mode permanently.)</value>
   </data>
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>App behavior</value>
+  </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>Auto check-in</value>
+  </data>
+  <data name="ServiceMetadataWeaponIdNotFound" xml:space="preserve">
+    <value>ServiceMetadataWeaponIdNotFound</value>
+  </data>
+  <data name="ServiceMetadataAvatarIdNotFound" xml:space="preserve">
+    <value>ServiceMetadataAvatarIdNotFound</value>
+  </data>
+  <data name="ServiceGachaLogIdPlacesUnsupported" xml:space="preserve">
+    <value>ServiceGachaLogIdPlacesUnsupported</value>
+  </data>
+  <data name="ServiceGachaLogWeaponIdNotFound" xml:space="preserve">
+    <value>ServiceGachaLogWeaponIdNotFound</value>
+  </data>
+  <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
+    <value>ServiceGachaLogAvatarIdNotFound</value>
   </data>
 </root>

@@ -381,11 +381,11 @@
                         </AppBarButton.Flyout>
                     </AppBarButton>
                     <AppBarSeparator/>
-                    <!--<AppBarButton
+                    <AppBarButton
                         Flyout="{StaticResource HutaoCloudFlyout}"
                         Icon="{shuxm:FontIcon Glyph=&#xE753;}"
                         Label="{shuxm:ResourceString Name=ViewPageGachaLogHutaoCloud}"/>
-                    <AppBarSeparator/>-->
+                    <AppBarSeparator/>
                     <CommandBar.SecondaryCommands>
                         <AppBarButton
                             Command="{Binding ImportExportCommand}"

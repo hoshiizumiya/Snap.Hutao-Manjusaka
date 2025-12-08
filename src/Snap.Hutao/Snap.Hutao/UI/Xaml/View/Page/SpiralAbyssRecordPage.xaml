@@ -315,10 +315,10 @@
         <Pivot Style="{ThemeResource CardPivotStyle}">
             <Pivot.RightHeader>
                 <CommandBar Grid.Row="0" DefaultLabelPosition="Right">
-                    <!--<AppBarButton
+                    <AppBarButton
                         Command="{Binding UploadSpiralAbyssRecordCommand}"
                         Icon="{shuxm:FontIcon Glyph=&#xE898;}"
-                        Label="{shuxm:ResourceString Name=ViewSpiralAbyssUploadRecord}"/>-->
+                        Label="{shuxm:ResourceString Name=ViewSpiralAbyssUploadRecord}"/>
                     <AppBarButton
                         Command="{Binding RefreshCommand}"
                         Icon="{shuxm:FontIcon Glyph=&#xE72C;}"

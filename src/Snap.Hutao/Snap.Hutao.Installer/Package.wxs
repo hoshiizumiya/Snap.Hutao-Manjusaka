@@ -2,7 +2,7 @@
     <Package
         Name="Snap.Hutao"
         Manufacturer="Millennium Science Technology R-D Inst"
-        Version="1.17.4.1"
+        Version="1.17.4.2"
         UpgradeCode="121203be-60cb-408f-92cc-7080f6598e68"
         Scope="perMachine">
 

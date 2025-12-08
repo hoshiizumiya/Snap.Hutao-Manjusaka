@@ -5,6 +5,8 @@ using CommunityToolkit.WinUI.Collections;
 using CommunityToolkit.WinUI.Helpers;
 using Microsoft.UI.Xaml.Data;
 using Snap.Hutao.Core;
+using Snap.Hutao.Model.Intrinsic;
+using Snap.Hutao.Service.Notification;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -654,8 +656,7 @@ internal partial class AdvancedCollectionView<T> : IAdvancedCollectionView<T>, I
         {
             return;
         }
-
-        PropertyChanged?.Invoke(this, new(propertyName));
+            PropertyChanged?.Invoke(this, new(propertyName));
     }
 
     private void OnCurrentChanging(out bool cancel)
