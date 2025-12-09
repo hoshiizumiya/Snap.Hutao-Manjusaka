@@ -3989,4 +3989,7 @@ Ruang Tersedia: {2}</value>
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>ID Monitor</value>
   </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>Otomatis masuk</value>
+  </data>
 </root>

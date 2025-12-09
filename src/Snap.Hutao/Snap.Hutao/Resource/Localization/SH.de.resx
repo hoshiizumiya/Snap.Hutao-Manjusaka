@@ -3989,4 +3989,7 @@ Verfügbarer Speicherplatz: {2}</value>
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>Monitor-ID</value>
   </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>Automatisch anmelden</value>
+  </data>
 </root>

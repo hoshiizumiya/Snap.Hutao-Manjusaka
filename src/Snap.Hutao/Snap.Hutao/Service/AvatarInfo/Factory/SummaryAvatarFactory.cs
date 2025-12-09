@@ -1,7 +1,8 @@
 // Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
+// Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
+// Licensed under the MIT license.
 
-using CommunityToolkit.Mvvm.Messaging;
 using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Model;
 using Snap.Hutao.Model.Intrinsic;
@@ -56,9 +57,8 @@ internal sealed class SummaryAvatarFactory
             }
             catch
             {
-                // 通知不可用时忽略，不影响后续构建
             }
-            // 返回一个最小化的 AvatarView（方案 1：保留在列表中但禁用交互（需要修改 XAML 绑定 IsEnabled））
+            // 返回一个最小化的 AvatarView（方案：保留在列表中但禁用交互（需要修改 XAML 绑定 IsEnabled）暂未实现，已知问题）
             return new AvatarViewBuilder()
                 .SetId(avatar.Id)
                 .SetName(avatar.Name)

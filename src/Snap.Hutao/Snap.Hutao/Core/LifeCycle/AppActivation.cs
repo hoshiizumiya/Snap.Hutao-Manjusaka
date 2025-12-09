@@ -1,5 +1,7 @@
 // Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
+// Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
+// Licensed under the MIT license.
 
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppNotifications;
@@ -21,6 +23,7 @@ using Snap.Hutao.UI.Xaml.View.Window;
 using Snap.Hutao.ViewModel.Achievement;
 using Snap.Hutao.ViewModel.Game;
 using Snap.Hutao.ViewModel.Guide;
+using Snap.Hutao.ViewModel.Sign;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -74,15 +77,15 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
 
     public void ActivateAndInitialize(HutaoActivationArguments args)
     {
-        #if DEBUG
+#if DEBUG
         Debug.WriteLine("[AppActivation] ActivateAndInitialize called");
-        #endif
+#endif
 
         if (Volatile.Read(ref isActivating) is 1)
         {
-            #if DEBUG
+#if DEBUG
             Debug.WriteLine("[AppActivation] Already activating, returning");
-            #endif
+#endif
             return;
         }
 
@@ -92,52 +95,52 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
         {
             try
             {
-                #if DEBUG
+#if DEBUG
                 Debug.WriteLine("[AppActivation] Starting activation process");
-                #endif
+#endif
 
                 using (await activateLock.LockAsync().ConfigureAwait(false))
                 {
                     if (Interlocked.CompareExchange(ref isActivating, 1, 0) is not 0)
                     {
-                        #if DEBUG
+#if DEBUG
                         Debug.WriteLine("[AppActivation] Race condition detected, returning");
-                        #endif
+#endif
                         return;
                     }
 
-                    #if DEBUG
+#if DEBUG
                     Debug.WriteLine("[AppActivation] Calling UnsynchronizedHandleActivationAsync");
-                    #endif
+#endif
 
                     await UnsynchronizedHandleActivationAsync(args).ConfigureAwait(false);
-                    
-                    #if DEBUG
+
+#if DEBUG
                     Debug.WriteLine("[AppActivation] Calling UnsynchronizedHandleInitializationAsync");
-                    #endif
+#endif
 
                     await UnsynchronizedHandleInitializationAsync().ConfigureAwait(false);
-                    
-                    #if DEBUG
+
+#if DEBUG
                     Debug.WriteLine("[AppActivation] Initialization completed successfully");
-                    #endif
+#endif
                 }
             }
             catch (Exception ex)
             {
-                #if DEBUG
+#if DEBUG
                 Debug.WriteLine($"[AppActivation] Exception during activation: {ex}");
-                #endif
+#endif
                 throw;
             }
             finally
             {
                 XamlApplicationLifetime.ActivationAndInitializationCompleted = true;
                 Interlocked.Exchange(ref isActivating, 0);
-                
-                #if DEBUG
+
+#if DEBUG
                 Debug.WriteLine("[AppActivation] ActivationAndInitializationCompleted set to true");
-                #endif
+#endif
             }
         }
     }
@@ -249,6 +252,41 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
             serviceProvider.GetRequiredService<IQuartzService>().StartAsync()
         ]).ConfigureAwait(false);
 
+        // Auto check-in
+        try
+        {
+            bool enabled = LocalSetting.Get("SignIn.AutoSignInEnabled", true);
+            if (enabled)
+            {
+                // ClaimSignInRewardCommand 属于 SignInViewModel，依赖 UI 环境，切换到主线程以安全调用命令
+                await taskContext.SwitchToMainThreadAsync();
+
+                try
+                {
+                    // SignInViewModel 注册为 transient，直接解析一个实例以便执行命令
+                    SignInViewModel signInViewModel = serviceProvider.GetRequiredService<SignInViewModel>();
+
+                    // CommunityToolkit 生成的命令属性命名为 ClaimSignInRewardCommand
+                    ICommand? command = (System.Windows.Input.ICommand?)typeof(SignInViewModel)
+                        .GetProperty("ClaimSignInRewardCommand")?
+                        .GetValue(signInViewModel);
+
+                    if (command is not null && command.CanExecute(null))
+                    {
+                        command.Execute(null);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    serviceProvider.GetRequiredService<IMessenger>().Send(InfoBarMessage.Error(ex));
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            serviceProvider.GetRequiredService<IMessenger>().Send(InfoBarMessage.Error(ex));
+        }
+
         SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateInfo("Initialization completed", "Application"));
     }
 
@@ -351,35 +389,35 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
     private async ValueTask<Window?> WaitWindowAsync<TWindow>()
         where TWindow : Window
     {
-        #if DEBUG
+#if DEBUG
         Debug.WriteLine($"[AppActivation.WaitWindowAsync] Waiting for window type: {typeof(TWindow).Name}");
-        #endif
+#endif
 
         await taskContext.SwitchToMainThreadAsync();
 
-        #if DEBUG
+#if DEBUG
         Debug.WriteLine("[AppActivation.WaitWindowAsync] Switched to main thread");
-        #endif
+#endif
 
         if (currentXamlWindowReference.Window is not { } window)
         {
-            #if DEBUG
+#if DEBUG
             Debug.WriteLine("[AppActivation.WaitWindowAsync] Creating new window instance");
-            #endif
+#endif
 
             try
             {
                 window = serviceProvider.GetRequiredService<TWindow>();
-                
-                #if DEBUG
+
+#if DEBUG
                 Debug.WriteLine($"[AppActivation.WaitWindowAsync] Window created successfully: {window.GetType().Name}");
-                #endif
+#endif
             }
             catch (COMException ex)
             {
-                #if DEBUG
+#if DEBUG
                 Debug.WriteLine($"[AppActivation.WaitWindowAsync] COMException: {ex}");
-                #endif
+#endif
 
                 if (XamlApplicationLifetime.Exiting)
                 {
@@ -390,9 +428,9 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
             }
             catch (Exception ex)
             {
-                #if DEBUG
+#if DEBUG
                 Debug.WriteLine($"[AppActivation.WaitWindowAsync] Exception creating window: {ex}");
-                #endif
+#endif
                 throw;
             }
 
@@ -400,20 +438,20 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
         }
         else
         {
-            #if DEBUG
+#if DEBUG
             Debug.WriteLine($"[AppActivation.WaitWindowAsync] Using existing window: {window.GetType().Name}");
-            #endif
+#endif
         }
 
-        #if DEBUG
+#if DEBUG
         Debug.WriteLine("[AppActivation.WaitWindowAsync] Calling window.SwitchTo()");
-        #endif
+#endif
 
         window.SwitchTo();
-        
-        #if DEBUG
+
+#if DEBUG
         Debug.WriteLine("[AppActivation.WaitWindowAsync] Window activated");
-        #endif
+#endif
 
         window.AppWindow?.MoveInZOrderAtTop();
         return window;

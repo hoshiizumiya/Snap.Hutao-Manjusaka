@@ -1,5 +1,7 @@
 // Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
+// Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
+// Licensed under the MIT license.
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Controls;
@@ -13,6 +15,7 @@ using Snap.Hutao.UI.Xaml.Data;
 using Snap.Hutao.ViewModel.User;
 using Snap.Hutao.Web.Hoyolab.Takumi.Event.BbsSignReward;
 using Snap.Hutao.Web.Response;
+using Snap.Hutao.Core.Setting;
 using System.Collections.Immutable;
 
 namespace Snap.Hutao.ViewModel.Sign;
@@ -33,6 +36,8 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
     private bool updating;
     private int totalSignDay;
     private SignInRewardReSignInfo? resignInfo;
+
+    private const string AutoSignInSettingKey = "SignIn.AutoSignInEnabled";
 
     [GeneratedConstructor(CallBaseConstructor = true)]
     public partial SignInViewModel(IServiceProvider serviceProvider);
@@ -86,6 +91,16 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
 
     protected override async Task LoadAsync()
     {
+        // Load persisted auto-sign setting first.
+        try
+        {
+            IsAutoCheckIn = LocalSetting.Get(AutoSignInSettingKey, true);
+        }
+        catch (Exception ex)
+        {
+            messenger.Send(InfoBarMessage.Warning(ex.Message));
+        }
+
         if (await userService.GetCurrentUserAndUidAsync().ConfigureAwait(false) is { } userAndUid)
         {
             await UpdateSignInInfoAsync(userAndUid).ConfigureAwait(false);
@@ -251,23 +266,16 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
         }
     }
 
-    private void CheckBox_Unchecked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+    // Persist auto sign-in setting when toggled from UI/viewmodel.
+    partial void OnIsAutoCheckInChanged(bool value)
     {
-
-    }
-
-    private void CheckBox_Checked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
-    {
-
-    }
-
-    public static bool IsDebug
-    {
-        get =>
-#if DEBUG
-            true;
-#else
-            false;
-#endif
+        try
+        {
+            LocalSetting.Set(AutoSignInSettingKey, value);
+        }
+        catch (Exception ex)
+        {
+            messenger.Send(InfoBarMessage.Warning(ex.Message));
+        }
     }
 }

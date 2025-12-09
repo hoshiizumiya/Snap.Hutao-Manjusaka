@@ -117,40 +117,7 @@ internal sealed partial class AutoStartService
             catch (Exception ex)
             {
                 try { SentrySdk.CaptureException(ex); } catch { }
-                // fallback to schtasks
             }
-        }
-
-        // Fallback: use schtasks.exe for simplicity and less COM code. This may create a task that triggers on any user.
-        string runLevel = runElevated ? "HIGHEST" : "LIMITED";
-
-        // Limit the task to the current user by specifying /RU "<DOMAIN\Username>"
-        string runUser = $"{Environment.UserDomainName}\\{Environment.UserName}";
-
-        // Create task that runs at logon for the current user only
-        string arguments = $"/Create /TN \"{TaskName}\" /TR \"\\\"{exePath}\\\"\" /SC ONLOGON /RL {runLevel} /RU \"{runUser}\" /IT /F";
-
-        Debug.WriteLine($"Registering autostart task with arguments: {arguments}");
-
-        ProcessStartInfo psi = new()
-        {
-            FileName = "schtasks.exe",
-            Arguments = arguments,
-            CreateNoWindow = true,
-            UseShellExecute = false,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-        };
-
-        using Process proc = Process.Start(psi)!;
-        string stdout = proc.StandardOutput.ReadToEnd();
-        string stderr = proc.StandardError.ReadToEnd();
-        proc.WaitForExit();
-
-        if (proc.ExitCode != 0)
-        {
-            // 将 stdout/stderr 一并记录，便于后续定位权限或参数问题
-            throw HutaoException.InvalidOperation($"Failed to register autostart task. ExitCode: {proc.ExitCode}. stdout: {stdout}. stderr: {stderr}");
         }
     }
 
@@ -161,30 +128,28 @@ internal sealed partial class AutoStartService
         {
             try
             {
+                // For 1.17.3.x version wrongly set the task without current user trigger
                 bool ok = NativeMethods.delete_auto_start_task_for_this_user();
                 if (ok)
                 {
+                    ProcessStartInfo psi = new()
+                    {
+                        FileName = "schtasks.exe",
+                        Arguments = $"/Delete /TN \"{TaskName}\" /F",
+                        CreateNoWindow = true,
+                        UseShellExecute = false,
+                    };
+
+                    using Process proc = Process.Start(psi)!;
+                    proc.WaitForExit();
+
                     return;
                 }
             }
             catch
             {
-                // ignore and fallback
             }
         }
-
-        ProcessStartInfo psi = new()
-        {
-            FileName = "schtasks.exe",
-            Arguments = $"/Delete /TN \"{TaskName}\" /F",
-            CreateNoWindow = true,
-            UseShellExecute = false,
-        };
-
-        using Process proc = Process.Start(psi)!;
-        proc.WaitForExit();
-
-        // ignore failures - task might not exist
     }
 
 

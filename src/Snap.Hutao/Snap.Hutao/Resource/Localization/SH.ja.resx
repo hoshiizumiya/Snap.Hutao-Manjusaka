@@ -4036,4 +4036,7 @@
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>動作の適用</value>
   </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>自動チェックイン</value>
+  </data>
 </root>

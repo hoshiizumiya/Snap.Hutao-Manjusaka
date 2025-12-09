@@ -193,14 +193,15 @@
                         Command="{Binding ClaimResignInRewardCommand}"
                         Content="{shuxm:ResourceString Name=ViewCardSignInClaimReSignInAction}"
                         Style="{ThemeResource SettingButtonStyle}"/>
-                    <!--<CheckBox
+                    <CheckBox
                         Grid.Column="2"
                         Width="Auto"
+                        Checked="CheckBox_Checked"
                         Content="{shuxm:ResourceString Name=ViewCardSignInAutoSignIn}"
                         IsChecked="{Binding IsAutoCheckIn}"
                         IsThreeState="False"
                         Style="{ThemeResource DefaultCheckBoxStyle}"
-                        Visibility="{Binding IsDebug}"/>-->
+                        Unchecked="CheckBox_Unchecked"/>
                 </Grid>
             </Grid>
         </Grid>

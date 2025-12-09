@@ -4034,4 +4034,7 @@
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>應用行為</value>
   </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>自動簽到</value>
+  </data>
 </root>

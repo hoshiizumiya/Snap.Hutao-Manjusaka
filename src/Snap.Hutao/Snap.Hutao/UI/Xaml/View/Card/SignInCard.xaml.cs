@@ -1,5 +1,7 @@
 // Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
+// Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
+// Licensed under the MIT license.
 
 using Microsoft.UI.Xaml.Controls;
 using Snap.Hutao.ViewModel.Abstraction;
@@ -14,5 +16,15 @@ internal sealed partial class SignInCard : Button
         InitializeComponent();
         this.InitializeViewModelSlim<SignInViewModel>(serviceProvider);
         this.DataContext<SignInViewModel>()?.AttachXamlElement(AwardScrollViewer);
+    }
+
+    private void CheckBox_Checked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+    {
+        this.DataContext<SignInViewModel>()?.IsAutoCheckIn = true;
+    }
+
+    private void CheckBox_Unchecked(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+    {
+        this.DataContext<SignInViewModel>()?.IsAutoCheckIn = false;
     }
 }

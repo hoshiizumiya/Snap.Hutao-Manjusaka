@@ -3989,4 +3989,7 @@ Espacio disponible: {2}</value>
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>ID del monitor</value>
   </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>Registro automático</value>
+  </data>
 </root>

@@ -3993,4 +3993,7 @@
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>ID Монитора</value>
   </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>Автоматическая подпись.</value>
+  </data>
 </root>
