@@ -51,7 +51,7 @@
 		<AppxPackage>false</AppxPackage>
 		<!-- 不设置打包类型 -->
 		<WindowsPackageType>None</WindowsPackageType>
-		<Version>1.17.4.2</Version>
+		<Version>1.17.5.0</Version>
 		<PublishAot>False</PublishAot>
 		<PublishTrimmed>False</PublishTrimmed>
 	</PropertyGroup>
