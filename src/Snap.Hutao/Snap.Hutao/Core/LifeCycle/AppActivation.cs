@@ -10,6 +10,7 @@ using Snap.Hutao.Core.LifeCycle.InterProcess;
 using Snap.Hutao.Core.Logging;
 using Snap.Hutao.Core.Setting;
 using Snap.Hutao.Factory.Process;
+using Snap.Hutao.Service.AutoSignIn;
 using Snap.Hutao.Service.Hutao;
 using Snap.Hutao.Service.Job;
 using Snap.Hutao.Service.Metadata;
@@ -255,32 +256,8 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
         // Auto check-in
         try
         {
-            bool enabled = LocalSetting.Get("SignIn.AutoSignInEnabled", true);
-            if (enabled)
-            {
-                // ClaimSignInRewardCommand 属于 SignInViewModel，依赖 UI 环境，切换到主线程以安全调用命令
-                await taskContext.SwitchToMainThreadAsync();
-
-                try
-                {
-                    // SignInViewModel 注册为 transient，直接解析一个实例以便执行命令
-                    SignInViewModel signInViewModel = serviceProvider.GetRequiredService<SignInViewModel>();
-
-                    // CommunityToolkit 生成的命令属性命名为 ClaimSignInRewardCommand
-                    ICommand? command = (System.Windows.Input.ICommand?)typeof(SignInViewModel)
-                        .GetProperty("ClaimSignInRewardCommand")?
-                        .GetValue(signInViewModel);
-
-                    if (command is not null && command.CanExecute(null))
-                    {
-                        command.Execute(null);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    serviceProvider.GetRequiredService<IMessenger>().Send(InfoBarMessage.Error(ex));
-                }
-            }
+            IAutoSignInService autoSignInService = serviceProvider.GetRequiredService<IAutoSignInService>();
+            await autoSignInService.RunAsync().ConfigureAwait(false);
         }
         catch (Exception ex)
         {
