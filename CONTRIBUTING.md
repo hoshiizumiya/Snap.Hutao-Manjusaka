@@ -1,5 +1,3 @@
-<img width="811" height="751" alt="image" src="https://github.com/user-attachments/assets/f1e425a4-05ed-4632-82b8-ce4c12caf52b" /># Contribution Guide
-
 ## Contribute Your Code
 
 ### Setup Snap.Hutao-Manjusaka Project
@@ -7,8 +5,7 @@
 1. Download and install [Visual Studio 2026 Community](https://visualstudio.microsoft.com/downloads/).
    - No need to select workloads; Visual Studio will handle it automatically.
    - Close Visual Studio Installer to ensure a smooth installation experience for workloads.
-2. Fork this repository and clone the project to your local device. Make sure with a good network. Or by this.
-<img width="811" height="751" alt="image" src="https://github.com/user-attachments/assets/6d861b6b-d3b7-48d0-8241-257c9b7ead54" />
+2. Fork this repository and clone the project to your local device. Make sure with a good network. Or by this.<img width="400" alt="image" src="https://github.com/user-attachments/assets/6d861b6b-d3b7-48d0-8241-257c9b7ead54" />  
 3. Open the project solution with your Visual Studio, which is .slnx for VS2026 at `Snap.Hutao\src\Snap.Hutao\Snap.Hutao.slnx`. Visual Studio will prompt you to install the necessary workloads, closing and reopening automatically.
 
 ### Start Pull Request
