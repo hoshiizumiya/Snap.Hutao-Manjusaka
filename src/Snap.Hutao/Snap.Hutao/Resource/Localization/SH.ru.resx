@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDevNameAndVersion" xml:space="preserve">
-    <value>Snap Hutao Dev {0}</value>
+    <value>Snap Hutao Manjusaka Dev {0}</value>
   </data>
   <data name="AppElevatedDevNameAndVersion" xml:space="preserve">
-    <value>Ху Тао Dev {0} [Администратор]</value>
+    <value>Ху Тао Manjusaka Dev {0} [Администратор]</value>
   </data>
   <data name="AppElevatedNameAndVersion" xml:space="preserve">
-    <value>Ху Тао {0} [Администратор]</value>
+    <value>Ху Тао Manjusaka {0} [Администратор]</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Ху Тао</value>
+    <value>Ху Тао Manjusaka</value>
   </data>
   <data name="AppNameAndVersion" xml:space="preserve">
-    <value>Ху Тао {0}</value>
+    <value>Ху Тао Manjusaka {0}</value>
   </data>
   <data name="ContentDialogCancelCloseButtonText" xml:space="preserve">
     <value>Отмена</value>
@@ -2674,7 +2674,7 @@
     <value>Snap Hutao запустил игру {0} раз</value>
   </data>
   <data name="ViewPageHomeGreetingTextCommon2" xml:space="preserve">
-    <value>Вы запустили Snap Hutao {0} раз</value>
+    <value>Вы запустили Snap Hutao Manjusaka {0} раз</value>
   </data>
   <data name="ViewPageHomeGreetingTextDefault" xml:space="preserve">
     <value>Добро пожаловать в Тейват, Путешественник!</value>

@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDevNameAndVersion" xml:space="preserve">
-    <value>胡桃 Dev {0}</value>
+    <value>胡桃 Manjusaka Dev {0}</value>
   </data>
   <data name="AppElevatedDevNameAndVersion" xml:space="preserve">
-    <value>胡桃 Dev {0} [管理员]</value>
+    <value>胡桃 Manjusaka Dev {0} [管理员]</value>
   </data>
   <data name="AppElevatedNameAndVersion" xml:space="preserve">
-    <value>胡桃 {0} [管理员]</value>
+    <value>胡桃 Manjusaka {0} [管理员]</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>胡桃</value>
+    <value>胡桃 Manjusaka</value>
   </data>
   <data name="AppNameAndVersion" xml:space="preserve">
-    <value>胡桃 {0}</value>
+    <value>胡桃 Manjusaka {0}</value>
   </data>
   <data name="ContentDialogCancelCloseButtonText" xml:space="preserve">
     <value>取消</value>
@@ -2706,7 +2706,7 @@
     <value>胡桃已经为你启动了 {0} 次游戏</value>
   </data>
   <data name="ViewPageHomeGreetingTextCommon2" xml:space="preserve">
-    <value>你已经启动了胡桃 {0} 次</value>
+    <value>你已经启动了胡桃 Manjusaka {0} 次</value>
   </data>
   <data name="ViewPageHomeGreetingTextDefault" xml:space="preserve">
     <value>旅行者，欢迎来到提瓦特大陆！</value>

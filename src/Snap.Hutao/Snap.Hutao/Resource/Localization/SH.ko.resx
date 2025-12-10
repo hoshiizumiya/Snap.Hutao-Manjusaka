@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDevNameAndVersion" xml:space="preserve">
-    <value>호두 Dev {0}</value>
+    <value>호두 Manjusaka Dev {0}</value>
   </data>
   <data name="AppElevatedDevNameAndVersion" xml:space="preserve">
-    <value>胡桃Dev {0} [管理员]</value>
+    <value>胡桃 Manjusaka Dev {0} [管理员]</value>
   </data>
   <data name="AppElevatedNameAndVersion" xml:space="preserve">
     <value>Snap Hutao {0} [관리자]</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>호두</value>
+    <value>호두 Manjusaka</value>
   </data>
   <data name="AppNameAndVersion" xml:space="preserve">
-    <value>호두 {0}</value>
+    <value>호두 Manjusaka {0}</value>
   </data>
   <data name="ContentDialogCancelCloseButtonText" xml:space="preserve">
     <value>취소</value>
@@ -2691,7 +2691,7 @@
     <value>Snap Hutao가 {0}번 게임을 실행했습니다.</value>
   </data>
   <data name="ViewPageHomeGreetingTextCommon2" xml:space="preserve">
-    <value>Snap Hutao를 {0}번 실행했습니다.</value>
+    <value>Snap Hutao Manjusaka 를 {0}번 실행했습니다.</value>
   </data>
   <data name="ViewPageHomeGreetingTextDefault" xml:space="preserve">
     <value>여행자, 티바트 대륙에 오신 것을 환영합니다!</value>

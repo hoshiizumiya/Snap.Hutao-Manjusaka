@@ -1,8 +1,8 @@
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
     <Package
-        Name="Snap.Hutao"
+        Name="Snap.Hutao Manjusaka"
         Manufacturer="Millennium Science Technology R-D Inst"
-        Version="1.17.4.2"
+        Version="2.0.0.0"
         UpgradeCode="121203be-60cb-408f-92cc-7080f6598e68"
         Scope="perMachine">
 
@@ -51,8 +51,8 @@
 
             <Shortcut
                 Id="DesktopShortcut_Normal"
-                Name="Snap Hutao"
-                Description="Snap Hutao Client"
+                Name="Snap Hutao Manjusaka"
+                Description="Snap Hutao Manjusaka Client"
                 Target="[INSTALLFOLDER]Snap.Hutao.exe"
                 WorkingDirectory="INSTALLFOLDER" />
 

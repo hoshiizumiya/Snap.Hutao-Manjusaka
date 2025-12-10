@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDevNameAndVersion" xml:space="preserve">
-    <value>Snap Hutao Dev {0}</value>
+    <value>Snap Hutao Manjusaka Dev {0}</value>
   </data>
   <data name="AppElevatedDevNameAndVersion" xml:space="preserve">
-    <value>Snap Hutao Dev {0} [Administrateur]</value>
+    <value>Snap Hutao Manjusaka Dev {0} [Administrador]</value>
   </data>
   <data name="AppElevatedNameAndVersion" xml:space="preserve">
-    <value>Snap Hutao {0} [Administrateur]</value>
+    <value>Snap Hutao Manjusaka {0} [Administrator]</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Snap Hutao</value>
+    <value>Snap Hutao Manjusaka</value>
   </data>
   <data name="AppNameAndVersion" xml:space="preserve">
-    <value>Snap Hutao {0}</value>
+    <value>Snap Hutao Manjusaka {0}</value>
   </data>
   <data name="ContentDialogCancelCloseButtonText" xml:space="preserve">
     <value>Annuler</value>
@@ -2676,7 +2676,7 @@ Espace disponible : {2}</value>
     <value>Snap Hutao a lancé le jeu {0} fois pour vous</value>
   </data>
   <data name="ViewPageHomeGreetingTextCommon2" xml:space="preserve">
-    <value>Vous avez lancé Snap Hutao {0} fois</value>
+    <value>Vous avez lancé Snap Hutao Manjusaka {0} fois</value>
   </data>
   <data name="ViewPageHomeGreetingTextDefault" xml:space="preserve">
     <value>Voyageur, bienvenue sur le continent de Teyvat !</value>

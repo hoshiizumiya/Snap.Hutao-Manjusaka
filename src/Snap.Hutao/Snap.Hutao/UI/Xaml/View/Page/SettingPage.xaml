@@ -45,6 +45,7 @@
                                     Grid.Row="0"
                                     MaxWidth="120"
                                     MaxHeight="120"
+                                    Margin="5"
                                     Source="ms-appx:///Assets/InAppLogo.png"/>
                                 <!--<cwc:UniformGrid
                                     Grid.Row="1"

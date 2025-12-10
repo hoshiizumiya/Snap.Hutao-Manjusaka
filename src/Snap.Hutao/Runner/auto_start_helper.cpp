@@ -1,5 +1,3 @@
-
-
 #include "pch.h"
 #include "auto_start_helper.h"
 

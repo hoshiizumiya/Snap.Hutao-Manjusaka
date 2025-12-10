@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
   <Publisher>CN=35C8E923-85DF-49A7-9172-B39DC6312C52</Publisher>
-  <PublisherDisplayName>DGP Studio</PublisherDisplayName>
+  <PublisherDisplayName>Millennium-Science-Technology-R-D-Inst</PublisherDisplayName>
   <DeveloperAccountType>MSA</DeveloperAccountType>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
@@ -10,7 +10,7 @@
   <ProductReservedInfo>
     <MainPackageIdentityName>60568DGPStudio.SnapHutao</MainPackageIdentityName>
     <ReservedNames>
-      <ReservedName>Snap Hutao</ReservedName>
+      <ReservedName>Snap Hutao-Manjusaka</ReservedName>
       <ReservedName>胡桃工具箱</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
