@@ -162,6 +162,15 @@ public sealed partial class App : Application
 
             FrameworkTheming.SetTheme(ThemeHelper.ElementToFramework(serviceProvider.GetRequiredService<AppOptions>().ElementTheme.Value));
 
+            if (LocalSetting.Get(SettingKeys.IsChristmasThemeEnabled, DateTime.Now.Month == 12))
+            {
+                ChristmasThemeManager.Apply(this);
+            }
+            else
+            {
+                ChristmasThemeManager.Remove(this);
+            }
+
             // Manually invoke
             SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateInfo("Activate and Initialize", "Application"));
 

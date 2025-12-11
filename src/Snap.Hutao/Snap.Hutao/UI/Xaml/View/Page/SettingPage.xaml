@@ -313,17 +313,27 @@
                                             SelectedItem="{Binding SelectedBackdropType, Mode=TwoWay}"/>
                                     </shuxc:SizeRestrictedContentControl>
                                 </cwc:SettingsCard>
-                                <cwc:SettingsCard
+                                <cwc:SettingsExpander
                                     Description="{shuxm:ResourceString Name=ViewPageSettingThemeDescription}"
                                     Header="{shuxm:ResourceString Name=ViewPageSettingThemeHeader}"
-                                    HeaderIcon="{shuxm:FontIcon Glyph=&#xE790;}">
+                                    HeaderIcon="{shuxm:FontIcon Glyph=&#xE790;}"
+                                    IsExpanded="True">
                                     <shuxc:SizeRestrictedContentControl>
                                         <ComboBox
                                             DisplayMemberPath="Name"
                                             ItemsSource="{Binding AppOptions.LazyElementThemes.Value}"
                                             SelectedItem="{Binding SelectedElementTheme, Mode=TwoWay}"/>
                                     </shuxc:SizeRestrictedContentControl>
-                                </cwc:SettingsCard>
+                                    <cwc:SettingsExpander.Items>
+                                        <cwc:SettingsCard
+                                            Description="启用圣诞节主题"
+                                            Header="圣诞主题"
+                                            HeaderIcon="{shuxm:FontIcon Glyph=&#xE794;}">
+                                            <ToggleSwitch IsOn="{Binding IsChristmasThemeEnabled, Mode=TwoWay}"/>
+                                        </cwc:SettingsCard>
+
+                                    </cwc:SettingsExpander.Items>
+                                </cwc:SettingsExpander>
                                 <cwc:SettingsExpander
                                     Description="{shuxm:ResourceString Name=ViewPageSettingBackgroundImageDescription}"
                                     Header="{shuxm:ResourceString Name=ViewPageSettingBackgroundImageHeader}"

@@ -88,6 +88,11 @@
 		<Delete Files="@(LibFiles)" />
 	</Target>
 
+	<ItemGroup>
+	  <Page Remove="UI\Xaml\Control\Theme\Christmas.xaml" />
+	  <Page Remove="UI\Xaml\Control\Theme\ChristmasResources.xaml" />
+	</ItemGroup>
+
 	<!-- Analyzer Files -->
 	<ItemGroup>
 		<AdditionalFiles Include="ApiEndpoints.csv" />
@@ -329,5 +334,13 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="UI\Xaml\Control\Theme\Christmas.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="UI\Xaml\Control\Theme\ChristmasResources.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
 	</ItemGroup>
 </Project>
