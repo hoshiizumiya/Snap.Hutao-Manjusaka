@@ -1,4 +1,4 @@
-// Copyright (c) DGP Studio. All rights reserved.
+// Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
 // Licensed under the MIT license.
 
 using Microsoft.UI.Xaml;
@@ -26,7 +26,7 @@ public static class ChristmasThemeManager
             string christmasUri = "ms-appx:///UI/Xaml/Control/Theme/Christmas.xaml";
 
             // Check if already applied
-            foreach (var md in app.Resources.MergedDictionaries)
+            foreach (ResourceDictionary? md in app.Resources.MergedDictionaries)
             {
                 if (md.Source != null && md.Source.OriginalString.Equals(christmasUri, StringComparison.OrdinalIgnoreCase))
                 {
@@ -34,7 +34,7 @@ public static class ChristmasThemeManager
                 }
             }
 
-            var rd = new ResourceDictionary
+            ResourceDictionary rd = new ResourceDictionary
             {
                 Source = new Uri(christmasUri)
             };
@@ -64,7 +64,7 @@ public static class ChristmasThemeManager
 
             for (int i = app.Resources.MergedDictionaries.Count - 1; i >= 0; i--)
             {
-                var md = app.Resources.MergedDictionaries[i];
+                ResourceDictionary md = app.Resources.MergedDictionaries[i];
                 if (md.Source != null && md.Source.OriginalString.Equals(christmasUri, StringComparison.OrdinalIgnoreCase))
                 {
                     app.Resources.MergedDictionaries.RemoveAt(i);

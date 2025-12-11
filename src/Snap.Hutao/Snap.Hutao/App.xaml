@@ -25,6 +25,8 @@
                 <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/TextBlock/LinkPresenter.xaml"/>
                 <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/TextBlock/RateDeltaTextBlock.xaml"/>
                 <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/Theme/Card.xaml"/>
+                <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/Theme/Christmas.xaml"/>
+                <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/Theme/ChristmasResources.xaml"/>
                 <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/Theme/Color.xaml"/>
                 <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/Theme/ComboBox.xaml"/>
                 <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/Theme/Converter.xaml"/>

@@ -56,17 +56,16 @@
 		<PublishTrimmed>False</PublishTrimmed>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-	  <DebugType>embedded</DebugType>
-	  <IsPublishable>True</IsPublishable>
+		<DebugType>embedded</DebugType>
+		<IsPublishable>True</IsPublishable>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-	  <DebugType>embedded</DebugType>
-	  <IsPublishable>True</IsPublishable>
+		<DebugType>embedded</DebugType>
+		<IsPublishable>True</IsPublishable>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="Package.appxmanifest" />
 		<None Remove="Package.development.appxmanifest" />
-		<None Remove="Resource\GuideLocalization\MSTRDI.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -87,11 +86,6 @@
 		</ItemGroup>
 		<Delete Files="@(LibFiles)" />
 	</Target>
-
-	<ItemGroup>
-	  <Page Remove="UI\Xaml\Control\Theme\Christmas.xaml" />
-	  <Page Remove="UI\Xaml\Control\Theme\ChristmasResources.xaml" />
-	</ItemGroup>
 
 	<!-- Analyzer Files -->
 	<ItemGroup>
@@ -333,14 +327,6 @@
 		<ProjectCapability Include="Msix" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
-	</ItemGroup>
-	<ItemGroup>
-	  <None Update="UI\Xaml\Control\Theme\Christmas.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
-	  <None Update="UI\Xaml\Control\Theme\ChristmasResources.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </None>
+		<ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
 	</ItemGroup>
 </Project>
