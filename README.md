@@ -64,7 +64,7 @@ V6.2的元数据已在编写中
 调试选项请选择unpackaged（不打包）
 **原开发文档现在还可使用（其中的AI功能很好用），以下是开发文档链接：**  
 
-https://deepwiki.com/DGP-Studio/Snap.Hutao
+https://deepwiki.com/hoshiizumiya/Snap.Hutao-Manjusaka/
 
 https://deepwiki.com/DGP-Studio/Snap.Hutao.Server
 ## 打包测试
