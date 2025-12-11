@@ -1,4 +1,12 @@
-
+<p align="center">
+  <img src="https://github.com/hoshiizumiya/Snap.Hutao-Manjusaka/blob/main/src/Snap.Hutao/Snap.Hutao/Assets/InAppLogo.png" alt="Snap Hutao Banner" width="600"/>
+</p>
+<h1 align="center">Snap Hutao-Manjusaka</h1>
+<p align="center">
+  🎮 胡桃工具箱-彼岸 是一款以 MIT 协议开源的原神工具箱，基于胡桃工具箱二次开发，专为现代化 Windows 平台设计，旨在改善桌面端玩家的游戏体验。  
+  <br/>
+  🎮 An open-source Genshin Impact toolkit for Windows, designed to improve the desktop gaming experience
+</p>
 ## 📖 简介 / Introduction
 
 **中文**  
@@ -25,7 +33,7 @@ Snap Hutao-Manjusaka is an open-source Genshin Impact toolkit under MIT license,
 > 要使该项目可以长期运行，我们需要以下资源
 > 元数据的编写
 > 图片资源
-
+[开发指南](https://github.com/hoshiizumiya/Snap.Hutao-Manjusaka/tree/main?tab=contributing-ov-file)
 V6.2的元数据已在编写中  
 测试仓库位置：http://server.wdg.cloudns.ch:3000/wdg1122/Snap.Metadata.Test  
 **目前元数据的编写进度：**
@@ -65,8 +73,6 @@ https://deepwiki.com/DGP-Studio/Snap.Hutao.Server
 
 ### 资源
 
-> 注意：普通包的资源服务器只能使用ipv6连接，也就是说，你的电脑必须有ipv6，并且建议你手动配置DNS为`223.5.5.5`  
-> 如果你的设备不支持ipv6，请下载末尾带有`ipv4`的压缩包  
 > 由于数据文件夹中有元数据的仓库和图片缓存，才得以恢复资源文件  
 > 如果你发现之前版本可以显示的图片不能显示了，请查找旧数据文件夹  
 > `C:\Users\<用户名>\AppData\Local\Packages\xxxDGPStudio.SnapHutao_xxx\LocalCache\ImageCache`  
@@ -101,7 +107,36 @@ http://serverjp.wdg.cloudns.ch:5222/
 
 ---
 
+
 **临时资源站：**  
 http://server.wdg.cloudns.ch:8007/
+---
+
+## 🙏 特别感谢 / Special Thanks
+
+- [HolographicHat](https://github.com/HolographicHat)  
+- [UIGF organization](https://uigf.org)  
+
+**特定的原神项目 / Specific Genshin-related Projects**  
+- [Scighost/Starward](https://github.com/Scighost/Starward)  
+
+---
+
+## ⚙️ 使用的技术栈 / Tech Stack
+
+- [CommunityToolkit/dotnet](https://github.com/CommunityToolkit/dotnet)  
+- [CommunityToolkit/Labs-Windows](https://github.com/CommunityToolkit/Labs-Windows)  
+- [CommunityToolkit/Windows](https://github.com/CommunityToolkit/Windows)  
+- [dotnet/efcore](https://github.com/dotnet/efcore)  
+- [dotnet/runtime](https://github.com/dotnet/runtime)  
+- [microsoft/vs-validation](https://github.com/microsoft/vs-validation)  
+- [microsoft/WindowsAppSDK](https://github.com/microsoft/WindowsAppSDK)  
+- [microsoft/microsoft-ui-xaml](https://github.com/microsoft/microsoft-ui-xaml)  
+- [quartznet/quartznet](https://github.com/quartznet/quartznet)  
+
+---
+![Alt](https://repobeats.axiom.co/api/embed/e5d56703de1101fdf4b7034dfb78038fdc14754a.svg "Repobeats analytics image")
+
+[![Star History Chart](https://api.star-history.com/svg?repos=hoshiizumiya/Snap.Hutao-Manjusaka&type=Date)](https://star-history.com/#hoshiizumiya/Snap.Hutao-Manjusaka&Date)  
 
 http://serverjp.wdg.cloudns.ch:8001/
