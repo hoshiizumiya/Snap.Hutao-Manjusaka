@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -531,16 +531,16 @@
     <value>Gruppo C, ondata 3: Gruppi diversi coesistono e hanno ondate indipendenti.</value>
   </data>
   <data name="ModelMetadataTowerWaveTypeGroupD" xml:space="preserve">
-    <value />
+    <value>D组：不同的组同时在场，各自分波独立</value>
   </data>
   <data name="ModelMetadataTowerWaveTypeGroupDWave1" xml:space="preserve">
-    <value />
+    <value>D组第一波：不同的组同时在场，各自分波独立</value>
   </data>
   <data name="ModelMetadataTowerWaveTypeGroupDWave2" xml:space="preserve">
-    <value />
+    <value>D组第二波：不同的组同时在场，各自分波独立</value>
   </data>
   <data name="ModelMetadataTowerWaveTypeGroupDWave3" xml:space="preserve">
-    <value />
+    <value>D组第三波：不同的组同时在场，各自分波独立</value>
   </data>
   <data name="ModelMetadataTowerWaveTypeIndependent" xml:space="preserve">
     <value>Indipendente dagli altri mostri</value>
@@ -549,7 +549,7 @@
     <value>Nessuna informazione sull'ondata</value>
   </data>
   <data name="ModelMetadataTowerWaveTypeWave1" xml:space="preserve">
-    <value />
+    <value>第一波：击败所有怪物，下一波才会出现</value>
   </data>
   <data name="ModelMetadataTowerWaveTypeWave1Additional" xml:space="preserve">
     <value>Aggiunta ondata: rinforzi della prima ondata di mostri</value>
@@ -845,6 +845,21 @@
   <data name="ServiceAvatarInfoPropertySkillCDReduce" xml:space="preserve">
     <value>Riduzione del CD</value>
   </data>
+  <data name="ServiceBackgroundActivityDefaultDescription" xml:space="preserve">
+    <value>准备中...</value>
+  </data>
+  <data name="ServiceBackgroundActivityFullTrustInitialization" xml:space="preserve">
+    <value>注入组件初始化</value>
+  </data>
+  <data name="ServiceBackgroundActivityFullTrustInitializationDescription" xml:space="preserve">
+    <value>仅在必要时执行</value>
+  </data>
+  <data name="ServiceBackgroundActivityMetadataInitialization" xml:space="preserve">
+    <value>元数据初始化</value>
+  </data>
+  <data name="ServiceBackgroundActivityMetadataInitializationDescription" xml:space="preserve">
+    <value>准备中，若长时间无反应请尝试重启或检查网络与服务器状态</value>
+  </data>
   <data name="ServiceBackgroundImageTypeBing" xml:space="preserve">
     <value>Sfondo del giorno di Bing</value>
   </data>
@@ -987,6 +1002,9 @@
   <data name="ServiceGameIslandFileSystemGetGameVersionFailed" xml:space="preserve">
     <value>Recupero versione gioco locale fallito, impossibile ottenere informazioni configurazione iniezione</value>
   </data>
+  <data name="ServiceGameIslandTargetVersionFileNotExists" xml:space="preserve">
+    <value>尚未支持当前游戏版本</value>
+  </data>
   <data name="ServiceGameLaunchExecutionBetterGenshinImpactStarted" xml:space="preserve">
     <value>BetterGI avviato</value>
   </data>
@@ -1028,6 +1046,9 @@
   </data>
   <data name="ServiceGameLaunchingHandlerEmbeddedYaeIslandNotEnabled" xml:space="preserve">
     <value>Prima di utilizzare Embedded Yae, è necessario essere consapevoli dei rischi correlati e attivare la funzione di iniezione nella pagina "Avvia Gioco"</value>
+  </data>
+  <data name="ServiceGameLaunchingHandlerGameProcessStartRepositorySyncFailed" xml:space="preserve">
+    <value>在获取必要的启动游戏组件时发生错误</value>
   </data>
   <data name="ServiceGameLocatorFileOpenPickerCommitText" xml:space="preserve">
     <value>Seleziona l'eseguibile del gioco</value>
@@ -1106,6 +1127,12 @@ Spazio disponibile: {2}</value>
   <data name="ServiceGameSetMultiChannelUnauthorizedAccess" xml:space="preserve">
     <value>Impossibile leggere o salvare il file di configurazione, riprova in modalità amministratore</value>
   </data>
+  <data name="ServiceGitRepositoryOperationCompleted" xml:space="preserve">
+    <value>操作完成</value>
+  </data>
+  <data name="ServiceGitRepositoryOperationFailed" xml:space="preserve">
+    <value>操作失败</value>
+  </data>
   <data name="ServiceHutaoUserGachaLogExpiredAt" xml:space="preserve">
     <value>Il servizio di caricamento della cronologia dei desideri è valido fino al</value>
   </data>
@@ -1180,6 +1207,9 @@ Spazio disponibile: {2}</value>
   </data>
   <data name="ServiceYaeWaitForGameResponseMessage" xml:space="preserve">
     <value>In attesa dei dati di gioco</value>
+  </data>
+  <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
+    <value>后台任务</value>
   </data>
   <data name="UIViewPageAvatarPropertyRecommendedAppendProperties" xml:space="preserve">
     <value>Raccomandazione attributi aggiuntivi</value>
@@ -2931,7 +2961,7 @@ Spazio disponibile: {2}</value>
     <value>Overlay di Gioco</value>
   </data>
   <data name="ViewPageLaunchGameOverlayHideDescription" xml:space="preserve">
-    <value />
+    <value>设置悬浮窗（与游戏一同启动）的显示/隐藏快捷键</value>
   </data>
   <data name="ViewPageLaunchGameOverlayHideHeader" xml:space="preserve">
     <value>Mostra/Nascondi Overlay di gioco</value>
@@ -3746,6 +3776,9 @@ Spazio disponibile: {2}</value>
   <data name="ViewWindowCompactWebViewTitle" xml:space="preserve">
     <value>Finestra Web Compatta (solo Amministratore)</value>
   </data>
+  <data name="ViewWindowCompactWebView2HotKeyDisabledMessage" xml:space="preserve">
+    <value>以管理员身份运行以启用全局快捷键功能</value>
+  </data>
   <data name="ViewWindowExceptionClose" xml:space="preserve">
     <value>Chiudi</value>
   </data>
@@ -3988,5 +4021,41 @@ Spazio disponibile: {2}</value>
   </data>
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>ID monitor</value>
+  </data>
+  <data name="UIViewMainTitleBarInvertTheme" xml:space="preserve">
+    <value>主题切换</value>
+  </data>
+  <data name="ViewPageSettingAlwaysRunAsAdminText" xml:space="preserve">
+    <value>始终以管理员身份运行</value>
+  </data>
+  <data name="ViewPageSettingAlwaysRunAsAdminTextDes" xml:space="preserve">
+    <value>设置将在应用以后的启动时生效，建议开启自启动以免启动时反复UAC弹窗打扰</value>
+  </data>
+  <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
+    <value>开机自启动</value>
+  </data>
+  <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
+    <value>程序将在当前用户登录时启动（修改需以管理员身份运行，且与始终以管理员身份运行一起勾选将始终保持管理员状态）</value>
+  </data>
+  <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
+    <value>应用行为</value>
+  </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>自动签到</value>
+  </data>
+  <data name="ServiceMetadataWeaponIdNotFound" xml:space="preserve">
+    <value>ServiceMetadataWeaponIdNotFound</value>
+  </data>
+  <data name="ServiceMetadataAvatarIdNotFound" xml:space="preserve">
+    <value>ServiceMetadataAvatarIdNotFound</value>
+  </data>
+  <data name="ServiceGachaLogIdPlacesUnsupported" xml:space="preserve">
+    <value>ServiceGachaLogIdPlacesUnsupported</value>
+  </data>
+  <data name="ServiceGachaLogWeaponIdNotFound" xml:space="preserve">
+    <value>ServiceGachaLogWeaponIdNotFound</value>
+  </data>
+  <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
+    <value>ServiceGachaLogAvatarIdNotFound</value>
   </data>
 </root>
