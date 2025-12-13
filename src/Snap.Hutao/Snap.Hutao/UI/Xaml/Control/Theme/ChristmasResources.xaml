@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///UI/Xaml/Control/Theme/Christmas.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Additional styles for Christmas theme  -->
+    <Style x:Key="ChristmasTitleTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{StaticResource ChristmasSecondaryBrush}"/>
+    </Style>
+
+    <Style x:Key="ChristmasCardBackgroundStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource ChristmasPrimaryBrush}"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+</ResourceDictionary>

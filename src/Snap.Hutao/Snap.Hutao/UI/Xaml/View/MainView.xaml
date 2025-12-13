@@ -75,13 +75,29 @@
                         Margin="0,0,6,0"
                         Orientation="Horizontal"
                         Spacing="6">
+                        <!--  Christmas decoration  -->
+                        <Viewbox Visibility="{StaticResource ChristmasVisibility}">
+                            <StackPanel
+                                Width="Auto"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+                                <TextBlock Text="☃️❄️🌨️🎁🎄"/>
+                                <TextBlock FontFamily="Edwardian Script ITC" Text="Merry Christmas"/>
+                                <TextBlock Text="🎄🎁 🎀🎊 🪅"/>
+                            </StackPanel>
+                        </Viewbox>
+                        <Viewbox Visibility="{StaticResource ChristmasVisibility}">
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Image Source="https://img.icons8.com/external-others-bomsymbols-/91/external-chrismas-christmas-decoration-colors-others-bomsymbols-.png"/>
+                            </StackPanel>
+                        </Viewbox>
 
                         <Button
                             Padding="6"
                             Command="{Binding InvertAppThemeCommand}"
-                            Content="{shuxm:ResourceString Name=UIViewMainTitleBarInvertTheme}"
-                            Style="{ThemeResource SettingButtonStyle}"/>
-
+                            Content="[Dev] Invert Theme"
+                            Style="{ThemeResource SettingButtonStyle}"
+                            Visibility="{Binding IsDebug}"/>
                         <Button
                             Padding="0"
                             HorizontalContentAlignment="Stretch"

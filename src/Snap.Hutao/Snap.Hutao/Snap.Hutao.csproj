@@ -56,12 +56,12 @@
 		<PublishTrimmed>False</PublishTrimmed>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-	  <DebugType>embedded</DebugType>
-	  <IsPublishable>True</IsPublishable>
+		<DebugType>embedded</DebugType>
+		<IsPublishable>True</IsPublishable>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-	  <DebugType>embedded</DebugType>
-	  <IsPublishable>True</IsPublishable>
+		<DebugType>embedded</DebugType>
+		<IsPublishable>True</IsPublishable>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="Package.appxmanifest" />
@@ -169,6 +169,7 @@
 		<Content Include="Resource\GuideLocalization\crowdin-symbol-cWhite-64.png" />
 		<Content Include="Resource\GuideLocalization\DGP-v3-white-64.png" />
 		<Content Include="Resource\GuideLocalization\Gemini-64.png" />
+		<Content Include="Resource\GuideLocalization\MSTRDI.png" />
 		<Content Include="Resource\GuideStaticResourceQualityComparison.png" />
 		<Content Include="Resource\HutaoIconSourceTransparentBackgroundGradient1.png" />
 		<Content Include="Resource\Icon\UI_BagTabIcon_Weapon.png" />
@@ -326,6 +327,6 @@
 		<ProjectCapability Include="Msix" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
+		<ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
 	</ItemGroup>
 </Project>

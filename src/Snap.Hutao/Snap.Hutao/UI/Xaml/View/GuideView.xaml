@@ -174,7 +174,7 @@
                                 <TextBlock
                                     Margin="6,0"
                                     VerticalAlignment="Center"
-                                    Text="Milliennium Science Technology R-D Inst provide"/>
+                                    Text="Presented by Milliennium Science Technology R-D Inst"/>
                             </shuxcc:HorizontalCard.Right>
                         </shuxcc:HorizontalCard>
                         <shuxcc:HorizontalCard>
@@ -257,7 +257,7 @@
                             <TextBlock>
                                 <TextBlock.Inlines>
                                     <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementIHaveReadText}"/>
-                                    <Hyperlink NavigateUri="https://hut.ao/statements/tos.html">
+                                    <Hyperlink NavigateUri="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/statements/tos.html">
                                         <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementTermOfService}"/>
                                     </Hyperlink>
                                 </TextBlock.Inlines>
@@ -267,7 +267,7 @@
                             <TextBlock>
                                 <TextBlock.Inlines>
                                     <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementIHaveReadText}"/>
-                                    <Hyperlink NavigateUri="https://hut.ao/statements/privacy-notice.html">
+                                    <Hyperlink NavigateUri="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/statements/privacy-notice.html">
                                         <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementPrivacyPolicy}"/>
                                     </Hyperlink>
                                 </TextBlock.Inlines>
@@ -277,7 +277,7 @@
                             <TextBlock>
                                 <TextBlock.Inlines>
                                     <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementIHaveReadText}"/>
-                                    <Hyperlink NavigateUri="https://hut.ao/statements/bug-report.html">
+                                    <Hyperlink NavigateUri="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/zh/statements/bug-report.html">
                                         <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementIssueReport}"/>
                                     </Hyperlink>
                                 </TextBlock.Inlines>
@@ -287,7 +287,7 @@
                             <TextBlock>
                                 <TextBlock.Inlines>
                                     <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementIHaveReadText}"/>
-                                    <Hyperlink NavigateUri="https://github.com/DGP-Studio/Snap.Hutao/blob/main/LICENSE">
+                                    <Hyperlink NavigateUri="https://github.com/hoshiizumiya/Snap.Hutao-Manjusaka?tab=License-1-ov-file">
                                         <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementOpenSourceLicense}"/>
                                     </Hyperlink>
                                 </TextBlock.Inlines>

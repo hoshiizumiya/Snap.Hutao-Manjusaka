@@ -1,4 +1,4 @@
-Your task is to “onboard” this repository to the Copilot coding agent by adding this .github/copilot-instructions.md file. It gives the agent the minimum, durable context it needs to understand the project, validate changes, and open mergeable PRs.
+﻿Your task is to “onboard” this repository to the Copilot coding agent by adding this .github/copilot-instructions.md file. It gives the agent the minimum, durable context it needs to understand the project, validate changes, and open mergeable PRs.
 
 These instructions are repository-wide and task-agnostic. If something here contradicts ad-hoc guidance in an issue or PR, prefer the ad-hoc guidance for that task.
 
@@ -32,11 +32,11 @@ Rule of thumb: Prefer Visual Studio 2022 for packaging or signing workflows. Use
 - Top level
   - .github  — issue templates and workflows; this file lives here.
   - res      — assets and miscellaneous resources.
-  - src/Snap.Hutao  — the solution root for the desktop app (primary code lives here).
+  - src/Snap.Hutao/Snap.Hutao/  — the solution root for the desktop app (primary code lives here).
   - Build and CI configuration in the root (for example build.cake, NuGet.Config, CI YAML).
 
-- Inside src/Snap.Hutao
-  - Solution: Snap.Hutao.sln (primary).
+- Inside src/Snap.Hutao/Snap.Hutao/
+  - Solution: Snap.Hutao.slnx (primary).
   - Main app project: Snap.Hutao (WinUI 3 XAML and C#).
   - Common folders you will work in:
     - UI (XAML views, controls) and ViewModel (MVVM presentation).
@@ -80,15 +80,15 @@ If the agent runs headless, prefer CLI restore, build, and test for validation a
 Use this order on a clean clone. Local build is recommended for rapid feedback but not required; GitHub Actions will perform the authoritative validation.
 
 1) Restore
-   dotnet restore src/Snap.Hutao/Snap.Hutao.sln
+   dotnet restore src/Snap.Hutao/Snap.Hutao.slnx
 
 2) Build (Debug)
-   dotnet build src/Snap.Hutao/Snap.Hutao.sln -c Debug
+   dotnet build src/Snap.Hutao/Snap.Hutao.slnx -c Debug
 
    Expect WinUI 3 XAML compilation and analyzer checks. Fix analyzer violations before proposing changes.
 
 3) Run for development
-   - Open src/Snap.Hutao/Snap.Hutao.sln in Visual Studio 2022.
+   - Open src/Snap.Hutao/Snap.Hutao.slnx in Visual Studio 2026.
    - Set the main project as startup, select x64, press F5. Packaged debugging will register the app locally.
 
 4) Package when needed
@@ -96,7 +96,7 @@ Use this order on a clean clone. Local build is recommended for rapid feedback b
    - CI may also produce Alpha packages for main, develop, or feat/* branches. Local install of CI-signed packages can require installing the provided certificate.
 
 5) Tests (if present)
-   dotnet test src/Snap.Hutao/Snap.Hutao.sln
+   dotnet test src/Snap.Hutao/Snap.Hutao.slnx
 
    Add or update tests for non-UI logic when you change behavior.
 
