@@ -196,7 +196,7 @@
     <value>Ventana</value>
   </data>
   <data name="GuideWindowTitle" xml:space="preserve">
-    <value>Bienvenido a Snap Hutao</value>
+    <value>欢迎使用胡桃-Manjusaka</value>
   </data>
   <data name="MetadataSpecialNameMetaAvatarSexProInfoPronounBoyGirlD" xml:space="preserve">
     <value>&lt;color=#1E90FF&gt;Príncipe&lt;/color&gt;/&lt;color=#FFB6C1&gt;Princesa&lt;/color&gt;</value>
@@ -4057,5 +4057,11 @@ Espacio disponible: {2}</value>
   </data>
   <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
     <value>ServiceGachaLogAvatarIdNotFound</value>
+  </data>
+  <data name="ViewPageSettingCMThemeDescription" xml:space="preserve">
+    <value>启用圣诞节主题，重启以生效，仅12月开启一次</value>
+  </data>
+  <data name="ViewPageSettingCMThemeHeader" xml:space="preserve">
+    <value>圣诞主题</value>
   </data>
 </root>
