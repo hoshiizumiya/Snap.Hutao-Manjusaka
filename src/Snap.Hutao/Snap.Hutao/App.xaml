@@ -83,6 +83,7 @@
 
             <Style BasedOn="{StaticResource DefaultCheckBoxStyle}" TargetType="shuxc:CheckBoxWithDescriptionControl"/>
 
+            <Visibility x:Key="ChristmasVisibility">Collapsed</Visibility>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

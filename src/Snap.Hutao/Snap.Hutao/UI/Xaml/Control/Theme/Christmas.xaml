@@ -13,7 +13,4 @@
     <SolidColorBrush x:Key="AccentFillColorDefaultBrush" Color="#FFE53935"/>
     <SolidColorBrush x:Key="AccentFillColorSecondaryBrush" Color="#FFE53935"/>
     <SolidColorBrush x:Key="AccentFillColorTertiaryBrush" Color="#FF2E7D32"/>
-
-    <!--  Decorations  -->
-    <BitmapImage x:Key="ChristmasSnowImage" UriSource="Assets/Christmas/snow.png"/>
 </ResourceDictionary>

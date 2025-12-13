@@ -4058,4 +4058,10 @@ Space Available: {2}</value>
   <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
     <value>ServiceGachaLogAvatarIdNotFound</value>
   </data>
+  <data name="ViewPageSettingCMThemeDescription" xml:space="preserve">
+    <value>Activate Christmas theme, restart to take effect, only once in December</value>
+  </data>
+  <data name="ViewPageSettingCMThemeHeader" xml:space="preserve">
+    <value>Christmas Theme</value>
+  </data>
 </root>

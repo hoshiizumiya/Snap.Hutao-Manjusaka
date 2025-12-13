@@ -317,7 +317,7 @@
                                     Description="{shuxm:ResourceString Name=ViewPageSettingThemeDescription}"
                                     Header="{shuxm:ResourceString Name=ViewPageSettingThemeHeader}"
                                     HeaderIcon="{shuxm:FontIcon Glyph=&#xE790;}"
-                                    IsExpanded="True">
+                                    IsExpanded="False">
                                     <shuxc:SizeRestrictedContentControl>
                                         <ComboBox
                                             DisplayMemberPath="Name"
@@ -326,8 +326,8 @@
                                     </shuxc:SizeRestrictedContentControl>
                                     <cwc:SettingsExpander.Items>
                                         <cwc:SettingsCard
-                                            Description="启用圣诞节主题"
-                                            Header="圣诞主题"
+                                            Description="{shuxm:ResourceString Name=ViewPageSettingCMThemeDescription}"
+                                            Header="{shuxm:ResourceString Name=ViewPageSettingCMThemeHeader}"
                                             HeaderIcon="{shuxm:FontIcon Glyph=&#xE794;}">
                                             <ToggleSwitch IsOn="{Binding IsChristmasThemeEnabled, Mode=TwoWay}"/>
                                         </cwc:SettingsCard>

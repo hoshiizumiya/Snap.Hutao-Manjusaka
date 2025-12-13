@@ -6,7 +6,7 @@ using Microsoft.UI.Xaml;
 namespace Snap.Hutao.UI.Xaml.Control.Theme;
 
 /// <summary>
-/// Manager for applying and removing the Christmas theme.
+/// Manager for applying and removing the Christmas theme. Need to clean.
 /// </summary>
 public static class ChristmasThemeManager
 {

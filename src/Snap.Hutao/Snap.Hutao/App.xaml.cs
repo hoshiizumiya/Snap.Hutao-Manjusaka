@@ -165,10 +165,22 @@ public sealed partial class App : Application
             if (LocalSetting.Get(SettingKeys.IsChristmasThemeEnabled, DateTime.Now.Month == 12))
             {
                 ChristmasThemeManager.Apply(this);
+                Resources["ChristmasVisibility"] = Visibility.Visible;
+            }
+            else if(DateTime.Now.Month != 12)
+            {
+                LocalSetting.Set(SettingKeys.IsChristmasThemeEnabled, false);
+                ChristmasThemeManager.Remove(this);
+                Resources["ChristmasVisibility"] = Visibility.Collapsed;
+            }
+            else if (DateTime.Now.Month == 12 && DateTime.Now.Day == 25)
+            {
+                // TO DO
             }
             else
             {
                 ChristmasThemeManager.Remove(this);
+                Resources["ChristmasVisibility"] = Visibility.Collapsed;
             }
 
             // Manually invoke
