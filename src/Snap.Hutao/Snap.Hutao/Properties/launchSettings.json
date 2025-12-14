@@ -8,7 +8,8 @@
       "alwaysReinstallApp": false
     },
     "[Unpackaged] Snap.Hutao": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "nativeDebugging": true
     }
   }
 }

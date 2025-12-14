@@ -56,12 +56,12 @@
 		<PublishTrimmed>False</PublishTrimmed>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-		<DebugType>embedded</DebugType>
-		<IsPublishable>True</IsPublishable>
+	  <DebugType>embedded</DebugType>
+	  <IsPublishable>True</IsPublishable>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-		<DebugType>embedded</DebugType>
-		<IsPublishable>True</IsPublishable>
+	  <DebugType>embedded</DebugType>
+	  <IsPublishable>True</IsPublishable>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="Package.appxmanifest" />
@@ -73,7 +73,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<DllFiles Include="..\\x64\\$(Configuration)\\*.dll" />
+		<DllFiles Include="../x64/$(Configuration)/*.dll" />
 	</ItemGroup>
 
 	<Target Name="CopyDLL" AfterTargets="Build">
@@ -327,6 +327,6 @@
 		<ProjectCapability Include="Msix" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
+	  <ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
 	</ItemGroup>
 </Project>
