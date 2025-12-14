@@ -24,7 +24,6 @@ using Snap.Hutao.UI.Xaml.View.Window;
 using Snap.Hutao.ViewModel.Achievement;
 using Snap.Hutao.ViewModel.Game;
 using Snap.Hutao.ViewModel.Guide;
-using Snap.Hutao.ViewModel.Sign;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 

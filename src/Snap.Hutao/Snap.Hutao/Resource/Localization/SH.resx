@@ -4065,4 +4065,25 @@
   <data name="ViewPageSettingCMThemeHeader" xml:space="preserve">
     <value>圣诞主题</value>
   </data>
+  <data name="ViewPageLaunchGameAdvancedStartOptionsHeader" xml:space="preserve">
+    <value>自定义启动</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDescription" xml:space="preserve">
+    <value>自定义启动选项允许快速启动其他路径的程序，胡桃内的游戏选项包括启动参数将不会生效</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCustomizeHeader" xml:space="preserve">
+    <value>用户自定义程序启动</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathHeader" xml:space="preserve">
+    <value>选择启动程序</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathDescription" xml:space="preserve">
+    <value>选择需要启动的程序路径，以 '.exe' 结尾</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOpenCommunityAction" xml:space="preserve">
+    <value>前往社区获取分享的程序</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartGame" xml:space="preserve">
+    <value>启动自定义程序</value>
+  </data>
 </root>

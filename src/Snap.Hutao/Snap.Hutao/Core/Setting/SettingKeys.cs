@@ -25,6 +25,7 @@ internal static class SettingKeys
     public const string BackgroundImageType          = "Snap::Hutao::UI::BackgroundImage::Type";
     public const string ElementTheme                 = "Snap::Hutao::UI::ElementTheme";
     public const string IsChristmasThemeEnabled      = "Snap::Hutao::UI::Theme::Christmas::Enabled";
+    public const string ChristmasThemeYearSetup      = "Snap::Hutao::UI::Theme::Christmas::YearSetup";
     public const string SystemBackdropType           = "Snap::Hutao::UI::SystemBackdropType";
     public const string GuideState                   = "Snap::Hutao::UI::Windowing::GuideWindow::State::1.17";
     public const string LastWindowCloseBehavior      = "Snap::Hutao::UI::Windowing::LastWindowCloseBehavior";
@@ -140,6 +141,9 @@ internal static class SettingKeys
     public const string LaunchGamePath                                   = "Snap::Hutao::Game::Path";
     public const string LaunchGamePathEntries                            = "Snap::Hutao::Game::Path::Entries";
     public const string LaunchIsWindowsHDREnabled                        = "Snap::Hutao::Game::Registry::WindowsHDR::Enabled";
+
+    // Advanced Start
+    public const string LaunchAdvancedStartProgramPath                   = "Snap::Hutao::Game::AdvancedStart::ProgramPath";
 
     // Web
     public const string AlphaBuildUseCnPatchEndpoint            = "Snap::Hutao::Web::AlphaBuild::Endpoint::UseCNPatch";

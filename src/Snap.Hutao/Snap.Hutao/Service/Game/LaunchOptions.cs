@@ -160,6 +160,9 @@ internal sealed partial class LaunchOptions : DbStoreOptions, IRestrictedGamePat
     [field: MaybeNull]
     public IObservableProperty<bool> UsingOverlay { get => field ??= CreateProperty(SettingKeys.LaunchUsingOverlay, false); }
 
+    [field: MaybeNull]
+    public IObservableProperty<string> AdvancedStartProgramPath { get => field ??= CreateProperty(SettingKeys.LaunchAdvancedStartProgramPath, string.Empty); }
+
     private static int InitializeTargetFpsWithScreenFps()
     {
         return HutaoNative.Instance.MakeDeviceCapabilities().GetPrimaryScreenVerticalRefreshRate();

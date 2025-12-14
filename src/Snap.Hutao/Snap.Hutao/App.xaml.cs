@@ -162,20 +162,24 @@ public sealed partial class App : Application
 
             FrameworkTheming.SetTheme(ThemeHelper.ElementToFramework(serviceProvider.GetRequiredService<AppOptions>().ElementTheme.Value));
 
-            if (LocalSetting.Get(SettingKeys.IsChristmasThemeEnabled, DateTime.Now.Month == 12))
+            // Handle Christmas theme: only initialize defaults once per year in December
+            int currentYear = DateTime.Now.Year;
+            bool isDecember = DateTime.Now.Month == 12;
+            int lastYearSetup = LocalSetting.Get(SettingKeys.ChristmasThemeYearSetup, 0);
+
+            if (isDecember && lastYearSetup != currentYear)
+            {
+                // First run of this year's December: set default to enabled
+                LocalSetting.Set(SettingKeys.ChristmasThemeYearSetup, currentYear);
+                LocalSetting.Set(SettingKeys.IsChristmasThemeEnabled, true);
+            }
+
+            // Apply or remove the theme based on user's stored preference (regardless of month)
+            bool enabled = LocalSetting.Get(SettingKeys.IsChristmasThemeEnabled, isDecember);
+            if (enabled)
             {
                 ChristmasThemeManager.Apply(this);
                 Resources["ChristmasVisibility"] = Visibility.Visible;
-            }
-            else if(DateTime.Now.Month != 12)
-            {
-                LocalSetting.Set(SettingKeys.IsChristmasThemeEnabled, false);
-                ChristmasThemeManager.Remove(this);
-                Resources["ChristmasVisibility"] = Visibility.Collapsed;
-            }
-            else if (DateTime.Now.Month == 12 && DateTime.Now.Day == 25)
-            {
-                // TO DO
             }
             else
             {

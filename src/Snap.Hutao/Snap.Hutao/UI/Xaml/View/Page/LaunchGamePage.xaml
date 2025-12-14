@@ -416,7 +416,7 @@
                                             IsEnabled="{Binding LaunchOptions.UsingHoyolabAccount.Value, Converter={StaticResource BoolNegationConverter}}"
                                             ItemTemplate="{StaticResource GameAccountListTemplate}"
                                             ItemsSource="{Binding TargetSchemeFilteredGameAccountsView.View}"
-                                            SelectedItem="{Binding TargetSchemeFilteredGameAccountsView.View.CurrentItem, Mode=TwoWay}">
+                                            SelectedItem="{Binding TargetSchemeFilteredGameAccountsView.SelectedGameAccount, Mode=TwoWay}">
                                             <ListView.Header>
                                                 <InfoBar
                                                     Title="{shuxm:ResourceString Name=ViewListViewDragElevatedHint}"
@@ -551,6 +551,121 @@
                         </Border>
                     </StackPanel>
                 </ScrollViewer>
+            </PivotItem>
+
+            <PivotItem Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOptionsHeader}">
+                <Border
+                    Margin="16"
+                    Padding="0"
+                    cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
+                    <Grid Style="{ThemeResource AcrylicGridCardStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid
+                            Grid.Row="0"
+                            Padding="16,8"
+                            Background="{ThemeResource LayerOnAcrylicFillColorDefaultBrush}"
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                            BorderThickness="0,0,0,1"
+                            RowSpacing="16">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCustomizeHeader}"/>
+                                <TextBlock
+                                    Foreground="{ThemeResource SystemFillColorCriticalBrush}"
+                                    Style="{StaticResource CaptionTextBlockStyle}"
+                                    Text="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDescription}"/>
+                            </StackPanel>
+                        </Grid>
+                        <ScrollViewer Grid.Row="3">
+                            <ContentControl HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                                <Grid Padding="16" ColumnSpacing="16">
+                                    <!--<Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <!--  启动自定义程序  -->
+                                    <StackPanel
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Left"
+                                        Orientation="Horizontal">
+                                        <AppBarButton
+                                            Width="200"
+                                            HorizontalAlignment="Left"
+                                            Command="{Binding LaunchAdvancedCommand}"
+                                            Icon="{shuxm:FontIcon Glyph=&#xE967;}"
+                                            IsEnabled="{Binding LaunchOptions.IsGameRunning.Value, Converter={StaticResource BoolNegationConverter}}"
+                                            Label="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartGame}"/>
+
+                                    </StackPanel>
+                                    <!--  选择启动路径  -->
+                                    <cwc:SettingsCard
+                                        Grid.Row="1"
+                                        VerticalAlignment="Top"
+                                        ActionIcon="{shuxm:FontIcon Glyph=&#xE8DA;}"
+                                        Command="{Binding PickAdvancedStartProgramPathCommand}"
+                                        Description="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartPickPathDescription}"
+                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartPickPathHeader}"
+                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xE8AC;}"
+                                        IsClickEnabled="True">
+                                        <StackPanel Orientation="Horizontal" Spacing="{ThemeResource SettingsCardContentControlSpacing}">
+                                            <TextBlock
+                                                MaxWidth="400"
+                                                HorizontalAlignment="Stretch"
+                                                Text="{Binding AdvancedStartProgramPath}"/>
+                                        </StackPanel>
+                                    </cwc:SettingsCard>
+                                    <cwc:SettingsCard
+                                        Grid.Row="2"
+                                        VerticalAlignment="Top"
+                                        ActionIcon="{shuxm:FontIcon Glyph=&#xE8A7;}"
+                                        ActionIconToolTip="Open in new window"
+                                        Command="{Binding OpenAdvancedStartCommunityCommand}"
+                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenCommunityAction}"
+                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xEBD3;}"
+                                        IsClickEnabled="True"/>
+
+                                    <!--<Border
+                                        Grid.Row="2"
+                                        Padding="0"
+                                        Background="{ThemeResource LayerOnAcrylicFillColorDefaultBrush}"
+                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                        BorderThickness="0,0,0,1"
+                                        CornerRadius="10">
+                                        <Border Padding="16">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </Border>
+                                    </Border>-->
+                                </Grid>
+                            </ContentControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
             </PivotItem>
 
             <PivotItem Header="{shuxm:ResourceString Name=ViewPageLaunchGameIslandOptionsHeader}">
@@ -902,6 +1017,8 @@
                     </Grid>
                 </Border>
             </PivotItem>
+
+
         </Pivot>
     </shuxc:StandardView>
 </shuxc:ScopedPage>

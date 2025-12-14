@@ -103,11 +103,11 @@
                                             Description="{shuxm:ResourceString Name=ViewPageFeedbackServerStatusDescription}"
                                             Header="{shuxm:ResourceString Name=ViewPageFeedbackServerStatusHeader}"
                                             IsClickEnabled="True"/>
-                                        <cwcont:SettingsCard
+                                        <!--<cwcont:SettingsCard
                                             Command="{Binding NavigateToUriCommand}"
                                             CommandParameter="https://qm.qq.com/q/NTwagkSm0o"
                                             Header="QQ Group"
-                                            IsClickEnabled="True"/>
+                                            IsClickEnabled="True"/>-->
                                     </cwcont:SettingsExpander.Items>
                                 </cwcont:SettingsExpander>
                             </Border>

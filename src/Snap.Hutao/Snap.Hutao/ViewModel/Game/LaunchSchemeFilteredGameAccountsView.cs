@@ -41,6 +41,21 @@ internal sealed partial class LaunchSchemeFilteredGameAccountsView : ObservableO
 
     private IProperty<bool> IsViewUnloaded { get; }
 
+    public GameAccount? SelectedGameAccount
+    {
+        get => View?.CurrentItem;
+        set
+        {
+            if (View is null)
+            {
+                return;
+            }
+
+            View.MoveCurrentTo(value);
+            OnPropertyChanged();
+        }
+    }
+
     public async ValueTask SetAsync(LaunchScheme? value, bool external = true)
     {
         using (await syncRoot.LockAsync().ConfigureAwait(false))
@@ -56,6 +71,7 @@ internal sealed partial class LaunchSchemeFilteredGameAccountsView : ObservableO
                 IAdvancedCollectionView<GameAccount> accountsView = await gameService.GetGameAccountCollectionAsync().ConfigureAwait(true);
                 await taskContext.SwitchToMainThreadAsync();
                 View = accountsView;
+                OnPropertyChanged(nameof(SelectedGameAccount));
             }
             else
             {
@@ -63,11 +79,13 @@ internal sealed partial class LaunchSchemeFilteredGameAccountsView : ObservableO
                 // incorrect CN/OS registry account when scheme not match
                 await taskContext.SwitchToMainThreadAsync();
                 View.MoveCurrentTo(default);
+                OnPropertyChanged(nameof(SelectedGameAccount));
             }
 
             // Update GameAccountsView
             await taskContext.SwitchToMainThreadAsync();
             View.Filter = GameAccountFilter.Create(Scheme?.SchemeType);
+            OnPropertyChanged(nameof(SelectedGameAccount));
 
             // Try set to the current registry account.
             if (Scheme is null)
@@ -90,6 +108,7 @@ internal sealed partial class LaunchSchemeFilteredGameAccountsView : ObservableO
             if (View.CurrentItem is null)
             {
                 View.MoveCurrentTo(gameService.DetectCurrentGameAccountNoThrow(Scheme));
+                OnPropertyChanged(nameof(SelectedGameAccount));
             }
         }
     }

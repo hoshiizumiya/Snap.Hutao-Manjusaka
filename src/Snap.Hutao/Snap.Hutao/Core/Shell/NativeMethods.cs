@@ -74,6 +74,7 @@ static partial class NativeMethods
         }
         catch (Exception ex)
         {
+            SentrySdk.CaptureException(ex);
             Debug.WriteLine($"Failed to restart as administrator: {ex.Message}");
             ProcessStartInfo psi = new ProcessStartInfo
             {

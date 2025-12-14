@@ -5,6 +5,8 @@ using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Core.Logging;
 using Snap.Hutao.Core.Property;
 using Snap.Hutao.Factory.ContentDialog;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Snap.Hutao.Core.Setting;
 using Snap.Hutao.Model;
 using Snap.Hutao.Model.Entity;
 using Snap.Hutao.Model.Intrinsic;
@@ -17,12 +19,16 @@ using Snap.Hutao.Service.Game.Scheme;
 using Snap.Hutao.Service.Navigation;
 using Snap.Hutao.Service.Notification;
 using Snap.Hutao.Service.User;
+using Snap.Hutao.Factory.Picker;
+using Snap.Hutao.Factory.Process;
+using Windows.System;
 using Snap.Hutao.UI.Input.LowLevel;
 using Snap.Hutao.UI.Xaml.View.Dialog;
 using Snap.Hutao.UI.Xaml.View.Window;
 using Snap.Hutao.ViewModel.User;
 using System.Collections.Immutable;
 using System.IO;
+using Snap.Hutao.Core.IO;
 
 namespace Snap.Hutao.ViewModel.Game;
 
@@ -36,6 +42,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     private readonly IUserService userService;
     private readonly ITaskContext taskContext;
     private readonly IMessenger messenger;
+    private readonly IFileSystemPickerInteraction fileSystemPickerInteraction;
 
     [GeneratedConstructor]
     public partial LaunchGameViewModel(IServiceProvider serviceProvider);
@@ -53,6 +60,12 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     public partial LaunchGameShared Shared { get; }
 
     public ImmutableArray<LaunchScheme> KnownSchemes { get; } = KnownLaunchSchemes.Values;
+
+    public string AdvancedStartProgramPath
+    {
+        get => field;
+        private set => SetProperty(ref field, value);
+    } = string.Empty;
 
     LaunchScheme? IViewModelSupportLaunchExecution.TargetScheme { get => TargetSchemeFilteredGameAccountsView.Scheme; }
 
@@ -116,6 +129,8 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
 
     protected override async ValueTask<bool> LoadOverrideAsync(CancellationToken token)
     {
+        AdvancedStartProgramPath = LocalSetting.Get(SettingKeys.LaunchAdvancedStartProgramPath, string.Empty);
+
         if (LaunchOptions.GamePathEntries.Value.IsDefaultOrEmpty)
         {
             await serviceProvider.GetRequiredService<IGamePathService>().SilentLocateAllGamePathAsync().ConfigureAwait(false);
@@ -301,5 +316,70 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         }
 
         await GameLifeCycle.TryKillGameProcessAsync(taskContext).ConfigureAwait(false);
+    }
+
+    [Command("LaunchAdvancedCommand")]
+    private async Task LaunchAdvancedAsync()
+    {
+        SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Launch advanced start program", "LaunchGameViewModel.Command"));
+
+        try
+        {
+            string programPath = LocalSetting.Get(SettingKeys.LaunchAdvancedStartProgramPath, string.Empty);
+            if (string.IsNullOrWhiteSpace(programPath))
+            {
+                messenger.Send(InfoBarMessage.Warning("未设置自定义启动程序路径"));
+                return;
+            }
+
+            if (!File.Exists(programPath))
+            {
+                messenger.Send(InfoBarMessage.Error("自定义启动程序不存在", programPath));
+                return;
+            }
+
+            // Start using shell execute (no arguments)
+            ProcessFactory.StartUsingShellExecute(string.Empty, programPath);
+            messenger.Send(InfoBarMessage.Success("已启动自定义程序"));
+        }
+        catch (Exception ex)
+        {
+            messenger.Send(InfoBarMessage.Error(ex));
+        }
+    }
+
+    [Command("PickAdvancedStartProgramPathCommand")]
+    private async Task PickAdvancedStartProgramPathAsync()
+    {
+        SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Pick advanced start program", "LaunchGameViewModel.Command"));
+
+        await taskContext.SwitchToBackgroundAsync();
+        (bool picked, ValueFile file) = fileSystemPickerInteraction.PickFile(
+            "Picker",
+            "program",
+            "*.exe");
+
+        if (!picked)
+        {
+            return;
+        }
+
+        string path = file;
+
+        // Persist can be done off-thread; UI-bound property update must be on UI thread.
+        LocalSetting.Set(SettingKeys.LaunchAdvancedStartProgramPath, path);
+
+        await taskContext.SwitchToMainThreadAsync();
+        AdvancedStartProgramPath = path;
+        messenger.Send(InfoBarMessage.Success("已保存自定义启动程序路径"));
+    }
+
+    [Command("OpenAdvancedStartCommunityCommand")]
+    private static async Task OpenAdvancedStartCommunityAsync()
+    {
+        SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Open advanced start community", "LaunchGameViewModel.Command"));
+
+        // TODO: replace with official page if needed.
+        await Launcher.LaunchUriAsync("https://github.com/hoshiizumiya/Snap.Hutao-Manjusaka/discussions".ToUri());
     }
 }
