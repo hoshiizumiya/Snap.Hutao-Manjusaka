@@ -51,7 +51,7 @@
 		<AppxPackage>false</AppxPackage>
 		<!-- 不设置打包类型 -->
 		<WindowsPackageType>None</WindowsPackageType>
-		<Version>2.0.0.0</Version>
+		<Version>2.0.1.0</Version>
 		<PublishAot>False</PublishAot>
 		<PublishTrimmed>False</PublishTrimmed>
 	</PropertyGroup>
@@ -73,7 +73,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<DllFiles Include="..\\x64\\$(Configuration)\\*.dll" />
+		<DllFiles Include="../x64/$(Configuration)/*.dll" />
 	</ItemGroup>
 
 	<Target Name="CopyDLL" AfterTargets="Build">
@@ -169,6 +169,7 @@
 		<Content Include="Resource\GuideLocalization\crowdin-symbol-cWhite-64.png" />
 		<Content Include="Resource\GuideLocalization\DGP-v3-white-64.png" />
 		<Content Include="Resource\GuideLocalization\Gemini-64.png" />
+		<Content Include="Resource\GuideLocalization\MSTRDI.png" />
 		<Content Include="Resource\GuideStaticResourceQualityComparison.png" />
 		<Content Include="Resource\HutaoIconSourceTransparentBackgroundGradient1.png" />
 		<Content Include="Resource\Icon\UI_BagTabIcon_Weapon.png" />

@@ -6,6 +6,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Core.Setting;
+using Snap.Hutao.Service.Notification;
 
 namespace Snap.Hutao.Service;
 
@@ -75,6 +76,8 @@ internal sealed partial class AutoStartService
             if (!File.Exists(helperPath))
             {
                 reason = "Runner.dll not found.";
+                IMessenger messenger = Ioc.Default.GetRequiredService<IMessenger>();
+                messenger.Send(InfoBarMessage.Error("AutoStart feature is unavailable because Runner.dll is missing."));
                 return false;
             }
 

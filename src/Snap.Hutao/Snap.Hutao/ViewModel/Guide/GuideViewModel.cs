@@ -47,11 +47,11 @@ internal sealed partial class GuideViewModel : Abstraction.ViewModel
             switch (state)
             {
                 case GuideState.Document:
-                    IsTermOfServiceAgreed = false;
-                    IsPrivacyPolicyAgreed = false;
-                    IsIssueReportAgreed = false;
-                    IsOpenSourceLicenseAgreed = false;
-                    (NextOrCompleteButtonText, IsNextOrCompleteButtonEnabled) = (SH.ViewModelGuideActionNext, false);
+                    IsTermOfServiceAgreed = true;
+                    IsPrivacyPolicyAgreed = true;
+                    IsIssueReportAgreed = true;
+                    IsOpenSourceLicenseAgreed = true;
+                    (NextOrCompleteButtonText, IsNextOrCompleteButtonEnabled) = (SH.ViewModelGuideActionNext, true);
                     break;
                 case GuideState.StaticResourceBegin:
                     (NextOrCompleteButtonText, IsNextOrCompleteButtonEnabled) = (SH.ViewModelGuideActionStaticResourceBegin, false);

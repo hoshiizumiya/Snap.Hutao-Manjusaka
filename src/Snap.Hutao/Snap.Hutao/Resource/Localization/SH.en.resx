@@ -196,7 +196,7 @@
     <value>Window</value>
   </data>
   <data name="GuideWindowTitle" xml:space="preserve">
-    <value>欢迎使用胡桃-Manjusaka</value>
+    <value>Welcome to Snap Hutao-Manjusaka, Traveler ~</value>
   </data>
   <data name="MetadataSpecialNameMetaAvatarSexProInfoPronounBoyGirlD" xml:space="preserve">
     <value>&lt;color=#1E90FF&gt;Prince&lt;/color&gt;/&lt;color=#FFB6C1&gt;Princess&lt;/color&gt;</value>
@@ -4059,9 +4059,9 @@ Space Available: {2}</value>
     <value>ServiceGachaLogAvatarIdNotFound</value>
   </data>
   <data name="ViewPageSettingCMThemeDescription" xml:space="preserve">
-    <value>启用圣诞节主题，重启以生效，仅12月开启一次</value>
+    <value>Activate Christmas theme, restart to take effect, only once in December</value>
   </data>
   <data name="ViewPageSettingCMThemeHeader" xml:space="preserve">
-    <value>圣诞主题</value>
+    <value>Christmas Theme</value>
   </data>
 </root>

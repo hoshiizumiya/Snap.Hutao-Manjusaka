@@ -3,6 +3,7 @@
 
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;
+using Snap.Hutao.Core.Setting;
 using Snap.Hutao.Model;
 using Snap.Hutao.Service;
 using Snap.Hutao.Service.BackgroundImage;
@@ -24,6 +25,37 @@ internal sealed partial class SettingAppearanceViewModel : Abstraction.ViewModel
     public partial AppOptions AppOptions { get; }
 
     public partial BackgroundImageOptions BackgroundImageOptions { get; }
+
+    // TODO: Replace with IObservableProperty
+    private bool? isChristmasThemeEnabled;
+    public bool IsChristmasThemeEnabled
+    {
+        get
+        {
+            if (isChristmasThemeEnabled == null)
+            {
+                isChristmasThemeEnabled = LocalSetting.Get(SettingKeys.IsChristmasThemeEnabled, DateTime.Now.Month == 12);
+            }
+
+            return isChristmasThemeEnabled.Value;
+        }
+        set
+        {
+            bool? temp = value;
+            if (SetProperty(ref isChristmasThemeEnabled, temp))
+            {
+                LocalSetting.Set(SettingKeys.IsChristmasThemeEnabled, value);
+                if (value)
+                {
+                    ChristmasThemeManager.Apply(Application.Current);
+                }
+                else
+                {
+                    ChristmasThemeManager.Remove(Application.Current);
+                }
+            }
+        }
+    }
 
     // TODO: Replace with IObservableProperty
     public NameCultureInfoValue? SelectedCulture

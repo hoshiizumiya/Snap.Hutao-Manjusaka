@@ -23,7 +23,7 @@ internal sealed partial class GuideWindow : Microsoft.UI.Xaml.Window,
         if (AppWindow.Presenter is OverlappedPresenter presenter)
         {
             presenter.IsMaximizable = false;
-            SizeInt32 minSize = ScaledSizeInt32.CreateForWindow(1000, 650, this);
+            SizeInt32 minSize = ScaledSizeInt32.CreateForWindow(1050, 650, this);
             presenter.PreferredMinimumWidth = minSize.Width;
             presenter.PreferredMinimumHeight = minSize.Height;
             SizeInt32 maxSize = ScaledSizeInt32.CreateForWindow(1200, 800, this);
@@ -40,5 +40,5 @@ internal sealed partial class GuideWindow : Microsoft.UI.Xaml.Window,
 
     public ImmutableArray<FrameworkElement> TitleBarPassthrough { get => []; }
 
-    public SizeInt32 InitSize { get => ScaledSizeInt32.CreateForWindow(1000, 650, this); }
+    public SizeInt32 InitSize { get => ScaledSizeInt32.CreateForWindow(1050, 650, this); }
 }

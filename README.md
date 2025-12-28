@@ -1,4 +1,4 @@
-<p align="center">
+﻿<p align="center">
   <img src="https://github.com/hoshiizumiya/Snap.Hutao-Manjusaka/blob/main/src/Snap.Hutao/Snap.Hutao/Assets/InAppLogo.png" alt="Snap Hutao Banner" width="600"/>
 </p>
 <h1 align="center">Snap Hutao-Manjusaka</h1>
@@ -28,7 +28,8 @@ Snap Hutao-Manjusaka is an open-source Genshin Impact toolkit under MIT license,
 ---
 
 ## 开发
-项目启动位置已升级为 VS2026 的 slnx 格式 Snap.Hutao\src\Snap.Hutao\Snap.Hutao.slnx
+项目启动位置已升级为 VS2026 的 slnx 格式 Snap.Hutao\src\Snap.Hutao\Snap.Hutao.slnx  
+针对当程序设置为默认以管理员模式运行而无法使用 VS 启动调试的情况，请提升 VS 的运行权限（右键VS以管理员身份运行）
 > [!WARNING]
 > 要使该项目可以长期运行，我们需要以下资源
 > 元数据的编写
@@ -64,7 +65,7 @@ V6.2的元数据已在编写中
 调试选项请选择unpackaged（不打包）
 **原开发文档现在还可使用（其中的AI功能很好用），以下是开发文档链接：**  
 
-https://deepwiki.com/DGP-Studio/Snap.Hutao
+https://deepwiki.com/hoshiizumiya/Snap.Hutao-Manjusaka/
 
 https://deepwiki.com/DGP-Studio/Snap.Hutao.Server
 ## 打包测试
@@ -111,6 +112,11 @@ http://serverjp.wdg.cloudns.ch:5222/
 **临时资源站：**  
 http://server.wdg.cloudns.ch:8007/
 ---
+
+## 如何卸载
+
+卸载当前版本请前往*设置->应用->安装的应用*->找到 Snap.Hutao Manjusaka，选择卸载即可。（快捷操作：Win+X 打开安装的应用）  
+注意，应用缓存数据在卸载后不会自动删除，卸载前请确认你的数据保存目录，未上传云服务的本地用户数据仅一份请注意保存或处理删除。不同的目录下包含了图片、元数据、用户设置等数据。
 
 ## 🙏 特别感谢 / Special Thanks
 

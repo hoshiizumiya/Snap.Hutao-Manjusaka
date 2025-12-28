@@ -24,6 +24,7 @@ internal static class SettingKeys
     // UI
     public const string BackgroundImageType          = "Snap::Hutao::UI::BackgroundImage::Type";
     public const string ElementTheme                 = "Snap::Hutao::UI::ElementTheme";
+    public const string IsChristmasThemeEnabled      = "Snap::Hutao::UI::Theme::Christmas::Enabled";
     public const string SystemBackdropType           = "Snap::Hutao::UI::SystemBackdropType";
     public const string GuideState                   = "Snap::Hutao::UI::Windowing::GuideWindow::State::1.17";
     public const string LastWindowCloseBehavior      = "Snap::Hutao::UI::Windowing::LastWindowCloseBehavior";
