@@ -1,8 +1,8 @@
-﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
 	<Package
         Name="Snap.Hutao Manjusaka"
         Manufacturer="Millennium Science Technology R-D Inst"
-        Version="2.0.1.0"
+        Version="2.0.2"
         UpgradeCode="121203be-60cb-408f-92cc-7080f6598e68"
         Scope="perMachine">
 
