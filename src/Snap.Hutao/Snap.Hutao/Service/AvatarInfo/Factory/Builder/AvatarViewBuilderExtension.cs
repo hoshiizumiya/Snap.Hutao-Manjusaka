@@ -24,14 +24,23 @@ internal static class AvatarViewBuilderExtension
     {
         if (detailedCharacter.Costumes is [{ Id: { } id }, ..])
         {
-            MetadataCostume costume = avatar.Costumes.Single(c => c.Id == id);
+            MetadataCostume? costume = avatar.Costumes.SingleOrDefault(c => c.Id == id);
+            
+            if (costume != null)
+            {
+                ArgumentNullException.ThrowIfNull(costume.FrontIcon);
+                ArgumentNullException.ThrowIfNull(costume.SideIcon);
 
-            ArgumentNullException.ThrowIfNull(costume.FrontIcon);
-            ArgumentNullException.ThrowIfNull(costume.SideIcon);
-
-            // Set to costume icon
-            builder.View.Icon = AvatarIconConverter.IconNameToUri(costume.FrontIcon);
-            builder.View.SideIcon = AvatarIconConverter.IconNameToUri(costume.SideIcon);
+                // Set to costume icon
+                builder.View.Icon = AvatarIconConverter.IconNameToUri(costume.FrontIcon);
+                builder.View.SideIcon = AvatarIconConverter.IconNameToUri(costume.SideIcon);
+            }
+            else
+            {
+                // Costume not found in metadata, fallback to default avatar icon
+                builder.View.Icon = AvatarIconConverter.IconNameToUri(avatar.Icon);
+                builder.View.SideIcon = AvatarIconConverter.IconNameToUri(avatar.SideIcon);
+            }
         }
         else
         {

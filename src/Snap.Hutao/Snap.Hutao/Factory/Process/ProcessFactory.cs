@@ -193,11 +193,39 @@ internal sealed class ProcessFactory
 
     public static void StartUsingShellExecuteRunAs(string fileName)
     {
-        global::System.Diagnostics.Process.Start(new global::System.Diagnostics.ProcessStartInfo
+        // 尝试从app包中启动
+        try
         {
-            FileName = fileName,
-            UseShellExecute = true,
-            Verb = "runas",
-        });
+            global::System.Diagnostics.Process.Start(new global::System.Diagnostics.ProcessStartInfo
+            {
+                FileName = fileName,
+                UseShellExecute = true,
+                Verb = "runas",
+            });
+        }catch
+        {
+            // 如果失败且filename含有Snap.Hutao.Unpackaged，就直接用Snap.Hutao.exe重启
+            if (fileName.Contains("Snap.Hutao.Unpackaged"))
+            {
+                string currentDirectory = Directory.GetCurrentDirectory();
+                string unpackagedPath = Path.Combine(currentDirectory, "Snap.Hutao.exe");
+                if (File.Exists(unpackagedPath))
+                {
+                    fileName = unpackagedPath;
+                }
+                // 否则抛出异常
+                else
+                {
+                    throw;
+                }
+                // 重新尝试启动
+                global::System.Diagnostics.Process.Start(new global::System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = fileName,
+                    UseShellExecute = true,
+                    Verb = "runas",
+                });
+            }
+        }
     }
 }
