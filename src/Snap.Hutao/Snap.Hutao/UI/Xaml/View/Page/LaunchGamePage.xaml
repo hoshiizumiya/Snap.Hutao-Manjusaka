@@ -586,7 +586,10 @@
                         </Grid>
                         <ScrollViewer Grid.Row="3">
                             <ContentControl HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
-                                <Grid Padding="16" ColumnSpacing="16">
+                                <Grid
+                                    Padding="16"
+                                    ColumnSpacing="16"
+                                    RowSpacing="{ThemeResource SettingsCardSpacing}">
                                     <!--<Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -635,6 +638,14 @@
                                         Grid.Row="2"
                                         VerticalAlignment="Top"
                                         ActionIcon="{shuxm:FontIcon Glyph=&#xE8A7;}"
+                                        ActionIconToolTip="Open in browser"
+                                        Command="{Binding OpenAdvancedStartCommunityCommand}"
+                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenCommunityAction}"
+                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xEB41;}"
+                                        IsClickEnabled="True"/>
+                                    <cwc:SettingsCard
+                                        Grid.Row="3"
+                                        VerticalAlignment="Top"
                                         ActionIconToolTip="Open in new window"
                                         Command="{Binding OpenAdvancedStartCommunityCommand}"
                                         Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenCommunityAction}"

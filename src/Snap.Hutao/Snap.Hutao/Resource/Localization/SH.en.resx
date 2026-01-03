@@ -4064,4 +4064,25 @@ Space Available: {2}</value>
   <data name="ViewPageSettingCMThemeHeader" xml:space="preserve">
     <value>Christmas Theme</value>
   </data>
+  <data name="ViewPageLaunchGameAdvancedStartOptionsHeader" xml:space="preserve">
+    <value>Custom startup</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDescription" xml:space="preserve">
+    <value>Custom launch options allow quick launch of programs from other paths, and game options within Hu Tao, including launch parameters, will not take effect</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCustomizeHeader" xml:space="preserve">
+    <value>User-defined program starts</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathHeader" xml:space="preserve">
+    <value>Choose a startup program</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathDescription" xml:space="preserve">
+    <value>Select the path of the program to be launched, ending with '.exe'</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOpenCommunityAction" xml:space="preserve">
+    <value>Go to the community to obtain the shared program</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartGame" xml:space="preserve">
+    <value>Start custom program</value>
+  </data>
 </root>
