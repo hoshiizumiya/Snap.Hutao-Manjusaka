@@ -66,6 +66,7 @@
 	<ItemGroup>
 		<None Remove="Package.appxmanifest" />
 		<None Remove="Package.development.appxmanifest" />
+		<None Remove="UI\Xaml\View\Dialog\LaunchGameAdvancedStartDownloadDialog.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -259,14 +260,14 @@
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.TokenView" Version="0.1.250828-build.2223" />
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.TransitionHelper" Version="0.1.251101-build.2372" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-		<PackageReference Include="CommunityToolkit.WinUI.Behaviors" Version="8.2.251105-build.1544" />
-		<PackageReference Include="CommunityToolkit.WinUI.Collections" Version="8.2.251105-build.1544" />
-		<PackageReference Include="CommunityToolkit.WinUI.Controls.HeaderedControls" Version="8.2.251105-build.1544" />
-		<PackageReference Include="CommunityToolkit.WinUI.Controls.Primitives" Version="8.2.251105-build.1544" />
-		<PackageReference Include="CommunityToolkit.WinUI.Controls.Segmented" Version="8.2.251105-build.1544" />
-		<PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.251105-build.1544" />
-		<PackageReference Include="CommunityToolkit.WinUI.Converters" Version="8.2.251105-build.1544" />
-		<PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.2.251105-build.1544" />
+		<PackageReference Include="CommunityToolkit.WinUI.Behaviors" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Collections" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Controls.HeaderedControls" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Controls.Primitives" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Controls.Segmented" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Converters" Version="8.2.251219" />
+		<PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.2.251219" />
 		<PackageReference Include="Google.Protobuf" Version="3.33.2" />
 		<PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
 		<PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0">
@@ -295,7 +296,8 @@
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.251106002" />
 		<PackageReference Include="QRCoder" Version="1.7.0" />
 		<PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.15.1" />
-		<PackageReference Include="Sentry.Extensions.Logging" Version="5.16.2" />
+		<PackageReference Include="Sentry.Extensions.Logging" Version="6.0.0" />
+		<PackageReference Include="SharpCompress" Version="0.43.0" />
 		<PackageReference Include="Snap.HPatch" Version="0.0.2">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -328,5 +330,10 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="UI\Xaml\View\Dialog\LaunchGameAdvancedStartDownloadDialog.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 </Project>

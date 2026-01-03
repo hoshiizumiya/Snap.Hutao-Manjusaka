@@ -1,0 +1,66 @@
+<ContentDialog
+    x:Class="Snap.Hutao.UI.Xaml.View.Dialog.LaunchGameAdvancedStartDownloadDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cwc="using:CommunityToolkit.WinUI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Snap.Hutao.UI.Xaml.View.Dialog"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shuxm="using:Snap.Hutao.UI.Xaml.Markup"
+    Title="{shuxm:ResourceString Name=ViewDialogLaunchGameAdvancedStartTitle}"
+    CloseButtonText="{shuxm:ResourceString Name=ContentDialogCancelCloseButtonText}"
+    Loaded="OnLoaded"
+    PrimaryButtonClick="OnPrimaryButtonClick"
+    PrimaryButtonText="{shuxm:ResourceString Name=ViewDialogLaunchGameAdvancedStartPrimary}"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    mc:Ignorable="d">
+
+    <StackPanel Spacing="{ThemeResource SettingsCardContentControlSpacing}">
+        <InfoBar
+            Title="{x:Bind ErrorText, Mode=OneWay}"
+            IsClosable="False"
+            IsOpen="True"
+            Severity="Error"
+            Visibility="{x:Bind HasError, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+        <cwc:SettingsCard
+            Description="{x:Bind StatusText, Mode=OneWay}"
+            Header="{shuxm:ResourceString Name=ViewDialogLaunchGameAdvancedStartStatusHeader}"
+            IsClickEnabled="False">
+            <cwc:SettingsCard.HeaderIcon>
+                <FontIcon Glyph="&#xE9D2;"/>
+            </cwc:SettingsCard.HeaderIcon>
+            <ProgressBar
+                Margin="0,4,0,0"
+                IsIndeterminate="{x:Bind IsBusy, Mode=OneWay}"
+                Maximum="1"
+                Minimum="0"
+                Value="{x:Bind ProgressValue, Mode=OneWay}"/>
+        </cwc:SettingsCard>
+
+        <ListView
+            Height="280"
+            IsEnabled="{x:Bind IsListEnabled, Mode=OneWay}"
+            ItemsSource="{x:Bind Programs, Mode=OneWay}"
+            SelectedItem="{x:Bind SelectedProgram, Mode=TwoWay}"
+            SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:AdvancedStartProgramOption">
+                    <StackPanel Orientation="Vertical" Spacing="4">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{x:Bind Name}"/>
+                        <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Text="{x:Bind Version}"/>
+                        <TextBlock
+                            Style="{ThemeResource CaptionTextBlockStyle}"
+                            Text="{x:Bind Description}"
+                            TextWrapping="Wrap"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock
+            Margin="12,6,12,6"
+            Text="{shuxm:ResourceString Name=ViewDialogLaunchGameAdvancedStartEmpty}"
+            TextWrapping="Wrap"
+            Visibility="{x:Bind Programs, Mode=OneWay, Converter={StaticResource EmptyCollectionToVisibilityRevertConverter}}"/>
+    </StackPanel>
+</ContentDialog>

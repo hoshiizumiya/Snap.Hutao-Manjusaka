@@ -646,9 +646,9 @@
                                     <cwc:SettingsCard
                                         Grid.Row="3"
                                         VerticalAlignment="Top"
-                                        ActionIconToolTip="Open in new window"
-                                        Command="{Binding OpenAdvancedStartCommunityCommand}"
-                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenCommunityAction}"
+                                        ActionIconToolTip="Open in a dialog"
+                                        Command="{Binding OpenAdvancedStartCheckDownloadCommand}"
+                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenDownloaderAction}"
                                         HeaderIcon="{shuxm:FontIcon Glyph=&#xEBD3;}"
                                         IsClickEnabled="True"/>
 

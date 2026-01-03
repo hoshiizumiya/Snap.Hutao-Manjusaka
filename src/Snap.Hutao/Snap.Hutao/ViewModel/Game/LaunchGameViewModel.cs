@@ -1,11 +1,12 @@
 // Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
+// Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
+// Licensed under the MIT license.
 
 using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Core.Logging;
 using Snap.Hutao.Core.Property;
 using Snap.Hutao.Factory.ContentDialog;
-using CommunityToolkit.Mvvm.ComponentModel;
 using Snap.Hutao.Core.Setting;
 using Snap.Hutao.Model;
 using Snap.Hutao.Model.Entity;
@@ -382,4 +383,38 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         // TODO: replace with official page if needed.
         await Launcher.LaunchUriAsync("https://github.com/hoshiizumiya/Snap.Hutao-Manjusaka/discussions".ToUri());
     }
+
+    [Command("OpenAdvancedStartCheckDownloadCommand")]
+    private async Task OpenAdvancedStartCheckDownload()
+    {
+        SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Open advanced start downloader", "LaunchGameViewModel.Command"));
+
+        try
+        {
+            using (IServiceScope scope = serviceProvider.CreateScope())
+            {
+                IContentDialogFactory dialogFactory = scope.ServiceProvider.GetRequiredService<IContentDialogFactory>();
+                LaunchGameAdvancedStartDownloadDialog dialog = await dialogFactory.CreateInstanceAsync<LaunchGameAdvancedStartDownloadDialog>(scope.ServiceProvider).ConfigureAwait(false);
+
+                // Show dialog and get result
+                (bool ok, string? programPath) = await dialog.GetResultAsync().ConfigureAwait(false);
+                if (!ok || string.IsNullOrWhiteSpace(programPath))
+                {
+                    return;
+                }
+
+                // Persist and update UI on main thread
+                LocalSetting.Set(SettingKeys.LaunchAdvancedStartProgramPath, programPath);
+                await taskContext.SwitchToMainThreadAsync();
+                AdvancedStartProgramPath = programPath;
+                messenger.Send(InfoBarMessage.Success("已保存自定义启动程序路径"));
+            }
+        }
+        catch (Exception ex)
+        {
+            messenger.Send(InfoBarMessage.Error(ex));
+        }
+    }
+
+
 }
