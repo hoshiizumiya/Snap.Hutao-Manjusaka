@@ -1,7 +1,10 @@
 // Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
+// Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
+// Licensed under the MIT license.
 
 using CommunityToolkit.Mvvm.ComponentModel;
+using Google.Protobuf;
 using Snap.Hutao.Core.Property;
 using Snap.Hutao.Model;
 using Snap.Hutao.Service.Abstraction.Property;
@@ -73,5 +76,11 @@ internal abstract partial class DbStoreOptions : ObservableObject
     protected IObservableProperty<NameValue<int>?> CreatePropertyForSelectedOneBasedIndex(string key, ImmutableArray<NameValue<int>> array)
     {
         return new SelectedOneBasedIndexDbProperty(serviceProvider, key, array);
+    }
+
+    protected IObservableProperty<TMessage> CreatePropertyForProtobuf<TMessage>(string key, TMessage defaultValue)
+        where TMessage : class, IMessage<TMessage>, new()
+    {
+        return new Property.ProtobufDbProperty<TMessage>(serviceProvider, key, defaultValue);
     }
 }

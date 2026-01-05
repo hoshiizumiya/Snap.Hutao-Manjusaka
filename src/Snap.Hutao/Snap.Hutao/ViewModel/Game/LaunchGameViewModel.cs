@@ -385,7 +385,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     }
 
     [Command("OpenAdvancedStartCheckDownloadCommand")]
-    private async Task OpenAdvancedStartCheckDownload()
+    private async Task OpenAdvancedStartCheckDownloadAsync()
     {
         SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Open advanced start downloader", "LaunchGameViewModel.Command"));
 
@@ -395,6 +395,38 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
             {
                 IContentDialogFactory dialogFactory = scope.ServiceProvider.GetRequiredService<IContentDialogFactory>();
                 LaunchGameAdvancedStartDownloadDialog dialog = await dialogFactory.CreateInstanceAsync<LaunchGameAdvancedStartDownloadDialog>(scope.ServiceProvider).ConfigureAwait(false);
+
+                // Show dialog and get result
+                (bool ok, string? programPath) = await dialog.GetResultAsync().ConfigureAwait(false);
+                if (!ok || string.IsNullOrWhiteSpace(programPath))
+                {
+                    return;
+                }
+
+                // Persist and update UI on main thread
+                LocalSetting.Set(SettingKeys.LaunchAdvancedStartProgramPath, programPath);
+                await taskContext.SwitchToMainThreadAsync();
+                AdvancedStartProgramPath = programPath;
+                messenger.Send(InfoBarMessage.Success(SH.ViewModelLaunchGameAdvancedStartProgramPathSaved));
+            }
+        }
+        catch (Exception ex)
+        {
+            messenger.Send(InfoBarMessage.Error(ex));
+        }
+    }
+
+    [Command("OpenAdvancedStartDelayedProgramsCommand")]
+    private async Task OpenAdvancedStartDelayedProgramsAsync()
+    {
+        SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Open advanced start LaunchGameAdvancedStartDownloaderSourceDialog", "LaunchGameViewModel.Command"));
+
+        try
+        {
+            using (IServiceScope scope = serviceProvider.CreateScope())
+            {
+                IContentDialogFactory dialogFactory = scope.ServiceProvider.GetRequiredService<IContentDialogFactory>();
+                LaunchGameAdvancedStartDownloaderSourceDialog dialog = await dialogFactory.CreateInstanceAsync<LaunchGameAdvancedStartDownloaderSourceDialog>(scope.ServiceProvider).ConfigureAwait(false);
 
                 // Show dialog and get result
                 (bool ok, string? programPath) = await dialog.GetResultAsync().ConfigureAwait(false);

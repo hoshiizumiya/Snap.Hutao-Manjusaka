@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
@@ -66,7 +66,6 @@
 	<ItemGroup>
 		<None Remove="Package.appxmanifest" />
 		<None Remove="Package.development.appxmanifest" />
-		<None Remove="UI\Xaml\View\Dialog\LaunchGameAdvancedStartDownloadDialog.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -256,6 +255,7 @@
 	<!-- Packages -->
 	<ItemGroup>
 		<!-- https://pkgs.dev.azure.com/dotnet/CommunityToolkit/_packaging/CommunityToolkit-Labs/nuget/v3/index.json -->
+		<PackageReference Include="CommunityToolkit.Labs.WinUI.Controls.DataTable" Version="0.1.230830" />
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.Shimmer" Version="0.1.250828-build.2223" />
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.TokenView" Version="0.1.250828-build.2223" />
 		<PackageReference Include="CommunityToolkit.Labs.WinUI.TransitionHelper" Version="0.1.251101-build.2372" />
@@ -330,10 +330,5 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Runner\Runner.vcxproj" ReferenceOutputAssembly="False" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Page Update="UI\Xaml\View\Dialog\LaunchGameAdvancedStartDownloadDialog.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
 	</ItemGroup>
 </Project>

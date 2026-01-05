@@ -147,6 +147,7 @@ internal static class SettingKeys
     // Advanced Start
     public const string LaunchAdvancedStartProgramPath                   = "Snap::Hutao::Game::AdvancedStart::ProgramPath";
     public const string LaunchAdvancedStartFeedEndpoint                  = "Snap::Hutao::Game::AdvancedStart::FeedEndpoint";
+    public const string LaunchAdvancedStartDelayedPrograms               = "Snap::Hutao::Game::AdvancedStart::DelayedPrograms";
 
     // Web
     public const string AlphaBuildUseCnPatchEndpoint            = "Snap::Hutao::Web::AlphaBuild::Endpoint::UseCNPatch";

@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mxi="using:Microsoft.Xaml.Interactivity"
+    xmlns:shas="using:Snap.Hutao.Service.Game.AdvancedStart.Model"
     xmlns:shme="using:Snap.Hutao.Model.Entity"
     xmlns:shsg="using:Snap.Hutao.Service.Game"
     xmlns:shsgp="using:Snap.Hutao.Service.Game.PathAbstraction"
@@ -14,6 +15,7 @@
     xmlns:shuxb="using:Snap.Hutao.UI.Xaml.Behavior"
     xmlns:shuxba="using:Snap.Hutao.UI.Xaml.Behavior.Action"
     xmlns:shuxc="using:Snap.Hutao.UI.Xaml.Control"
+    xmlns:shuxcc="using:Snap.Hutao.UI.Xaml.Control.Card"
     xmlns:shuxci="using:Snap.Hutao.UI.Xaml.Control.Image"
     xmlns:shuxm="using:Snap.Hutao.UI.Xaml.Markup"
     xmlns:shvg="using:Snap.Hutao.ViewModel.Game"
@@ -24,6 +26,7 @@
     <mxi:Interaction.Behaviors>
         <shuxb:InvokeCommandOnLoadedBehavior Command="{Binding LoadCommand}"/>
         <shuxb:InvokeCommandOnLoadedBehavior Command="{Binding GamePackageInstallViewModel.LoadCommand}"/>
+        <shuxb:InvokeCommandOnLoadedBehavior Command="{Binding AdvancedStartDelayedProgramsViewModel.LoadCommand}"/>
     </mxi:Interaction.Behaviors>
 
     <Page.Resources>
@@ -619,7 +622,7 @@
                                             Width="200"
                                             HorizontalAlignment="Left"
                                             Command="{Binding LaunchAdvancedCommand}"
-                                            Icon="{shuxm:FontIcon Glyph=&#xE916;}"
+                                            Icon="{shuxm:FontIcon Glyph=&#xEC92;}"
                                             IsEnabled="True"
                                             Label="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartGameDelayedStart}"/>
 
@@ -664,32 +667,98 @@
                                                 HeaderIcon="{shuxm:FontIcon Glyph=&#xEBD3;}"
                                                 IsClickEnabled="True"/>
                                             <cwc:SettingsCard
+                                                Command="{Binding OpenAdvancedStartDelayedProgramsCommand}"
                                                 Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartListSetter}"
                                                 HeaderIcon="{shuxm:FontIcon Glyph=&#xE713;}"
                                                 IsClickEnabled="True"/>
                                         </cwc:SettingsExpander.Items>
                                     </cwc:SettingsExpander>
-
-                                    <!--<Border
-                                        Grid.Row="2"
-                                        Padding="0"
-                                        Background="{ThemeResource LayerOnAcrylicFillColorDefaultBrush}"
-                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                                        BorderThickness="0,0,0,1"
-                                        CornerRadius="10">
-                                        <Border Padding="16">
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="Auto"/>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                </Grid.ColumnDefinitions>
-                                            </Grid>
-                                        </Border>
-                                    </Border>-->
+                                    <!--<cwc:SettingsExpander
+                                        Grid.Row="4"
+                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayManager}"
+                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xE916;}"
+                                        IsExpanded="True">
+                                        <cwc:SettingsExpander.Items>
+                                            <cwc:SettingsCard
+                                                VerticalAlignment="Top"
+                                                ActionIconToolTip="Open in a dialog"
+                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartList}"
+                                                HeaderIcon="{shuxm:FontIcon Glyph=&#xEBD3;}"
+                                                IsClickEnabled="True"/>
+                                            <cwc:SettingsCard
+                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedTimeSetter}"
+                                                HeaderIcon="{shuxm:FontIcon Glyph=&#xE713;}"
+                                                IsClickEnabled="True"/>
+                                        </cwc:SettingsExpander.Items>
+                                    </cwc:SettingsExpander>-->
+                                    <shuxcc:TitleCard Grid.Row="4" Title="Delayed Programs">
+                                        <shuxcc:TitleCard.TitleContent>
+                                            <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,16,0">
+                                                <Button
+                                                    Command="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.AddDelayedProgramCommand, Source={StaticResource BindingProxy}}"
+                                                    Content="Add"
+                                                    Style="{ThemeResource SettingButtonStyle}" />
+                                                <Button
+                                                    Command="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.RemoveDelayedProgramCommand, Source={StaticResource BindingProxy}}"
+                                                    Content="Remove"
+                                                    IsEnabled="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.SelectedEntry, Source={StaticResource BindingProxy}, Converter={StaticResource EmptyObjectToBoolConverter}}"
+                                                    Style="{ThemeResource SettingButtonStyle}" />
+                                                <Button
+                                                    Command="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.SaveDelayedProgramCommand, Source={StaticResource BindingProxy}}"
+                                                    Content="Save"
+                                                    Style="{ThemeResource SettingButtonStyle}" />
+                                            </StackPanel>
+                                        </shuxcc:TitleCard.TitleContent>
+                                        <shuxcc:TitleCard.Content>
+                                            <ListView
+                                                ItemsSource="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.Entries, Source={StaticResource BindingProxy}}"
+                                                SelectedItem="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.SelectedEntry, Source={StaticResource BindingProxy}, Mode=TwoWay}">
+                                                <ListView.Header>
+                                                    <cwc:DataTable Margin="12,0,0,0">
+                                                        <cwc:DataColumn MinWidth="160" CanResize="True" Content="Name" />
+                                                        <cwc:DataColumn DesiredWidth="*">
+                                                            <TextBlock FontWeight="SemiBold" Text="Path" />
+                                                        </cwc:DataColumn>
+                                                        <cwc:DataColumn MinWidth="120" CanResize="True" Content="Delay(s)" />
+                                                    </cwc:DataTable>
+                                                </ListView.Header>
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate x:DataType="shas:AdvancedStartDelayedProgramEntry">
+                                                        <cwc:DataRow>
+                                                            <TextBox VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition />
+                                                                    <ColumnDefinition Width="auto" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <TextBox
+                                                                    Grid.Column="0"
+                                                                    VerticalAlignment="Center"
+                                                                    Text="{Binding Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                                <Button
+                                                                    Grid.Column="1"
+                                                                    Margin="8,0,0,0"
+                                                                    VerticalAlignment="Center"
+                                                                    Command="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.PickDelayedProgramPathCommand, Source={StaticResource BindingProxy}}"
+                                                                    CommandParameter="{Binding}"
+                                                                    Content="..."
+                                                                    Style="{ThemeResource SettingButtonStyle}" />
+                                                            </Grid>
+                                                            <NumberBox
+                                                                MinWidth="80"
+                                                                VerticalAlignment="Center"
+                                                                Value="{Binding DelaySeconds, Mode=TwoWay}" />
+                                                        </cwc:DataRow>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                                <ListView.ItemContainerStyle>
+                                                    <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
+                                                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                    </Style>
+                                                </ListView.ItemContainerStyle>
+                                            </ListView>
+                                        </shuxcc:TitleCard.Content>
+                                    </shuxcc:TitleCard>
                                 </Grid>
                             </ContentControl>
                         </ScrollViewer>
@@ -971,7 +1040,11 @@
                                         Style="{ThemeResource DefaultToggleSwitchStyle}"
                                         ToolTipService.ToolTip="{shuxm:ResourceString Name=ViewPageLaunchGameIslandRedirectCombineEntryDescription}">
                                         <mxi:Interaction.Behaviors>
-                                            <shuxb:ToggleSwitchHeaderHitTestVisibleBehavior/>
+                                            <mxi:EventTriggerBehavior EventName="Click">
+                                                <mxi:EventTriggerBehavior.Actions>
+                                                    <shuxba:ShowTeachingTipAction TeachingTip="{x:Bind RedirectCombineEntryTeachingTip}"/>
+                                                </mxi:EventTriggerBehavior.Actions>
+                                            </mxi:EventTriggerBehavior>
                                         </mxi:Interaction.Behaviors>
                                         <ToggleSwitch.Header>
                                             <StackPanel Orientation="Horizontal" Spacing="4">
