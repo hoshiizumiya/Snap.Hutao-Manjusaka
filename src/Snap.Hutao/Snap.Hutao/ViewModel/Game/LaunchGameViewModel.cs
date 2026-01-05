@@ -329,19 +329,19 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
             string programPath = LocalSetting.Get(SettingKeys.LaunchAdvancedStartProgramPath, string.Empty);
             if (string.IsNullOrWhiteSpace(programPath))
             {
-                messenger.Send(InfoBarMessage.Warning("未设置自定义启动程序路径"));
+                messenger.Send(InfoBarMessage.Warning(SH.ViewModelLaunchGameAdvancedStartProgramPathNotSet));
                 return;
             }
 
             if (!File.Exists(programPath))
             {
-                messenger.Send(InfoBarMessage.Error("自定义启动程序不存在", programPath));
+                messenger.Send(InfoBarMessage.Error(SH.ViewModelLaunchGameAdvancedStartProgramNotExists, programPath));
                 return;
             }
 
             // Start using shell execute (no arguments)
             ProcessFactory.StartUsingShellExecute(string.Empty, programPath);
-            messenger.Send(InfoBarMessage.Success("已启动自定义程序"));
+            messenger.Send(InfoBarMessage.Success(SH.ViewModelLaunchGameAdvancedStartProgramLaunched));
         }
         catch (Exception ex)
         {
@@ -372,7 +372,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
 
         await taskContext.SwitchToMainThreadAsync();
         AdvancedStartProgramPath = path;
-        messenger.Send(InfoBarMessage.Success("已保存自定义启动程序路径"));
+        messenger.Send(InfoBarMessage.Success(SH.ViewModelLaunchGameAdvancedStartProgramPathSaved));
     }
 
     [Command("OpenAdvancedStartCommunityCommand")]
@@ -407,7 +407,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
                 LocalSetting.Set(SettingKeys.LaunchAdvancedStartProgramPath, programPath);
                 await taskContext.SwitchToMainThreadAsync();
                 AdvancedStartProgramPath = programPath;
-                messenger.Send(InfoBarMessage.Success("已保存自定义启动程序路径"));
+                messenger.Send(InfoBarMessage.Success(SH.ViewModelLaunchGameAdvancedStartProgramPathSaved));
             }
         }
         catch (Exception ex)

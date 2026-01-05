@@ -5,6 +5,8 @@ using Microsoft.UI.Xaml;
 using Snap.Hutao.Core;
 using Snap.Hutao.Core.Logging;
 using Snap.Hutao.Core.Security.Principal;
+using Snap.Hutao.Core.Setting;
+using Snap.Hutao.Core.Shell;
 using Snap.Hutao.Win32;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -33,8 +35,49 @@ public static partial class Bootstrap
     {
         #if DEBUG
         System.Diagnostics.Debug.WriteLine("[Bootstrap.Main] Starting...");
-        #endif
+#endif
 
+        // Check user preference to always run elevated and request elevation if needed
+        try
+        {
+            // Only attempt when not already elevated
+            if (!HutaoRuntime.IsProcessElevated)
+            {
+                bool runElevated = false;
+                try
+                {
+                    // Read persisted setting for RunElevated (does not require AppOptions initialization)
+                    runElevated = LocalSetting.Get(SettingKeys.RunElevated, false);
+                }
+                catch
+                {
+                    // ignore read failures
+                }
+
+                if (runElevated)
+                {
+                    SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateInfo("Requesting elevation based on user setting", "Startup"));
+
+                    // Ask OS to restart this process as administrator. If succeeds, the current process will exit.
+                    try
+                    {
+                        if (NativeMethods.RestartAsAdministratorAtStart())
+                        {
+                            // Restart requested; terminate further initialization.
+                            return;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        SentrySdk.CaptureException(ex);
+                    }
+                }
+            }
+        }
+        catch
+        {
+            // tolerate any failures in elevation logic
+        }
         if (Mutex.TryOpenExisting(LockName, out _))
         {
             #if DEBUG

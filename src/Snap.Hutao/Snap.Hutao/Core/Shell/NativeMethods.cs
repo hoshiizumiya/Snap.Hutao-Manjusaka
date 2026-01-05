@@ -54,6 +54,9 @@ static partial class NativeMethods
 
         try
         {
+            // 如果 Bootstrap 持有命名互斥锁，尽早释放它以避免新的提升进程在检测到锁时退出
+            Bootstrap.UseNamedPipeRedirection();
+
             // 获取当前应用程序的完整路径
             // 将 Environment.ProcessPath 的可能 null 值安全处理，避免 CS8600
             string exeName = Environment.ProcessPath ?? string.Empty;
@@ -74,15 +77,46 @@ static partial class NativeMethods
         }
         catch (Exception ex)
         {
-            SentrySdk.CaptureException(ex);
             Debug.WriteLine($"Failed to restart as administrator: {ex.Message}");
-            ProcessStartInfo psi = new ProcessStartInfo
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// 以管理员身份启动当前应用程序
+    /// </summary>
+    /// <returns>如果成功请求重启则返回 true</returns>
+    public static bool RestartAsAdministratorAtStart()
+    {
+        if (IsAdministrator())
+        {
+            // 如果已经是管理员，无需重启（already Disable button）
+            Debug.WriteLine("Application is already running as administrator.");
+            return true;
+        }
+
+        try
+        {
+            // 获取当前应用程序的完整路径
+            // 将 Environment.ProcessPath 的可能 null 值安全处理，避免 CS8600
+            string exeName = Environment.ProcessPath ?? string.Empty;
+
+            // 使用 ShellExecuteW 请求提升（"runas"）
+            IntPtr hInst = NativeMethods.ShellExecuteW(IntPtr.Zero, "runas", exeName, String.Empty, String.Empty, 1); // SW_SHOWNORMAL = 1
+
+            // ShellExecute 返回值 > 32 表示成功
+            if (hInst == IntPtr.Zero || hInst.ToInt64() <= 32)
             {
-                FileName = System.Diagnostics.Process.GetCurrentProcess().MainModule?.FileName ?? string.Empty,
-                UseShellExecute = true,
-                Verb = "runas"
-            };
-            Process.Start(psi);
+                uint errorCode = NativeMethods.GetLastError();
+                throw new Win32Exception((int)errorCode);
+            }
+
+            Debug.WriteLine("Restart request sent. Closing current instance.");
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Failed to restart as administrator: {ex.Message}");
             return false;
         }
     }

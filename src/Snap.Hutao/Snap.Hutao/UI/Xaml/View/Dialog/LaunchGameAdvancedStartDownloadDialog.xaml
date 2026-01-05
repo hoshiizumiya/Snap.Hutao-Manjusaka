@@ -39,7 +39,8 @@
         </cwc:SettingsCard>
 
         <ListView
-            Height="280"
+            Width="Auto"
+            Height="350"
             IsEnabled="{x:Bind IsListEnabled, Mode=OneWay}"
             ItemsSource="{x:Bind Programs, Mode=OneWay}"
             SelectedItem="{x:Bind SelectedProgram, Mode=TwoWay}"

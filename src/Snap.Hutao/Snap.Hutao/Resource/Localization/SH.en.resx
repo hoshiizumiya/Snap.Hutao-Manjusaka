@@ -4116,7 +4116,7 @@ Space Available: {2}</value>
     <value>Extracting {0} ({1}/{2})</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
-    <value>Start custom program</value>
+    <value>Download custom program from custom source</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
     <value>Download</value>
@@ -4125,9 +4125,9 @@ Space Available: {2}</value>
     <value>No avaliable program</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
-    <value>State</value>
+    <value>Current execution status</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartOpenDownloaderAction" xml:space="preserve">
-    <value>Quickly download the list of startup tools from the community</value>
+    <value>Quickly retrieve and download the programs listed in the inventory</value>
   </data>
 </root>

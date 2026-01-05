@@ -6,7 +6,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using SharpCompress.Archives;
 using SharpCompress.Archives.SevenZip;
-using SharpCompress.Common;
 using Snap.Hutao.Core;
 using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Core.IO;
@@ -19,7 +18,6 @@ using Snap.Hutao.Web.Request.Builder.Abstraction;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
@@ -238,34 +236,28 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
             {
                 case SocketError.HostNotFound:  // 11001 - DNS解析失败
                                                 // 专门处理DNS解析失败，提供更详细的用户指导
-                    string hostName = message.RequestUri?.Host ?? "未知服务器";
+                    string hostName = message.RequestUri?.Host ?? SH.ViewDialogLaunchGameAdvancedStartUnknownServer;
                     throw HutaoException.InvalidOperation(
-                        $"无法连接到服务器 '{hostName}'：DNS解析失败。\n" +
-                        "可能原因：\n" +
-                        "1. 域名不存在或拼写错误\n" +
-                        "2. DNS服务器故障\n" +
-                        "3. 网络连接问题\n" +
-                        "4. 防火墙或安全软件阻止了DNS查询\n" +
-                        "请检查网络设置后重试。");
+                        string.Format(SH.ViewDialogLaunchGameAdvancedStartDnsFailed, hostName));
 
                 case SocketError.ConnectionRefused:  // 10061 - 连接被拒绝
-                    throw HutaoException.InvalidOperation($"服务器拒绝连接，请稍后重试。");
+                    throw HutaoException.InvalidOperation(SH.ViewDialogLaunchGameAdvancedStartConnectionRefused);
 
                 case SocketError.TimedOut:  // 10060 - 连接超时
-                    throw HutaoException.InvalidOperation($"连接超时，请检查网络连接。");
+                    throw HutaoException.InvalidOperation(SH.ViewDialogLaunchGameAdvancedStartTimedOut);
 
                 case SocketError.NetworkDown:  // 10050 - 网络不可用
-                    throw HutaoException.InvalidOperation($"网络连接不可用，请检查网络状态。");
+                    throw HutaoException.InvalidOperation(SH.ViewDialogLaunchGameAdvancedStartNetworkDown);
 
                 case SocketError.NetworkUnreachable:  // 10051 - 网络不可达
-                    throw HutaoException.InvalidOperation($"网络不可达，请检查网络连接。");
+                    throw HutaoException.InvalidOperation(SH.ViewDialogLaunchGameAdvancedStartNetworkUnreachable);
 
                 case SocketError.NoData:  // 10054 - DNS查询成功但无记录
-                    throw HutaoException.InvalidOperation($"DNS查询成功但未找到服务器记录，请确认地址正确性。");
+                    throw HutaoException.InvalidOperation(SH.ViewDialogLaunchGameAdvancedStartDnsNoData);
 
                 default:
                     // 记录原始异常信息以便调试
-                    throw HutaoException.InvalidOperation($"网络连接错误：{socketEx.Message} (错误代码: {socketEx.SocketErrorCode})");
+                    throw HutaoException.InvalidOperation(string.Format(SH.ViewDialogLaunchGameAdvancedStartNetworkError, socketEx.Message, socketEx.SocketErrorCode));
             }
         }
         catch (HttpRequestException ex) when (ex.StatusCode.HasValue)
@@ -274,23 +266,13 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
             // 注意：HttpRequestException.StatusCode在.NET 5+中才可用
             if (ex.StatusCode is HttpStatusCode statusCode)
             {
-                string statusCodeDescription = statusCode switch
-                {
-                    HttpStatusCode.NotFound => "资源未找到",
-                    HttpStatusCode.Forbidden => "访问被禁止",
-                    HttpStatusCode.Unauthorized => "未授权访问",
-                    HttpStatusCode.InternalServerError => "服务器内部错误",
-                    HttpStatusCode.BadGateway => "网关错误",
-                    HttpStatusCode.ServiceUnavailable => "服务不可用",
-                    HttpStatusCode.GatewayTimeout => "网关超时",
-                    _ => statusCode.ToString()
-                };
+                string statusCodeDescription = statusCode.ToString();
 
-                throw HutaoException.InvalidOperation($"服务器返回错误：{(int)statusCode} {statusCodeDescription}");
+                throw HutaoException.InvalidOperation(string.Format(SH.ViewDialogLaunchGameAdvancedStartHttpError, (int)statusCode, statusCodeDescription));
             }
             else
             {
-                throw HutaoException.InvalidOperation($"服务器返回未知错误：{ex.Message}");
+                throw HutaoException.InvalidOperation(string.Format(SH.ViewDialogLaunchGameAdvancedStartUnknownServerResponse, ex.Message));
             }
         }
         catch (HttpRequestException ex)
@@ -301,11 +283,11 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
                 ex.Message.Contains("SSL", StringComparison.OrdinalIgnoreCase) ||
                 ex.Message.Contains("TLS", StringComparison.OrdinalIgnoreCase))
             {
-                throw HutaoException.InvalidOperation($"安全连接失败：{ex.Message}，请检查系统时间和证书设置。");
+                throw HutaoException.InvalidOperation(string.Format(SH.ViewDialogLaunchGameAdvancedStartSecurityFailed, ex.Message));
             }
 
             // 通用网络请求异常
-            throw HutaoException.InvalidOperation($"网络请求失败：{ex.Message}");
+            throw HutaoException.InvalidOperation(string.Format(SH.ViewDialogLaunchGameAdvancedStartNetworkRequestFailed, ex.Message));
         }
         catch (TaskCanceledException ex)
         {
@@ -318,43 +300,41 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
             if (ex.CancellationToken.IsCancellationRequested)
             {
                 // 用户主动取消
-                throw HutaoException.OperationCanceled($"下载 {program.Name} 已被取消。");
+                throw HutaoException.OperationCanceled(string.Format(SH.ViewDialogLaunchGameAdvancedStartDownloadCanceled, program.Name));
             }
             else
             {
                 // 通常是由HttpClient.Timeout引起的超时
                 // 但也可能是网络层的超时
-                throw HutaoException.InvalidOperation($"下载 {program.Name} 超时，请检查网络连接并重试。");
+                throw HutaoException.InvalidOperation(string.Format(SH.ViewDialogLaunchGameAdvancedStartDownloadTimeout, program.Name));
             }
         }
         catch (OperationCanceledException ex)
         {
             // 处理更通用的取消异常（来自CancellationTokenSource）
-            throw HutaoException.OperationCanceled($"操作已取消：{ex.Message}");
+            throw HutaoException.OperationCanceled(string.Format(SH.ViewDialogLaunchGameAdvancedStartOperationCanceled, ex.Message));
         }
         catch (IOException ex)
         {
             // 处理IO相关的异常（如写入文件时）
-            throw HutaoException.IO($"文件读写错误：{ex.Message}");
+            throw HutaoException.IO(string.Format(SH.ViewDialogLaunchGameAdvancedStartIOError, ex.Message));
         }
         catch (NotSupportedException ex) when (ex.Message.Contains("Content", StringComparison.OrdinalIgnoreCase))
         {
             // 处理不支持的内容类型
-            throw HutaoException.InvalidOperation($"不支持的响应内容类型：{ex.Message}");
+            throw HutaoException.InvalidOperation(string.Format(SH.ViewDialogLaunchGameAdvancedStartUnsupportedContentType, ex.Message));
         }
         catch (InvalidOperationException ex) when (ex.Message.Contains("headers", StringComparison.OrdinalIgnoreCase))
         {
             // 处理无效的HTTP头
-            throw HutaoException.InvalidOperation($"无效的HTTP头设置：{ex.Message}");
+            throw HutaoException.InvalidOperation(string.Format(SH.ViewDialogLaunchGameAdvancedStartInvalidHeaders, ex.Message));
         }
         catch (Exception ex)
         {
             // 其他未预期的异常
             // 提供用户友好的错误信息，同时保留技术细节供技术支持
             throw HutaoException.InvalidOperation(
-                $"下载 {program.Name} 时发生未知错误。\n" +
-                $"错误类型: {ex.GetType().Name}\n" +
-                $"请重试或联系技术支持。");
+                string.Format(SH.ViewDialogLaunchGameAdvancedStartUnknownError, program.Name, ex.GetType().Name));
         }
         finally
         {
@@ -497,7 +477,7 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
                     {
                         if (ex.GetType().Name == "DataErrorException" || ex.InnerException?.GetType().Name == "DataErrorException")
                         {
-                            throw new InvalidDataException($"7z 解压失败（条目: {entry.Key}）：数据错误，归档可能损坏或使用了不受支持的压缩格式。请重试下载或使用 ZIP 包。", ex);
+                            throw new InvalidDataException(string.Format(SH.ViewDialogLaunchGameAdvancedStart7zEntryDataError, entry.Key), ex);
                         }
 
                         throw;
@@ -516,7 +496,7 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
                 // If underlying exception is the inaccessible LZMA DataErrorException, wrap and surface as InvalidDataException
                 if (ex.GetType().Name == "DataErrorException" || ex.InnerException?.GetType().Name == "DataErrorException")
                 {
-                    throw new InvalidDataException("7z 解压失败：归档数据损坏或采用了不受支持的压缩方式。请重试下载或提供 ZIP 格式包。", ex);
+                    throw new InvalidDataException(SH.ViewDialogLaunchGameAdvancedStart7zDataError, ex);
                 }
 
                 throw;
@@ -544,7 +524,7 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
         }
 
         // Unsupported archive format
-        throw new InvalidDataException("Unsupport archive format!");
+        throw new InvalidDataException(SH.ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat);
     }
 
     private string? ResolveExecutablePath(string targetFolder, string? entryPath)

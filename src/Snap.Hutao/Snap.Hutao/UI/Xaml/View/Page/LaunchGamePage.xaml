@@ -613,8 +613,15 @@
                                             HorizontalAlignment="Left"
                                             Command="{Binding LaunchAdvancedCommand}"
                                             Icon="{shuxm:FontIcon Glyph=&#xE967;}"
-                                            IsEnabled="{Binding LaunchOptions.IsGameRunning.Value, Converter={StaticResource BoolNegationConverter}}"
+                                            IsEnabled="True"
                                             Label="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartGame}"/>
+                                        <AppBarButton
+                                            Width="200"
+                                            HorizontalAlignment="Left"
+                                            Command="{Binding LaunchAdvancedCommand}"
+                                            Icon="{shuxm:FontIcon Glyph=&#xE916;}"
+                                            IsEnabled="True"
+                                            Label="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartGameDelayedStart}"/>
 
                                     </StackPanel>
                                     <!--  选择启动路径  -->
@@ -643,14 +650,25 @@
                                         Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenCommunityAction}"
                                         HeaderIcon="{shuxm:FontIcon Glyph=&#xEB41;}"
                                         IsClickEnabled="True"/>
-                                    <cwc:SettingsCard
+                                    <cwc:SettingsExpander
                                         Grid.Row="3"
-                                        VerticalAlignment="Top"
-                                        ActionIconToolTip="Open in a dialog"
-                                        Command="{Binding OpenAdvancedStartCheckDownloadCommand}"
-                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenDownloaderAction}"
-                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xEBD3;}"
-                                        IsClickEnabled="True"/>
+                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartManager}"
+                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xE74C;}"
+                                        IsExpanded="True">
+                                        <cwc:SettingsExpander.Items>
+                                            <cwc:SettingsCard
+                                                VerticalAlignment="Top"
+                                                ActionIconToolTip="Open in a dialog"
+                                                Command="{Binding OpenAdvancedStartCheckDownloadCommand}"
+                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenDownloaderAction}"
+                                                HeaderIcon="{shuxm:FontIcon Glyph=&#xEBD3;}"
+                                                IsClickEnabled="True"/>
+                                            <cwc:SettingsCard
+                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartListSetter}"
+                                                HeaderIcon="{shuxm:FontIcon Glyph=&#xE713;}"
+                                                IsClickEnabled="True"/>
+                                        </cwc:SettingsExpander.Items>
+                                    </cwc:SettingsExpander>
 
                                     <!--<Border
                                         Grid.Row="2"
