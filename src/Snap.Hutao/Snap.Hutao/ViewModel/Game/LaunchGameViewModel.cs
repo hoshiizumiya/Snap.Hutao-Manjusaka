@@ -375,6 +375,39 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         }
     }
 
+    [Command("LaunchAdvancedDelayedCommand")]
+    private async Task LaunchAdvancedDelayedAsync()
+    {
+        // Run each delayed program sequentially with its configured delay.
+        IReadOnlyList<AdvancedStartDelayedProgramEntry> snapshot = Entries.ToList();
+
+        foreach (AdvancedStartDelayedProgramEntry entry in snapshot)
+        {
+            CancellationToken.ThrowIfCancellationRequested();
+
+            int delaySeconds = Math.Max(0, entry.DelaySeconds);
+            if (delaySeconds > 0)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(delaySeconds), CancellationToken).ConfigureAwait(false);
+            }
+
+            if (string.IsNullOrWhiteSpace(entry.Path) || !File.Exists(entry.Path))
+            {
+                messenger.Send(InfoBarMessage.Error(SH.ViewModelLaunchGameAdvancedStartProgramNotExists, entry.Path));
+                continue;
+            }
+
+            try
+            {
+                ProcessFactory.StartUsingShellExecute(string.Empty, entry.Path);
+            }
+            catch (Exception ex)
+            {
+                messenger.Send(InfoBarMessage.Error(ex));
+            }
+        }
+    }
+
     [Command("PickAdvancedStartProgramPathCommand")]
     private async Task PickAdvancedStartProgramPathAsync()
     {

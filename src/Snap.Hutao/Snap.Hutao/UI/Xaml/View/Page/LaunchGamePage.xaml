@@ -26,7 +26,6 @@
     <mxi:Interaction.Behaviors>
         <shuxb:InvokeCommandOnLoadedBehavior Command="{Binding LoadCommand}"/>
         <shuxb:InvokeCommandOnLoadedBehavior Command="{Binding GamePackageInstallViewModel.LoadCommand}"/>
-        <shuxb:InvokeCommandOnLoadedBehavior Command="{Binding AdvancedStartDelayedProgramsViewModel.LoadCommand}"/>
     </mxi:Interaction.Behaviors>
 
     <Page.Resources>
@@ -621,7 +620,7 @@
                                         <AppBarButton
                                             Width="200"
                                             HorizontalAlignment="Left"
-                                            Command="{Binding LaunchAdvancedCommand}"
+                                            Command="{Binding LaunchAdvancedDelayedCommand}"
                                             Icon="{shuxm:FontIcon Glyph=&#xEC92;}"
                                             IsEnabled="True"
                                             Label="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartGameDelayedStart}"/>
