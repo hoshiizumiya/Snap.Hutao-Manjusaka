@@ -4221,4 +4221,28 @@ Spazio disponibile: {2}</value>
   <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
     <value>启动延迟启动清单中程序</value>
   </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
+    <value>设置启动延时时间</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
+    <value>延时启动程序列表</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
+    <value>延时启动列表管理</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
+    <value>填写目标 json 格式的 http 链接</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
+    <value>延迟启动程序清单表</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
+    <value>程序列表获取源设置</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
+    <value>恢复默认</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
+    <value>保存成功</value>
+  </data>
 </root>
