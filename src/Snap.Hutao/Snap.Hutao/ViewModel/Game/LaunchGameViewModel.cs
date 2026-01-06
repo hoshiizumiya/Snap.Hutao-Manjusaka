@@ -30,6 +30,9 @@ using Snap.Hutao.ViewModel.User;
 using System.Collections.Immutable;
 using System.IO;
 using Snap.Hutao.Core.IO;
+using System.Collections.ObjectModel;
+using Snap.Hutao.Service.Game.AdvancedStart;
+using Snap.Hutao.Service.Game.AdvancedStart.Model;
 
 namespace Snap.Hutao.ViewModel.Game;
 
@@ -44,6 +47,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     private readonly ITaskContext taskContext;
     private readonly IMessenger messenger;
     private readonly IFileSystemPickerInteraction fileSystemPickerInteraction;
+    private readonly AdvancedStartDelayedProgramStore store;
 
     [GeneratedConstructor]
     public partial LaunchGameViewModel(IServiceProvider serviceProvider);
@@ -85,6 +89,17 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     public IReadOnlyObservableProperty<bool> GamePathEntryValid { get => field ??= Property.Observe(LaunchOptions.GamePathEntry, static entry => !string.IsNullOrEmpty(entry?.Path)).WithValueChangedCallback(static (v, vm) => vm.HandleGamePathEntryChangeAsync().SafeForget(), this); }
 
     public IReadOnlyObservableProperty<bool> IsIslandConnected { get => GameLifeCycle.IsIslandConnected.AsReadOnly(); }
+
+    // Delayed programs
+    public ObservableCollection<AdvancedStartDelayedProgramEntry> Entries { get; private set => SetProperty(ref field, value); } = [];
+
+    private AdvancedStartDelayedProgramEntry? selectedDelayedProgramEntry;
+
+    public AdvancedStartDelayedProgramEntry? SelectedDelayedProgramEntry
+    {
+        get => selectedDelayedProgramEntry;
+        set => SetProperty(ref selectedDelayedProgramEntry, value);
+    }
 
     public async ValueTask<bool> ReceiveAsync(INavigationExtraData data, CancellationToken token)
     {
@@ -131,6 +146,16 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     protected override async ValueTask<bool> LoadOverrideAsync(CancellationToken token)
     {
         AdvancedStartProgramPath = LocalSetting.Get(SettingKeys.LaunchAdvancedStartProgramPath, string.Empty);
+
+        // Load delayed program entries
+        try
+        {
+            Entries = store.Load();
+        }
+        catch
+        {
+            Entries = [];
+        }
 
         if (LaunchOptions.GamePathEntries.Value.IsDefaultOrEmpty)
         {
@@ -345,6 +370,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         }
         catch (Exception ex)
         {
+            // For UAC user cancel it's a ex too, need a way to...
             messenger.Send(InfoBarMessage.Error(ex));
         }
     }
@@ -416,8 +442,8 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         }
     }
 
-    [Command("OpenAdvancedStartDelayedProgramsCommand")]
-    private async Task OpenAdvancedStartDelayedProgramsAsync()
+    [Command("OpenAdvancedStartListSourceSetterCommand")]
+    private async Task OpenAdvancedStartListSourceSetterAsync()
     {
         SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Open advanced start LaunchGameAdvancedStartDownloaderSourceDialog", "LaunchGameViewModel.Command"));
 
@@ -448,5 +474,75 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         }
     }
 
+    // Delayed Programs Commands
+    [Command("AddDelayedProgramCommand")]
+    private async Task AddDelayedProgramAsync()
+    {
+        await taskContext.SwitchToBackgroundAsync();
+        (bool ok, ValueFile file) = fileSystemPickerInteraction.PickFile("Picker", "program", "*.exe");
+        if (!ok)
+        {
+            return;
+        }
 
+        string path = file;
+        string name = Path.GetFileNameWithoutExtension(path);
+
+        await taskContext.SwitchToMainThreadAsync();
+        AdvancedStartDelayedProgramEntry entry = new(name, path, 0);
+        Entries.Add(entry);
+        SelectedDelayedProgramEntry = entry;
+        store.Save(Entries);
+    }
+
+    [Command("RemoveDelayedProgramCommand")]
+    private void RemoveDelayedProgram()
+    {
+        if (SelectedDelayedProgramEntry is null)
+        {
+            return;
+        }
+
+        Entries.Remove(SelectedDelayedProgramEntry);
+        SelectedDelayedProgramEntry = null;
+        store.Save(Entries);
+    }
+
+    [Command("SaveDelayedProgramCommand")]
+    private void SaveDelayedProgram()
+    {
+        store.Save(Entries);
+        messenger.Send(InfoBarMessage.Success(SH.ViewModelLaunchGameAdvancedStartProgramPathSaved));
+    }
+
+    [Command("EditDelayedProgramCommand")]
+    private Task EditDelayedProgramAsync()
+    {
+        return PickDelayedProgramPathAsync(SelectedDelayedProgramEntry);
+    }
+
+    [Command("PickDelayedProgramPathCommand")]
+    private async Task PickDelayedProgramPathAsync(AdvancedStartDelayedProgramEntry? entry)
+    {
+        if (entry is null)
+        {
+            return;
+        }
+
+        await taskContext.SwitchToBackgroundAsync();
+        (bool ok, ValueFile file) = fileSystemPickerInteraction.PickFile("Picker", "program", "*.exe");
+        if (!ok)
+        {
+            return;
+        }
+
+        await taskContext.SwitchToMainThreadAsync();
+        entry.Path = file;
+        if (string.IsNullOrWhiteSpace(entry.Name))
+        {
+            entry.Name = Path.GetFileNameWithoutExtension(entry.Path);
+        }
+
+        store.Save(Entries);
+    }
 }

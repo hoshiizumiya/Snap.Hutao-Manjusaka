@@ -43,7 +43,7 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
     private readonly IMessenger messenger;
     private readonly JsonSerializerOptions jsonOptions;
     private readonly HttpClient httpClient;
-    private IProgress<StreamCopyStatus> downloadProgress;
+    private IProgress<StreamCopyStatus>? downloadProgress;
 
     private string? downloadedPath;
     private string currentProgramName = string.Empty;

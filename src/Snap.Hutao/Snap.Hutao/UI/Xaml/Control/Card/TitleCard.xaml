@@ -57,6 +57,7 @@
                                 Grid.Column="1"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
+                                IsHitTestVisible="True"
                                 Content="{TemplateBinding TitleContent}" />
                         </Grid>
 

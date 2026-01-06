@@ -667,7 +667,7 @@
                                                 HeaderIcon="{shuxm:FontIcon Glyph=&#xEBD3;}"
                                                 IsClickEnabled="True"/>
                                             <cwc:SettingsCard
-                                                Command="{Binding OpenAdvancedStartDelayedProgramsCommand}"
+                                                Command="{Binding OpenAdvancedStartListSourceSetterCommand}"
                                                 Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartListSetter}"
                                                 HeaderIcon="{shuxm:FontIcon Glyph=&#xE713;}"
                                                 IsClickEnabled="True"/>
@@ -691,69 +691,88 @@
                                                 IsClickEnabled="True"/>
                                         </cwc:SettingsExpander.Items>
                                     </cwc:SettingsExpander>-->
-                                    <shuxcc:TitleCard Grid.Row="4" Title="Delayed Programs">
+                                    <shuxcc:TitleCard Title="Delayed Programs List" Grid.Row="4">
                                         <shuxcc:TitleCard.TitleContent>
-                                            <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,16,0">
+                                            <StackPanel
+                                                Margin="0,0,16,0"
+                                                Orientation="Horizontal"
+                                                Spacing="8">
                                                 <Button
-                                                    Command="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.AddDelayedProgramCommand, Source={StaticResource BindingProxy}}"
+                                                    Command="{Binding DataContext.AddDelayedProgramCommand, Source={StaticResource BindingProxy}}"
                                                     Content="Add"
-                                                    Style="{ThemeResource SettingButtonStyle}" />
+                                                    Style="{ThemeResource SettingButtonStyle}"/>
                                                 <Button
-                                                    Command="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.RemoveDelayedProgramCommand, Source={StaticResource BindingProxy}}"
-                                                    Content="Remove"
-                                                    IsEnabled="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.SelectedEntry, Source={StaticResource BindingProxy}, Converter={StaticResource EmptyObjectToBoolConverter}}"
-                                                    Style="{ThemeResource SettingButtonStyle}" />
+                                                    Command="{Binding DataContext.EditDelayedProgramCommand, Source={StaticResource BindingProxy}}"
+                                                    Content="Edit Path"
+                                                    IsEnabled="{Binding DataContext.SelectedDelayedProgramEntry, Source={StaticResource BindingProxy}, Converter={StaticResource EmptyObjectToBoolConverter}}"
+                                                    Style="{ThemeResource SettingButtonStyle}"/>
                                                 <Button
-                                                    Command="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.SaveDelayedProgramCommand, Source={StaticResource BindingProxy}}"
-                                                    Content="Save"
-                                                    Style="{ThemeResource SettingButtonStyle}" />
+                                                    Command="{Binding DataContext.RemoveDelayedProgramCommand, Source={StaticResource BindingProxy}}"
+                                                    Content="Delete selected"
+                                                    IsEnabled="{Binding DataContext.SelectedDelayedProgramEntry, Source={StaticResource BindingProxy}, Converter={StaticResource EmptyObjectToBoolConverter}}"
+                                                    Style="{ThemeResource SettingButtonStyle}"/>
                                             </StackPanel>
                                         </shuxcc:TitleCard.TitleContent>
                                         <shuxcc:TitleCard.Content>
-                                            <ListView
-                                                ItemsSource="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.Entries, Source={StaticResource BindingProxy}}"
-                                                SelectedItem="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.SelectedEntry, Source={StaticResource BindingProxy}, Mode=TwoWay}">
+                                            <ListView ItemsSource="{Binding DataContext.Entries, Source={StaticResource BindingProxy}}" SelectedItem="{Binding DataContext.SelectedDelayedProgramEntry, Source={StaticResource BindingProxy}, Mode=TwoWay}">
                                                 <ListView.Header>
                                                     <cwc:DataTable Margin="12,0,0,0">
-                                                        <cwc:DataColumn MinWidth="160" CanResize="True" Content="Name" />
+                                                        <cwc:DataColumn
+                                                            MinWidth="160"
+                                                            CanResize="True"
+                                                            Content="Name"/>
                                                         <cwc:DataColumn DesiredWidth="*">
-                                                            <TextBlock FontWeight="SemiBold" Text="Path" />
+                                                            <TextBlock FontWeight="SemiBold" Text="Path"/>
                                                         </cwc:DataColumn>
-                                                        <cwc:DataColumn MinWidth="120" CanResize="True" Content="Delay(s)" />
+                                                        <cwc:DataColumn
+                                                            MinWidth="76"
+                                                            CanResize="False"
+                                                            Content="Delay(s)"/>
                                                     </cwc:DataTable>
                                                 </ListView.Header>
                                                 <ListView.ItemTemplate>
                                                     <DataTemplate x:DataType="shas:AdvancedStartDelayedProgramEntry">
                                                         <cwc:DataRow>
-                                                            <TextBox VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                            <TextBox
+                                                                MinWidth="5"
+                                                                Margin="0,0,30,0"
+                                                                VerticalAlignment="Center"
+                                                                Text="{x:Bind Name, Mode=TwoWay}"/>
                                                             <Grid>
                                                                 <Grid.ColumnDefinitions>
-                                                                    <ColumnDefinition />
-                                                                    <ColumnDefinition Width="auto" />
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                    <ColumnDefinition Width="Auto"/>
                                                                 </Grid.ColumnDefinitions>
                                                                 <TextBox
                                                                     Grid.Column="0"
+                                                                    Width="Auto"
                                                                     VerticalAlignment="Center"
-                                                                    Text="{Binding Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                                    Text="{x:Bind Path, Mode=TwoWay}"
+                                                                    TextWrapping="NoWrap"/>
                                                                 <Button
                                                                     Grid.Column="1"
+                                                                    MinWidth="24"
                                                                     Margin="8,0,0,0"
                                                                     VerticalAlignment="Center"
-                                                                    Command="{Binding DataContext.AdvancedStartDelayedProgramsViewModel.PickDelayedProgramPathCommand, Source={StaticResource BindingProxy}}"
+                                                                    Command="{Binding DataContext.PickDelayedProgramPathCommand, Source={StaticResource BindingProxy}}"
                                                                     CommandParameter="{Binding}"
-                                                                    Content="..."
-                                                                    Style="{ThemeResource SettingButtonStyle}" />
+                                                                    Style="{ThemeResource SettingButtonStyle}">
+                                                                    <Button.Content>
+                                                                        <FontIcon Glyph="&#xEC50;"/>
+                                                                    </Button.Content>
+                                                                </Button>
                                                             </Grid>
                                                             <NumberBox
-                                                                MinWidth="80"
+                                                                MinWidth="36"
+                                                                Margin="0,0,18,0"
                                                                 VerticalAlignment="Center"
-                                                                Value="{Binding DelaySeconds, Mode=TwoWay}" />
+                                                                Value="{x:Bind DelaySeconds, Mode=TwoWay}"/>
                                                         </cwc:DataRow>
                                                     </DataTemplate>
                                                 </ListView.ItemTemplate>
                                                 <ListView.ItemContainerStyle>
                                                     <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
-                                                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                                                     </Style>
                                                 </ListView.ItemContainerStyle>
                                             </ListView>

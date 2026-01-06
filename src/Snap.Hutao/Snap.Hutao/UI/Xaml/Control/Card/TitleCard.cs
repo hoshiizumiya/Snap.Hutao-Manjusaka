@@ -3,7 +3,6 @@
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Markup;
-using Microsoft.UI.Xaml.Controls;
 
 namespace Snap.Hutao.UI.Xaml.Control.Card;
 
