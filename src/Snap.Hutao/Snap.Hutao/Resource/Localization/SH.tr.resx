@@ -120,6 +120,129 @@
   <data name="AppDevNameAndVersion" xml:space="preserve">
     <value>Snap Hutao Manjusaka Dev {0}</value>
   </data>
+  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
+    <value>Gecikmeli Başlatma Programı Listesi</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
+    <value>7z açma başarısız: Arşiv verileri bozuk veya desteklenmeyen 7z sıkıştırma kullanılıyor. Lütfen indirimi yeniden deneyin veya ZIP formatı sağlayın.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
+    <value>7z açma başarısız (girdi: {0}): veri hatası, arşiv bozuk veya desteklenmeyen 7z sıkıştırma kullanılmış olabilir. Lütfen yeniden indirin veya ZIP kullanın.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
+    <value>Tamamlandı, program yolu: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
+    <value>Sunucu bağlantıyı reddetti, lütfen daha sonra tekrar deneyin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
+    <value>'{0}' sunucusuna bağlanılamıyor: DNS çözümlemesi başarısız oldu. Olası nedenler: 1) Alan adı yok veya yanlış yazıldı 2) DNS sunucusu hatası 3) Ağ bağlantı sorunları 4) Güvenlik duvarı DNS sorgularını engelliyor. Ağ ayarlarınızı kontrol edin ve tekrar deneyin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
+    <value>DNS sorgusu başarılı fakat sunucu kaydı bulunamadı; lütfen adresi doğrulayın.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
+    <value>İndirme {0} iptal edildi.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
+    <value>{0} indiriliyor ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
+    <value>{0} indirme zaman aşımına uğradı, lütfen ağ bağlantınızı kontrol edin ve tekrar deneyin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
+    <value>Kullanılabilir özel başlatıcı yok</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
+    <value>Çalıştırılabilir dosya bulunamadı</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
+    <value>{0} çıkarılıyor ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
+    <value>İndirme veya açma başarısız oldu, lütfen tekrar deneyin</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
+    <value>Özel başlatma kaynağı yapılandırılmamış</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
+    <value>Sunucu hata döndürdü: {0} {1}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
+    <value>Geçersiz HTTP başlık ayarı: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
+    <value>Dosya okuma/yazma hatası: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
+    <value>Özel başlatıcı listesinin yüklenmesi başarısız</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
+    <value>Özel başlatıcı listesi yükleniyor</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
+    <value>Ağ bağlantısı kullanılamıyor, lütfen ağ durumunu kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
+    <value>Ağ bağlantı hatası: {0} (hata kodu: {1})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
+    <value>Ağ isteği başarısız oldu: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
+    <value>Ağa ulaşılamıyor, lütfen bağlantınızı kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
+    <value>İşlem iptal edildi: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
+    <value>Özel başlatıcı seçin</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
+    <value>Önce bir özel başlatıcı seçin</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
+    <value>İndir</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
+    <value>Güvenli bağlantı başarısız: {0}, lütfen sistem saati ve sertifika ayarlarını kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
+    <value>Hedef JSON formatındaki HTTP bağlantısını girin</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
+    <value>Varsayılana döndür</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
+    <value>Kaydetme başarılı</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
+    <value>Program listesi kaynak ayarları</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
+    <value>Mevcut yürütme durumu</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
+    <value>Bağlantı zaman aşımı, lütfen ağ bağlantınızı kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
+    <value>Özel kaynaktan özel program indir</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
+    <value>{0} indirirken bilinmeyen hata oluştu. Hata türü: {1} Lütfen tekrar deneyin veya destek ile iletişime geçin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
+    <value>Bilinmeyen sunucu</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
+    <value>Sunucu bilinmeyen hata döndürdü: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
+    <value>Desteklenmeyen arşiv formatı!</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
+    <value>Desteklenmeyen yanıt içerik türü: {0}</value>
+  </data>
   <data name="AppElevatedDevNameAndVersion" xml:space="preserve">
     <value>Snap Hutao Manjusaka Dev {0} [Yönetici]</value>
   </data>
@@ -1473,7 +1596,7 @@ Kullanılabilir Alan: {2}</value>
     <value>Örnek</value>
   </data>
   <data name="ViewDialogGeetestCustomUrlTitle" xml:space="preserve">
-    <value />
+    <value>Sessiz doğrulama API'sini yapılandır</value>
   </data>
   <data name="ViewDialogHutaoPassportLoginTitle" xml:space="preserve">
     <value>Snap Hutao Passport'a Giriş Yap</value>
@@ -1557,7 +1680,7 @@ Kullanılabilir Alan: {2}</value>
     <value>Oyun İstemcisi Dönüştürülüyor</value>
   </data>
   <data name="ViewDialogQRCodeTitle" xml:space="preserve">
-    <value />
+    <value>HoYoLAB ile QR kodunu tara</value>
   </data>
   <data name="ViewDialogReconfirmHint" xml:space="preserve">
     <value>Fonksiyon kullanıcılarının bağımsız karar verme yeteneğine sahip olmasını sağlamak için, bu fonksiyonların etkinleştirme koşullarını düzensiz olarak güncelleyeceğiz. Eğer bir içerik üreticisiyseniz, Snap Hutao ile ilgili içerik oluştururken lütfen belirli etkinleştirme yöntemlerini izleyicilerinizle paylaşmayın.</value>
@@ -2931,7 +3054,7 @@ Kullanılabilir Alan: {2}</value>
     <value>Oyun İçi Arayüz</value>
   </data>
   <data name="ViewPageLaunchGameOverlayHideDescription" xml:space="preserve">
-    <value />
+    <value>Oyunla birlikte başlayan oyun içi arayüzü göster/gizle kısayolunu ayarla</value>
   </data>
   <data name="ViewPageLaunchGameOverlayHideHeader" xml:space="preserve">
     <value>Oyun İçi Yer Paylaşımını Göster/Gizle</value>
@@ -3988,5 +4111,186 @@ Kullanılabilir Alan: {2}</value>
   </data>
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>Monitör Kimliği</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOptionsHeader" xml:space="preserve">
+    <value>Özel Başlatma</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDescription" xml:space="preserve">
+    <value>Özel başlatma seçenekleri, farklı bir yoldaki programları hızlıca başlatmanıza olanak tanır. Hutao içindeki oyun seçenekleri (ör. başlatma parametreleri) uygulanmayacaktır.</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCustomizeHeader" xml:space="preserve">
+    <value>Kullanıcı tanımlı program başlatma</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathHeader" xml:space="preserve">
+    <value>Başlatılacak programı seçin</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathDescription" xml:space="preserve">
+    <value>Başlatmak istediğiniz programın yolunu seçin, '.exe' ile bitmelidir</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOpenCommunityAction" xml:space="preserve">
+    <value>Paylaşılan programları almak için topluluğa git</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartGame" xml:space="preserve">
+    <value>Özel programı başlat</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
+    <value>Özel başlatma listesi yükleniyor</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
+    <value>Özel başlatma kaynağı yapılandırılmamış</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
+    <value>Lütfen bir özel başlatma programı seçin</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
+    <value>Özel başlatma listesi yüklenemedi</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
+    <value>Önce bir özel başlatma programı seçin</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
+    <value>Tamamlandı, program yolu: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
+    <value>İndirme veya çıkarma başarısız oldu, lütfen tekrar deneyin</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
+    <value>Çalıştırılabilir dosya bulunamadı</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
+    <value>{0} indiriliyor ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
+    <value>{0} çıkarılıyor ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
+    <value>Özel kaynaktan özel program indiriliyor</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
+    <value>İndir</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
+    <value>Kullanılabilir özel başlatma programı yok</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
+    <value>Mevcut yürütme durumu</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOpenDownloaderAction" xml:space="preserve">
+    <value>Listeden programı hızlıca al ve indir</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
+    <value>Bilinmeyen sunucu</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
+    <value>'{0}' sunucusuna bağlanılamıyor: DNS çözümleme başarısız. Olası nedenler:
+1. Alan adı yok veya yanlış yazılmış
+2. DNS sunucusu arızalı
+3. Ağ bağlantı sorunu
+4. Güvenlik duvarı veya güvenlik yazılımı DNS sorgularını engelliyor. Ağ ayarlarınızı kontrol edin ve tekrar deneyin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
+    <value>Sunucu bağlantıyı reddetti, lütfen daha sonra tekrar deneyin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
+    <value>Bağlantı zaman aşımına uğradı, ağ bağlantınızı kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
+    <value>Ağ bağlantısı kullanılamıyor, ağ durumunu kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
+    <value>Ağa ulaşılamıyor, bağlantıyı kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
+    <value>DNS sorgusu başarılı ancak sunucu kaydı bulunamadı, adresin doğruluğunu kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
+    <value>Ağ bağlantı hatası: {0} (hata kodu: {1})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
+    <value>Sunucu hata döndü: {0} {1}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
+    <value>Sunucu bilinmeyen bir hata döndürdü: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
+    <value>Güvenli bağlantı başarısız oldu: {0}, lütfen sistem saati ve sertifika ayarlarını kontrol edin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
+    <value>Ağ isteği başarısız oldu: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
+    <value>{0} indirimi iptal edildi.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
+    <value>{0} indirimi zaman aşımına uğradı, ağ bağlantısını kontrol edip tekrar deneyin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
+    <value>İşlem iptal edildi: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
+    <value>Dosya okuma/yazma hatası: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
+    <value>Desteklenmeyen yanıt içerik türü: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
+    <value>Geçersiz HTTP üstbilgi ayarları: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
+    <value>{0} indirilirken bilinmeyen bir hata oluştu. Hata türü: {1}. Lütfen tekrar deneyin veya destek ile iletişime geçin.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
+    <value>7z çıkarma başarısız oldu (girdi: {0}): veri hatası. Arşiv bozuk olabilir veya desteklenmeyen 7z formatı kullanılmış olabilir. Lütfen indirimi tekrar deneyin veya ZIP paket kullanın.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
+    <value>7z çıkarma başarısız oldu: arşiv verileri bozuk veya desteklenmeyen 7z sıkıştırma yöntemi kullanılmış. Lütfen tekrar deneyin veya ZIP paketi kullanın.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
+    <value>Desteklenmeyen arşiv formatı!</value>
+  </data>
+  <data name="ViewModelLaunchGameAdvancedStartProgramPathNotSet" xml:space="preserve">
+    <value>Özel başlatma program yolu ayarlı değil</value>
+  </data>
+  <data name="ViewModelLaunchGameAdvancedStartProgramNotExists" xml:space="preserve">
+    <value>Özel başlatma programı mevcut değil</value>
+  </data>
+  <data name="ViewModelLaunchGameAdvancedStartProgramLaunched" xml:space="preserve">
+    <value>Özel program başlatıldı</value>
+  </data>
+  <data name="ViewModelLaunchGameAdvancedStartProgramPathSaved" xml:space="preserve">
+    <value>Özel başlatma program yolu kaydedildi</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartManager" xml:space="preserve">
+    <value>Özel program başlatma yönetimi</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartListSetter" xml:space="preserve">
+    <value>Program listesi kaynağını ayarla</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
+    <value>Listede bulunan programı gecikmeli başlat</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
+    <value>Başlatma gecikme süresini ayarla</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
+    <value>Gecikmeli başlatma programları listesi</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
+    <value>Gecikmeli başlatma listesi yönetimi</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
+    <value>Hedef JSON biçimli HTTP bağlantısını girin</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
+    <value>Gecikmeli başlatma program listesi</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
+    <value>Program listesi alma kaynağını ayarla</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
+    <value>Varsayılana geri dön</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
+    <value>Kaydedildi</value>
   </data>
 </root>

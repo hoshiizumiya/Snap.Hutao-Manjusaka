@@ -690,6 +690,8 @@
                                                 IsClickEnabled="True"/>
                                         </cwc:SettingsExpander.Items>
                                     </cwc:SettingsExpander>-->
+
+                                    <!--  延迟的启动程序列表管理  -->
                                     <shuxcc:TitleCard Title="Delayed Programs List" Grid.Row="4">
                                         <shuxcc:TitleCard.TitleContent>
                                             <StackPanel

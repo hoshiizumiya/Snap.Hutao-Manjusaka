@@ -4044,19 +4044,19 @@ Space Available: {2}</value>
     <value>Auto check-in</value>
   </data>
   <data name="ServiceMetadataWeaponIdNotFound" xml:space="preserve">
-    <value>ServiceMetadataWeaponIdNotFound</value>
+    <value>Weapon metadata not found</value>
   </data>
   <data name="ServiceMetadataAvatarIdNotFound" xml:space="preserve">
-    <value>ServiceMetadataAvatarIdNotFound</value>
+    <value>Avatar metadata not found</value>
   </data>
   <data name="ServiceGachaLogIdPlacesUnsupported" xml:space="preserve">
-    <value>ServiceGachaLogIdPlacesUnsupported</value>
+    <value>Unsupported ID for wish history processing</value>
   </data>
   <data name="ServiceGachaLogWeaponIdNotFound" xml:space="preserve">
-    <value>ServiceGachaLogWeaponIdNotFound</value>
+    <value>Weapon ID not found</value>
   </data>
   <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
-    <value>ServiceGachaLogAvatarIdNotFound</value>
+    <value>Avatar ID not found</value>
   </data>
   <data name="ViewPageSettingCMThemeDescription" xml:space="preserve">
     <value>Activate Christmas theme, restart to take effect, only once in December</value>
@@ -4213,8 +4213,8 @@ Space Available: {2}</value>
     <value>The custom startup program path has been saved</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ViewPageLaunchGameAdvancedStartListSetter" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="ViewPageLaunchGameAdvancedStartListSetter" xml:space="preserve">
+    <value>Set program list source</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
     <value>Set delayed time</value>
@@ -4239,5 +4239,11 @@ Space Available: {2}</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
     <value>Saved successfully</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartManager" xml:space="preserve">
+    <value>Manage custom launch programs</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
+    <value>Launch programs in the delayed-start list</value>
   </data>
 </root>

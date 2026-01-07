@@ -120,6 +120,129 @@
   <data name="AppDevNameAndVersion" xml:space="preserve">
     <value>胡桃 Manjusaka Dev {0}</value>
   </data>
+  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
+    <value>遅延起動プログラム一覧</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
+    <value>7z の展開に失敗しました：アーカイブデータが破損しているか、サポートされていない 7z 圧縮が使用されています。再ダウンロードするか ZIP パッケージを提供してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
+    <value>7z の展開に失敗しました（エントリ: {0}）：データエラー、アーカイブが破損しているかサポートされていない 7z 形式が使用されている可能性があります。再試行するか ZIP を使用してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
+    <value>完了、プログラムパス：{0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
+    <value>サーバーが接続を拒否しました。後でもう一度お試しください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
+    <value>サーバー '{0}' に接続できません：DNS 解決に失敗しました。考えられる原因：1) ドメインが存在しないか誤記 2) DNS サーバー障害 3) ネットワーク問題 4) ファイアウォールやセキュリティソフトが DNS をブロック。ネットワーク設定を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
+    <value>DNS クエリは成功しましたが、サーバーのレコードが見つかりません。アドレスを確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
+    <value>ダウンロード {0} がキャンセルされました。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
+    <value>{0} をダウンロード中（{1}/{2}）</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
+    <value>ダウンロード {0} がタイムアウトしました。ネットワークを確認して再試行してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
+    <value>利用可能なカスタムランチャーがありません</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
+    <value>実行ファイルが見つかりません</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
+    <value>{0} を展開中（{1}/{2}）</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
+    <value>ダウンロードまたは展開に失敗しました。再試行してください</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
+    <value>カスタムランチャーフィードが構成されていません</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
+    <value>サーバーがエラーを返しました：{0} {1}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
+    <value>無効な HTTP ヘッダ設定：{0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
+    <value>ファイル入出力エラー：{0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
+    <value>カスタムランチャーリストの読み込みに失敗しました</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
+    <value>カスタムランチャーリストを読み込み中</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
+    <value>ネットワーク接続が利用できません。ネットワーク状態を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
+    <value>ネットワークエラー：{0}（コード：{1}）</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
+    <value>ネットワークリクエストが失敗しました：{0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
+    <value>ネットワークに到達できません。接続を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
+    <value>操作がキャンセルされました：{0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
+    <value>カスタムランチャーを選択してください</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
+    <value>先にカスタムランチャーを選択してください</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
+    <value>安全な接続に失敗しました：{0}。システム時間と証明書設定を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
+    <value>ターゲット JSON を指す HTTP リンクを入力してください</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
+    <value>デフォルトに戻す</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
+    <value>保存に成功しました</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
+    <value>プログラムリスト取得元設定</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
+    <value>現在の実行状態</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
+    <value>接続がタイムアウトしました。ネットワークを確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
+    <value>カスタムソースからカスタムプログラムをダウンロード</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
+    <value>{0} のダウンロード中に不明なエラーが発生しました。エラー種別：{1}。再試行するかサポートに連絡してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
+    <value>不明なサーバー</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
+    <value>サーバーが不明なエラーを返しました：{0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
+    <value>サポートされていないアーカイブ形式です！</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
+    <value>サポートされていないレスポンスのコンテンツタイプ：{0}</value>
+  </data>
   <data name="AppElevatedDevNameAndVersion" xml:space="preserve">
     <value>胡桃 Manjusaka Dev {0} [管理者]</value>
   </data>
@@ -4038,5 +4161,186 @@
   </data>
   <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
     <value>自動チェックイン</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOptionsHeader" xml:space="preserve">
+    <value>カスタム起動</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDescription" xml:space="preserve">
+    <value>カスタム起動オプションは別のパスにあるプログラムの素早い起動を可能にします。胡桃内のゲームオプション（起動パラメータなど）は適用されません。</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCustomizeHeader" xml:space="preserve">
+    <value>ユーザー定義プログラムの起動</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathHeader" xml:space="preserve">
+    <value>起動するプログラムを選択</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathDescription" xml:space="preserve">
+    <value>起動したいプログラムのパスを指定してください（'.exe'で終わる必要があります）</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOpenCommunityAction" xml:space="preserve">
+    <value>コミュニティで共有されたプログラムを取得する</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartGame" xml:space="preserve">
+    <value>カスタムプログラムを起動</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
+    <value>カスタム起動リストを読み込んでいます</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
+    <value>カスタム起動のソースURLが設定されていません</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
+    <value>カスタム起動プログラムを選択してください</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
+    <value>カスタム起動リストの読み込みに失敗しました</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
+    <value>まずカスタム起動プログラムを選択してください</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
+    <value>完了しました。プログラムパス: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
+    <value>ダウンロードまたは解凍に失敗しました。再試行してください</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
+    <value>実行可能ファイルが見つかりません</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
+    <value>{0} をダウンロードしています（{1}/{2}）</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
+    <value>{0} を解凍しています（{1}/{2}）</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
+    <value>カスタムソースからカスタムプログラムをダウンロード</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
+    <value>利用可能なカスタム起動プログラムはありません</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
+    <value>現在の実行状況</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOpenDownloaderAction" xml:space="preserve">
+    <value>リスト内のプログラムを素早く取得してダウンロード</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
+    <value>未知のサーバー</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
+    <value>サーバー '{0}' に接続できません：DNS解決に失敗しました。可能な原因：
+1. ドメインが存在しないかスペルミス
+2. DNSサーバーの障害
+3. ネットワーク接続の問題
+4. ファイアウォールやセキュリティソフトがDNS問い合わせをブロックしています。ネットワーク設定を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
+    <value>サーバーが接続を拒否しました。時間をおいて再試行してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
+    <value>接続がタイムアウトしました。ネットワーク接続を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
+    <value>ネットワーク接続が利用できません。ネットワーク状態を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
+    <value>ネットワークに到達できません。接続を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
+    <value>DNSクエリは成功しましたが、サーバーレコードが見つかりません。アドレスが正しいか確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
+    <value>ネットワーク接続エラー: {0} (エラーコード: {1})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
+    <value>サーバーエラーが返されました: {0} {1}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
+    <value>サーバーが不明なエラーを返しました: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
+    <value>セキュア接続に失敗しました: {0}。システム時間と証明書設定を確認してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
+    <value>ネットワークリクエストが失敗しました: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
+    <value>{0} のダウンロードがキャンセルされました。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
+    <value>{0} のダウンロードがタイムアウトしました。ネットワーク接続を確認して再試行してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
+    <value>操作がキャンセルされました: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
+    <value>ファイルの読み書きエラー: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
+    <value>サポートされていないレスポンスのコンテンツタイプ: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
+    <value>無効なHTTPヘッダー設定: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
+    <value>{0} のダウンロード中に不明なエラーが発生しました。エラータイプ: {1}。再試行するかサポートに連絡してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
+    <value>7zの解凍に失敗しました（エントリ: {0}）：データエラーです。アーカイブが破損しているか、サポートされていない7z形式が使用されています。ダウンロードを再試行するか、ZIP形式のパッケージを提供してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
+    <value>7zの解凍に失敗しました：アーカイブデータが破損しているか、サポートされていない7z圧縮方式が使用されています。再試行するかZIP形式のパッケージを使用してください。</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
+    <value>サポートされていないアーカイブ形式です！</value>
+  </data>
+  <data name="ViewModelLaunchGameAdvancedStartProgramPathNotSet" xml:space="preserve">
+    <value>カスタム起動プログラムのパスが設定されていません</value>
+  </data>
+  <data name="ViewModelLaunchGameAdvancedStartProgramNotExists" xml:space="preserve">
+    <value>カスタム起動プログラムが存在しません</value>
+  </data>
+  <data name="ViewModelLaunchGameAdvancedStartProgramLaunched" xml:space="preserve">
+    <value>カスタムプログラムを起動しました</value>
+  </data>
+  <data name="ViewModelLaunchGameAdvancedStartProgramPathSaved" xml:space="preserve">
+    <value>カスタム起動プログラムのパスを保存しました</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartManager" xml:space="preserve">
+    <value>カスタムプログラム起動の管理</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartListSetter" xml:space="preserve">
+    <value>プログラムリストソースの設定</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
+    <value>リスト内のプログラムを遅延起動</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
+    <value>起動遅延時間を設定</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
+    <value>遅延起動プログラムの一覧</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
+    <value>遅延起動一覧の管理</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
+    <value>対象のJSON形式のHTTPリンクを入力してください</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
+    <value>遅延起動プログラムのリスト</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
+    <value>プログラムリスト取得ソースの設定</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
+    <value>デフォルトに戻す</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
+    <value>保存しました</value>
   </data>
 </root>
