@@ -4046,19 +4046,19 @@
     <value>自動チェックイン</value>
   </data>
   <data name="ServiceMetadataWeaponIdNotFound" xml:space="preserve">
-    <value>ServiceMetadataWeaponIdNotFound</value>
+    <value>未找到武器元数据</value>
   </data>
   <data name="ServiceMetadataAvatarIdNotFound" xml:space="preserve">
-    <value>ServiceMetadataAvatarIdNotFound</value>
+    <value>未找到角色元数据</value>
   </data>
   <data name="ServiceGachaLogIdPlacesUnsupported" xml:space="preserve">
-    <value>ServiceGachaLogIdPlacesUnsupported</value>
+    <value>不支持的祈愿记录 ID 来源</value>
   </data>
   <data name="ServiceGachaLogWeaponIdNotFound" xml:space="preserve">
-    <value>ServiceGachaLogWeaponIdNotFound</value>
+    <value>未找到武器 ID</value>
   </data>
   <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
-    <value>ServiceGachaLogAvatarIdNotFound</value>
+    <value>未找到角色 ID</value>
   </data>
   <data name="ViewPageSettingCMThemeDescription" xml:space="preserve">
     <value>启用圣诞节主题，重启以生效，仅12月开启一次</value>
