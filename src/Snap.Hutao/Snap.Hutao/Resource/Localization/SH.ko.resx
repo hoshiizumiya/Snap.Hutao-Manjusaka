@@ -129,129 +129,6 @@
   <data name="AppName" xml:space="preserve">
     <value>호두 Manjusaka</value>
   </data>
-  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
-    <value>지연 시작 프로그램 목록</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
-    <value>7z 압축 해제 실패: 아카이브 데이터가 손상되었거나 지원되지 않는 7z 압축을 사용합니다. 다운로드를 다시 시도하거나 ZIP 패키지를 제공하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
-    <value>7z 압축 해제 실패(항목: {0}): 데이터 오류, 아카이브가 손상되었거나 지원되지 않는 7z 형식을 사용할 수 있습니다. 다시 시도하거나 ZIP을 사용하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
-    <value>완료됨, 프로그램 경로: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
-    <value>서버가 연결을 거부했습니다. 나중에 다시 시도하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
-    <value>서버 '{0}'에 연결할 수 없습니다: DNS 확인 실패. 가능한 원인: 1) 도메인 없음 또는 오타 2) DNS 서버 장애 3) 네트워크 문제 4) 방화벽/보안 소프트웨어가 DNS를 차단. 네트워크 설정을 확인하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
-    <value>DNS 조회는 성공했지만 서버 레코드를 찾을 수 없습니다; 주소를 확인하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
-    <value>{0} 다운로드가 취소되었습니다.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
-    <value>{0} 다운로드 중 ({1}/{2})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
-    <value>{0} 다운로드가 시간 초과되었습니다. 네트워크를 확인하고 다시 시도하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
-    <value>사용 가능한 사용자 지정 실행기가 없습니다</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
-    <value>실행 파일을 찾을 수 없습니다</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
-    <value>{0} 추출 중 ({1}/{2})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
-    <value>다운로드 또는 추출에 실패했습니다. 다시 시도하세요</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
-    <value>사용자 지정 실행기 소스가 구성되지 않았습니다</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
-    <value>서버가 오류를 반환했습니다: {0} {1}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
-    <value>잘못된 HTTP 헤더 설정: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
-    <value>파일 입출력 오류: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
-    <value>사용자 지정 실행기 목록을 로드하지 못했습니다</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
-    <value>사용자 지정 실행기 목록 로드 중</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
-    <value>네트워크 연결 불가, 네트워크 상태를 확인하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
-    <value>네트워크 오류: {0} (코드: {1})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
-    <value>네트워크 요청 실패: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
-    <value>네트워크에 연결할 수 없습니다. 연결을 확인하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
-    <value>작업이 취소되었습니다: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
-    <value>사용자 지정 실행기를 선택하세요</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
-    <value>먼저 사용자 지정 실행기를 선택하세요</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
-    <value>다운로드</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
-    <value>보안 연결 실패: {0}, 시스템 시간 및 인증서 설정을 확인하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
-    <value>대상 JSON을 가리키는 HTTP 링크를 입력하세요</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
-    <value>기본값으로 재설정</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
-    <value>저장 성공</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
-    <value>프로그램 목록 소스 설정</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
-    <value>현재 실행 상태</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
-    <value>연결 시간이 초과되었습니다, 네트워크를 확인하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
-    <value>사용자 지정 소스에서 사용자 지정 프로그램 다운로드</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
-    <value>{0} 다운로드 중 알 수 없는 오류가 발생했습니다. 오류 유형: {1}. 다시 시도하거나 지원에 문의하세요.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
-    <value>알 수 없는 서버</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
-    <value>서버가 알 수 없는 오류를 반환했습니다: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
-    <value>지원되지 않는 아카이브 형식!</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
-    <value>지원되지 않는 응답 콘텐츠 유형: {0}</value>
-  </data>
   <data name="AppNameAndVersion" xml:space="preserve">
     <value>호두 Manjusaka {0}</value>
   </data>
@@ -4148,8 +4025,116 @@
   <data name="ViewPageLaunchGameAdvancedStartGame" xml:space="preserve">
     <value>사용자 정의 프로그램 실행</value>
   </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
+    <value>사용자 지정 실행기 목록 로드 중</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
+    <value>사용자 지정 실행기 소스가 구성되지 않았습니다</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
+    <value>사용자 지정 실행기를 선택하세요</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
+    <value>사용자 지정 실행기 목록을 로드하지 못했습니다</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
+    <value>먼저 사용자 지정 실행기를 선택하세요</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
+    <value>완료됨, 프로그램 경로: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
+    <value>다운로드 또는 추출에 실패했습니다. 다시 시도하세요</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
+    <value>실행 파일을 찾을 수 없습니다</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
+    <value>{0} 다운로드 중 ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
+    <value>{0} 추출 중 ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
+    <value>사용자 지정 소스에서 사용자 지정 프로그램 다운로드</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
+    <value>다운로드</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
+    <value>사용 가능한 사용자 지정 실행기가 없습니다</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
+    <value>현재 실행 상태</value>
+  </data>
   <data name="ViewPageLaunchGameAdvancedStartOpenDownloaderAction" xml:space="preserve">
     <value>목록에서 프로그램을 빠르게 가져와 다운로드</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
+    <value>알 수 없는 서버</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
+    <value>서버 '{0}'에 연결할 수 없습니다: DNS 확인 실패. 가능한 원인: 1) 도메인 없음 또는 오타 2) DNS 서버 장애 3) 네트워크 문제 4) 방화벽/보안 소프트웨어가 DNS를 차단. 네트워크 설정을 확인하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
+    <value>서버가 연결을 거부했습니다. 나중에 다시 시도하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
+    <value>연결 시간이 초과되었습니다, 네트워크를 확인하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
+    <value>네트워크 연결 불가, 네트워크 상태를 확인하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
+    <value>네트워크에 연결할 수 없습니다. 연결을 확인하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
+    <value>DNS 조회는 성공했지만 서버 레코드를 찾을 수 없습니다; 주소를 확인하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
+    <value>네트워크 오류: {0} (코드: {1})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
+    <value>서버가 오류를 반환했습니다: {0} {1}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
+    <value>서버가 알 수 없는 오류를 반환했습니다: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
+    <value>보안 연결 실패: {0}, 시스템 시간 및 인증서 설정을 확인하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
+    <value>네트워크 요청 실패: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
+    <value>{0} 다운로드가 취소되었습니다.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
+    <value>{0} 다운로드가 시간 초과되었습니다. 네트워크를 확인하고 다시 시도하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
+    <value>작업이 취소되었습니다: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
+    <value>파일 입출력 오류: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
+    <value>지원되지 않는 응답 콘텐츠 유형: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
+    <value>잘못된 HTTP 헤더 설정: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
+    <value>{0} 다운로드 중 알 수 없는 오류가 발생했습니다. 오류 유형: {1}. 다시 시도하거나 지원에 문의하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
+    <value>7z 압축 해제 실패(항목: {0}): 데이터 오류, 아카이브가 손상되었거나 지원되지 않는 7z 형식을 사용할 수 있습니다. 다시 시도하거나 ZIP을 사용하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
+    <value>7z 압축 해제 실패: 아카이브 데이터가 손상되었거나 지원되지 않는 7z 압축을 사용합니다. 다운로드를 다시 시도하거나 ZIP 패키지를 제공하세요.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
+    <value>지원되지 않는 아카이브 형식!</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartManager" xml:space="preserve">
     <value>사용자 정의 프로그램 시작 관리</value>
@@ -4160,20 +4145,14 @@
   <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
     <value>목록의 프로그램 지연 시작</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
-    <value>지연 시작 시간 설정</value>
-  </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
-    <value>지연 시작 프로그램 목록</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
-    <value>지연 시작 목록 관리</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
     <value>지연 시작 프로그램 목록</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
     <value>대상 JSON 형식의 HTTP 링크를 입력하세요</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
+    <value>지연 시작 프로그램 목록</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
     <value>프로그램 목록 가져오기 소스 설정</value>

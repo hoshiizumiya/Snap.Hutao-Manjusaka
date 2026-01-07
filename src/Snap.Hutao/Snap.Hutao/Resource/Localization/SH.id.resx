@@ -4149,14 +4149,8 @@ Ruang Tersedia: {2}</value>
   <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
     <value>Jalankan program di daftar dengan penundaan</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
-    <value>Atur waktu penundaan peluncuran</value>
-  </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
     <value>Daftar program peluncuran tertunda</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
-    <value>Kelola daftar peluncuran tertunda</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
     <value>Masukkan tautan HTTP berformat JSON yang dituju</value>

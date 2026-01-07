@@ -4,14 +4,19 @@
 // Licensed under the MIT license.
 
 using Snap.Hutao.Core.ExceptionService;
+using Snap.Hutao.Core.IO;
 using Snap.Hutao.Core.Logging;
 using Snap.Hutao.Core.Property;
-using Snap.Hutao.Factory.ContentDialog;
 using Snap.Hutao.Core.Setting;
+using Snap.Hutao.Factory.ContentDialog;
+using Snap.Hutao.Factory.Picker;
+using Snap.Hutao.Factory.Process;
 using Snap.Hutao.Model;
 using Snap.Hutao.Model.Entity;
 using Snap.Hutao.Model.Intrinsic;
 using Snap.Hutao.Service.Game;
+using Snap.Hutao.Service.Game.AdvancedStart;
+using Snap.Hutao.Service.Game.AdvancedStart.Model;
 using Snap.Hutao.Service.Game.FileSystem;
 using Snap.Hutao.Service.Game.Locator;
 using Snap.Hutao.Service.Game.Package;
@@ -20,19 +25,15 @@ using Snap.Hutao.Service.Game.Scheme;
 using Snap.Hutao.Service.Navigation;
 using Snap.Hutao.Service.Notification;
 using Snap.Hutao.Service.User;
-using Snap.Hutao.Factory.Picker;
-using Snap.Hutao.Factory.Process;
-using Windows.System;
 using Snap.Hutao.UI.Input.LowLevel;
 using Snap.Hutao.UI.Xaml.View.Dialog;
 using Snap.Hutao.UI.Xaml.View.Window;
 using Snap.Hutao.ViewModel.User;
 using System.Collections.Immutable;
-using System.IO;
-using Snap.Hutao.Core.IO;
 using System.Collections.ObjectModel;
-using Snap.Hutao.Service.Game.AdvancedStart;
-using Snap.Hutao.Service.Game.AdvancedStart.Model;
+using System.Collections.Specialized;
+using System.IO;
+using Windows.System;
 
 namespace Snap.Hutao.ViewModel.Game;
 
@@ -143,6 +144,8 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         return BlockDeferral<PackageConvertStatus>.CreateAsync<LaunchGamePackageConvertDialog>(serviceProvider, static (state, dialog) => dialog.State = state);
     }
 
+    private readonly object delayedSaveGate = new();
+    private CancellationTokenSource? delayedSaveCts;
     protected override async ValueTask<bool> LoadOverrideAsync(CancellationToken token)
     {
         AdvancedStartProgramPath = LocalSetting.Get(SettingKeys.LaunchAdvancedStartProgramPath, string.Empty);
@@ -157,6 +160,8 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
             Entries = [];
         }
 
+        WireEntries(Entries);
+
         if (LaunchOptions.GamePathEntries.Value.IsDefaultOrEmpty)
         {
             await serviceProvider.GetRequiredService<IGamePathService>().SilentLocateAllGamePathAsync().ConfigureAwait(false);
@@ -165,6 +170,80 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         await HandleGamePathEntryChangeAsync().ConfigureAwait(false);
         Shared.ResumeLaunchExecutionAsync(this).SafeForget();
         return true;
+    }
+
+    private void WireEntries(ObservableCollection<AdvancedStartDelayedProgramEntry> entries)
+    {
+        entries.CollectionChanged += Entries_CollectionChanged;
+
+        foreach (AdvancedStartDelayedProgramEntry entry in entries)
+        {
+            entry.PropertyChanged += Entry_PropertyChanged;
+        }
+    }
+
+    private void Entries_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        if (e.NewItems is not null)
+        {
+            foreach (object item in e.NewItems)
+            {
+                if (item is AdvancedStartDelayedProgramEntry added)
+                {
+                    added.PropertyChanged += Entry_PropertyChanged;
+                }
+            }
+        }
+
+        if (e.OldItems is not null)
+        {
+            foreach (object item in e.OldItems)
+            {
+                if (item is AdvancedStartDelayedProgramEntry removed)
+                {
+                    removed.PropertyChanged -= Entry_PropertyChanged;
+                }
+            }
+        }
+
+        ScheduleDelayedSave();
+    }
+
+    private void Entry_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        // Name / Path / DelaySeconds 任一变化都触发保存
+        ScheduleDelayedSave();
+    }
+
+    private void ScheduleDelayedSave()
+    {
+        CancellationTokenSource? previous;
+
+        lock (delayedSaveGate)
+        {
+            previous = delayedSaveCts;
+            delayedSaveCts = new CancellationTokenSource();
+        }
+
+        previous?.Cancel();
+
+        CancellationToken token = delayedSaveCts!.Token;
+
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await Task.Delay(TimeSpan.FromMilliseconds(500), token).ConfigureAwait(false);
+                store.Save(Entries);
+            }
+            catch (OperationCanceledException)
+            {
+            }
+            catch (Exception ex)
+            {
+                messenger.Send(InfoBarMessage.Error(ex));
+            }
+        });
     }
 
     [Command("IdentifyMonitorsCommand")]
@@ -378,33 +457,57 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     [Command("LaunchAdvancedDelayedCommand")]
     private async Task LaunchAdvancedDelayedAsync()
     {
-        // Run each delayed program sequentially with its configured delay.
-        IReadOnlyList<AdvancedStartDelayedProgramEntry> snapshot = Entries.ToList();
 
+        // Launch each delayed program independently:
+        // schedule a task per entry that waits its own delay from now and then starts the program.
+        IReadOnlyList<AdvancedStartDelayedProgramEntry> snapshot = Entries.ToList();
+        CancellationToken token = CancellationToken;
+
+        List<Task> tasks = new(snapshot.Count);
         foreach (AdvancedStartDelayedProgramEntry entry in snapshot)
         {
-            CancellationToken.ThrowIfCancellationRequested();
+            tasks.Add(Task.Run(async () =>
+            {
+                // Respect cancellation early.
+                token.ThrowIfCancellationRequested();
 
-            int delaySeconds = Math.Max(0, entry.DelaySeconds);
-            if (delaySeconds > 0)
-            {
-                await Task.Delay(TimeSpan.FromSeconds(delaySeconds), CancellationToken).ConfigureAwait(false);
-            }
+                int delaySeconds = Math.Max(0, entry.DelaySeconds);
+                if (delaySeconds > 0)
+                {
+                    try
+                    {
+                        await Task.Delay(TimeSpan.FromSeconds(delaySeconds), token).ConfigureAwait(false);
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        return;
+                    }
+                }
 
-            if (string.IsNullOrWhiteSpace(entry.Path) || !File.Exists(entry.Path))
-            {
-                messenger.Send(InfoBarMessage.Error(SH.ViewModelLaunchGameAdvancedStartProgramNotExists, entry.Path));
-                continue;
-            }
+                if (string.IsNullOrWhiteSpace(entry.Path) || !File.Exists(entry.Path))
+                {
+                    messenger.Send(InfoBarMessage.Error(SH.ViewModelLaunchGameAdvancedStartProgramNotExists, entry.Path));
+                    return;
+                }
 
-            try
-            {
-                ProcessFactory.StartUsingShellExecute(string.Empty, entry.Path);
-            }
-            catch (Exception ex)
-            {
-                messenger.Send(InfoBarMessage.Error(ex));
-            }
+                try
+                {
+                    ProcessFactory.StartUsingShellExecute(string.Empty, entry.Path);
+                }
+                catch (Exception ex)
+                {
+                    messenger.Send(InfoBarMessage.Error(ex));
+                }
+            }, token));
+        }
+
+        try
+        {
+            await Task.WhenAll(tasks).ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            // Swallow cancellation; caller expects cancellation to stop launching.
         }
     }
 

@@ -315,12 +315,12 @@
     <comment>Need EXACT same string in game</comment>
   </data>
   <data name="ModelIntrinsicAssociationTypeNodkrai" xml:space="preserve">
-    <value></value>
-  <comment>Need EXACT same string in game</comment>
+    <value />
+    <comment>Need EXACT same string in game</comment>
   </data>
   <data name="ModelIntrinsicAssociationTypeOmniScourge" xml:space="preserve">
-    <value></value>
-  <comment>Need EXACT same string in game</comment>
+    <value />
+    <comment>Need EXACT same string in game</comment>
   </data>
   <data name="ModelIntrinsicAssociationTypeRanger" xml:space="preserve">
     <value>Ranger</value>
@@ -3543,7 +3543,7 @@
     <value>ทีมที่เข้ากันได้</value>
   </data>
   <data name="ViewPageWiKiAvatarTraceEffectHeader" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>TODO: translate</comment>
   </data>
   <data name="ViewPageWiKiAvatarVisionTitle" xml:space="preserve">
@@ -3990,129 +3990,6 @@
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>หมายเลขจอภาพ</value>
   </data>
-  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
-    <value>ตารางรายการโปรแกรมเริ่มต้นแบบหน่วงเวลา</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
-    <value>การแตกไฟล์ 7z ล้มเหลว: ข้อมูลในอาร์ไคฟ์เสียหายหรือใช้การบีบอัด 7z ที่ไม่รองรับ กรุณาลองดาวน์โหลดอีกครั้งหรือใช้ไฟล์ ZIP</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
-    <value>การแตกไฟล์ 7z ล้มเหลว (รายการ: {0}): ข้อมูลผิดพลาด อาจเกิดจากอาร์ไคฟ์เสียหายหรือใช้การบีบอัด 7z ที่ไม่รองรับ กรุณาลองดาวน์โหลดใหม่หรือใช้ไฟล์ ZIP</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
-    <value>เสร็จสิ้น เส้นทางโปรแกรม: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
-    <value>เซิร์ฟเวอร์ปฏิเสธการเชื่อมต่อ กรุณาลองใหม่ภายหลัง</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
-    <value>ไม่สามารถเชื่อมต่อไปยังเซิร์ฟเวอร์ '{0}': การแก้ DNS ล้มเหลว สาเหตุอาจเป็น: 1) ชื่อโดเมนไม่มีหรือพิมพ์ผิด 2) เซิร์ฟเวอร์ DNS มีปัญหา 3) ปัญหาเครือข่าย 4) ไฟร์วอลล์/ซอฟต์แวร์ความปลอดภัยบล็อกคำขอ DNS โปรดตรวจสอบการตั้งค่าเครือข่ายแล้วลองอีกครั้ง</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
-    <value>การค้นหา DNS สำเร็จแต่ไม่พบเรคคอร์ดของเซิร์ฟเวอร์ โปรดตรวจสอบที่อยู่</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
-    <value>การดาวน์โหลด {0} ถูกยกเลิก</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
-    <value>กำลังดาวน์โหลด {0} ({1}/{2})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
-    <value>การดาวน์โหลด {0} หมดเวลา กรุณาตรวจสอบการเชื่อมต่อเครือข่ายและลองอีกครั้ง</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
-    <value>ไม่มีโปรแกรมเริ่มต้นแบบกำหนดเองที่ใช้งานได้</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
-    <value>ไม่พบไฟล์ปฏิบัติการ</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
-    <value>กำลังแตกไฟล์ {0} ({1}/{2})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
-    <value>การดาวน์โหลดหรือแตกไฟล์ล้มเหลว กรุณาลองใหม่</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
-    <value>ยังไม่ได้กำหนดที่มาของโปรแกรมเริ่มต้นแบบกำหนดเอง</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
-    <value>เซิร์ฟเวอร์ส่งคืนข้อผิดพลาด: {0} {1}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
-    <value>การตั้งค่า HTTP headers ไม่ถูกต้อง: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
-    <value>ข้อผิดพลาดอ่าน/เขียนไฟล์: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
-    <value>โหลดรายการโปรแกรมเริ่มต้นแบบกำหนดเองล้มเหลว</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
-    <value>กำลังโหลดรายการโปรแกรมเริ่มต้นแบบกำหนดเอง</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
-    <value>การเชื่อมต่อเครือข่ายไม่พร้อมใช้งาน กรุณาตรวจสอบสถานะเครือข่าย</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
-    <value>ข้อผิดพลาดการเชื่อมต่อเครือข่าย: {0} (รหัสข้อผิดพลาด: {1})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
-    <value>คำขอเครือข่ายล้มเหลว: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
-    <value>ไม่สามารถเข้าถึงเครือข่ายได้ กรุณาตรวจสอบการเชื่อมต่อ</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
-    <value>การดำเนินการถูกยกเลิก: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
-    <value>โปรดเลือกโปรแกรมเริ่มต้นแบบกำหนดเอง</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
-    <value>กรุณาเลือกโปรแกรมเริ่มต้นแบบกำหนดเองก่อน</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
-    <value>ดาวน์โหลด</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
-    <value>การเชื่อมต่อที่ปลอดภัยล้มเหลว: {0} กรุณาตรวจสอบเวลาเครื่องและการตั้งค่าใบรับรอง</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
-    <value>กรอกลิงก์ HTTP ที่ชี้ไปยัง JSON เป้าหมาย</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
-    <value>คืนค่าเริ่มต้น</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
-    <value>บันทึกสำเร็จ</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
-    <value>ตั้งค่าแหล่งที่มาสำหรับดึงรายการโปรแกรม</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
-    <value>สถานะการทำงานปัจจุบัน</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
-    <value>การเชื่อมต่อหมดเวลา กรุณาตรวจสอบการเชื่อมต่อเครือข่าย</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
-    <value>ดาวน์โหลดโปรแกรมกำหนดเองจากแหล่งกำหนดเอง</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
-    <value>เกิดข้อผิดพลาดไม่ทราบสาเหตุขณะดาวน์โหลด {0} ประเภทข้อผิดพลาด: {1} กรุณาลองอีกครั้งหรือ ติดต่อฝ่ายสนับสนุน</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
-    <value>เซิร์ฟเวอร์ไม่ทราบ</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
-    <value>เซิร์ฟเวอร์ส่งคืนข้อผิดพลาดไม่ทราบสาเหตุ: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
-    <value>รูปแบบอาร์ไคฟ์ที่ไม่รองรับ!</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
-    <value>ชนิดเนื้อหาการตอบสนองที่ไม่รองรับ: {0}</value>
-  </data>
   <data name="ViewPageLaunchGameAdvancedStartOptionsHeader" xml:space="preserve">
     <value>การเริ่มต้นแบบกำหนดเอง</value>
   </data>
@@ -4134,8 +4011,116 @@
   <data name="ViewPageLaunchGameAdvancedStartGame" xml:space="preserve">
     <value>เริ่มโปรแกรมที่กำหนดเอง</value>
   </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
+    <value>กำลังโหลดรายการโปรแกรมเริ่มต้นแบบกำหนดเอง</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
+    <value>ยังไม่ได้กำหนดที่มาของโปรแกรมเริ่มต้นแบบกำหนดเอง</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
+    <value>โปรดเลือกโปรแกรมเริ่มต้นแบบกำหนดเอง</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
+    <value>โหลดรายการโปรแกรมเริ่มต้นแบบกำหนดเองล้มเหลว</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
+    <value>กรุณาเลือกโปรแกรมเริ่มต้นแบบกำหนดเองก่อน</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
+    <value>เสร็จสิ้น เส้นทางโปรแกรม: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
+    <value>การดาวน์โหลดหรือแตกไฟล์ล้มเหลว กรุณาลองใหม่</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
+    <value>ไม่พบไฟล์ปฏิบัติการ</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
+    <value>กำลังดาวน์โหลด {0} ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
+    <value>กำลังแตกไฟล์ {0} ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
+    <value>ดาวน์โหลดโปรแกรมกำหนดเองจากแหล่งกำหนดเอง</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
+    <value>ดาวน์โหลด</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
+    <value>ไม่มีโปรแกรมเริ่มต้นแบบกำหนดเองที่ใช้งานได้</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
+    <value>สถานะการทำงานปัจจุบัน</value>
+  </data>
   <data name="ViewPageLaunchGameAdvancedStartOpenDownloaderAction" xml:space="preserve">
     <value>รับและดาวน์โหลดโปรแกรมจากรายการอย่างรวดเร็ว</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
+    <value>เซิร์ฟเวอร์ไม่ทราบ</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
+    <value>ไม่สามารถเชื่อมต่อไปยังเซิร์ฟเวอร์ '{0}': การแก้ DNS ล้มเหลว สาเหตุอาจเป็น: 1) ชื่อโดเมนไม่มีหรือพิมพ์ผิด 2) เซิร์ฟเวอร์ DNS มีปัญหา 3) ปัญหาเครือข่าย 4) ไฟร์วอลล์/ซอฟต์แวร์ความปลอดภัยบล็อกคำขอ DNS โปรดตรวจสอบการตั้งค่าเครือข่ายแล้วลองอีกครั้ง</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
+    <value>เซิร์ฟเวอร์ปฏิเสธการเชื่อมต่อ กรุณาลองใหม่ภายหลัง</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
+    <value>การเชื่อมต่อหมดเวลา กรุณาตรวจสอบการเชื่อมต่อเครือข่าย</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
+    <value>การเชื่อมต่อเครือข่ายไม่พร้อมใช้งาน กรุณาตรวจสอบสถานะเครือข่าย</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
+    <value>ไม่สามารถเข้าถึงเครือข่ายได้ กรุณาตรวจสอบการเชื่อมต่อ</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
+    <value>การค้นหา DNS สำเร็จแต่ไม่พบเรคคอร์ดของเซิร์ฟเวอร์ โปรดตรวจสอบที่อยู่</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
+    <value>ข้อผิดพลาดการเชื่อมต่อเครือข่าย: {0} (รหัสข้อผิดพลาด: {1})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
+    <value>เซิร์ฟเวอร์ส่งคืนข้อผิดพลาด: {0} {1}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
+    <value>เซิร์ฟเวอร์ส่งคืนข้อผิดพลาดไม่ทราบสาเหตุ: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
+    <value>การเชื่อมต่อที่ปลอดภัยล้มเหลว: {0} กรุณาตรวจสอบเวลาเครื่องและการตั้งค่าใบรับรอง</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
+    <value>คำขอเครือข่ายล้มเหลว: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
+    <value>การดาวน์โหลด {0} ถูกยกเลิก</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
+    <value>การดาวน์โหลด {0} หมดเวลา กรุณาตรวจสอบการเชื่อมต่อเครือข่ายและลองอีกครั้ง</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
+    <value>การดำเนินการถูกยกเลิก: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
+    <value>ข้อผิดพลาดอ่าน/เขียนไฟล์: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
+    <value>ชนิดเนื้อหาการตอบสนองที่ไม่รองรับ: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
+    <value>การตั้งค่า HTTP headers ไม่ถูกต้อง: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
+    <value>เกิดข้อผิดพลาดไม่ทราบสาเหตุขณะดาวน์โหลด {0} ประเภทข้อผิดพลาด: {1} กรุณาลองอีกครั้งหรือ ติดต่อฝ่ายสนับสนุน</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
+    <value>การแตกไฟล์ 7z ล้มเหลว (รายการ: {0}): ข้อมูลผิดพลาด อาจเกิดจากอาร์ไคฟ์เสียหายหรือใช้การบีบอัด 7z ที่ไม่รองรับ กรุณาลองดาวน์โหลดใหม่หรือใช้ไฟล์ ZIP</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
+    <value>การแตกไฟล์ 7z ล้มเหลว: ข้อมูลในอาร์ไคฟ์เสียหายหรือใช้การบีบอัด 7z ที่ไม่รองรับ กรุณาลองดาวน์โหลดอีกครั้งหรือใช้ไฟล์ ZIP</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
+    <value>รูปแบบอาร์ไคฟ์ที่ไม่รองรับ!</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartManager" xml:space="preserve">
     <value>จัดการการเริ่มโปรแกรมแบบกำหนดเอง</value>
@@ -4146,20 +4131,14 @@
   <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
     <value>เริ่มโปรแกรมในรายการด้วยการหน่วงเวลา</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
-    <value>ตั้งเวลาหน่วงการเริ่ม</value>
-  </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
     <value>รายการโปรแกรมที่เริ่มด้วยการหน่วง</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
-    <value>จัดการรายการการเริ่มด้วยการหน่วง</value>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
+    <value>กรอกลิงก์ HTTP ที่ชี้ไปยัง JSON เป้าหมาย</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
     <value>ตารางรายการโปรแกรมเริ่มต้นแบบหน่วงเวลา</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
-    <value>กรอกลิงก์ HTTP ที่ชี้ไปยัง JSON เป้าหมาย</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
     <value>ตั้งค่าแหล่งที่มาสำหรับดึงรายการโปรแกรม</value>

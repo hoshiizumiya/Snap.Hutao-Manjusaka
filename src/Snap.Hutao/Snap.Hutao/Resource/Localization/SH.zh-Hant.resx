@@ -132,129 +132,6 @@
   <data name="AppNameAndVersion" xml:space="preserve">
     <value>胡桃 Manjusaka {0}</value>
   </data>
-  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
-    <value>延遲啟動程式清單表</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
-    <value>7z 解壓失敗：檔案資料損壞或採用了不受支援的 7z 壓縮方式。請重試下載或提供 ZIP 格式封包。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
-    <value>7z 解壓失敗（項目：{0}）：資料錯誤，檔案可能損壞或使用了不受支援的 7z 壓縮格式。請重試下載或使用 ZIP 封包。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
-    <value>已完成，程式路徑：{0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
-    <value>伺服器拒絕連線，請稍後重試。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
-    <value>無法連接到伺服器 '{0}'：DNS 解析失敗。可能原因：1. 網域不存在或拼寫錯誤 2. DNS 伺服器故障 3. 網路連線問題 4. 防火牆或安全軟體阻擋 DNS 查詢。請檢查網路設定後重試。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
-    <value>DNS 查詢成功但未找到伺服器記錄，請確認位址正確性。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
-    <value>下載 {0} 已被取消。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
-    <value>正在下載 {0}（{1}/{2}）</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
-    <value>下載 {0} 超時，請檢查網路連線並重試。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
-    <value>暫無可用的自訂啟動程式</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
-    <value>找不到可執行檔</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
-    <value>正在解壓 {0}（{1}/{2}）</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
-    <value>下載或解壓失敗，請重試</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
-    <value>未配置自訂啟動來源位址</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
-    <value>伺服器返回錯誤：{0} {1}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
-    <value>無效的 HTTP 標頭設定：{0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
-    <value>檔案讀寫錯誤：{0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
-    <value>載入自訂啟動清單失敗</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
-    <value>正在載入自訂啟動清單</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
-    <value>網路連線不可用，請檢查網路狀態。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
-    <value>網路連線錯誤：{0}（錯誤代碼：{1}）</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
-    <value>網路請求失敗：{0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
-    <value>網路無法到達，請檢查網路連線。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
-    <value>操作已取消：{0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
-    <value>請選擇一個自訂啟動程式</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
-    <value>請先選擇自訂啟動程式</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
-    <value>下載</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
-    <value>安全連線失敗：{0}，請檢查系統時間和憑證設定。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
-    <value>填寫目標 JSON 格式的 HTTP 鏈接</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
-    <value>恢復預設</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
-    <value>儲存成功</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
-    <value>程式清單取得來源設定</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
-    <value>目前執行狀態</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
-    <value>連線逾時，請檢查網路連線。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
-    <value>從自訂來源下載自訂程式</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
-    <value>下載 {0} 時發生未知錯誤。錯誤類型：{1}，請重試或聯繫支援。</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
-    <value>未知伺服器</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
-    <value>伺服器返回未知錯誤：{0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
-    <value>不支援的壓縮檔格式！</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
-    <value>不支援的回應內容類型：{0}</value>
-  </data>
   <data name="ContentDialogCancelCloseButtonText" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -4317,14 +4194,8 @@
   <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
     <value>延遲啟動清單中的程式</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
-    <value>設定啟動延遲時間</value>
-  </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
     <value>延遲啟動程式列表</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
-    <value>延遲啟動列表管理</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
     <value>填寫目標 json 格式的 http 連結</value>
@@ -4340,5 +4211,14 @@
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
     <value>儲存成功</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
+    <value>延遲（秒）</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListPath" xml:space="preserve">
+    <value>應用路徑</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
+    <value>應用名</value>
   </data>
 </root>

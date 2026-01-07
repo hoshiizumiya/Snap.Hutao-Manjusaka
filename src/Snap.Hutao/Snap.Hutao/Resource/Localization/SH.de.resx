@@ -120,129 +120,6 @@
   <data name="AppDevNameAndVersion" xml:space="preserve">
     <value>Snap Hutao Manjusaka Dev {0}</value>
   </data>
-  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
-    <value>Liste verzögerter Startprogramme</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
-    <value>7z-Entpacken fehlgeschlagen: Archivdaten beschädigt oder nicht unterstützte 7z-Kompression verwendet. Bitte Download erneut versuchen oder ein ZIP-Paket bereitstellen.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
-    <value>7z-Entpacken fehlgeschlagen (Eintrag: {0}): Datenfehler, Archiv möglicherweise beschädigt oder verwendet eine nicht unterstützte 7z-Kompression. Bitte erneut versuchen oder ZIP verwenden.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
-    <value>Abgeschlossen, Programm-Pfad: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
-    <value>Verbindung vom Server verweigert, bitte später erneut versuchen.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
-    <value>Verbindung zu Server '{0}' nicht möglich: DNS-Auflösung fehlgeschlagen. Mögliche Ursachen: 1) Domain existiert nicht oder Tippfehler 2) DNS-Server-Ausfall 3) Netzwerkprobleme 4) Firewall blockiert DNS-Anfragen. Prüfen Sie die Netzwerkeinstellungen und versuchen Sie es erneut.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
-    <value>DNS-Abfrage erfolgreich, aber kein Servereintrag gefunden; bitte Adresse prüfen.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
-    <value>Download {0} abgebrochen.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
-    <value>Lade {0} herunter ({1}/{2})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
-    <value>Download von {0} zeitüberschritten, bitte Netzwerk prüfen und erneut versuchen.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
-    <value>Keine benutzerdefinierten Launcher verfügbar</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
-    <value>Ausführbare Datei nicht gefunden</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
-    <value>Entpacke {0} ({1}/{2})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
-    <value>Download oder Entpacken fehlgeschlagen, bitte erneut versuchen</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
-    <value>Benutzerdefinierte Launcher-Quelle nicht konfiguriert</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
-    <value>Server gab Fehler zurück: {0} {1}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
-    <value>Ungültige HTTP-Header-Einstellungen: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
-    <value>Datei-E/A-Fehler: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
-    <value>Laden der benutzerdefinierten Launcher-Liste fehlgeschlagen</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
-    <value>Lade benutzerdefinierte Launcher-Liste</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
-    <value>Netzwerkverbindung nicht verfügbar, prüfen Sie den Netzwerkstatus.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
-    <value>Netzwerkfehler: {0} (Code: {1})</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
-    <value>Netzwerkanfrage fehlgeschlagen: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
-    <value>Netzwerk nicht erreichbar, bitte Verbindung prüfen.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
-    <value>Vorgang abgebrochen: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
-    <value>Bitte benutzerdefinierten Launcher auswählen</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
-    <value>Wählen Sie zuerst einen benutzerdefinierten Launcher aus</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
-    <value>Herunterladen</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
-    <value>Sichere Verbindung fehlgeschlagen: {0}, prüfen Sie Systemzeit und Zertifikate.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
-    <value>Geben Sie einen HTTP-Link ein, der auf das Ziel-JSON zeigt</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
-    <value>Auf Standard zurücksetzen</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
-    <value>Speichern erfolgreich</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
-    <value>Quell-Einstellungen für Programm-Liste</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
-    <value>Aktueller Ausführungsstatus</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
-    <value>Verbindung zeitlich überschritten, prüfen Sie das Netzwerk.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
-    <value>Benutzerdefiniertes Programm von benutzerdefinierter Quelle herunterladen</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
-    <value>Beim Herunterladen von {0} trat ein unbekannter Fehler auf. Fehlertyp: {1}. Bitte erneut versuchen oder Support kontaktieren.</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
-    <value>Unbekannter Server</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
-    <value>Server hat einen unbekannten Fehler zurückgegeben: {0}</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
-    <value>Nicht unterstütztes Archivformat!</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
-    <value>Nicht unterstützter Antwortinhaltstyp: {0}</value>
-  </data>
   <data name="AppElevatedDevNameAndVersion" xml:space="preserve">
     <value>Snap Hutao Manjusaka Dev {0} [Administrator]</value>
   </data>
@@ -968,6 +845,21 @@
   <data name="ServiceAvatarInfoPropertySkillCDReduce" xml:space="preserve">
     <value>Abklingzeitverringerung</value>
   </data>
+  <data name="ServiceBackgroundActivityDefaultDescription" xml:space="preserve">
+    <value>in Vorbereitung</value>
+  </data>
+  <data name="ServiceBackgroundActivityFullTrustInitialization" xml:space="preserve">
+    <value>Full-Trust-Komponenteninitialisierung</value>
+  </data>
+  <data name="ServiceBackgroundActivityFullTrustInitializationDescription" xml:space="preserve">
+    <value>Nur bei Bedarf ausführen</value>
+  </data>
+  <data name="ServiceBackgroundActivityMetadataInitialization" xml:space="preserve">
+    <value>Metadateninitialisierung</value>
+  </data>
+  <data name="ServiceBackgroundActivityMetadataInitializationDescription" xml:space="preserve">
+    <value>In Vorbereitung. Wenn es lange keine Reaktion gibt, versuchen Sie einen Neustart oder überprüfen Sie Netzwerk und Serverstatus</value>
+  </data>
   <data name="ServiceBackgroundImageTypeBing" xml:space="preserve">
     <value>Bing Tages-Hintergrundbild</value>
   </data>
@@ -1110,6 +1002,10 @@
   <data name="ServiceGameIslandFileSystemGetGameVersionFailed" xml:space="preserve">
     <value>Abrufen der lokalen Spielversion fehlgeschlagen, Injektionskonfigurationsinformationen können nicht abgerufen werden</value>
   </data>
+  <data name="ServiceGameIslandTargetVersionFileNotExists" xml:space="preserve">
+    <value>Die aktuelle Spielversion wird noch nicht unterstützt</value>
+    <comment>Translated by AI</comment>
+  </data>
   <data name="ServiceGameLaunchExecutionBetterGenshinImpactStarted" xml:space="preserve">
     <value>BetterGI gestartet</value>
   </data>
@@ -1151,6 +1047,10 @@
   </data>
   <data name="ServiceGameLaunchingHandlerEmbeddedYaeIslandNotEnabled" xml:space="preserve">
     <value>Vor der Verwendung von Embedded Yae sollten Sie sich über die damit verbundenen Risiken informieren und die Injektionsfunktion auf der Seite „Spiel starten“ aktivieren.</value>
+  </data>
+  <data name="ServiceGameLaunchingHandlerGameProcessStartRepositorySyncFailed" xml:space="preserve">
+    <value>Fehler beim Abrufen der erforderlichen Spielstartkomponenten</value>
+    <comment>Translated by AI</comment>
   </data>
   <data name="ServiceGameLocatorFileOpenPickerCommitText" xml:space="preserve">
     <value>Spieldatei auswählen</value>
@@ -1229,6 +1129,14 @@ Verfügbarer Speicherplatz: {2}</value>
   <data name="ServiceGameSetMultiChannelUnauthorizedAccess" xml:space="preserve">
     <value>Konfigurationsdatei kann nicht gelesen oder gespeichert werden, bitte im Administratormodus erneut versuchen</value>
   </data>
+  <data name="ServiceGitRepositoryOperationCompleted" xml:space="preserve">
+    <value>Operation abgeschlossen</value>
+    <comment>Translated by AI</comment>
+  </data>
+  <data name="ServiceGitRepositoryOperationFailed" xml:space="preserve">
+    <value>Operation fehlgeschlagen</value>
+    <comment>Translated by AI</comment>
+  </data>
   <data name="ServiceHutaoUserGachaLogExpiredAt" xml:space="preserve">
     <value>Die Gültigkeit des Hochladens von Wunschaufzeichnungen endet am</value>
   </data>
@@ -1303,6 +1211,10 @@ Verfügbarer Speicherplatz: {2}</value>
   </data>
   <data name="ServiceYaeWaitForGameResponseMessage" xml:space="preserve">
     <value>Warte auf Spieldaten</value>
+  </data>
+  <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
+    <value>Hintergrundaufgaben</value>
+    <comment>Translated by AI</comment>
   </data>
   <data name="UIViewPageAvatarPropertyRecommendedAppendProperties" xml:space="preserve">
     <value>Empfohlene Zusatzeigenschaften</value>
@@ -3869,6 +3781,10 @@ Verfügbarer Speicherplatz: {2}</value>
   <data name="ViewWindowCompactWebViewTitle" xml:space="preserve">
     <value>Kompaktes Webfenster (nur für Administratoren)</value>
   </data>
+  <data name="ViewWindowCompactWebView2HotKeyDisabledMessage" xml:space="preserve">
+    <value>Als Administrator ausführen, um globale Hotkey-Funktionen zu aktivieren</value>
+    <comment>Translated by AI</comment>
+  </data>
   <data name="ViewWindowExceptionClose" xml:space="preserve">
     <value>Schließen</value>
   </data>
@@ -4112,69 +4028,6 @@ Verfügbarer Speicherplatz: {2}</value>
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>Monitor-ID</value>
   </data>
-  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
-    <value>Automatisch anmelden</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartOptionsHeader" xml:space="preserve">
-    <value>Benutzerdefinierter Start</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDescription" xml:space="preserve">
-    <value>Mit den benutzerdefinierten Startoptionen können Programme von anderen Pfaden schnell gestartet werden；Hutao-internen Spieloptionen, einschließlich Startparametern, sind möglicherweise nicht wirksam.</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartCustomizeHeader" xml:space="preserve">
-    <value>Benutzerdefiniertes Programm starten</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartPickPathHeader" xml:space="preserve">
-    <value>Startprogramm auswählen</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartPickPathDescription" xml:space="preserve">
-    <value>Wählen Sie den Pfad des zu startenden Programms, der mit '.exe' enden muss</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartOpenCommunityAction" xml:space="preserve">
-    <value>Zur Community gehen, um geteilte Programme zu erhalten</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartGame" xml:space="preserve">
-    <value>Benutzerdefiniertes Programm starten</value>
-  </data>
-  <data name="ServiceBackgroundActivityDefaultDescription" xml:space="preserve">
-    <value>in Vorbereitung</value>
-  </data>
-  <data name="ServiceBackgroundActivityFullTrustInitialization" xml:space="preserve">
-    <value>Full-Trust-Komponenteninitialisierung</value>
-  </data>
-  <data name="ServiceBackgroundActivityFullTrustInitializationDescription" xml:space="preserve">
-    <value>Nur bei Bedarf ausführen</value>
-  </data>
-  <data name="ServiceBackgroundActivityMetadataInitialization" xml:space="preserve">
-    <value>Metadateninitialisierung</value>
-  </data>
-  <data name="ServiceBackgroundActivityMetadataInitializationDescription" xml:space="preserve">
-    <value>In Vorbereitung. Wenn es lange keine Reaktion gibt, versuchen Sie einen Neustart oder überprüfen Sie Netzwerk und Serverstatus</value>
-  </data>
-  <data name="ServiceGameIslandTargetVersionFileNotExists" xml:space="preserve">
-    <value>Die aktuelle Spielversion wird noch nicht unterstützt</value>
-    <comment>Translated by AI</comment>
-  </data>
-  <data name="ServiceGameLaunchingHandlerGameProcessStartRepositorySyncFailed" xml:space="preserve">
-    <value>Fehler beim Abrufen der erforderlichen Spielstartkomponenten</value>
-    <comment>Translated by AI</comment>
-  </data>
-  <data name="ServiceGitRepositoryOperationCompleted" xml:space="preserve">
-    <value>Operation abgeschlossen</value>
-    <comment>Translated by AI</comment>
-  </data>
-  <data name="ServiceGitRepositoryOperationFailed" xml:space="preserve">
-    <value>Operation fehlgeschlagen</value>
-    <comment>Translated by AI</comment>
-  </data>
-  <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
-    <value>Hintergrundaufgaben</value>
-    <comment>Translated by AI</comment>
-  </data>
-  <data name="ViewWindowCompactWebView2HotKeyDisabledMessage" xml:space="preserve">
-    <value>Als Administrator ausführen, um globale Hotkey-Funktionen zu aktivieren</value>
-    <comment>Translated by AI</comment>
-  </data>
   <data name="UIViewMainTitleBarInvertTheme" xml:space="preserve">
     <value>Thema umschalten</value>
     <comment>Translated by AI</comment>
@@ -4198,6 +4051,9 @@ Verfügbarer Speicherplatz: {2}</value>
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>Anwendungsverhalten</value>
     <comment>Translated by AI</comment>
+  </data>
+  <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
+    <value>Automatisch anmelden</value>
   </data>
   <data name="ServiceMetadataWeaponIdNotFound" xml:space="preserve">
     <value>Waffen-Metadaten nicht gefunden</value>
@@ -4227,9 +4083,138 @@ Verfügbarer Speicherplatz: {2}</value>
     <value>Weihnachtsthema</value>
     <comment>Translated by AI</comment>
   </data>
+  <data name="ViewPageLaunchGameAdvancedStartOptionsHeader" xml:space="preserve">
+    <value>Benutzerdefinierter Start</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDescription" xml:space="preserve">
+    <value>Mit den benutzerdefinierten Startoptionen können Programme von anderen Pfaden schnell gestartet werden；Hutao-internen Spieloptionen, einschließlich Startparametern, sind möglicherweise nicht wirksam.</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCustomizeHeader" xml:space="preserve">
+    <value>Benutzerdefiniertes Programm starten</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathHeader" xml:space="preserve">
+    <value>Startprogramm auswählen</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartPickPathDescription" xml:space="preserve">
+    <value>Wählen Sie den Pfad des zu startenden Programms, der mit '.exe' enden muss</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartOpenCommunityAction" xml:space="preserve">
+    <value>Zur Community gehen, um geteilte Programme zu erhalten</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartGame" xml:space="preserve">
+    <value>Benutzerdefiniertes Programm starten</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoading" xml:space="preserve">
+    <value>Lade benutzerdefinierte Launcher-Liste</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFeedMissing" xml:space="preserve">
+    <value>Benutzerdefinierte Launcher-Quelle nicht konfiguriert</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPick" xml:space="preserve">
+    <value>Bitte benutzerdefinierten Launcher auswählen</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartLoadFailed" xml:space="preserve">
+    <value>Laden der benutzerdefinierten Launcher-Liste fehlgeschlagen</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPickWarning" xml:space="preserve">
+    <value>Wählen Sie zuerst einen benutzerdefinierten Launcher aus</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartCompleted" xml:space="preserve">
+    <value>Abgeschlossen, Programm-Pfad: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartFailed" xml:space="preserve">
+    <value>Download oder Entpacken fehlgeschlagen, bitte erneut versuchen</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExecutableMissing" xml:space="preserve">
+    <value>Ausführbare Datei nicht gefunden</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloading" xml:space="preserve">
+    <value>Lade {0} herunter ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartExtracting" xml:space="preserve">
+    <value>Entpacke {0} ({1}/{2})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTitle" xml:space="preserve">
+    <value>Benutzerdefiniertes Programm von benutzerdefinierter Quelle herunterladen</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartPrimary" xml:space="preserve">
+    <value>Herunterladen</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartEmpty" xml:space="preserve">
+    <value>Keine benutzerdefinierten Launcher verfügbar</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartStatusHeader" xml:space="preserve">
+    <value>Aktueller Ausführungsstatus</value>
+  </data>
   <data name="ViewPageLaunchGameAdvancedStartOpenDownloaderAction" xml:space="preserve">
     <value>Schnell Programme aus der Liste abrufen und herunterladen</value>
     <comment>Translated by AI</comment>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServer" xml:space="preserve">
+    <value>Unbekannter Server</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsFailed" xml:space="preserve">
+    <value>Verbindung zu Server '{0}' nicht möglich: DNS-Auflösung fehlgeschlagen. Mögliche Ursachen: 1) Domain existiert nicht oder Tippfehler 2) DNS-Server-Ausfall 3) Netzwerkprobleme 4) Firewall blockiert DNS-Anfragen. Prüfen Sie die Netzwerkeinstellungen und versuchen Sie es erneut.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartConnectionRefused" xml:space="preserve">
+    <value>Verbindung vom Server verweigert, bitte später erneut versuchen.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartTimedOut" xml:space="preserve">
+    <value>Verbindung zeitlich überschritten, prüfen Sie das Netzwerk.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkDown" xml:space="preserve">
+    <value>Netzwerkverbindung nicht verfügbar, prüfen Sie den Netzwerkstatus.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkUnreachable" xml:space="preserve">
+    <value>Netzwerk nicht erreichbar, bitte Verbindung prüfen.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDnsNoData" xml:space="preserve">
+    <value>DNS-Abfrage erfolgreich, aber kein Servereintrag gefunden; bitte Adresse prüfen.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkError" xml:space="preserve">
+    <value>Netzwerkfehler: {0} (Code: {1})</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartHttpError" xml:space="preserve">
+    <value>Server gab Fehler zurück: {0} {1}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownServerResponse" xml:space="preserve">
+    <value>Server hat einen unbekannten Fehler zurückgegeben: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSecurityFailed" xml:space="preserve">
+    <value>Sichere Verbindung fehlgeschlagen: {0}, prüfen Sie Systemzeit und Zertifikate.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartNetworkRequestFailed" xml:space="preserve">
+    <value>Netzwerkanfrage fehlgeschlagen: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadCanceled" xml:space="preserve">
+    <value>Download {0} abgebrochen.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartDownloadTimeout" xml:space="preserve">
+    <value>Download von {0} zeitüberschritten, bitte Netzwerk prüfen und erneut versuchen.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartOperationCanceled" xml:space="preserve">
+    <value>Vorgang abgebrochen: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartIOError" xml:space="preserve">
+    <value>Datei-E/A-Fehler: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedContentType" xml:space="preserve">
+    <value>Nicht unterstützter Antwortinhaltstyp: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInvalidHeaders" xml:space="preserve">
+    <value>Ungültige HTTP-Header-Einstellungen: {0}</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnknownError" xml:space="preserve">
+    <value>Beim Herunterladen von {0} trat ein unbekannter Fehler auf. Fehlertyp: {1}. Bitte erneut versuchen oder Support kontaktieren.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zEntryDataError" xml:space="preserve">
+    <value>7z-Entpacken fehlgeschlagen (Eintrag: {0}): Datenfehler, Archiv möglicherweise beschädigt oder verwendet eine nicht unterstützte 7z-Kompression. Bitte erneut versuchen oder ZIP verwenden.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStart7zDataError" xml:space="preserve">
+    <value>7z-Entpacken fehlgeschlagen: Archivdaten beschädigt oder nicht unterstützte 7z-Kompression verwendet. Bitte Download erneut versuchen oder ein ZIP-Paket bereitstellen.</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartUnsupportedArchiveFormat" xml:space="preserve">
+    <value>Nicht unterstütztes Archivformat!</value>
   </data>
   <data name="ViewModelLaunchGameAdvancedStartProgramPathNotSet" xml:space="preserve">
     <value>Benutzerdefinierter Startprogrammpfad nicht festgelegt</value>
@@ -4259,16 +4244,23 @@ Verfügbarer Speicherplatz: {2}</value>
     <value>Programme aus der verzögerten Startliste starten</value>
     <comment>Translated by AI</comment>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
-    <value>Startverzögerungszeit festlegen</value>
-    <comment>Translated by AI</comment>
-  </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
     <value>Verzögerte Startprogrammliste</value>
     <comment>Translated by AI</comment>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
-    <value>Verzögerte Startlistenverwaltung</value>
-    <comment>Translated by AI</comment>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
+    <value>Geben Sie einen HTTP-Link ein, der auf das Ziel-JSON zeigt</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedDelayedStartTitle" xml:space="preserve">
+    <value>Liste verzögerter Startprogramme</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterTitle" xml:space="preserve">
+    <value>Quell-Einstellungen für Programm-Liste</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterBackToDefaultButton" xml:space="preserve">
+    <value>Auf Standard zurücksetzen</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
+    <value>Speichern erfolgreich</value>
   </data>
 </root>

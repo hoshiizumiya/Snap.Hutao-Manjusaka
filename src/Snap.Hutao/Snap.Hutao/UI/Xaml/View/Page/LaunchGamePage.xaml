@@ -556,47 +556,35 @@
             </PivotItem>
 
             <PivotItem Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOptionsHeader}">
-                <Border
-                    Margin="16"
-                    Padding="0"
-                    cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
-                    <Grid Style="{ThemeResource AcrylicGridCardStyle}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid
-                            Grid.Row="0"
-                            Padding="16,8"
-                            Background="{ThemeResource LayerOnAcrylicFillColorDefaultBrush}"
-                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                            BorderThickness="0,0,0,1"
-                            RowSpacing="16">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCustomizeHeader}"/>
-                                <TextBlock
-                                    Foreground="{ThemeResource SystemFillColorCriticalBrush}"
-                                    Style="{StaticResource CaptionTextBlockStyle}"
-                                    Text="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDescription}"/>
-                            </StackPanel>
-                        </Grid>
-                        <ScrollViewer Grid.Row="3">
+                <ScrollViewer>
+                    <StackPanel Margin="16" Spacing="8">
+                        <Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
+                            <Grid
+                                Padding="16,8"
+                                BorderThickness="0,0,0,1"
+                                RowSpacing="16"
+                                Style="{ThemeResource AcrylicGridCardStyle}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCustomizeHeader}"/>
+                                    <TextBlock
+                                        Foreground="{ThemeResource SystemFillColorCriticalBrush}"
+                                        Style="{StaticResource CaptionTextBlockStyle}"
+                                        Text="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDescription}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
                             <ContentControl HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
                                 <Grid
                                     Padding="16"
                                     ColumnSpacing="16"
-                                    RowSpacing="{ThemeResource SettingsCardSpacing}">
-                                    <!--<Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>-->
+                                    RowSpacing="{ThemeResource SettingsCardSpacing}"
+                                    Style="{ThemeResource AcrylicGridCardStyle}">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="auto"/>
@@ -672,46 +660,35 @@
                                                 IsClickEnabled="True"/>
                                         </cwc:SettingsExpander.Items>
                                     </cwc:SettingsExpander>
-                                    <!--<cwc:SettingsExpander
-                                        Grid.Row="4"
-                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayManager}"
-                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xE916;}"
-                                        IsExpanded="True">
-                                        <cwc:SettingsExpander.Items>
-                                            <cwc:SettingsCard
-                                                VerticalAlignment="Top"
-                                                ActionIconToolTip="Open in a dialog"
-                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartList}"
-                                                HeaderIcon="{shuxm:FontIcon Glyph=&#xEBD3;}"
-                                                IsClickEnabled="True"/>
-                                            <cwc:SettingsCard
-                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedTimeSetter}"
-                                                HeaderIcon="{shuxm:FontIcon Glyph=&#xE713;}"
-                                                IsClickEnabled="True"/>
-                                        </cwc:SettingsExpander.Items>
-                                    </cwc:SettingsExpander>-->
 
                                     <!--  延迟的启动程序列表管理  -->
-                                    <shuxcc:TitleCard Title="Delayed Programs List" Grid.Row="4">
+                                    <shuxcc:TitleCard Title="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartList}" Grid.Row="4">
                                         <shuxcc:TitleCard.TitleContent>
                                             <StackPanel
                                                 Margin="0,0,16,0"
                                                 Orientation="Horizontal"
                                                 Spacing="8">
-                                                <Button
-                                                    Command="{Binding DataContext.AddDelayedProgramCommand, Source={StaticResource BindingProxy}}"
-                                                    Content="Add"
-                                                    Style="{ThemeResource SettingButtonStyle}"/>
+                                                <Button Command="{Binding DataContext.AddDelayedProgramCommand, Source={StaticResource BindingProxy}}" Style="{ThemeResource SettingButtonStyle}">
+                                                    <Button.Content>
+                                                        <FontIcon Glyph="&#xE710;"/>
+                                                    </Button.Content>
+                                                </Button>
                                                 <Button
                                                     Command="{Binding DataContext.EditDelayedProgramCommand, Source={StaticResource BindingProxy}}"
-                                                    Content="Edit Path"
                                                     IsEnabled="{Binding DataContext.SelectedDelayedProgramEntry, Source={StaticResource BindingProxy}, Converter={StaticResource EmptyObjectToBoolConverter}}"
-                                                    Style="{ThemeResource SettingButtonStyle}"/>
+                                                    Style="{ThemeResource SettingButtonStyle}">
+                                                    <Button.Content>
+                                                        <FontIcon Glyph="&#xE70F;"/>
+                                                    </Button.Content>
+                                                </Button>
                                                 <Button
                                                     Command="{Binding DataContext.RemoveDelayedProgramCommand, Source={StaticResource BindingProxy}}"
-                                                    Content="Delete selected"
                                                     IsEnabled="{Binding DataContext.SelectedDelayedProgramEntry, Source={StaticResource BindingProxy}, Converter={StaticResource EmptyObjectToBoolConverter}}"
-                                                    Style="{ThemeResource SettingButtonStyle}"/>
+                                                    Style="{ThemeResource SettingButtonStyle}">
+                                                    <Button.Content>
+                                                        <FontIcon Glyph="&#xE74D;"/>
+                                                    </Button.Content>
+                                                </Button>
                                             </StackPanel>
                                         </shuxcc:TitleCard.TitleContent>
                                         <shuxcc:TitleCard.Content>
@@ -721,14 +698,14 @@
                                                         <cwc:DataColumn
                                                             MinWidth="160"
                                                             CanResize="True"
-                                                            Content="Name"/>
+                                                            Content="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartListName}"/>
                                                         <cwc:DataColumn DesiredWidth="*">
-                                                            <TextBlock FontWeight="SemiBold" Text="Path"/>
+                                                            <TextBlock FontWeight="SemiBold" Text="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartListPath}"/>
                                                         </cwc:DataColumn>
                                                         <cwc:DataColumn
                                                             MinWidth="76"
                                                             CanResize="False"
-                                                            Content="Delay(s)"/>
+                                                            Content="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime}"/>
                                                     </cwc:DataTable>
                                                 </ListView.Header>
                                                 <ListView.ItemTemplate>
@@ -738,7 +715,7 @@
                                                                 MinWidth="5"
                                                                 Margin="0,0,30,0"
                                                                 VerticalAlignment="Center"
-                                                                Text="{x:Bind Name, Mode=TwoWay}"/>
+                                                                Text="{x:Bind Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                             <Grid>
                                                                 <Grid.ColumnDefinitions>
                                                                     <ColumnDefinition Width="Auto"/>
@@ -748,7 +725,7 @@
                                                                     Grid.Column="0"
                                                                     Width="Auto"
                                                                     VerticalAlignment="Center"
-                                                                    Text="{x:Bind Path, Mode=TwoWay}"
+                                                                    Text="{x:Bind Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                                     TextWrapping="NoWrap"/>
                                                                 <Button
                                                                     Grid.Column="1"
@@ -767,7 +744,7 @@
                                                                 MinWidth="36"
                                                                 Margin="0,0,18,0"
                                                                 VerticalAlignment="Center"
-                                                                Value="{x:Bind DelaySeconds, Mode=TwoWay}"/>
+                                                                Value="{x:Bind DelaySeconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                                         </cwc:DataRow>
                                                     </DataTemplate>
                                                 </ListView.ItemTemplate>
@@ -781,9 +758,11 @@
                                     </shuxcc:TitleCard>
                                 </Grid>
                             </ContentControl>
-                        </ScrollViewer>
-                    </Grid>
-                </Border>
+
+                        </Border>
+
+                    </StackPanel>
+                </ScrollViewer>
             </PivotItem>
 
             <PivotItem Header="{shuxm:ResourceString Name=ViewPageLaunchGameIslandOptionsHeader}">

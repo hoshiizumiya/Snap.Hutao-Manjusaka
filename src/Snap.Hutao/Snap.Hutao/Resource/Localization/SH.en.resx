@@ -4212,18 +4212,17 @@ Space Available: {2}</value>
   <data name="ViewModelLaunchGameAdvancedStartProgramPathSaved" xml:space="preserve">
     <value>The custom startup program path has been saved</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ViewPageLaunchGameAdvancedStartManager" xml:space="preserve">
+    <value>Manage custom launch programs</value>
+  </data>
   <data name="ViewPageLaunchGameAdvancedStartListSetter" xml:space="preserve">
     <value>Set program list source</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedTimeSetter" xml:space="preserve">
-    <value>Set delayed time</value>
+  <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
+    <value>Launch programs in the delayed-start list</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartList" xml:space="preserve">
     <value>Delayed start programs list</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayManager" xml:space="preserve">
-    <value>Delayed start list management</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartSourceDescription" xml:space="preserve">
     <value>Fill in the http link in the target JSON format</value>
@@ -4240,10 +4239,13 @@ Space Available: {2}</value>
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
     <value>Saved successfully</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartManager" xml:space="preserve">
-    <value>Manage custom launch programs</value>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
+    <value>Delay(s)</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartGameDelayedStart" xml:space="preserve">
-    <value>Launch programs in the delayed-start list</value>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListPath" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
+    <value>Name</value>
   </data>
 </root>
