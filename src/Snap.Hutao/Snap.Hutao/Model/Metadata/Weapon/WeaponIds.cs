@@ -34,7 +34,7 @@ internal static class WeaponIds
         13502U, 13505U,
         14501U, 14502U,
         15501U, 15502U,
-        15515U, 15518U
+        15515U, 11518U
     ];
 
     public static bool IsOrangeStandardWish(in WeaponId weaponId)
