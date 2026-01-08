@@ -4248,4 +4248,13 @@ Spazio disponibile: {2}</value>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
     <value>应用名</value>
   </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
+    <value>将会下载到设置的数据目录的 AdvancedStart 文件夹下，可前往设置调整或自行管理</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
+    <value>连带启动</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartDescription" xml:space="preserve">
+    <value>设置不同位置的启动是否触发延时启动</value>
+  </data>
 </root>
