@@ -631,21 +631,20 @@
                                                 Text="{Binding AdvancedStartProgramPath}"/>
                                         </StackPanel>
                                     </cwc:SettingsCard>
-                                    <cwc:SettingsCard
-                                        Grid.Row="2"
-                                        VerticalAlignment="Top"
-                                        ActionIcon="{shuxm:FontIcon Glyph=&#xE8A7;}"
-                                        ActionIconToolTip="Open in browser"
-                                        Command="{Binding OpenAdvancedStartCommunityCommand}"
-                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenCommunityAction}"
-                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xEB41;}"
-                                        IsClickEnabled="True"/>
                                     <cwc:SettingsExpander
-                                        Grid.Row="3"
+                                        Grid.Row="2"
                                         Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartManager}"
                                         HeaderIcon="{shuxm:FontIcon Glyph=&#xE74C;}"
                                         IsExpanded="True">
                                         <cwc:SettingsExpander.Items>
+                                            <cwc:SettingsCard
+                                                VerticalAlignment="Top"
+                                                ActionIcon="{shuxm:FontIcon Glyph=&#xE8A7;}"
+                                                ActionIconToolTip="Open in browser"
+                                                Command="{Binding OpenAdvancedStartCommunityCommand}"
+                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartOpenCommunityAction}"
+                                                HeaderIcon="{shuxm:FontIcon Glyph=&#xEB41;}"
+                                                IsClickEnabled="True"/>
                                             <cwc:SettingsCard
                                                 VerticalAlignment="Top"
                                                 ActionIconToolTip="Open in a dialog"
@@ -662,7 +661,7 @@
                                     </cwc:SettingsExpander>
 
                                     <!--  延迟的启动程序列表管理  -->
-                                    <shuxcc:TitleCard Title="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartList}" Grid.Row="4">
+                                    <shuxcc:TitleCard Title="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartList}" Grid.Row="3">
                                         <shuxcc:TitleCard.TitleContent>
                                             <StackPanel
                                                 Margin="0,0,16,0"
@@ -756,6 +755,24 @@
                                             </ListView>
                                         </shuxcc:TitleCard.Content>
                                     </shuxcc:TitleCard>
+                                    <cwc:SettingsExpander
+                                        Grid.Row="4"
+                                        Description="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCoStartDescription}"
+                                        Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCoStartHeader}"
+                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xE723;}"
+                                        IsExpanded="True">
+                                        <cwc:SettingsExpander.Items>
+                                            <cwc:SettingsCard Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCoStartHeader}" IsClickEnabled="True">
+                                                <ToggleSwitch />
+
+                                            </cwc:SettingsCard>
+                                            <cwc:SettingsCard Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCoStartHeader}" IsClickEnabled="True">
+                                                <ToggleSwitch/>
+
+                                            </cwc:SettingsCard>
+
+                                        </cwc:SettingsExpander.Items>
+                                    </cwc:SettingsExpander>
                                 </Grid>
                             </ContentControl>
 

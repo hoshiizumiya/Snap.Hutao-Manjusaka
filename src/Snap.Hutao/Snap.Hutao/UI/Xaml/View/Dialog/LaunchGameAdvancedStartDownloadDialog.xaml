@@ -63,5 +63,21 @@
             Text="{shuxm:ResourceString Name=ViewDialogLaunchGameAdvancedStartEmpty}"
             TextWrapping="Wrap"
             Visibility="{x:Bind Programs, Mode=OneWay, Converter={StaticResource EmptyCollectionToVisibilityRevertConverter}}"/>
+        <InfoBar
+            VerticalAlignment="Bottom"
+            IsClosable="True"
+            IsOpen="True"
+            Message="{shuxm:ResourceString Name=ViewDialogLaunchGameAdvancedStartInfoBarMessage}">
+            <InfoBar.ActionButton>
+                <Button Click="ViewDialogLaunchGameAdvancedStartInfoBarButton_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xED25;"/>
+                            <TextBlock Text="{shuxm:ResourceString Name=ViewSettingFolderViewOpenFolderAction}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </InfoBar.ActionButton>
+        </InfoBar>
     </StackPanel>
 </ContentDialog>

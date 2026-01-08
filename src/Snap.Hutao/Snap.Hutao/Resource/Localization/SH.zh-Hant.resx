@@ -4221,4 +4221,7 @@
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
     <value>應用名</value>
   </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
+    <value>將會下載到設置的資料目錄的 AdvancedStart 資料夾下，可前往設置調整或自行管理</value>
+  </data>
 </root>

@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 using CommunityToolkit.Common;
+using LibGit2Sharp;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using SharpCompress.Archives;
@@ -9,6 +10,7 @@ using SharpCompress.Archives.SevenZip;
 using Snap.Hutao.Core;
 using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Core.IO;
+using Snap.Hutao.Core.Logging;
 using Snap.Hutao.Core.Setting;
 using Snap.Hutao.Factory.ContentDialog;
 using Snap.Hutao.Factory.Progress;
@@ -22,6 +24,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
 using System.Text.Json;
+using Windows.System;
 
 namespace Snap.Hutao.UI.Xaml.View.Dialog;
 
@@ -585,6 +588,19 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
         public List<AdvancedStartProgramOption> Programs { get; set; } = [];
 
         public List<AdvancedStartProgramOption>? Items { get; set; }
+    }
+
+    private async void ViewDialogLaunchGameAdvancedStartInfoBarButton_Click(object sender, RoutedEventArgs e)
+    {
+        string baseFolder = Path.Combine(HutaoRuntime.DataDirectory, "AdvancedStartTest");
+        if (Directory.Exists(baseFolder))
+        {
+            await Launcher.LaunchFolderPathAsync(baseFolder);
+        }
+        else
+        {
+            messenger.Send(InfoBarMessage.Warning("The folder doesn't exist"));
+        }
     }
 }
 

@@ -4248,4 +4248,7 @@ Space Available: {2}</value>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
+    <value>It will be downloaded to the AdvancedStart folder in the set data directory, go to settings to adjust or manage it yourself</value>
+  </data>
 </root>
