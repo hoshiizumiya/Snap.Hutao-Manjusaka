@@ -4256,7 +4256,7 @@
     <value>连带启动</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartDescription" xml:space="preserve">
-    <value>设置不同位置的启动是否触发延时启动</value>
+    <value>设置不同位置的启动是否触发延迟启动</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartAdvancedHeader" xml:space="preserve">
     <value>启动自定义程序时触发延迟启动</value>

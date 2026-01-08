@@ -4255,7 +4255,7 @@ Space Available: {2}</value>
     <value>Co-start</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartDescription" xml:space="preserve">
-    <value>Set whether triggering a delayed start when starting at different locations</value>
+    <value>Set whether triggering the delayed start when starting at different locations</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartAdvancedHeader" xml:space="preserve">
     <value>Triggering a delayed start when a custom program is launched</value>

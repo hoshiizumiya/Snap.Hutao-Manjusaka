@@ -592,7 +592,7 @@ internal sealed partial class LaunchGameAdvancedStartDownloadDialog : ContentDia
 
     private async void ViewDialogLaunchGameAdvancedStartInfoBarButton_Click(object sender, RoutedEventArgs e)
     {
-        string baseFolder = Path.Combine(HutaoRuntime.DataDirectory, "AdvancedStartTest");
+        string baseFolder = Path.Combine(HutaoRuntime.DataDirectory, "AdvancedStart");
         if (Directory.Exists(baseFolder))
         {
             await Launcher.LaunchFolderPathAsync(baseFolder);

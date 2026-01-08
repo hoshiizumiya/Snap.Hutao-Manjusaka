@@ -632,7 +632,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         }
 
         string path = file;
-        string name = Path.GetFileNameWithoutExtension(path);
+        string name = ExecutableInfoHelper.GetFriendlyName(path);
 
         await taskContext.SwitchToMainThreadAsync();
         AdvancedStartDelayedProgramEntry entry = new(name, path, 0);

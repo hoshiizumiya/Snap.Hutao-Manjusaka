@@ -30,13 +30,21 @@
             <cwc:SettingsCard.HeaderIcon>
                 <FontIcon Glyph="&#xE9D2;"/>
             </cwc:SettingsCard.HeaderIcon>
-            <ProgressBar
-                Margin="0,4,0,0"
-                IsIndeterminate="{x:Bind IsBusy, Mode=OneWay}"
-                Maximum="1"
-                Minimum="0"
-                Value="{x:Bind ProgressValue, Mode=OneWay}"/>
         </cwc:SettingsCard>
+        <ProgressBar
+            Width="Auto"
+            IsIndeterminate="True"
+            ShowError="False"
+            ShowPaused="False"
+            Visibility="{x:Bind IsLoading, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <ProgressBar
+            Width="Auto"
+            Maximum="1"
+            Minimum="0"
+            ShowError="False"
+            ShowPaused="False"
+            Visibility="{x:Bind IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+            Value="{x:Bind ProgressValue, Mode=OneWay}"/>
 
         <ListView
             Width="Auto"
