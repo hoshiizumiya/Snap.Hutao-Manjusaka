@@ -4251,4 +4251,16 @@ Space Available: {2}</value>
   <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
     <value>It will be downloaded to the AdvancedStart folder in the set data directory, go to settings to adjust or manage it yourself</value>
   </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
+    <value>Co-start</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartDescription" xml:space="preserve">
+    <value>Set whether triggering a delayed start when starting at different locations</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartAdvancedHeader" xml:space="preserve">
+    <value>Triggering a delayed start when a custom program is launched</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
+    <value>Triggering a delayed start when starting the game</value>
+  </data>
 </root>

@@ -59,7 +59,10 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root"
+    xmlns=""
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -1010,7 +1013,7 @@
   </data>
   <data name="ServiceGameLaunchExecutionBetterGenshinImpactUrlProtocolNotRegistered" xml:space="preserve">
     <value>起動プロトコルがまだ登録されていません。BetterGI がインストールされ、少なくとも一度は実行されていることを確認してください
-</value>
+    </value>
   </data>
   <data name="ServiceGameLaunchExecutionBetterGenshinImpactWaitGameMainWindowException" xml:space="preserve">
     <value>BetterGI の起動時に問題が発生しました：ゲームのメインウィンドウが見つかりません</value>
@@ -2687,7 +2690,7 @@
   </data>
   <data name="ViewPageGachaLogRefreshBySTokenDescription" xml:space="preserve">
     <value>現在のユーザーの Cookie で祈願履歴を更新します
-</value>
+    </value>
   </data>
   <data name="ViewPageGachaLogRefreshByWebCache" xml:space="preserve">
     <value>ウェブキャッシュで更新</value>
@@ -4222,5 +4225,47 @@
   </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
     <value>アプリ名</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
+    <value>連動起動</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartDescription" xml:space="preserve">
+    <value>異なる場所での起動が遅延起動をトリガーするかどうかを設定</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartAdvancedHeader" xml:space="preserve">
+    <value>カスタムプログラムの起動時に遅延起動をトリガー</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
+    <value>ゲームの起動時に遅延起動をトリガー</value>
+  </data>
+  <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
+    <value>バックグラウンドタスク</value>
+  </data>
+  <data name="UIViewMainTitleBarInvertTheme" xml:space="preserve">
+    <value>テーマ切り替え</value>
+  </data>
+  <data name="ServiceMetadataWeaponIdNotFound" xml:space="preserve">
+    <value>武器メタデータが見つかりません</value>
+  </data>
+  <data name="ServiceMetadataAvatarIdNotFound" xml:space="preserve">
+    <value>キャラクターのメタデータが見つかりません</value>
+  </data>
+  <data name="ServiceGachaLogIdPlacesUnsupported" xml:space="preserve">
+    <value>サポートされていない祈願記録 ID のソース</value>
+  </data>
+  <data name="ServiceGachaLogWeaponIdNotFound" xml:space="preserve">
+    <value>武器 ID が見つかりません</value>
+  </data>
+  <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
+    <value>キャラクター ID が見つかりません</value>
+  </data>
+  <data name="ViewPageSettingCMThemeDescription" xml:space="preserve">
+    <value>クリスマステーマを有効にし、再起動して有効化、12月に一度だけオン</value>
+  </data>
+  <data name="ViewPageSettingCMThemeHeader" xml:space="preserve">
+    <value>クリスマステーマ</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
+    <value>設定されたデータディレクトリの AdvancedStart フォルダにダウンロードされます。設定で調整するか、自分で管理してください。</value>
   </data>
 </root>

@@ -762,13 +762,17 @@
                                         HeaderIcon="{shuxm:FontIcon Glyph=&#xE723;}"
                                         IsExpanded="True">
                                         <cwc:SettingsExpander.Items>
-                                            <cwc:SettingsCard Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCoStartHeader}" IsClickEnabled="True">
-                                                <ToggleSwitch />
-
+                                            <cwc:SettingsCard
+                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCoStartAdvancedHeader}"
+                                                IsActionIconVisible="False"
+                                                IsClickEnabled="True">
+                                                <ToggleSwitch IsOn="{Binding LaunchOptions.AdvancedStartDelayedOnAdvancedStart.Value, Mode=TwoWay}"/>
                                             </cwc:SettingsCard>
-                                            <cwc:SettingsCard Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCoStartHeader}" IsClickEnabled="True">
-                                                <ToggleSwitch/>
-
+                                            <cwc:SettingsCard
+                                                Header="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartCoStartGameHeader}"
+                                                IsActionIconVisible="False"
+                                                IsClickEnabled="True">
+                                                <ToggleSwitch IsOn="{Binding LaunchOptions.AdvancedStartDelayedOnGameLaunch.Value, Mode=TwoWay}"/>
                                             </cwc:SettingsCard>
 
                                         </cwc:SettingsExpander.Items>

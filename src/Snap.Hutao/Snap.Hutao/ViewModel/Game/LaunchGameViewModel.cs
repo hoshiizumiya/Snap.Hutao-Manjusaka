@@ -303,6 +303,11 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     {
         SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Launch game", "LaunchGameViewModel.Command"));
 
+        if (LaunchOptions.AdvancedStartDelayedOnGameLaunch.Value)
+        {
+            LaunchAdvancedDelayedAsync().SafeForget();
+        }
+
         UserAndUid? userAndUid = await userService.GetCurrentUserAndUidAsync().ConfigureAwait(false);
         await Shared.DefaultLaunchExecutionAsync(this, userAndUid).ConfigureAwait(false);
     }
@@ -446,6 +451,11 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
             // Start using shell execute (no arguments)
             ProcessFactory.StartUsingShellExecute(string.Empty, programPath);
             messenger.Send(InfoBarMessage.Success(SH.ViewModelLaunchGameAdvancedStartProgramLaunched));
+
+            if (LaunchOptions.AdvancedStartDelayedOnAdvancedStart.Value)
+            {
+                LaunchAdvancedDelayedAsync().SafeForget();
+            }
         }
         catch (Exception ex)
         {
