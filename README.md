@@ -29,9 +29,6 @@ Snap Hutao-Manjusaka is an open-source Genshin Impact toolkit under MIT license,
 
 ---
 
-## 开发
-项目启动位置已升级为 VS2026 的 slnx 格式 Snap.Hutao\src\Snap.Hutao\Snap.Hutao.slnx  
-针对当程序设置为默认以管理员模式运行而无法使用 VS 启动调试的情况，请提升 VS 的运行权限（右键VS以管理员身份运行）
 > [!WARNING]
 > 要使该项目可以长期运行，我们需要以下资源
 > 1. 元数据的编写
@@ -52,10 +49,12 @@ Snap Hutao-Manjusaka is an open-source Genshin Impact toolkit under MIT license,
  / ：似乎不需要变动  
 💠：低优先级，以后编写  
 
+## 开发
+项目启动位置已升级为 VS2026 的 slnx 格式 Snap.Hutao\src\Snap.Hutao\Snap.Hutao.slnx。其他你还可以阅读[贡献指南](/CONTRIBUTING.md)  
+针对当程序设置为默认以管理员模式运行而无法使用 VS 启动调试的情况，请提升 VS 的运行权限（右键VS以管理员身份运行）
 **若需编译项目，请使用[Visual Studio 2026](https://visualstudio.microsoft.com/zh-hans/)**  
 调试选项请选择unpackaged（不打包）
 **原开发文档现在还可使用（其中的AI功能很好用），以下是开发文档链接：**  
-
 https://deepwiki.com/hoshiizumiya/Snap.Hutao-Manjusaka/
 
 https://deepwiki.com/DGP-Studio/Snap.Hutao.Server
@@ -90,6 +89,37 @@ https://htserver.wdg.cloudns.ch/api/
 
 
 ---
+## 如何卸载
+
+卸载当前版本请前往*设置->应用->安装的应用*->找到 Snap.Hutao Manjusaka，选择卸载即可。（快捷操作：Win+X 打开安装的应用）  
+注意，应用缓存数据在卸载后不会自动删除，卸载前请确认你的数据保存目录，未上传云服务的本地用户数据仅一份请注意保存或处理删除。不同的目录下包含了图片、元数据、用户设置等数据。
+
+## 🙏 特别感谢 / Special Thanks
+
+- [HolographicHat](https://github.com/HolographicHat)  
+- [UIGF organization](https://uigf.org)  
+
+**特定的原神项目 / Specific Genshin-related Projects**  
+- [Scighost/Starward](https://github.com/Scighost/Starward)  
+
+---
+
+## ⚙️ 使用的技术栈 / Tech Stack
+
+- [CommunityToolkit/dotnet](https://github.com/CommunityToolkit/dotnet)  
+- [CommunityToolkit/Labs-Windows](https://github.com/CommunityToolkit/Labs-Windows)  
+- [CommunityToolkit/Windows](https://github.com/CommunityToolkit/Windows)  
+- [dotnet/efcore](https://github.com/dotnet/efcore)  
+- [dotnet/runtime](https://github.com/dotnet/runtime)  
+- [microsoft/vs-validation](https://github.com/microsoft/vs-validation)  
+- [microsoft/WindowsAppSDK](https://github.com/microsoft/WindowsAppSDK)  
+- [microsoft/microsoft-ui-xaml](https://github.com/microsoft/microsoft-ui-xaml)  
+- [quartznet/quartznet](https://github.com/quartznet/quartznet)  
+
+---
+![Alt](https://repobeats.axiom.co/api/embed/e5d56703de1101fdf4b7034dfb78038fdc14754a.svg "Repobeats analytics image")
+
+[![Star History Chart](https://api.star-history.com/svg?repos=hoshiizumiya/Snap.Hutao-Manjusaka&type=Date)](https://star-history.com/#hoshiizumiya/Snap.Hutao-Manjusaka&Date)  
 
 
 **临时资源站：**  
