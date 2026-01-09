@@ -10,6 +10,7 @@ using Snap.Hutao.Core.LifeCycle.InterProcess;
 using Snap.Hutao.Core.Logging;
 using Snap.Hutao.Core.Setting;
 using Snap.Hutao.Factory.Process;
+using Snap.Hutao.Service;
 using Snap.Hutao.Service.AutoSignIn;
 using Snap.Hutao.Service.Hutao;
 using Snap.Hutao.Service.Job;
@@ -209,6 +210,19 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
         if (UnsafeLocalSetting.Get(SettingKeys.GuideState, GuideState.Language) < GuideState.Completed)
         {
             return;
+        }
+
+        // 检查并修复自启动任务的有效性（如果启用了自启动但路径/权限不一致）
+        try
+        {
+            if (HutaoRuntime.IsProcessElevated)
+            {
+                serviceProvider.GetRequiredService<AutoStartService>().EnsureUpToDate();
+            }
+        }
+        catch
+        {
+            // 忽略错误，不影响应用启动
         }
 
         // Start named pipe server

@@ -398,6 +398,178 @@ LExit:
     return (SUCCEEDED(hr));
 }
 
+static bool internal_is_auto_start_task_run_elevated_for_this_user(bool* isRunElevated)
+{
+    if (!isRunElevated)
+    {
+        return false;
+    }
+
+    *isRunElevated = false;
+
+    HRESULT hr = S_OK;
+
+    WCHAR username[USERNAME_LEN];
+    std::wstring wstrTaskName;
+
+    ITaskService* pService = NULL;
+    ITaskFolder* pTaskFolder = NULL;
+
+    // ------------------------------------------------------
+    // Get the Username for the task.
+    if (!GetEnvironmentVariableW(L"USERNAME", username, USERNAME_LEN))
+    {
+        ExitWithLastError(hr, "Getting username failed\n");
+    }
+
+    // Task Name.
+    wstrTaskName = L"Autorun for ";
+    wstrTaskName += username;
+
+    // ------------------------------------------------------
+    // Create an instance of the Task Service.
+    hr = CoCreateInstance(CLSID_TaskScheduler,
+        NULL,
+        CLSCTX_INPROC_SERVER,
+        IID_ITaskService,
+        reinterpret_cast<void**>(&pService));
+    ExitOnFailure(hr, "Failed to create an instance of ITaskService\n");
+
+    // Connect to the task service.
+    hr = pService->Connect(_variant_t(), _variant_t(), _variant_t(), _variant_t());
+    ExitOnFailure(hr, "ITaskService::Connect failed\n");
+
+    // ------------------------------------------------------
+    // Get the Hutao task folder.
+    hr = pService->GetFolder(_bstr_t(L"\\Hutao"), &pTaskFolder);
+    ExitOnFailure(hr, "ITaskFolder doesn't exist\n");
+
+    // ------------------------------------------------------
+    // If the task exists, read run level.
+    {
+        IRegisteredTask* pExistingRegisteredTask = NULL;
+        hr = pTaskFolder->GetTask(_bstr_t(wstrTaskName.c_str()), &pExistingRegisteredTask);
+        if (SUCCEEDED(hr))
+        {
+            ITaskDefinition* pDef = NULL;
+            hr = pExistingRegisteredTask->get_Definition(&pDef);
+            if (SUCCEEDED(hr) && pDef)
+            {
+                IPrincipal* pPrincipal = NULL;
+                hr = pDef->get_Principal(&pPrincipal);
+                if (SUCCEEDED(hr) && pPrincipal)
+                {
+                    TASK_RUNLEVEL_TYPE runLevel;
+                    hr = pPrincipal->get_RunLevel(&runLevel);
+                    if (SUCCEEDED(hr))
+                    {
+                        *isRunElevated = (runLevel == TASK_RUNLEVEL_HIGHEST);
+                    }
+                    pPrincipal->Release();
+                }
+                pDef->Release();
+            }
+            pExistingRegisteredTask->Release();
+            ExitFunction();
+        }
+    }
+
+LExit:
+    if (pService)
+        pService->Release();
+    if (pTaskFolder)
+        pTaskFolder->Release();
+
+    return (SUCCEEDED(hr));
+}
+
+static bool internal_get_auto_start_task_executable_path_for_this_user(WCHAR* buffer, DWORD cchBuffer)
+{
+    if (!buffer || cchBuffer == 0)
+    {
+        return false;
+    }
+
+    buffer[0] = L'\0';
+
+    HRESULT hr = S_OK;
+
+    WCHAR username[USERNAME_LEN];
+    std::wstring wstrTaskName;
+
+    ITaskService* pService = NULL;
+    ITaskFolder* pTaskFolder = NULL;
+
+    if (!GetEnvironmentVariableW(L"USERNAME", username, USERNAME_LEN))
+    {
+        ExitWithLastError(hr, "Getting username failed\n");
+    }
+
+    wstrTaskName = L"Autorun for ";
+    wstrTaskName += username;
+
+    hr = CoCreateInstance(CLSID_TaskScheduler,
+        NULL,
+        CLSCTX_INPROC_SERVER,
+        IID_ITaskService,
+        reinterpret_cast<void**>(&pService));
+    ExitOnFailure(hr, "Failed to create an instance of ITaskService\n");
+
+    hr = pService->Connect(_variant_t(), _variant_t(), _variant_t(), _variant_t());
+    ExitOnFailure(hr, "ITaskService::Connect failed\n");
+
+    hr = pService->GetFolder(_bstr_t(L"\\Hutao"), &pTaskFolder);
+    ExitOnFailure(hr, "ITaskFolder doesn't exist\n");
+
+    {
+        IRegisteredTask* pExistingRegisteredTask = NULL;
+        hr = pTaskFolder->GetTask(_bstr_t(wstrTaskName.c_str()), &pExistingRegisteredTask);
+        ExitOnFailure(hr, "GetTask failed\n");
+
+        ITaskDefinition* pDef = NULL;
+        hr = pExistingRegisteredTask->get_Definition(&pDef);
+        ExitOnFailure(hr, "get_Definition failed\n");
+
+        IActionCollection* pActions = NULL;
+        hr = pDef->get_Actions(&pActions);
+        ExitOnFailure(hr, "get_Actions failed\n");
+
+        IAction* pAction = NULL;
+        hr = pActions->get_Item(1, &pAction); // 1-based
+        ExitOnFailure(hr, "get_Item(1) failed\n");
+
+        IExecAction* pExecAction = NULL;
+        hr = pAction->QueryInterface(IID_IExecAction, (void**)&pExecAction);
+        ExitOnFailure(hr, "QueryInterface(IExecAction) failed\n");
+
+        BSTR bstrPath = NULL;
+        hr = pExecAction->get_Path(&bstrPath);
+        ExitOnFailure(hr, "get_Path failed\n");
+
+        if (bstrPath)
+        {
+            wcsncpy_s(buffer, cchBuffer, bstrPath, _TRUNCATE);
+            SysFreeString(bstrPath);
+        }
+
+        pExecAction->Release();
+        pAction->Release();
+        pActions->Release();
+        pDef->Release();
+        pExistingRegisteredTask->Release();
+
+        ExitFunction();
+    }
+
+LExit:
+    if (pService)
+        pService->Release();
+    if (pTaskFolder)
+        pTaskFolder->Release();
+
+    return (SUCCEEDED(hr) && buffer[0] != L'\0');
+}
+
 extern "C" __declspec(dllexport) BOOL WINAPI create_auto_start_task_for_this_user(BOOL runElevated)
 {
     // Ensure COM initialized on this thread
@@ -442,4 +614,37 @@ extern "C" __declspec(dllexport) BOOL WINAPI is_auto_start_task_active_for_this_
         }
     }
     return result ? TRUE : FALSE;
+}
+
+extern "C" __declspec(dllexport) BOOL WINAPI is_auto_start_task_run_elevated_for_this_user()
+{
+    HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+    bool result = false;
+    bool isRunElevated = false;
+    if (SUCCEEDED(hr) || hr == RPC_E_CHANGED_MODE)
+    {
+        result = internal_is_auto_start_task_run_elevated_for_this_user(&isRunElevated);
+        if (SUCCEEDED(hr))
+        {
+            CoUninitialize();
+        }
+    }
+
+    return (result && isRunElevated) ? TRUE : FALSE;
+}
+
+extern "C" __declspec(dllexport) BOOL WINAPI get_auto_start_task_executable_path_for_this_user(WCHAR* buffer, DWORD cchBuffer)
+{
+    HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+    bool ok = false;
+    if (SUCCEEDED(hr) || hr == RPC_E_CHANGED_MODE)
+    {
+        ok = internal_get_auto_start_task_executable_path_for_this_user(buffer, cchBuffer);
+        if (SUCCEEDED(hr))
+        {
+            CoUninitialize();
+        }
+    }
+
+    return ok ? TRUE : FALSE;
 }

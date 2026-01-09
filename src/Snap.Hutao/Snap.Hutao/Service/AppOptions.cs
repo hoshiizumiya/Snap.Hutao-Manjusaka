@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 using Microsoft.UI.Xaml;
+using Snap.Hutao.Core;
 using Snap.Hutao.Core.Property;
 using Snap.Hutao.Core.Setting;
 using Snap.Hutao.Model;
@@ -110,7 +111,9 @@ internal sealed partial class AppOptions : DbStoreOptions
         {
             LocalSetting.Set(SettingKeys.RunElevated, value);
 
-            if (options.IsStartupEnabled.Value)
+            // 管理员模式下：若已启用自启动，立即按当前 RunElevated 重注册任务
+            // 不依赖 EnsureUpToDate 的检测结果，避免检测误差导致未同步。
+            if (HutaoRuntime.IsProcessElevated && options.IsStartupEnabled.Value)
             {
                 IServiceProvider sp = Ioc.Default;
                 AutoStartService autoStart = sp.GetRequiredService<AutoStartService>();

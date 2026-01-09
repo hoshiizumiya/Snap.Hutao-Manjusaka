@@ -218,31 +218,11 @@
                                     Header="{shuxm:ResourceString Name=ViewPageSettingCheckUpdateHeader}"
                                     HeaderIcon="{shuxm:FontIcon Glyph=&#xE895;}"
                                     IsClickEnabled="True"/>
-                                <TeachingTip x:Name="SettingsAdminTeachingTip" Target="{x:Bind SettingsAdminTip}">
-                                    <TeachingTip.Content>
-                                        <TextBlock
-                                            Margin="0,16,0,0"
-                                            Text="程序的‘开机自启动’功能与‘始终以管理员身份运行’设置相关联。当您启用或禁用‘开机自启动’时，系统会根据当前‘始终以管理员身份运行’选项的状态，自动配置相应的开机启动项（例如，在任务计划程序中设置‘使用最高权限’或创建带管理员权限标志的快捷方式）。请注意：修改‘始终以管理员身份运行’选项本身，通常需要以管理员身份运行程序"
-                                            TextWrapping="WrapWholeWords"/>
-                                    </TeachingTip.Content>
-
-                                </TeachingTip>
                                 <cwc:SettingsExpander HeaderIcon="{shuxm:FontIcon Glyph=&#xE7EF;}" IsExpanded="True">
                                     <cwc:SettingsExpander.Header>
                                         <TextBlock Text="{shuxm:ResourceString Name=ViewPageSettingElevatedModeHeader}"/>
                                     </cwc:SettingsExpander.Header>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button
-                                            x:Name="SettingsAdminTip"
-                                            MaxWidth="40"
-                                            MaxHeight="40"
-                                            Margin="12,0,12,0"
-                                            VerticalAlignment="Top"
-                                            Click="SettingsAdminTip_Click">
-                                            <Button.Content>
-                                                <FontIcon Glyph="&#xE8C9;"/>
-                                            </Button.Content>
-                                        </Button>
                                         <Button
                                             HorizontalAlignment="Right"
                                             Command="{Binding RestartAsElevatedCommand}"

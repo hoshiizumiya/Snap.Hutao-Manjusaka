@@ -26,7 +26,10 @@ public static partial class Bootstrap
 
     internal static void UseNamedPipeRedirection()
     {
-        Debug.Assert(mutex is not null);
+        if (mutex is null)
+        {
+            return;
+        }
         DisposableMarshal.DisposeAndClear(ref mutex);
     }
 
