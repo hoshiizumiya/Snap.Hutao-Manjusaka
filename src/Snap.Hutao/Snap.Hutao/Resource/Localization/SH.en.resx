@@ -3209,11 +3209,8 @@ Space Available: {2}</value>
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>Create</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Create desktop shortcut (For administrator/UAC behavior, please change it in Administrator Mode settings)</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>Create Desktop Shortcut</value>
+    <value>Create new shortcut on desktop</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>Data Folder</value>

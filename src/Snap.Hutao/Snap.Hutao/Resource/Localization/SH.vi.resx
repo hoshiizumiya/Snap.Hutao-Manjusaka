@@ -59,10 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root"
-    xmlns=""
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -3184,11 +3181,8 @@ Dung lượng còn trống: {2}</value>
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>Tạo</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Tạo phím tắt trên màn hình (Về hành vi quản trị/UAC, vui lòng thay đổi trong cài đặt Chế độ Quản trị)</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>Tạo lối tắt trên màn hình nền</value>
+    <value>Tạo phím tắt mới trên màn hình nền</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>Thư mục Dữ liệu</value>
@@ -4169,6 +4163,18 @@ Dung lượng còn trống: {2}</value>
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
     <value>Lưu thành công</value>
   </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
+    <value>Độ trễ (giây)</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListPath" xml:space="preserve">
+    <value>Đường dẫn ứng dụng</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
+    <value>Tên ứng dụng</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
+    <value>Sẽ được tải xuống thư mục AdvancedStart trong thư mục dữ liệu đã thiết lập. Bạn có thể đi đến cài đặt để điều chỉnh hoặc tự quản lý.</value>
+  </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
     <value>Khởi động cùng lúc</value>
   </data>
@@ -4180,17 +4186,5 @@ Dung lượng còn trống: {2}</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>Kích hoạt khởi động trễ khi khởi động trò chơi</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
-    <value>Sẽ được tải xuống thư mục AdvancedStart trong thư mục dữ liệu đã thiết lập. Bạn có thể đi đến cài đặt để điều chỉnh hoặc tự quản lý.</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
-    <value>Độ trễ (giây)</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListPath" xml:space="preserve">
-    <value>Đường dẫn ứng dụng</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
-    <value>Tên ứng dụng</value>
   </data>
 </root>

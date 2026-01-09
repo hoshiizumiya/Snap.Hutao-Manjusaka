@@ -9,10 +9,8 @@ using Snap.Hutao.Core.Shell;
 using Snap.Hutao.Service.Navigation;
 using Snap.Hutao.Service.Notification;
 using Snap.Hutao.Service.Update;
-using System.ComponentModel;
 using Windows.Foundation;
 using Snap.Hutao.Service;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Snap.Hutao.ViewModel.Setting;
 

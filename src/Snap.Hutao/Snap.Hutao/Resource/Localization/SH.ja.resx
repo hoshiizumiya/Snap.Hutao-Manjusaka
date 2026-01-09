@@ -59,10 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root"
-    xmlns=""
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -1211,6 +1208,9 @@
   </data>
   <data name="ServiceYaeWaitForGameResponseMessage" xml:space="preserve">
     <value>ゲームデータを待機中</value>
+  </data>
+  <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
+    <value>バックグラウンドタスク</value>
   </data>
   <data name="UIViewPageAvatarPropertyRecommendedAppendProperties" xml:space="preserve">
     <value>追加ステータス推奨</value>
@@ -3211,11 +3211,8 @@
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>新規作成</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>デスクトップにショートカットを作成する（管理者／UAC の動作は管理者モードの設定で変更してください）</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>ショートカットを作成する</value>
+    <value>デスクトップに新しいショートカットを作成</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>データ フォルダー</value>
@@ -4024,6 +4021,9 @@
   <data name="WindowIdentifyMonitorHeader" xml:space="preserve">
     <value>モニターID</value>
   </data>
+  <data name="UIViewMainTitleBarInvertTheme" xml:space="preserve">
+    <value>テーマ切り替え</value>
+  </data>
   <data name="ViewPageSettingAlwaysRunAsAdminText" xml:space="preserve">
     <value>常に管理者として実行</value>
   </data>
@@ -4041,6 +4041,27 @@
   </data>
   <data name="ViewCardSignInAutoSignIn" xml:space="preserve">
     <value>自動チェックイン</value>
+  </data>
+  <data name="ServiceMetadataWeaponIdNotFound" xml:space="preserve">
+    <value>武器メタデータが見つかりません</value>
+  </data>
+  <data name="ServiceMetadataAvatarIdNotFound" xml:space="preserve">
+    <value>キャラクターのメタデータが見つかりません</value>
+  </data>
+  <data name="ServiceGachaLogIdPlacesUnsupported" xml:space="preserve">
+    <value>サポートされていない祈願記録 ID のソース</value>
+  </data>
+  <data name="ServiceGachaLogWeaponIdNotFound" xml:space="preserve">
+    <value>武器 ID が見つかりません</value>
+  </data>
+  <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
+    <value>キャラクター ID が見つかりません</value>
+  </data>
+  <data name="ViewPageSettingCMThemeDescription" xml:space="preserve">
+    <value>クリスマステーマを有効にし、再起動して有効化、12月に一度だけオン</value>
+  </data>
+  <data name="ViewPageSettingCMThemeHeader" xml:space="preserve">
+    <value>クリスマステーマ</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartOptionsHeader" xml:space="preserve">
     <value>カスタム起動</value>
@@ -4226,6 +4247,9 @@
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
     <value>アプリ名</value>
   </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
+    <value>設定されたデータディレクトリの AdvancedStart フォルダにダウンロードされます。設定で調整するか、自分で管理してください。</value>
+  </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
     <value>連動起動</value>
   </data>
@@ -4237,35 +4261,5 @@
   </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>ゲームの起動時に遅延起動をトリガー</value>
-  </data>
-  <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
-    <value>バックグラウンドタスク</value>
-  </data>
-  <data name="UIViewMainTitleBarInvertTheme" xml:space="preserve">
-    <value>テーマ切り替え</value>
-  </data>
-  <data name="ServiceMetadataWeaponIdNotFound" xml:space="preserve">
-    <value>武器メタデータが見つかりません</value>
-  </data>
-  <data name="ServiceMetadataAvatarIdNotFound" xml:space="preserve">
-    <value>キャラクターのメタデータが見つかりません</value>
-  </data>
-  <data name="ServiceGachaLogIdPlacesUnsupported" xml:space="preserve">
-    <value>サポートされていない祈願記録 ID のソース</value>
-  </data>
-  <data name="ServiceGachaLogWeaponIdNotFound" xml:space="preserve">
-    <value>武器 ID が見つかりません</value>
-  </data>
-  <data name="ServiceGachaLogAvatarIdNotFound" xml:space="preserve">
-    <value>キャラクター ID が見つかりません</value>
-  </data>
-  <data name="ViewPageSettingCMThemeDescription" xml:space="preserve">
-    <value>クリスマステーマを有効にし、再起動して有効化、12月に一度だけオン</value>
-  </data>
-  <data name="ViewPageSettingCMThemeHeader" xml:space="preserve">
-    <value>クリスマステーマ</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
-    <value>設定されたデータディレクトリの AdvancedStart フォルダにダウンロードされます。設定で調整するか、自分で管理してください。</value>
   </data>
 </root>

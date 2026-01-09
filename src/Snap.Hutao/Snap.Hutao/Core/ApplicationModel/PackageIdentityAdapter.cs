@@ -74,15 +74,24 @@ internal static class PackageIdentityAdapter
 
     private static Version GetAppVersionInternal()
     {
+        static Version TrimToThree(Version v)
+        {
+            int major = v.Major;
+            int minor = v.Minor;
+            int build = v.Build >= 0 ? v.Build : 0;
+            return new Version(major, minor, build);
+        }
+
         if (HasPackageIdentity)
         {
-            return Windows.ApplicationModel.Package.Current.Id.Version.ToVersion();
+            Version v = Windows.ApplicationModel.Package.Current.Id.Version.ToVersion();
+            return TrimToThree(v);
         }
 
         // Unpackaged: use assembly version, defined at .csproj file, do not edit here
         Assembly assembly = Assembly.GetExecutingAssembly();
         Version? version = assembly.GetName().Version;
-        return version ?? new Version(1, 0, 0, 0);
+        return version is not null ? TrimToThree(version) : new Version(1, 0, 0);
     }
 
     private static string GetFamilyNameInternal()

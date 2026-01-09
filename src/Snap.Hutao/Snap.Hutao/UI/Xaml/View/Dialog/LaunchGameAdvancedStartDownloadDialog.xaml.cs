@@ -2,7 +2,6 @@
 // Licensed under the MIT license.
 
 using CommunityToolkit.Common;
-using LibGit2Sharp;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using SharpCompress.Archives;
@@ -23,7 +22,6 @@ using System.IO.Compression;
 using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
-using System.Text.Json;
 using Windows.System;
 
 namespace Snap.Hutao.UI.Xaml.View.Dialog;

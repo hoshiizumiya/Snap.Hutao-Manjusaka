@@ -59,10 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root"
-    xmlns=""
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -3182,11 +3179,8 @@ Espacio disponible: {2}</value>
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>Crear</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Crear acceso directo en el escritorio (Para el comportamiento de administrador/UAC, cámbielo en la configuración del Modo Administrador)</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>Crear acceso directo en el escritorio</value>
+    <value>Crear nuevo acceso directo en el escritorio</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>Carpeta de datos</value>
@@ -4139,6 +4133,18 @@ Espacio disponible: {2}</value>
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
     <value>Guardado correctamente</value>
   </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
+    <value>Retraso (segundos)</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListPath" xml:space="preserve">
+    <value>Ruta de aplicación</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
+    <value>Nombre de aplicación</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
+    <value>Se descargará en la carpeta AdvancedStart del directorio de datos configurado. Puede ir a la configuración para ajustarlo o administrarlo usted mismo.</value>
+  </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
     <value>Inicio conjunto</value>
   </data>
@@ -4150,17 +4156,5 @@ Espacio disponible: {2}</value>
   </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>Activar inicios retardados al iniciar el juego</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
-    <value>Se descargará en la carpeta AdvancedStart del directorio de datos configurado. Puede ir a la configuración para ajustarlo o administrarlo usted mismo.</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
-    <value>Retraso (segundos)</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListPath" xml:space="preserve">
-    <value>Ruta de aplicación</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
-    <value>Nombre de aplicación</value>
   </data>
 </root>

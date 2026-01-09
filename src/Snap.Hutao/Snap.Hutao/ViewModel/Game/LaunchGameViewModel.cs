@@ -305,7 +305,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
 
         if (LaunchOptions.AdvancedStartDelayedOnGameLaunch.Value)
         {
-            LaunchAdvancedDelayedAsync().SafeForget();
+            Shared.LaunchAdvancedDelayedAsync().SafeForget();
         }
 
         UserAndUid? userAndUid = await userService.GetCurrentUserAndUidAsync().ConfigureAwait(false);
@@ -454,7 +454,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
 
             if (LaunchOptions.AdvancedStartDelayedOnAdvancedStart.Value)
             {
-                LaunchAdvancedDelayedAsync().SafeForget();
+                Shared.LaunchAdvancedDelayedAsync().SafeForget();
             }
         }
         catch (Exception ex)
@@ -465,60 +465,10 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
     }
 
     [Command("LaunchAdvancedDelayedCommand")]
-    private async Task LaunchAdvancedDelayedAsync()
+    private Task LaunchAdvancedDelayedCommandAsync()
     {
-
-        // Launch each delayed program independently:
-        // schedule a task per entry that waits its own delay from now and then starts the program.
-        IReadOnlyList<AdvancedStartDelayedProgramEntry> snapshot = Entries.ToList();
-        CancellationToken token = CancellationToken;
-
-        List<Task> tasks = new(snapshot.Count);
-        foreach (AdvancedStartDelayedProgramEntry entry in snapshot)
-        {
-            tasks.Add(Task.Run(async () =>
-            {
-                // Respect cancellation early.
-                token.ThrowIfCancellationRequested();
-
-                int delaySeconds = Math.Max(0, entry.DelaySeconds);
-                if (delaySeconds > 0)
-                {
-                    try
-                    {
-                        await Task.Delay(TimeSpan.FromSeconds(delaySeconds), token).ConfigureAwait(false);
-                    }
-                    catch (OperationCanceledException)
-                    {
-                        return;
-                    }
-                }
-
-                if (string.IsNullOrWhiteSpace(entry.Path) || !File.Exists(entry.Path))
-                {
-                    messenger.Send(InfoBarMessage.Error(SH.ViewModelLaunchGameAdvancedStartProgramNotExists, entry.Path));
-                    return;
-                }
-
-                try
-                {
-                    ProcessFactory.StartUsingShellExecute(string.Empty, entry.Path);
-                }
-                catch (Exception ex)
-                {
-                    messenger.Send(InfoBarMessage.Error(ex));
-                }
-            }, token));
-        }
-
-        try
-        {
-            await Task.WhenAll(tasks).ConfigureAwait(false);
-        }
-        catch (OperationCanceledException)
-        {
-            // Swallow cancellation; caller expects cancellation to stop launching.
-        }
+        Shared.LaunchAdvancedDelayedAsync(CancellationToken).SafeForget();
+        return Task.CompletedTask;
     }
 
     [Command("PickAdvancedStartProgramPathCommand")]

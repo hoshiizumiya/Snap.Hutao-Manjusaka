@@ -59,10 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root"
-    xmlns=""
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -3217,11 +3214,8 @@ Verfügbarer Speicherplatz: {2}</value>
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>Erstellen</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Desktop-Verknüpfung erstellen (Für das Administrator-/UAC-Verhalten ändern Sie dies bitte in den Einstellungen des Administrator-Modus)</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>Desktopverknüpfung erstellen</value>
+    <value>Erstellen Sie eine neue Verknüpfung auf dem Desktop</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>Datenordner</value>
@@ -4266,18 +4260,6 @@ Verfügbarer Speicherplatz: {2}</value>
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
     <value>Speichern erfolgreich</value>
   </data>
-  <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
-    <value>Begleitstart</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartCoStartDescription" xml:space="preserve">
-    <value>Legen Sie fest, ob Starts an verschiedenen Orten verzögerte Starts auslösen</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartCoStartAdvancedHeader" xml:space="preserve">
-    <value>Verzögerte Starts beim Start benutzerdefinierter Programme auslösen</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
-    <value>Verzögerte Starts beim Spielstart auslösen</value>
-  </data>
   <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
     <value>Verzögerung (Sekunden)</value>
   </data>
@@ -4289,5 +4271,17 @@ Verfügbarer Speicherplatz: {2}</value>
   </data>
   <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
     <value>Wird in den AdvancedStart-Ordner im eingestellten Datenverzeichnis heruntergeladen. Gehen Sie zu den Einstellungen, um anzupassen oder verwalten Sie es selbst.</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
+    <value>Begleitstart</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartDescription" xml:space="preserve">
+    <value>Legen Sie fest, ob Starts an verschiedenen Orten verzögerte Starts auslösen</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartAdvancedHeader" xml:space="preserve">
+    <value>Verzögerte Starts beim Start benutzerdefinierter Programme auslösen</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
+    <value>Verzögerte Starts beim Spielstart auslösen</value>
   </data>
 </root>

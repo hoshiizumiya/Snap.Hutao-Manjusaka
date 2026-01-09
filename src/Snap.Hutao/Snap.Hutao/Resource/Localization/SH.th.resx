@@ -59,10 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root"
-    xmlns=""
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -3182,11 +3179,8 @@
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>สร้าง</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>สร้างทางลัดบนเดสก์ท็อป (สำหรับพฤติกรรมผู้ดูแลระบบ/UAC โปรดเปลี่ยนในการตั้งค่าโหมดผู้ดูแลระบบ)</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>สร้างทางลัดบนเดสก์ท็อป</value>
+    <value>สร้างทางลัดใหม่บนเดสก์ท็อป</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>โฟลเดอร์ข้อมูล</value>
@@ -4152,6 +4146,18 @@
   <data name="ViewDialogLaunchGameAdvancedStartSourceSetterSaveSuccess" xml:space="preserve">
     <value>บันทึกสำเร็จ</value>
   </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
+    <value>การหน่วงเวลา (วินาที)</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListPath" xml:space="preserve">
+    <value>เส้นทางแอปพลิเคชัน</value>
+  </data>
+  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
+    <value>ชื่อแอปพลิเคชัน</value>
+  </data>
+  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
+    <value>จะดาวน์โหลดไปยังโฟลเดอร์ AdvancedStart ในไดเรกทอรีข้อมูลที่ตั้งไว้ คุณสามารถไปที่การตั้งค่าเพื่อปรับแต่งหรือจัดการด้วยตัวเอง</value>
+  </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartHeader" xml:space="preserve">
     <value>เริ่มต้นพร้อมกัน</value>
   </data>
@@ -4163,17 +4169,5 @@
   </data>
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>ทริกเกอร์การเริ่มต้นล่าช้าเมื่อเริ่มเกม</value>
-  </data>
-  <data name="ViewDialogLaunchGameAdvancedStartInfoBarMessage" xml:space="preserve">
-    <value>จะดาวน์โหลดไปยังโฟลเดอร์ AdvancedStart ในไดเรกทอรีข้อมูลที่ตั้งไว้ คุณสามารถไปที่การตั้งค่าเพื่อปรับแต่งหรือจัดการด้วยตัวเอง</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListDelayedTime" xml:space="preserve">
-    <value>การหน่วงเวลา (วินาที)</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListPath" xml:space="preserve">
-    <value>เส้นทางแอปพลิเคชัน</value>
-  </data>
-  <data name="ViewPageLaunchGameAdvancedStartDelayedStartListName" xml:space="preserve">
-    <value>ชื่อแอปพลิเคชัน</value>
   </data>
 </root>

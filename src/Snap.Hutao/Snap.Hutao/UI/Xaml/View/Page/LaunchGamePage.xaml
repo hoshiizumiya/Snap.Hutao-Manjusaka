@@ -696,6 +696,7 @@
                                                     <cwc:DataTable Margin="12,0,0,0">
                                                         <cwc:DataColumn
                                                             MinWidth="160"
+                                                            MaxWidth="400"
                                                             CanResize="True"
                                                             Content="{shuxm:ResourceString Name=ViewPageLaunchGameAdvancedStartDelayedStartListName}"/>
                                                         <cwc:DataColumn DesiredWidth="*">
