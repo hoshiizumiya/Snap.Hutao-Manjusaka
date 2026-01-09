@@ -3211,11 +3211,8 @@
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>新規作成</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>デスクトップにショートカットを作成する（管理者／UAC の動作は管理者モードの設定で変更してください）</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>ショートカットを作成する</value>
+    <value>在桌面上创建新的快捷方式</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>データ フォルダー</value>
@@ -4031,13 +4028,13 @@
     <value>常に管理者として実行</value>
   </data>
   <data name="ViewPageSettingAlwaysRunAsAdminTextDes" xml:space="preserve">
-    <value>設定は適用後の起動時に有効になります。起動時にUACポップアップを繰り返し邪魔しないように自己起動をオンにすることをお勧めします</value>
+    <value>将在手动启动应用时生效，建议开启自启动和管理员自启动以免启动各种功能时可能的UAC弹窗打扰</value>
   </data>
   <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
     <value>ブートセルフスタート</value>
   </data>
   <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
-    <value>プログラムは現在のユーザーログイン時に起動します（変更は管理者として実行し、常に管理者として実行する場合とチェックすると常に管理者の状態が維持されます）</value>
+    <value>程序将在当前用户登录时启动，是否以管理员运行仅在修改时同步管理员模式选项（修改需以管理员身份运行）</value>
   </data>
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>動作の適用</value>
