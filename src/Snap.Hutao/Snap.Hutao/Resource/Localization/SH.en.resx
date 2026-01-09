@@ -3209,11 +3209,8 @@ Space Available: {2}</value>
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>Create</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Create desktop shortcut (For administrator/UAC behavior, please change it in Administrator Mode settings)</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>Create Desktop Shortcut</value>
+    <value>在桌面上创建新的快捷方式</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>Data Folder</value>
@@ -4029,13 +4026,13 @@ Space Available: {2}</value>
     <value>Always run as administrator</value>
   </data>
   <data name="ViewPageSettingAlwaysRunAsAdminTextDes" xml:space="preserve">
-    <value>The settings will take effect at the startup of the application in the future. Suggest enabling self startup to avoid repeated UAC pop ups during startup</value>
+    <value>将在手动启动应用时生效，建议开启自启动和管理员自启动以免启动各种功能时可能的UAC弹窗打扰</value>
   </data>
   <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
     <value>Start on boot</value>
   </data>
   <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
-    <value>The program will run at this user login. (Can only be modified when running as a management fee, checking this together with "Always run as administrator" will keep it in administrator mode permanently.)</value>
+    <value>程序将在当前用户登录时启动，是否以管理员运行仅在修改时同步管理员模式选项（修改需以管理员身份运行）</value>
   </data>
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>App behavior</value>
