@@ -3209,11 +3209,8 @@ Dung lượng còn trống: {2}</value>
   <data name="ViewPageSettingCreateDesktopShortcutAction" xml:space="preserve">
     <value>Tạo</value>
   </data>
-  <data name="ViewPageSettingCreateDesktopShortcutDescription" xml:space="preserve">
-    <value>Tạo phím tắt trên màn hình (Về hành vi quản trị/UAC, vui lòng thay đổi trong cài đặt Chế độ Quản trị)</value>
-  </data>
   <data name="ViewPageSettingCreateDesktopShortcutHeader" xml:space="preserve">
-    <value>Tạo lối tắt trên màn hình nền</value>
+    <value>在桌面上创建新的快捷方式</value>
   </data>
   <data name="ViewPageSettingDataFolderHeader" xml:space="preserve">
     <value>Thư mục Dữ liệu</value>
@@ -4029,13 +4026,13 @@ Dung lượng còn trống: {2}</value>
     <value>始终以管理员身份运行</value>
   </data>
   <data name="ViewPageSettingAlwaysRunAsAdminTextDes" xml:space="preserve">
-    <value>设置将在应用以后的启动时生效，建议开启自启动以免启动时反复UAC弹窗打扰</value>
+    <value>将在手动启动应用时生效，建议开启自启动和管理员自启动以免启动各种功能时可能的UAC弹窗打扰</value>
   </data>
   <data name="ViewPageSettingAutoStartHeader" xml:space="preserve">
     <value>开机自启动</value>
   </data>
   <data name="ViewPageSettingAutoStartDescription" xml:space="preserve">
-    <value>程序将在当前用户登录时启动（修改需以管理员身份运行，且与始终以管理员身份运行一起勾选将始终保持管理员状态）</value>
+    <value>程序将在当前用户登录时启动，是否以管理员运行仅在修改时同步管理员模式选项（修改需以管理员身份运行）</value>
   </data>
   <data name="ViewPageSettingAppBehaviorHeader" xml:space="preserve">
     <value>应用行为</value>
