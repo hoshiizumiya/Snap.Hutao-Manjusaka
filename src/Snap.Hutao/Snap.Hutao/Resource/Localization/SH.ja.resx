@@ -4262,4 +4262,7 @@
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>启动游戏时触发延迟启动</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>开源支持</value>
+  </data>
 </root>
