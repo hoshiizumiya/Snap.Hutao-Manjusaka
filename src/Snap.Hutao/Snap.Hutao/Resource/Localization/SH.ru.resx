@@ -4173,4 +4173,7 @@
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>Активировать отложенные запуски при запуске игры</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>Поддержка открытого кода</value>
+  </data>
 </root>

@@ -17,12 +17,13 @@ using Snap.Hutao.Web.Hoyolab.Takumi.Event.BbsSignReward;
 using Snap.Hutao.Web.Response;
 using Snap.Hutao.Core.Setting;
 using System.Collections.Immutable;
+using Snap.Hutao.Service.AutoSignIn;
 
 namespace Snap.Hutao.ViewModel.Sign;
 
 [BindableCustomPropertyProvider]
 [Service(ServiceLifetime.Transient)]
-internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IRecipient<UserAndUidChangedMessage>
+internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IRecipient<UserAndUidChangedMessage>, IRecipient<SignInDataChangedMessage>
 {
     private readonly WeakReference<ScrollViewer> weakScrollViewer = new(default!);
 
@@ -81,6 +82,19 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
         else
         {
             messenger.Send(InfoBarMessage.Warning(SH.MustSelectUserAndUid));
+        }
+    }
+
+    public void Receive(SignInDataChangedMessage message)
+    {
+        if (Volatile.Read(ref updating))
+        {
+            return;
+        }
+
+        if (message.UserAndUid is { } userAndUid)
+        {
+            UpdateSignInInfoAsync(userAndUid, postSign: message.PostSign).SafeForget();
         }
     }
 

@@ -4157,4 +4157,7 @@ Espacio disponible: {2}</value>
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>Activar inicios retardados al iniciar el juego</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>Soporte para código abierto</value>
+  </data>
 </root>

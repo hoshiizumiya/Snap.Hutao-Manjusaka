@@ -4184,4 +4184,7 @@
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>게임 시작 시 지연 시작 트리거</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>오픈 소스 지원</value>
+  </data>
 </root>

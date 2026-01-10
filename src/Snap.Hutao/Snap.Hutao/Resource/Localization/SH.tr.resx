@@ -4185,4 +4185,7 @@ Kullanılabilir Alan: {2}</value>
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>Oyunu başlatırken gecikmeli başlatmaları tetikle</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>Açık kaynak desteği</value>
+  </data>
 </root>

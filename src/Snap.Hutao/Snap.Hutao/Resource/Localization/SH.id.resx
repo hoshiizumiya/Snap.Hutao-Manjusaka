@@ -4188,4 +4188,7 @@ Ruang Tersedia: {2}</value>
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>Picu mulai tertunda saat memulai permainan</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>Dukungan untuk Sumber Terbuka</value>
+  </data>
 </root>

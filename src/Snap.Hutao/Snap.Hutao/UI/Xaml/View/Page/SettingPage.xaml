@@ -20,6 +20,7 @@
         <shuxb:InvokeCommandOnLoadedBehavior Command="{Binding LoadCommand}"/>
     </mxi:Interaction.Behaviors>
 
+    <!--  Need to refator someday  -->
     <Grid x:Name="SettingPageGrid">
         <ScrollViewer x:Name="RootScrollViewer" Style="{StaticResource TwoPanelScrollViewerStyle}">
             <shuxc:ScrollViewerHelper.RightPanel>
@@ -47,34 +48,6 @@
                                     MaxHeight="120"
                                     Margin="5"
                                     Source="ms-appx:///Assets/InAppLogo.png"/>
-                                <!--<cwc:UniformGrid
-                                    Grid.Row="1"
-                                    Margin="16"
-                                    VerticalAlignment="Bottom"
-                                    ColumnSpacing="8"
-                                    Columns="2"
-                                    RowSpacing="8">
-                                    <HyperlinkButton
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Left"
-                                        Content="{shuxm:ResourceString Name=ViewPageSettingOfficialSiteNavigate}"
-                                        NavigateUri="{StaticResource DocumentLink_Home}"/>
-                                    <HyperlinkButton
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Left"
-                                        Content="{shuxm:ResourceString Name=ViewPageSettingFeedbackNavigate}"
-                                        NavigateUri="{StaticResource DocumentLink_BugReport}"/>
-                                    <HyperlinkButton
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Left"
-                                        Content="{shuxm:ResourceString Name=ViewPageSettingTranslateNavigate}"
-                                        NavigateUri="{StaticResource DocumentLink_Translate}"/>
-                                    <HyperlinkButton
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Left"
-                                        Content="{shuxm:ResourceString Name=ViewPageSettingSponsorNavigate}"
-                                        NavigateUri="{StaticResource DocumentLink_Sponsor}"/>
-                                </cwc:UniformGrid>-->
                                 <TextBlock
                                     Grid.Row="2"
                                     Margin="12,10,0,10"
@@ -91,6 +64,7 @@
                                     Text="Copyright © 2025 - 2026 Millennium Science Technology R-D Inst. All Rights Reserved."/>
                             </Grid>
 
+                            <!--  应用行为 - 宽屏  -->
                             <TextBlock Style="{StaticResource SettingsCardHeaderTextBlockStyle}" Text="{shuxm:ResourceString Name=ViewPageSettingAppBehaviorHeader}"/>
 
                             <cwc:SettingsCard
@@ -99,16 +73,17 @@
                                 Header="{shuxm:ResourceString Name=ViewPageSettingCheckUpdateHeader}"
                                 HeaderIcon="{shuxm:FontIcon Glyph=&#xE895;}"
                                 IsClickEnabled="True"/>
-
-                            <cwc:SettingsExpander
-                                Header="{shuxm:ResourceString Name=ViewPageSettingElevatedModeHeader}"
-                                HeaderIcon="{shuxm:FontIcon Glyph=&#xE7EF;}"
-                                IsExpanded="True">
-                                <Button
-                                    HorizontalAlignment="Right"
-                                    Command="{Binding RestartAsElevatedCommand}"
-                                    Content="{shuxm:ResourceString Name=ViewPageSettingElevatedModeRestartAction}"
-                                    IsEnabled="{shuxm:IsProcessNotElevated}"/>
+                            <cwc:SettingsExpander HeaderIcon="{shuxm:FontIcon Glyph=&#xE7EF;}" IsExpanded="True">
+                                <cwc:SettingsExpander.Header>
+                                    <TextBlock Text="{shuxm:ResourceString Name=ViewPageSettingElevatedModeHeader}"/>
+                                </cwc:SettingsExpander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button
+                                        HorizontalAlignment="Right"
+                                        Command="{Binding RestartAsElevatedCommand}"
+                                        Content="{shuxm:ResourceString Name=ViewPageSettingElevatedModeRestartAction}"
+                                        IsEnabled="{shuxm:IsProcessNotElevated}"/>
+                                </StackPanel>
                                 <cwc:SettingsExpander.Items>
                                     <cwc:SettingsCard ContentAlignment="Left">
                                         <shuxc:CheckBoxWithDescriptionControl
@@ -117,24 +92,22 @@
                                             Header="{shuxm:ResourceString Name=ViewPageSettingAlwaysRunAsAdminText}"
                                             IsChecked="{Binding RunElevated, Mode=TwoWay}"/>
                                     </cwc:SettingsCard>
+                                    <!--  Auto start  -->
                                     <cwc:SettingsCard
-                                        ActionIconToolTip="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutAction}"
-                                        Command="{Binding CreateDesktopShortcutCommand}"
-                                        Header="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutHeader}"
-                                        IsClickEnabled="True"/>
+                                        Description="{shuxm:ResourceString Name=ViewPageSettingAutoStartDescription}"
+                                        Header="{shuxm:ResourceString Name=ViewPageSettingAutoStartHeader}"
+                                        HeaderIcon="{shuxm:FontIcon Glyph=&#xE7E8;}"
+                                        IsClickEnabled="False"
+                                        IsEnabled="{shuxm:IsProcessElevated}">
+                                        <ToggleSwitch IsOn="{Binding IsStartupEnabled, Mode=TwoWay}"/>
+                                    </cwc:SettingsCard>
                                 </cwc:SettingsExpander.Items>
                             </cwc:SettingsExpander>
-
-                            <!--  Auto start  -->
                             <cwc:SettingsCard
-                                Description="{shuxm:ResourceString Name=ViewPageSettingAutoStartDescription}"
-                                Header="{shuxm:ResourceString Name=ViewPageSettingAutoStartHeader}"
-                                HeaderIcon="{shuxm:FontIcon Glyph=&#xE7E8;}"
-                                IsClickEnabled="False"
-                                IsEnabled="{shuxm:IsProcessElevated}">
-                                <ToggleSwitch IsOn="{Binding IsStartupEnabled, Mode=TwoWay}"/>
-                            </cwc:SettingsCard>
-
+                                ActionIconToolTip="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutAction}"
+                                Command="{Binding CreateDesktopShortcutCommand}"
+                                Header="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutHeader}"
+                                IsClickEnabled="True"/>
                         </StackPanel>
                     </Grid>
                 </Border>
@@ -145,7 +118,7 @@
                     Padding="16"
                     Spacing="16">
 
-                    <!--  关于  -->
+                    <!--  ScrollViewerTopPanel 窄屏展示  -->
                     <Border x:Name="ScrollViewerTopPanel" cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
                         <Border Padding="16" Style="{ThemeResource AcrylicBorderCardStyle}">
                             <StackPanel Spacing="{StaticResource SettingsCardSpacing}" Visibility="Visible">
@@ -209,7 +182,7 @@
                                     </Grid>
                                 </Grid>
 
-                                <!--  应用行为  -->
+                                <!--  应用行为 - 窄屏  -->
                                 <TextBlock Style="{StaticResource SettingsCardHeaderTextBlockStyle}" Text="{shuxm:ResourceString Name=ViewPageSettingAppBehaviorHeader}"/>
 
                                 <cwc:SettingsCard
@@ -253,6 +226,43 @@
                                     Command="{Binding CreateDesktopShortcutCommand}"
                                     Header="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutHeader}"
                                     IsClickEnabled="True"/>
+                            </StackPanel>
+                        </Border>
+                    </Border>
+
+                    <!--  开源支持  -->
+                    <Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}" DataContext="{Binding Geetest}">
+                        <Border Padding="16" Style="{ThemeResource AcrylicBorderCardStyle}">
+                            <StackPanel Spacing="{ThemeResource SettingsCardSpacing}">
+                                <TextBlock Style="{StaticResource SettingsCardHeaderTextBlockStyle}" Text="{shuxm:ResourceString Name=ViewPageSettingOpenSourceSupportHeader}"/>
+                                <Border Padding="16" Style="{ThemeResource AcrylicBorderCardStyle}">
+                                    <cwc:UniformGrid
+                                        VerticalAlignment="Center"
+                                        ColumnSpacing="8"
+                                        Columns="2"
+                                        RowSpacing="8">
+                                        <HyperlinkButton
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Center"
+                                            Content="{shuxm:ResourceString Name=ViewPageSettingOfficialSiteNavigate}"
+                                            NavigateUri="{StaticResource DocumentLink_Home}"/>
+                                        <HyperlinkButton
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Center"
+                                            Content="{shuxm:ResourceString Name=ViewPageSettingFeedbackNavigate}"
+                                            NavigateUri="{StaticResource DocumentLink_BugReport}"/>
+                                        <HyperlinkButton
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Center"
+                                            Content="{shuxm:ResourceString Name=ViewPageSettingTranslateNavigate}"
+                                            NavigateUri="{StaticResource DocumentLink_Translate}"/>
+                                        <HyperlinkButton
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Center"
+                                            Content="{shuxm:ResourceString Name=ViewPageSettingSponsorNavigate}"
+                                            NavigateUri="{StaticResource DocumentLink_Sponsor}"/>
+                                    </cwc:UniformGrid>
+                                </Border>
                             </StackPanel>
                         </Border>
                     </Border>
@@ -884,6 +894,12 @@
                 </StackPanel>
             </Grid>
         </ScrollViewer>
+
+        <!--<AnnotatedScrollBar
+            x:Name="RootScrollViewerAnnotatedScrollBar"
+            Margin="4,0,0,0"
+            HorizontalAlignment="Right"
+            DetailLabelRequested="RootScrollViewerAnnotatedScrollBar_DetailLabelRequested"/>-->
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

@@ -277,7 +277,7 @@
                             <TextBlock>
                                 <TextBlock.Inlines>
                                     <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementIHaveReadText}"/>
-                                    <Hyperlink NavigateUri="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/zh/statements/bug-report.html">
+                                    <Hyperlink NavigateUri="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/statements/bug-report.html">
                                         <Run Text="{shuxm:ResourceString Name=ViewGuideStepAgreementIssueReport}"/>
                                     </Hyperlink>
                                 </TextBlock.Inlines>

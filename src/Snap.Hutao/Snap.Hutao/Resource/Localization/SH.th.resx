@@ -4170,4 +4170,7 @@
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>ทริกเกอร์การเริ่มต้นล่าช้าเมื่อเริ่มเกม</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>การสนับสนุนโอเพ่นซอร์ส</value>
+  </data>
 </root>

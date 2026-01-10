@@ -4262,4 +4262,7 @@
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>ゲームの起動時に遅延起動をトリガー</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>オープンソースのサポート</value>
+  </data>
 </root>

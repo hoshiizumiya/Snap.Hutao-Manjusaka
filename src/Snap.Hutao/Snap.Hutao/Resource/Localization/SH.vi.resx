@@ -4187,4 +4187,7 @@ Dung lượng còn trống: {2}</value>
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>Kích hoạt khởi động trễ khi khởi động trò chơi</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>Hỗ trợ mã nguồn mở</value>
+  </data>
 </root>

@@ -266,16 +266,11 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
             serviceProvider.GetRequiredService<IQuartzService>().StartAsync()
         ]).ConfigureAwait(false);
 
-        // Auto check-in
-        try
-        {
-            IAutoSignInService autoSignInService = serviceProvider.GetRequiredService<IAutoSignInService>();
-            await autoSignInService.RunAsync().ConfigureAwait(false);
-        }
-        catch (Exception ex)
-        {
-            serviceProvider.GetRequiredService<IMessenger>().Send(InfoBarMessage.Error(ex));
-        }
+        // Ensure a window exists before any UI notifications are sent (startup page may not be Home).
+        await WaitWindowAsync<MainWindow>().ConfigureAwait(false);
+
+        // Ensure auto sign-in server-day rollover scheduler is active.
+        _ = serviceProvider.GetRequiredService<SignInServerDayRolloverScheduler>();
 
         SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateInfo("Initialization completed", "Application"));
     }

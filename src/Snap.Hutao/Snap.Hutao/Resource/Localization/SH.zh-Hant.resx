@@ -4233,4 +4233,7 @@
   <data name="ViewPageLaunchGameAdvancedStartCoStartGameHeader" xml:space="preserve">
     <value>啟動遊戲時觸發延遲啟動</value>
   </data>
+  <data name="ViewPageSettingOpenSourceSupportHeader" xml:space="preserve">
+    <value>開源支援</value>
+  </data>
 </root>
