@@ -4,7 +4,6 @@
 // Licensed under the MIT license.
 
 using Snap.Hutao.Core.Database;
-using Snap.Hutao.Service.AutoSignIn;
 using Snap.Hutao.ViewModel.User;
 using Snap.Hutao.Web.Hoyolab.Takumi.Binding;
 using System.Collections.Immutable;
@@ -150,13 +149,6 @@ internal sealed partial class UserCollectionService : IUserCollectionService, ID
 
         messenger.Send(new UserAndUidChangedMessage(users.CurrentItem));
 
-        // Best-effort auto sign-in on user/uid switching.
-        if (UserAndUid.TryFromUser(users.CurrentItem, out UserAndUid? userAndUid))
-        {
-            serviceProvider.GetRequiredService<IAutoSignInService>()
-                .OnUserAndUidChangedAsync(userAndUid)
-                .AsTask()
-                .SafeForget();
-        }
+        // Auto sign-in is triggered by AutoSignInTriggerService via UserAndUidChangedMessage.
     }
 }

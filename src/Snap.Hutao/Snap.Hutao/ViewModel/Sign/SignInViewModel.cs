@@ -58,10 +58,25 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
     [ObservableProperty]
     public partial bool IsAutoCheckIn { get; set; }
 
+    private int pendingRefresh;
+    private UserAndUid? pendingUserAndUid;
+    private bool pendingPostSign;
+    private bool pendingPostResign;
+
     public void Receive(UserAndUidChangedMessage message)
     {
+        if (message.UserAndUid is not { } userAndUid)
+        {
+            messenger.Send(InfoBarMessage.Warning(SH.MustSelectUserAndUid));
+            return;
+        }
+
         if (Volatile.Read(ref updating))
         {
+            pendingUserAndUid = userAndUid;
+            pendingPostSign = pendingPostSign || false;
+            pendingPostResign = pendingPostResign || false;
+            Interlocked.Exchange(ref pendingRefresh, 1);
             return;
         }
 
@@ -71,31 +86,29 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
         }
         catch (ObjectDisposedException)
         {
-            // Cannot access a disposed object. Object name: 'ObjectReference'.
             return;
         }
 
-        if (message.UserAndUid is { } userAndUid)
-        {
-            UpdateSignInInfoAsync(userAndUid).SafeForget();
-        }
-        else
-        {
-            messenger.Send(InfoBarMessage.Warning(SH.MustSelectUserAndUid));
-        }
+        UpdateSignInInfoAsync(userAndUid).SafeForget();
     }
 
     public void Receive(SignInDataChangedMessage message)
     {
-        if (Volatile.Read(ref updating))
+        if (message.UserAndUid is not { } userAndUid)
         {
             return;
         }
 
-        if (message.UserAndUid is { } userAndUid)
+        if (Volatile.Read(ref updating))
         {
-            UpdateSignInInfoAsync(userAndUid, postSign: message.PostSign).SafeForget();
+            pendingUserAndUid = userAndUid;
+            pendingPostSign = pendingPostSign || message.PostSign;
+            pendingPostResign = pendingPostResign || false;
+            Interlocked.Exchange(ref pendingRefresh, 1);
+            return;
         }
+
+        UpdateSignInInfoAsync(userAndUid, postSign: message.PostSign).SafeForget();
     }
 
     public void AttachXamlElement(ScrollViewer scrollViewer)
@@ -215,6 +228,18 @@ internal sealed partial class SignInViewModel : Abstraction.ViewModelSlim, IReci
         finally
         {
             Volatile.Write(ref updating, false);
+
+            if (Interlocked.Exchange(ref pendingRefresh, 0) == 1 && pendingUserAndUid is { } pending)
+            {
+                bool queuedPostSign = pendingPostSign;
+                bool queuedPostResign = pendingPostResign;
+
+                pendingUserAndUid = null;
+                pendingPostSign = false;
+                pendingPostResign = false;
+
+                UpdateSignInInfoAsync(pending, postSign: queuedPostSign, postResign: queuedPostResign).SafeForget();
+            }
         }
     }
 

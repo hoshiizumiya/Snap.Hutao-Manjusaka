@@ -107,6 +107,7 @@
                                 ActionIconToolTip="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutAction}"
                                 Command="{Binding CreateDesktopShortcutCommand}"
                                 Header="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutHeader}"
+                                HeaderIcon="{shuxm:FontIcon Glyph=&#xE72D;}"
                                 IsClickEnabled="True"/>
                         </StackPanel>
                     </Grid>
@@ -225,6 +226,7 @@
                                     ActionIconToolTip="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutAction}"
                                     Command="{Binding CreateDesktopShortcutCommand}"
                                     Header="{shuxm:ResourceString Name=ViewPageSettingCreateDesktopShortcutHeader}"
+                                    HeaderIcon="{shuxm:FontIcon Glyph=&#xE72D;}"
                                     IsClickEnabled="True"/>
                             </StackPanel>
                         </Border>
