@@ -112,7 +112,7 @@
                                 </cwcont:SettingsExpander>
                             </Border>
                         </Border>
-                        <!--<Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
+                        <Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
                             <Border Style="{ThemeResource AcrylicBorderCardStyle}">
                                 <cwcont:SettingsExpander
                                     Header="{shuxm:ResourceString Name=ViewPageFeedbackFeatureGuideHeader}"
@@ -122,18 +122,18 @@
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/dashboard.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/dashboard.html"
                                             Header="{shuxm:ResourceString Name=ViewAnnouncementHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/Announcement.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/game-launcher.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/game-launcher.html"
                                             Header="{shuxm:ResourceString Name=ViewLaunchGameHeader}"
                                             IsClickEnabled="True">
                                             <cwcont:SettingsCard.HeaderIcon>
-                                                This icon is not a square
+                                                <!--  This icon is not a square  -->
                                                 <BitmapIcon
                                                     Width="24"
                                                     Height="24"
@@ -144,88 +144,88 @@
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/wish-export.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/wish-export.html"
                                             Header="{shuxm:ResourceString Name=ViewGachaLogHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/GachaLog.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/achievements.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/achievements.html"
                                             Header="{shuxm:ResourceString Name=ViewAchievementHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/Achievement.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/real-time-notes.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/real-time-notes.html"
                                             Header="{shuxm:ResourceString Name=ViewDailyNoteHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/DailyNote.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/character-data.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/character-data.html"
                                             Header="{shuxm:ResourceString Name=ViewAvatarPropertyHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/AvatarProperty.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/hutao-API.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/hutao-API.html"
                                             Header="{shuxm:ResourceString Name=ViewSpiralAbyssHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/SpiralAbyss.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/zh/features/imaginarium-theater.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/zh/features/imaginarium-theater.html"
                                             Header="{shuxm:ResourceString Name=ViewRoleCombatHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/RoleCombat.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/develop-plan.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/develop-plan.html"
                                             Header="{shuxm:ResourceString Name=ViewCultivationHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/Cultivation.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/character-wiki.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/character-wiki.html"
                                             Header="{shuxm:ResourceString Name=ViewWikiAvatarHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/WikiAvatar.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/weapon-wiki.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/weapon-wiki.html"
                                             Header="{shuxm:ResourceString Name=ViewWikiWeaponHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/WikiWeapon.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/monster-wiki.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/monster-wiki.html"
                                             Header="{shuxm:ResourceString Name=ViewWikiMonsterHeader}"
                                             HeaderIcon="{shuxm:BitmapIcon Source=ms-appx:///Resource/Navigation/WikiMonster.png}"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Padding="{ThemeResource SettingsExpanderItemHasIconPadding}"
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://hut.ao/features/hutao-settings.html"
+                                            CommandParameter="https://hoshiizumiya.github.io/Snap.Hutao-Manjusaka.Docs/features/hutao-settings.html"
                                             Header="{shuxm:ResourceString Name=ViewSettingHeader}"
                                             HeaderIcon="{shuxm:FontIcon Glyph=&#xE713;}"
                                             IsClickEnabled="True"/>
                                     </cwcont:SettingsExpander.Items>
                                 </cwcont:SettingsExpander>
                             </Border>
-                        </Border>-->
+                        </Border>
                     </StackPanel>
                 </ScrollViewer>
             </SplitView.Pane>
-            <!--<Border Margin="16,16,0,16" cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
+            <Border Margin="16,16,0,16" cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
                 <Grid Style="{ThemeResource AcrylicGridCardStyle}">
                     <shuxc:StandardView ShowCondition="{Binding IsInitialized, Mode=OneWay}">
                         <shuxc:StandardView.EmptyContent>
@@ -305,7 +305,7 @@
 
 
                 </Grid>
-            </Border>-->
+            </Border>
         </SplitView>
     </Grid>
 </shuxc:ScopedPage>

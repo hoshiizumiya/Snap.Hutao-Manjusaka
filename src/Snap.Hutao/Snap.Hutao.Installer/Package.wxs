@@ -73,7 +73,7 @@
 
 			<Shortcut
                 Id="ApplicationStartMenuShortcut"
-                Name="Snap Hutao"
+                Name="Snap Hutao Manjusaka"
                 Description="Snap Hutao Client"
                 Target="[INSTALLFOLDER]Snap.Hutao-Manjusaka.exe"
                 WorkingDirectory="INSTALLFOLDER" />

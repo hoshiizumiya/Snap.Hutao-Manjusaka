@@ -233,38 +233,36 @@
                     </Border>
 
                     <!--  开源支持  -->
-                    <Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}" DataContext="{Binding Geetest}">
+                    <Border cw:Effects.Shadow="{ThemeResource CompatCardShadow}">
                         <Border Padding="16" Style="{ThemeResource AcrylicBorderCardStyle}">
                             <StackPanel Spacing="{ThemeResource SettingsCardSpacing}">
                                 <TextBlock Style="{StaticResource SettingsCardHeaderTextBlockStyle}" Text="{shuxm:ResourceString Name=ViewPageSettingOpenSourceSupportHeader}"/>
-                                <Border Padding="16" Style="{ThemeResource AcrylicBorderCardStyle}">
-                                    <cwc:UniformGrid
-                                        VerticalAlignment="Center"
-                                        ColumnSpacing="8"
-                                        Columns="2"
-                                        RowSpacing="8">
-                                        <HyperlinkButton
-                                            HorizontalAlignment="Stretch"
-                                            HorizontalContentAlignment="Center"
-                                            Content="{shuxm:ResourceString Name=ViewPageSettingOfficialSiteNavigate}"
-                                            NavigateUri="{StaticResource DocumentLink_Home}"/>
-                                        <HyperlinkButton
-                                            HorizontalAlignment="Stretch"
-                                            HorizontalContentAlignment="Center"
-                                            Content="{shuxm:ResourceString Name=ViewPageSettingFeedbackNavigate}"
-                                            NavigateUri="{StaticResource DocumentLink_BugReport}"/>
-                                        <HyperlinkButton
-                                            HorizontalAlignment="Stretch"
-                                            HorizontalContentAlignment="Center"
-                                            Content="{shuxm:ResourceString Name=ViewPageSettingTranslateNavigate}"
-                                            NavigateUri="{StaticResource DocumentLink_Translate}"/>
-                                        <HyperlinkButton
-                                            HorizontalAlignment="Stretch"
-                                            HorizontalContentAlignment="Center"
-                                            Content="{shuxm:ResourceString Name=ViewPageSettingSponsorNavigate}"
-                                            NavigateUri="{StaticResource DocumentLink_Sponsor}"/>
-                                    </cwc:UniformGrid>
-                                </Border>
+                                <cwc:UniformGrid
+                                    VerticalAlignment="Center"
+                                    ColumnSpacing="8"
+                                    Columns="2"
+                                    RowSpacing="8">
+                                    <HyperlinkButton
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center"
+                                        Content="{shuxm:ResourceString Name=ViewPageSettingOfficialSiteNavigate}"
+                                        NavigateUri="{StaticResource DocumentLink_Home}"/>
+                                    <HyperlinkButton
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center"
+                                        Content="{shuxm:ResourceString Name=ViewPageSettingFeedbackNavigate}"
+                                        NavigateUri="{StaticResource DocumentLink_BugReport}"/>
+                                    <HyperlinkButton
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center"
+                                        Content="{shuxm:ResourceString Name=ViewPageSettingTranslateNavigate}"
+                                        NavigateUri="{StaticResource DocumentLink_Translate}"/>
+                                    <HyperlinkButton
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center"
+                                        Content="{shuxm:ResourceString Name=ViewPageSettingSponsorNavigate}"
+                                        NavigateUri="{StaticResource DocumentLink_Sponsor}"/>
+                                </cwc:UniformGrid>
                             </StackPanel>
                         </Border>
                     </Border>

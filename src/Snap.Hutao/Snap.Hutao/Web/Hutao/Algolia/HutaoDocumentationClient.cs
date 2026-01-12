@@ -11,8 +11,8 @@ namespace Snap.Hutao.Web.Hutao.Algolia;
 [HttpClient(HttpClientConfiguration.Default)]
 internal sealed partial class HutaoDocumentationClient
 {
-    private const string AlgoliaApiKey = "72d7a9a0f9f0466218ea19988886dce8";
-    private const string AlgoliaApplicationId = "28CTGDOOQD";
+    private const string AlgoliaApiKey = "36f3346b302103834b15cfbb221ee810";
+    private const string AlgoliaApplicationId = "626H2LTAQH";
     private const string AlgolianetIndexesQueries = $"https://28ctgdooqd-1.algolianet.com/1/indexes/*/queries";
 
     private readonly IHttpRequestMessageBuilderFactory httpRequestMessageBuilderFactory;
