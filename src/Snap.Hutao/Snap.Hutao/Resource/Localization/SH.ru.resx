@@ -1206,6 +1206,12 @@
   <data name="ServiceYaeWaitForGameResponseMessage" xml:space="preserve">
     <value>Ожидание данных игры</value>
   </data>
+  <data name="ServiceThirdPartyToolNoExecutableFound" xml:space="preserve">
+    <value>未找到可执行文件</value>
+  </data>
+  <data name="ServiceThirdPartyToolFileNotFound" xml:space="preserve">
+    <value>文件不存在：{0}</value>
+  </data>
   <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
     <value>后台任务</value>
   </data>
@@ -1583,6 +1589,12 @@
   </data>
   <data name="ViewDialogLaunchGamePackageConvertTitle" xml:space="preserve">
     <value>Преобразование клиента игры</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolDescription" xml:space="preserve">
+    <value>工具描述：</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolLaunch" xml:space="preserve">
+    <value>启动</value>
   </data>
   <data name="ViewDialogQRCodeTitle" xml:space="preserve">
     <value>Отсканируйте QR-код с помощью Miyusha</value>
@@ -2918,6 +2930,9 @@
   </data>
   <data name="ViewPageLaunchGameInjectionHeader" xml:space="preserve">
     <value>Внедрение</value>
+  </data>
+  <data name="ViewPageLaunchGameThirdPartyTools" xml:space="preserve">
+    <value>第三方注入工具：</value>
   </data>
   <data name="ViewPageLaunchGameIslandConnected" xml:space="preserve">
     <value>Подключено к игре, изменения настроек будут динамически отражаться в игре</value>
