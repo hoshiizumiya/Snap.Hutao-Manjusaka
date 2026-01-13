@@ -12,6 +12,8 @@ using Snap.Hutao.Service.Game.FileSystem;
 using Snap.Hutao.Service.Game.PathAbstraction;
 using Snap.Hutao.Win32;
 using System.Collections.Immutable;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Snap.Hutao.Service.Game;
 
@@ -106,7 +108,7 @@ internal sealed partial class LaunchOptions : DbStoreOptions, IRestrictedGamePat
     public IObservableProperty<bool> IsSetTargetFrameRateEnabled { get => field ??= CreateProperty(SettingKeys.LaunchIsSetTargetFrameRateEnabled, true); }
 
     [field: MaybeNull]
-    public IObservableProperty<int> TargetFps { get => field ??= CreateProperty(SettingKeys.LaunchTargetFps, InitializeTargetFpsWithScreenFps); }
+    public IObservableProperty<int> TargetFps { get => field ??= CreateProperty(SettingKeys.LaunchTargetFps, InitializeTargetFpsWithScreenFps).WithValueChangedCallback(OnTargetFpsChanged); }
 
     [field: MaybeNull]
     public IObservableProperty<bool> RemoveOpenTeamProgress { get => field ??= CreateProperty(SettingKeys.LaunchRemoveOpenTeamProgress, false); }
@@ -172,6 +174,98 @@ internal sealed partial class LaunchOptions : DbStoreOptions, IRestrictedGamePat
     private static int InitializeTargetFpsWithScreenFps()
     {
         return HutaoNative.Instance.MakeDeviceCapabilities().GetPrimaryScreenVerticalRefreshRate();
+    }
+
+    private static void OnTargetFpsChanged(int newFps)
+    {
+        // 异步更新配置文件，避免阻塞UI线程
+        Task.Run(async () =>
+        {
+            try
+            {
+                string configPath = Path.Combine(AppContext.BaseDirectory, "fps_config.ini");
+                
+
+                if (File.Exists(configPath))
+                {
+                    string[] lines = await File.ReadAllLinesAsync(configPath).ConfigureAwait(false);
+                    bool needsUpdate = true;
+                    
+
+                    foreach (string line in lines)
+                    {
+                        if (line.StartsWith("FPS="))
+                        {
+                            int configFps = int.Parse(line.Substring(4));
+                            if (configFps == newFps)
+                            {
+                                needsUpdate = false;
+                            }
+                            break;
+                        }
+                    }
+                    
+                    // 更新配置文件
+                    if (needsUpdate)
+                    {
+                        for (int i = 0; i < lines.Length; i++)
+                        {
+                            if (lines[i].StartsWith("FPS="))
+                            {
+                                lines[i] = $"FPS={newFps}";
+                                break;
+                            }
+                        }
+                        
+
+                        for (int i = 0; i < 3; i++)
+                        {
+                            try
+                            {
+                                await File.WriteAllLinesAsync(configPath, lines).ConfigureAwait(false);
+                                SentrySdk.AddBreadcrumb(
+                                    $"Updated fps_config.ini with new FPS: {newFps}",
+                                    category: "fps.unlocker",
+                                    level: Sentry.BreadcrumbLevel.Info);
+                                break;
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                if (i == 2)
+                                {
+                                    SentrySdk.AddBreadcrumb(
+                                        $"无法写入配置文件 {configPath}，请检查权限",
+                                        category: "fps.unlocker",
+                                        level: Sentry.BreadcrumbLevel.Error);
+                                    return;
+                                }
+                                await Task.Delay(500).ConfigureAwait(false);
+                            }
+                            catch (IOException)
+                            {
+                                if (i == 2)
+                                {
+                                    SentrySdk.AddBreadcrumb(
+                                        $"无法写入配置文件 {configPath}，文件可能被占用",
+                                        category: "fps.unlocker",
+                                        level: Sentry.BreadcrumbLevel.Error);
+                                    return;
+                                }
+                                await Task.Delay(500).ConfigureAwait(false);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // 记录错误
+                SentrySdk.AddBreadcrumb(
+                    $"Failed to update fps_config.ini: {ex.Message}",
+                    category: "fps.unlocker",
+                    level: Sentry.BreadcrumbLevel.Warning);
+            }
+        });
     }
 
     private static ImmutableArray<NameValue<int>> InitializeMonitors()

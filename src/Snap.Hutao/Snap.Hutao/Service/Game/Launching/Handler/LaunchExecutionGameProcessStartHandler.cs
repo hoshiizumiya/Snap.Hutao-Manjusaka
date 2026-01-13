@@ -26,6 +26,14 @@ internal sealed class LaunchExecutionGameProcessStartHandler : AbstractLaunchExe
 
     public override async ValueTask ExecuteAsync(LaunchExecutionContext context)
     {
+        // 如果启用了Island（FPS解锁），则跳过启动游戏进程
+        // 因为unlockfps.exe会负责启动游戏
+        if (context.LaunchOptions.IsIslandEnabled.Value)
+        {
+            context.Progress.Report(new(SH.ServiceGameLaunchPhaseProcessStarted));
+            return;
+        }
+
         try
         {
             context.Process.Start();

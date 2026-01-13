@@ -8,10 +8,10 @@ using Snap.Hutao.Service.Notification;
 
 namespace Snap.Hutao.Service.Game.Launching.Handler;
 
-internal sealed class LaunchExecutionGameIslandHandler : AbstractLaunchExecutionHandler
+internal sealed class LaunchExecutionGameIslandHandler : AbstractLaunchExecutionHandler, IDisposable
 {
     private readonly bool resume;
-    private GameIslandInterop? interop;
+    private GameFpsUnlockInterop? interop;
 
     public LaunchExecutionGameIslandHandler(bool resume)
     {
@@ -62,5 +62,10 @@ internal sealed class LaunchExecutionGameIslandHandler : AbstractLaunchExecution
             await context.TaskContext.SwitchToMainThreadAsync();
             GameLifeCycle.IsIslandConnected.Value = false;
         }
+    }
+
+    public void Dispose()
+    {
+        interop?.Dispose();
     }
 }

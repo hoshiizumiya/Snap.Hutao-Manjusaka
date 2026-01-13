@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Snap.Hutao.Core.Text.Json;
 using Snap.Hutao.Factory.Process;
 using Snap.Hutao.Model.Entity.Database;
+using Snap.Hutao.Service.ThirdPartyTool;
 using Snap.Hutao.Win32;
 using System.Data.Common;
 
@@ -65,6 +66,11 @@ internal static partial class ServiceCollectionExtension
                     .UseLoggerFactory(serviceProvider.GetRequiredService<ILoggerFactory>())
                     .UseSqlite(sqlConnectionString);
             }
+        }
+
+        public IServiceCollection AddThirdPartyToolService()
+        {
+            return services.AddSingleton<IThirdPartyToolService, ThirdPartyToolService>();
         }
     }
 }

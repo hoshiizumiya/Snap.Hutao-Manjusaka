@@ -1208,6 +1208,12 @@
   <data name="ServiceYaeWaitForGameResponseMessage" xml:space="preserve">
     <value>正在等待游戏数据</value>
   </data>
+  <data name="ServiceThirdPartyToolNoExecutableFound" xml:space="preserve">
+    <value>未找到可执行文件</value>
+  </data>
+  <data name="ServiceThirdPartyToolFileNotFound" xml:space="preserve">
+    <value>文件不存在：{0}</value>
+  </data>
   <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
     <value>后台任务</value>
   </data>
@@ -1585,6 +1591,12 @@
   </data>
   <data name="ViewDialogLaunchGamePackageConvertTitle" xml:space="preserve">
     <value>正在转换客户端</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolDescription" xml:space="preserve">
+    <value>工具描述：</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolLaunch" xml:space="preserve">
+    <value>启动</value>
   </data>
   <data name="ViewDialogQRCodeTitle" xml:space="preserve">
     <value>使用米游社扫描二维码</value>
@@ -2915,6 +2927,9 @@
   </data>
   <data name="ViewPageLaunchGameInjectionHeader" xml:space="preserve">
     <value>注入</value>
+  </data>
+  <data name="ViewPageLaunchGameThirdPartyTools" xml:space="preserve">
+    <value>第三方注入工具：</value>
   </data>
   <data name="ViewPageLaunchGameIslandConnected" xml:space="preserve">
     <value>已连接到游戏，更改设置将会动态反映到游戏中</value>

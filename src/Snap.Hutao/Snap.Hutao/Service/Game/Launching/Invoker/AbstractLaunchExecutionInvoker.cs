@@ -4,6 +4,7 @@
 using Snap.Hutao.Core.Diagnostics;
 using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Factory.Progress;
+using Snap.Hutao.Factory.Process;
 using Snap.Hutao.Service.Game.FileSystem;
 using Snap.Hutao.Service.Game.Launching.Context;
 using Snap.Hutao.Service.Game.Launching.Handler;
@@ -100,9 +101,16 @@ internal abstract class AbstractLaunchExecutionInvoker
 
             fileSystemReference.Exchange(beforeContext.FileSystem);
 
-            using (IProcess? process = CreateProcess(beforeContext))
+            // unlockfps.exe会负责启动游戏
+            IProcess? process = null;
+            if (!beforeContext.LaunchOptions.IsIslandEnabled.Value)
             {
-                if (process is null)
+                process = CreateProcess(beforeContext);
+            }
+
+            using (process)
+            {
+                if (process is null && !beforeContext.LaunchOptions.IsIslandEnabled.Value)
                 {
                     return;
                 }
@@ -114,7 +122,7 @@ internal abstract class AbstractLaunchExecutionInvoker
                     TaskContext = taskContext,
                     Messenger = context.ServiceProvider.GetRequiredService<IMessenger>(),
                     LaunchOptions = context.LaunchOptions,
-                    Process = process,
+                    Process = process ?? new NullProcess(),
                     IsOversea = targetScheme.IsOversea,
                 };
 
@@ -123,7 +131,8 @@ internal abstract class AbstractLaunchExecutionInvoker
                     await handler.ExecuteAsync(executionContext).ConfigureAwait(false);
                 }
 
-                if (process.IsRunning)
+                // 只有在没有启用Island且进程存在时才等待退出
+                if (process is { IsRunning: true })
                 {
                     progress.Report(new(SH.ServiceGameLaunchPhaseWaitingProcessExit));
                     try
@@ -138,6 +147,12 @@ internal abstract class AbstractLaunchExecutionInvoker
                         SentrySdk.CaptureException(ex);
                         return;
                     }
+                }
+                else if (beforeContext.LaunchOptions.IsIslandEnabled.Value)
+                {
+                    progress.Report(new(SH.ServiceGameLaunchPhaseWaitingProcessExit));
+                    await taskContext.SwitchToBackgroundAsync();
+                    await Task.Delay(30000).ConfigureAwait(false);
                 }
             }
 

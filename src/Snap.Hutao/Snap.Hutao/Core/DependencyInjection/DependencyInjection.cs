@@ -39,6 +39,7 @@ internal static class DependencyInjection
             .AddJsonOptions()
             .AddDatabase()
             .AddServices()
+            .AddThirdPartyToolService()
             .AddResponseValidation()
             .AddConfiguredHttpClients()
 

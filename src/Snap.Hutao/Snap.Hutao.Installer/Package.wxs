@@ -1,4 +1,4 @@
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
 	<Package
         Name="Snap.Hutao Manjusaka"
         Manufacturer="Millennium Science Technology R-D Inst"
