@@ -1208,6 +1208,12 @@ Kullanılabilir Alan: {2}</value>
   <data name="ServiceYaeWaitForGameResponseMessage" xml:space="preserve">
     <value>Oyun verileri bekleniyor</value>
   </data>
+  <data name="ServiceThirdPartyToolNoExecutableFound" xml:space="preserve">
+    <value>未找到可执行文件</value>
+  </data>
+  <data name="ServiceThirdPartyToolFileNotFound" xml:space="preserve">
+    <value>文件不存在：{0}</value>
+  </data>
   <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
     <value>后台任务</value>
   </data>
@@ -1585,6 +1591,12 @@ Kullanılabilir Alan: {2}</value>
   </data>
   <data name="ViewDialogLaunchGamePackageConvertTitle" xml:space="preserve">
     <value>Oyun İstemcisi Dönüştürülüyor</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolDescription" xml:space="preserve">
+    <value>工具描述：</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolLaunch" xml:space="preserve">
+    <value>启动</value>
   </data>
   <data name="ViewDialogQRCodeTitle" xml:space="preserve">
     <value>使用米游社扫描二维码</value>
@@ -2914,6 +2926,9 @@ Kullanılabilir Alan: {2}</value>
   </data>
   <data name="ViewPageLaunchGameInjectionHeader" xml:space="preserve">
     <value>Enjeksiyon</value>
+  </data>
+  <data name="ViewPageLaunchGameThirdPartyTools" xml:space="preserve">
+    <value>第三方注入工具：</value>
   </data>
   <data name="ViewPageLaunchGameIslandConnected" xml:space="preserve">
     <value>Oyuna bağlandı, ayar değişiklikleri oyuna dinamik olarak yansıtılacak</value>
