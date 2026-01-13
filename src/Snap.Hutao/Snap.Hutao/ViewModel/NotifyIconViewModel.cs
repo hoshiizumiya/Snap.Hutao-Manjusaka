@@ -5,8 +5,9 @@
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Media.Imaging;
-using Microsoft.Windows.AppNotifications.Builder;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 using Snap.Hutao.Core;
 using Snap.Hutao.Core.LifeCycle;
 using Snap.Hutao.Core.Logging;
@@ -32,6 +33,8 @@ internal sealed partial class NotifyIconViewModel : ObservableObject
     private readonly ICurrentXamlWindowReference currentXamlWindowReference;
     private readonly IServiceProvider serviceProvider;
     private readonly App app;
+    private FlyoutBase? notifyIconContextMenu;
+    private FrameworkElement? notifyIconContextMenuRoot;
 
     [GeneratedConstructor]
     public partial NotifyIconViewModel(IServiceProvider serviceProvider);
@@ -47,6 +50,121 @@ internal sealed partial class NotifyIconViewModel : ObservableObject
     }
 
     public partial RuntimeOptions RuntimeOptions { get; }
+
+    [Command("CloseNotifyIconContextMenuWindowCommand")]
+    private Task CloseNotifyIconContextMenuWindowAsync()
+    {
+        SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateUI("Close notify icon context menu", "NotifyIconViewModel.Command"));
+        return CloseNotifyIconContextMenuWithAnimationAsync();
+    }
+
+    internal void NotifyIconContextMenuClosed()
+    {
+        // Ensure next open has correct visual state.
+        if (notifyIconContextMenuRoot is not null)
+        {
+            notifyIconContextMenuRoot.Opacity = 1;
+            if (notifyIconContextMenuRoot.RenderTransform is ScaleTransform st)
+            {
+                st.ScaleX = 1;
+                st.ScaleY = 1;
+            }
+        }
+    }
+
+    private async Task CloseNotifyIconContextMenuWithAnimationAsync()
+    {
+        if (notifyIconContextMenu is null)
+        {
+            return;
+        }
+
+        if (notifyIconContextMenuRoot is null)
+        {
+            notifyIconContextMenu.Hide();
+            return;
+        }
+
+        FrameworkElement root = notifyIconContextMenuRoot;
+        try
+        {
+            root.RenderTransformOrigin = new(0.5, 0.5);
+            root.RenderTransform = new ScaleTransform { ScaleX = 1, ScaleY = 1 };
+
+            Storyboard storyboard = new();
+
+            DoubleAnimation opacityAnimation = new()
+            {
+                To = 0,
+                Duration = new(TimeSpan.FromMilliseconds(120)),
+                EnableDependentAnimation = true,
+            };
+
+            DoubleAnimation scaleXAnimation = new()
+            {
+                To = 0.95,
+                Duration = new(TimeSpan.FromMilliseconds(120)),
+                EnableDependentAnimation = true,
+            };
+
+            DoubleAnimation scaleYAnimation = new()
+            {
+                To = 0.95,
+                Duration = new(TimeSpan.FromMilliseconds(120)),
+                EnableDependentAnimation = true,
+            };
+
+            Storyboard.SetTarget(opacityAnimation, root);
+            Storyboard.SetTargetProperty(opacityAnimation, "Opacity");
+
+            Storyboard.SetTarget(scaleXAnimation, root);
+            Storyboard.SetTargetProperty(scaleXAnimation, "(UIElement.RenderTransform).(ScaleTransform.ScaleX)");
+
+            Storyboard.SetTarget(scaleYAnimation, root);
+            Storyboard.SetTargetProperty(scaleYAnimation, "(UIElement.RenderTransform).(ScaleTransform.ScaleY)");
+
+            storyboard.Children.Add(opacityAnimation);
+            storyboard.Children.Add(scaleXAnimation);
+            storyboard.Children.Add(scaleYAnimation);
+
+            TaskCompletionSource tcs = new();
+            void OnCompleted(object? s, object e)
+            {
+                storyboard.Completed -= OnCompleted;
+                tcs.TrySetResult();
+            }
+
+            storyboard.Completed += OnCompleted;
+            storyboard.Begin();
+
+            await tcs.Task.ConfigureAwait(true);
+        }
+        catch
+        {
+            // Ignore animation failures, always close the flyout.
+        }
+        finally
+        {
+            notifyIconContextMenu.Hide();
+
+            // Reset for next show.
+            if (notifyIconContextMenuRoot is not null)
+            {
+                notifyIconContextMenuRoot.Opacity = 1;
+                if (notifyIconContextMenuRoot.RenderTransform is ScaleTransform st)
+                {
+                    st.ScaleX = 1;
+                    st.ScaleY = 1;
+                }
+            }
+        }
+    }
+
+    internal void SetNotifyIconContextMenu(FlyoutBase flyout, FrameworkElement root)
+    {
+        notifyIconContextMenu = flyout;
+        notifyIconContextMenuRoot = root;
+    }
 
     [Command("RestartAsElevatedCommand")]
     private static void RestartAsElevated()
@@ -144,7 +262,7 @@ internal sealed partial class NotifyIconViewModel : ObservableObject
             return;
         }
 
-        RenderTargetBitmap renderTargetBitmap = new();
+        Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap renderTargetBitmap = new();
         await renderTargetBitmap.RenderAsync(currentXamlWindowReference.Window.Content);
 
         IBuffer pixelBuffer = await renderTargetBitmap.GetPixelsAsync();
@@ -161,6 +279,8 @@ internal sealed partial class NotifyIconViewModel : ObservableObject
             await encoder.FlushAsync();
         }
     }
+
+    public XamlRoot? XamlRoot { get; set; }
 }
 
 internal sealed partial class NotifyIconViewModel
