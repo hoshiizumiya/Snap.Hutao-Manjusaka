@@ -1208,6 +1208,12 @@ Verfügbarer Speicherplatz: {2}</value>
   <data name="ServiceYaeWaitForGameResponseMessage" xml:space="preserve">
     <value>Warte auf Spieldaten</value>
   </data>
+  <data name="ServiceThirdPartyToolNoExecutableFound" xml:space="preserve">
+    <value>未找到可执行文件</value>
+  </data>
+  <data name="ServiceThirdPartyToolFileNotFound" xml:space="preserve">
+    <value>文件不存在：{0}</value>
+  </data>
   <data name="UIViewMainTitleBarBackgroundActivityAction" xml:space="preserve">
     <value>后台任务</value>
   </data>
@@ -1585,6 +1591,12 @@ Verfügbarer Speicherplatz: {2}</value>
   </data>
   <data name="ViewDialogLaunchGamePackageConvertTitle" xml:space="preserve">
     <value>Spiele-Client wird konvertiert</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolDescription" xml:space="preserve">
+    <value>工具描述：</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolLaunch" xml:space="preserve">
+    <value>启动</value>
   </data>
   <data name="ViewDialogQRCodeTitle" xml:space="preserve">
     <value>Mit der  米游社-App QR-Code scannen</value>
@@ -2914,6 +2926,9 @@ Verfügbarer Speicherplatz: {2}</value>
   </data>
   <data name="ViewPageLaunchGameInjectionHeader" xml:space="preserve">
     <value>Injektion</value>
+  </data>
+  <data name="ViewPageLaunchGameThirdPartyTools" xml:space="preserve">
+    <value>第三方注入工具：</value>
   </data>
   <data name="ViewPageLaunchGameIslandConnected" xml:space="preserve">
     <value>Mit Spiel verbunden, Änderungen der Einstellungen werden dynamisch im Spiel übernommen</value>
