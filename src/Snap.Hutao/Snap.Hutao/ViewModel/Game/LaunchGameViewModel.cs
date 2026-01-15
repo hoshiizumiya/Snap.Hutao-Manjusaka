@@ -176,7 +176,7 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
         Shared.ResumeLaunchExecutionAsync(this).SafeForget();
 
         // 初始化第三方工具列表（不阻塞页面加载）
-        _ = InitializeThirdPartyToolsInBackgroundAsync(token);
+        InitializeThirdPartyToolsInBackgroundAsync(token).SafeForget();
 
         return true;
     }

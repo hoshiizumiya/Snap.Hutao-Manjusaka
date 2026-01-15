@@ -278,7 +278,7 @@
 		<PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.251219" />
 		<PackageReference Include="CommunityToolkit.WinUI.Converters" Version="8.2.251219" />
 		<PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.2.251219" />
-		<PackageReference Include="Google.Protobuf" Version="3.33.3" />
+		<PackageReference Include="Google.Protobuf" Version="3.33.4" />
 		<PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
 		<PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0">
 			<PrivateAssets>all</PrivateAssets>
@@ -303,7 +303,7 @@
 		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3650.58" />
 		<PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.0-prerelease.251115.2" />
 		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
-		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.251106002" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
 		<PackageReference Include="QRCoder" Version="1.7.0" />
 		<PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.15.1" />
 		<PackageReference Include="Sentry.Extensions.Logging" Version="6.0.0" />
@@ -312,7 +312,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Snap.Hutao.Native" Version="0.1.31">
+		<PackageReference Include="Snap.Hutao.Native" Version="0.1.32">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
