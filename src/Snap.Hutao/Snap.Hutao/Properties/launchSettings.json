@@ -9,7 +9,8 @@
     },
     "[Unpackaged] Snap.Hutao": {
       "commandName": "Project",
-      "nativeDebugging": true
+      // xaml live preview not supportes native debugging
+      "nativeDebugging": false
     }
   }
 }
