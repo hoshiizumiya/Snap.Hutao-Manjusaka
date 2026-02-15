@@ -7,6 +7,9 @@
   <br/>
   🎮 An open-source Genshin Impact toolkit for Windows, designed to improve the desktop gaming experience
 </p>
+
+📢**公告**：感谢所有参与者的支持💕🥰，该分支已结束维护支持，将停止更新，请前往新的分支继续使用和关注：[SnapHutao Remastered Link](https://github.com/SnapHutaoRemasteringProject/Snap.Hutao.Remastered)  
+📢**Announcement**: Thanks all participants💕🥰This branch is no longer maintained. Please go to the new branch for continued use and updates: [SnapHutao Remastered Link](https://github.com/SnapHutaoRemasteringProject/Snap.Hutao.Remastered)  
 ## 📖 简介 / Introduction
 
 **中文**  
@@ -38,9 +41,9 @@ Snap Hutao-Manjusaka is an open-source Genshin Impact toolkit under MIT license,
 
 **目前元数据的编写进度：**
 
-| 项目（V6.2） | 是否完成     |
-| ----------- | ----------- |
-| 总体数据 | ✔️ |
+| 项目（V6.2） | 是否完成 |
+| ------------ | -------- |
+| 总体数据     | ✔️        |
 
 ✔️：已完成  
 ❌：未编写  

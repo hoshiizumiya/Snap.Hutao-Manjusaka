@@ -270,10 +270,10 @@ internal sealed partial class AppActivation : IAppActivation, IAppActivationActi
         await WaitWindowAsync<MainWindow>().ConfigureAwait(false);
 
         // Ensure auto sign-in server-day rollover scheduler is active.
-        _ = serviceProvider.GetRequiredService<SignInServerDayRolloverScheduler>();
+        serviceProvider.GetRequiredService<SignInServerDayRolloverScheduler>();
 
         // Ensure auto sign-in is triggered on UserAndUidChangedMessage.
-        _ = serviceProvider.GetRequiredService<AutoSignInTriggerService>();
+        serviceProvider.GetRequiredService<AutoSignInTriggerService>();
 
         SentrySdk.AddBreadcrumb(BreadcrumbFactory.CreateInfo("Initialization completed", "Application"));
     }
