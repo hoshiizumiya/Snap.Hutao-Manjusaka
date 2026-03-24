@@ -1,4 +1,4 @@
-﻿// Copyright (c) DGP Studio. All rights reserved.
+// Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
 // Copyright (c) Millennium-Science-Technology-R-D-Inst. All rights reserved.
 // Licensed under the MIT license.
@@ -650,10 +650,6 @@ internal sealed partial class LaunchGameViewModel : Abstraction.ViewModel, IView
                 AdvancedStartProgramPath = programPath;
                 messenger.Send(InfoBarMessage.Success(SH.ViewModelLaunchGameAdvancedStartProgramPathSaved));
             }
-        }
-        catch (OperationCanceledException)
-        {
-            return ImmutableArray<ToolInfo>.Empty;
         }
         catch (Exception ex)
         {
