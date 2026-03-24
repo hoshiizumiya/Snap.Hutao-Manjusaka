@@ -1,0 +1,11 @@
+<!--
+This file contains the declaration of all the localizable strings.
+-->
+<WixLocalization xmlns="http://wixtoolset.org/schemas/v4/wxl" Culture="zh-CN">
+
+  <String Id="DowngradeError" Value="已安装更新版本的 [ProductName]。" />
+  <String Id="MainAppTitle" Value="Snap.Hutao" />
+  <String Id="DesktopShortcutTitle" Value="桌面快捷方式" />
+  <String Id="StartMenuShortcutTitle" Value="开始菜单快捷方式" />
+
+</WixLocalization>

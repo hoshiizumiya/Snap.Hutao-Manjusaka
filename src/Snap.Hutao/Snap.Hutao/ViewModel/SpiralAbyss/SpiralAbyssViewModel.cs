@@ -193,11 +193,11 @@ internal sealed partial class SpiralAbyssViewModel : Abstraction.ViewModel, IRec
             {
                 HutaoResponse response = await spiralAbyssClient.UploadRecordAsync(record).ConfigureAwait(false);
 
-                if (response is ILocalizableResponse localizableResponse)
+                if (response is ILocalizableResponse)
                 {
                     messenger.Send(InfoBarMessage.Any(
                         response is { ReturnCode: 0 } ? InfoBarSeverity.Success : InfoBarSeverity.Warning,
-                        localizableResponse.GetLocalizationMessage()));
+                        response.GetLocalizationMessageOrMessage()));
                 }
             }
 

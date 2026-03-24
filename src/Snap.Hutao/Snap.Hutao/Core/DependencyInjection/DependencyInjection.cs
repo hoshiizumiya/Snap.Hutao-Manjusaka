@@ -29,6 +29,12 @@ internal static class DependencyInjection
                     .AddFilter(DbLoggerCategory.Query.Name, level => level >= LogLevel.Information)
                     .AddDebug()
                     .AddSentryTelemetry();
+
+                // Add console logging if console is enabled
+                if (Bootstrap.ConsoleEnabled)
+                {
+                    builder.AddConsole();
+                }
             })
             .AddMemoryCache()
 

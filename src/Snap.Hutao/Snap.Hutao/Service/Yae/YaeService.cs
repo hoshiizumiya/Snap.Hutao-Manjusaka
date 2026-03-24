@@ -6,7 +6,6 @@ using Snap.Hutao.Core.LifeCycle.InterProcess.Yae;
 using Snap.Hutao.Factory.ContentDialog;
 using Snap.Hutao.Model.InterChange.Achievement;
 using Snap.Hutao.Model.InterChange.Inventory;
-using Snap.Hutao.Service.Feature;
 using Snap.Hutao.Service.Game;
 using Snap.Hutao.Service.Game.FileSystem;
 using Snap.Hutao.Service.Game.Launching;
@@ -15,10 +14,12 @@ using Snap.Hutao.Service.Game.Launching.Invoker;
 using Snap.Hutao.Service.Notification;
 using Snap.Hutao.Service.User;
 using Snap.Hutao.Service.Yae.Achievement;
+using Snap.Hutao.Service.Yae.Metadata;
 using Snap.Hutao.Service.Yae.PlayerStore;
 using Snap.Hutao.ViewModel.Game;
 using Snap.Hutao.ViewModel.User;
 using System.Diagnostics;
+using System.IO;
 
 namespace Snap.Hutao.Service.Yae;
 
@@ -27,7 +28,7 @@ internal sealed partial class YaeService : IYaeService
 {
     private readonly IContentDialogFactory contentDialogFactory;
     private readonly IServiceProvider serviceProvider;
-    private readonly IFeatureService featureService;
+    private readonly IYaeMetadataService yaeMetadataService;
     private readonly IUserService userService;
     private readonly ITaskContext taskContext;
     private readonly IMessenger messenger;
@@ -57,15 +58,12 @@ internal sealed partial class YaeService : IYaeService
                         Identity = GameIdentity.Create(userAndUid, viewModel.GameAccount),
                     };
 
-                    if (!TryGetGameVersion(context, out string? version, out bool isOversea))
+                    TargetNativeConfiguration? config = await TryGetTargetNativeConfigurationAsync(context).ConfigureAwait(false);
+                    if (config is null)
                     {
                         return default;
                     }
 
-                    AchievementFieldId? fieldId = await featureService.GetAchievementFieldIdAsync(version).ConfigureAwait(false);
-                    ArgumentNullException.ThrowIfNull(fieldId);
-
-                    TargetNativeConfiguration config = TargetNativeConfiguration.Create(fieldId.NativeConfig, isOversea);
                     await new YaeLaunchExecutionInvoker(config, receiver).InvokeAsync(context).ConfigureAwait(false);
 
                     UIAF? uiaf = default;
@@ -76,7 +74,7 @@ internal sealed partial class YaeService : IYaeService
                             if (data.Kind is YaeCommandKind.ResponseAchievement)
                             {
                                 Debug.Assert(uiaf is null);
-                                uiaf = AchievementParser.Parse(data.Bytes, fieldId);
+                                uiaf = AchievementParser.Parse(data.Bytes);
                             }
                         }
                     }
@@ -116,15 +114,12 @@ internal sealed partial class YaeService : IYaeService
                         Identity = GameIdentity.Create(userAndUid, viewModel.GameAccount),
                     };
 
-                    if (!TryGetGameVersion(context, out string? version, out bool isOversea))
+                    TargetNativeConfiguration? config = await TryGetTargetNativeConfigurationAsync(context).ConfigureAwait(false);
+                    if (config is null)
                     {
                         return default;
                     }
 
-                    AchievementFieldId? fieldId = await featureService.GetAchievementFieldIdAsync(version).ConfigureAwait(false);
-                    ArgumentNullException.ThrowIfNull(fieldId);
-
-                    TargetNativeConfiguration config = TargetNativeConfiguration.Create(fieldId.NativeConfig, isOversea);
                     await new YaeLaunchExecutionInvoker(config, receiver).InvokeAsync(context).ConfigureAwait(false);
                 }
                 catch (Exception ex)
@@ -167,9 +162,9 @@ internal sealed partial class YaeService : IYaeService
         }
     }
 
-    private bool TryGetGameVersion(LaunchExecutionInvocationContext context, [NotNullWhen(true)] out string? version, out bool isOversea)
+    private async ValueTask<TargetNativeConfiguration?> TryGetTargetNativeConfigurationAsync(LaunchExecutionInvocationContext context)
     {
-        const string LockTrace = $"{nameof(YaeService)}.{nameof(TryGetGameVersion)}";
+        const string LockTrace = $"{nameof(YaeService)}.{nameof(TryGetTargetNativeConfigurationAsync)}";
 
         if (context.LaunchOptions.TryGetGameFileSystem(LockTrace, out IGameFileSystem? gameFileSystem) is not GameFileSystemErrorKind.None)
         {
@@ -178,23 +173,54 @@ internal sealed partial class YaeService : IYaeService
 
         if (gameFileSystem is null)
         {
-            version = default;
-            isOversea = false;
-            return false;
+            return default;
         }
 
         using (gameFileSystem)
         {
-            if (!gameFileSystem.TryGetGameVersion(out version) || string.IsNullOrEmpty(version))
+            if (!TryGetGameExecutableHash(gameFileSystem.GameFilePath, out uint hash))
             {
                 messenger.Send(InfoBarMessage.Error(SH.ServiceYaeGetGameVersionFailed));
-                isOversea = false;
+                return default;
+            }
+
+            YaeNativeLibConfig? nativeConfig = await yaeMetadataService.GetNativeLibConfigAsync().ConfigureAwait(false);
+            if (nativeConfig is null)
+            {
+                messenger.Send(InfoBarMessage.Error(SH.ServiceYaeGetGameVersionFailed));
+                return default;
+            }
+
+            if (!nativeConfig.MethodRva.TryGetValue(hash, out MethodRva? methodRva))
+            {
+                messenger.Send(InfoBarMessage.Error(SH.ServiceYaeGetGameVersionFailed));
+                return default;
+            }
+
+            return TargetNativeConfiguration.Create(nativeConfig.StoreCmdId, nativeConfig.AchievementCmdId, methodRva);
+        }
+    }
+
+    private static bool TryGetGameExecutableHash(string gameFilePath, out uint hash)
+    {
+        try
+        {
+            Span<byte> buffer = stackalloc byte[0x10000];
+            using FileStream stream = File.OpenRead(gameFilePath);
+            int read = stream.ReadAtLeast(buffer, buffer.Length, throwOnEndOfStream: false);
+            if (read < buffer.Length)
+            {
+                hash = default;
                 return false;
             }
 
-            isOversea = gameFileSystem.IsExecutableOversea;
+            hash = Crc32.Compute(buffer);
+            return true;
         }
-
-        return true;
+        catch (IOException)
+        {
+            hash = default;
+            return false;
+        }
     }
 }

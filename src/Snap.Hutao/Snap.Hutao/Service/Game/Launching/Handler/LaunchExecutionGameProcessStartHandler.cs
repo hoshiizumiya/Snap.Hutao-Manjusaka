@@ -26,17 +26,22 @@ internal sealed class LaunchExecutionGameProcessStartHandler : AbstractLaunchExe
 
     public override async ValueTask ExecuteAsync(LaunchExecutionContext context)
     {
-        // 如果启用了Island（FPS解锁），则跳过启动游戏进程
-        // 因为unlockfps.exe会负责启动游戏
-        if (context.LaunchOptions.IsIslandEnabled.Value)
-        {
-            context.Progress.Report(new(SH.ServiceGameLaunchPhaseProcessStarted));
-            return;
-        }
-
         try
         {
+            // 对于suspended进程（Yae注入模式、Island模式），需要先Start()创建进程，然后ResumeMainThread()恢复主线程
+            // 对于正常启动的进程（ShellExecute、DiagnosticsProcess），只调用Start()
             context.Process.Start();
+
+            // 尝试恢复主线程（适用于suspended进程）
+            try
+            {
+                context.Process.ResumeMainThread();
+            }
+            catch (HutaoException ex) when (ex.Message.Contains("ResumeMainThread is not supported"))
+            {
+                // ResumeMainThread不支持，说明是正常启动的进程（DiagnosticsProcess），忽略此错误
+            }
+
             await context.TaskContext.SwitchToMainThreadAsync();
             GameLifeCycle.IsGameRunningProperty.Value = true;
         }

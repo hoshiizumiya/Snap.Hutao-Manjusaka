@@ -16,4 +16,13 @@ internal sealed class ToolInfo
 
     [JsonPropertyName("files")]
     public List<string> Files { get; set; } = default!;
+
+    [JsonPropertyName("is_compressed")]
+    public bool IsCompressed { get; set; }
+
+    [JsonPropertyName("main_exe")]
+    public string? MainExe { get; set; }
+
+    [JsonPropertyName("version")]
+    public string Version { get; set; } = default!;
 }

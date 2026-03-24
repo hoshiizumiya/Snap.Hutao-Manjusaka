@@ -47,6 +47,9 @@ internal sealed partial class HutaoAsAService : IHutaoAsAService
                 }
             }
 
+            // Filter announcements by Distribution
+            array = [.. array.Where(a => string.IsNullOrEmpty(a.Distribution) || a.Distribution == "Snap Hutao")]; // 请自行修改发行版名称
+
             foreach (HutaoAnnouncement item in array)
             {
                 item.DismissCommand = dismissCommand;

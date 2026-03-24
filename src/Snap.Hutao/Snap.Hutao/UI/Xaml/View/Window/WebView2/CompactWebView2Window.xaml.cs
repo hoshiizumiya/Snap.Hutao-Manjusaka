@@ -1,4 +1,4 @@
-// Copyright (c) DGP Studio. All rights reserved.
+﻿// Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
 
 using Microsoft.UI.Input;
@@ -349,23 +349,7 @@ internal sealed partial class CompactWebView2Window : Microsoft.UI.Xaml.Window,
                     {
                         AdditionalBrowserArguments = "--do-not-de-elevate --autoplay-policy=no-user-gesture-required",
                     };
-
-                    // 如为未打包模式，指定可写的 user data folder 避免在 Program Files 下无法写入
-                    string? userDataFolder = null;
-                    if (!Snap.Hutao.Core.ApplicationModel.PackageIdentityAdapter.HasPackageIdentity)
-                    {
-                        string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                        userDataFolder = Path.Combine(appData, "CustomWebView2");
-                        try
-                        {
-                            Directory.CreateDirectory(userDataFolder);
-                        }
-                        catch
-                        {
-                            userDataFolder = null;
-                        }
-                    }
-
+                    string userDataFolder = HutaoRuntime.WebView2UserDataDirectory;
                     CoreWebView2Environment environment = await CoreWebView2Environment.CreateWithOptionsAsync(null, userDataFolder, options);
                     await WebView.EnsureCoreWebView2Async(environment);
                 }

@@ -42,6 +42,10 @@ internal static unsafe class HutaoNativeMethods
     // ReSharper restore InconsistentNaming
     public const string DllName = "Snap.Hutao.Native.dll";
 
+    // Console APIs
+    public const int STD_OUTPUT_HANDLE = -11;
+    public const int STD_ERROR_HANDLE = -12;
+
     public static HutaoNative HutaoCreateInstance()
     {
         nint pv = default;
@@ -53,6 +57,36 @@ internal static unsafe class HutaoNativeMethods
     {
         return HutaoHResultIsWin32(hr, error);
     }
+
+    /// <summary>
+    /// Allocates a new console for the calling process.
+    /// </summary>
+    /// <returns>TRUE if the function succeeds; otherwise, FALSE.</returns>
+    [DllImport("kernel32.dll", ExactSpelling = true)]
+    public static extern BOOL AllocConsole();
+
+    /// <summary>
+    /// Detaches the calling process from its console.
+    /// </summary>
+    /// <returns>TRUE if the function succeeds; otherwise, FALSE.</returns>
+    [DllImport("kernel32.dll", ExactSpelling = true)]
+    public static extern BOOL FreeConsole();
+
+    /// <summary>
+    /// Attaches the calling process to the console of the specified process.
+    /// </summary>
+    /// <param name="dwProcessId">The identifier of the process whose console is to be used.</param>
+    /// <returns>TRUE if the function succeeds; otherwise, FALSE.</returns>
+    [DllImport("kernel32.dll", ExactSpelling = true)]
+    public static extern BOOL AttachConsole(uint dwProcessId);
+
+    /// <summary>
+    /// Retrieves a handle to the specified standard device.
+    /// </summary>
+    /// <param name="nStdHandle">The standard device.</param>
+    /// <returns>A handle to the specified device.</returns>
+    [DllImport("kernel32.dll", ExactSpelling = true)]
+    public static extern nint GetStdHandle(int nStdHandle);
 
     [DllImport(DllName, CallingConvention = CallingConvention.Winapi, ExactSpelling = true)]
     private static extern HRESULT HutaoCreateInstance(HutaoNative.Vftbl** ppv);

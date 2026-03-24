@@ -16,4 +16,6 @@ internal class UploadAnnouncement
     public string Link { get; set; } = default!;
 
     public string? MaxPresentVersion { get; set; }
+
+    public string? Distribution { get; set; }
 }

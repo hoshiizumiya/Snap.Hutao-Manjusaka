@@ -4,6 +4,7 @@ using Snap.Hutao.Core.ExceptionService;
 using Snap.Hutao.Model.Entity;
 using Snap.Hutao.Model.InterChange.GachaLog;
 using Snap.Hutao.Service.GachaLog;
+using Snap.Hutao.ViewModel.GachaLog;
 using Snap.Hutao.Web.Hoyolab.Hk4e.Event.GachaInfo;
 using System.Collections.Immutable;
 
@@ -13,6 +14,7 @@ internal abstract partial class AbstractUIGF40ImportService : IUIGFImportService
 {
     private readonly IServiceProvider serviceProvider;
     private readonly ITaskContext taskContext;
+    private readonly IMessenger messenger;
 
     [GeneratedConstructor]
     public partial AbstractUIGF40ImportService(IServiceProvider serviceProvider);
@@ -21,6 +23,7 @@ internal abstract partial class AbstractUIGF40ImportService : IUIGFImportService
     {
         await taskContext.SwitchToBackgroundAsync();
         ImportGachaArchives(importOptions.UIGF.Hk4e, importOptions.GachaArchiveUids);
+        messenger.Send(GachaLogImportedMessage.Empty);
     }
 
     private void ImportGachaArchives(ImmutableArray<UIGFEntry<Hk4eItem>> entries, HashSet<uint> uids)

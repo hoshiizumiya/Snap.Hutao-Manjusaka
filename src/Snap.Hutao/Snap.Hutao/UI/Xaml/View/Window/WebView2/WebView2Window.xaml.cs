@@ -1,10 +1,11 @@
-// Copyright (c) DGP Studio. All rights reserved.
+﻿// Copyright (c) DGP Studio. All rights reserved.
 // Licensed under the MIT license.
 
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.Web.WebView2.Core;
+using Snap.Hutao.Core;
 using Snap.Hutao.Core.Logging;
 using Snap.Hutao.UI.Windowing;
 using Snap.Hutao.UI.Windowing.Abstraction;
@@ -154,25 +155,7 @@ internal sealed partial class WebView2Window : Microsoft.UI.Xaml.Window,
                     {
                         AdditionalBrowserArguments = "--do-not-de-elevate",
                     };
-
-                    // 当应用是未打包并安装在 Program Files（默认只读）时，
-                    // WebView2 无法在安装目录下创建用户数据文件夹，需指定一个可写的 user data folder。
-                    string? userDataFolder = null;
-                    if (!Snap.Hutao.Core.ApplicationModel.PackageIdentityAdapter.HasPackageIdentity)
-                    {
-                        string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                        userDataFolder = Path.Combine(appData, "CustomWebView2");
-                        try
-                        {
-                            Directory.CreateDirectory(userDataFolder);
-                        }
-                        catch
-                        {
-                            // Ignore directory creation failures, fallback to null (WebView2 will use default)
-                            userDataFolder = null;
-                        }
-                    }
-
+                    string userDataFolder = HutaoRuntime.WebView2UserDataDirectory;
                     CoreWebView2Environment environment = await CoreWebView2Environment.CreateWithOptionsAsync(null, userDataFolder, options);
                     await WebView.EnsureCoreWebView2Async(environment);
                 }

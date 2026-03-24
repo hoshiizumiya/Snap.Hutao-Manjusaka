@@ -58,7 +58,7 @@ internal sealed partial class HutaoPassportResetPasswordDialog : ContentDialog
                 return;
             }
 
-            messenger.Send(InfoBarMessage.Information(response.GetLocalizationMessage()));
+            messenger.Send(InfoBarMessage.Information(response.GetLocalizationMessageOrMessage()));
         }
     }
 

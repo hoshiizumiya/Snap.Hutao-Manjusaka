@@ -70,7 +70,7 @@ internal sealed partial class HutaoPassportResetUsernameDialog : ContentDialog
                 return;
             }
 
-            messenger.Send(InfoBarMessage.Information(response.GetLocalizationMessage()));
+            messenger.Send(InfoBarMessage.Information(response.GetLocalizationMessageOrMessage()));
         }
     }
 

@@ -33,6 +33,8 @@ internal static class HutaoRuntime
 
     public static WebView2Version WebView2Version { get; } = InitializeWebView2();
 
+    public static string WebView2UserDataDirectory { get; } = InitializeWebView2UserDataDirectory();
+
     // ⚠️ 延迟初始化以避免循环依赖
     private static readonly Lazy<bool> LazyIsProcessElevated = new(GetIsProcessElevated);
     
@@ -142,6 +144,13 @@ internal static class HutaoRuntime
         string cacheDir = Path.Combine(localAppData, FolderName, "Cache");
         Directory.CreateDirectory(cacheDir);
         return cacheDir;
+    }
+
+    private static string InitializeWebView2UserDataDirectory()
+    {
+        string directory = Path.Combine(LocalCacheDirectory, "WebView2");
+        Directory.CreateDirectory(directory);
+        return directory;
     }
 
     private static bool CheckAppNotificationEnabled()

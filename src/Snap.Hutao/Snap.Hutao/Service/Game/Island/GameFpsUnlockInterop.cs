@@ -37,25 +37,30 @@ internal sealed class GameFpsUnlockInterop : IGameIslandInterop, IDisposable
             return;
         }
 
-        // 获取unlocker.exe路径，放在Snap.Hutao同一目录下
-        string hutaoDirectory = AppContext.BaseDirectory;
-        unlockerPath = Path.Combine(hutaoDirectory, UnlockerExecutableName);
-        
+        // 准备 unlocker.exe 到可写的应用数据目录
+        await PrepareUnlockerToDataDirectoryAsync().ConfigureAwait(false);
+
+        // 从应用数据目录获取 unlocker.exe 路径
+        unlockerPath = Path.Combine(HutaoRuntime.DataDirectory, UnlockerExecutableName);
+
         if (!File.Exists(unlockerPath))
         {
             throw HutaoException.InvalidOperation("未找到unlockfps.exe文件，请将genshin-fps-unlock-master编译后的unlockfps.exe放置在Snap.Hutao同目录下");
         }
 
+        // 添加到 Windows Defender 排除项（需要管理员权限）
+        await AddToDefenderExclusionAsync(unlockerPath).ConfigureAwait(false);
+
         // 获取游戏路径
         gamePath = context.FileSystem.GameFilePath;
-        
+
         // 验证游戏路径
         SentrySdk.AddBreadcrumb(
             $"Game path from Snap.Hutao: {gamePath}",
             category: "fps.unlocker",
             level: Sentry.BreadcrumbLevel.Info);
-            
-            
+
+
         if (!File.Exists(gamePath))
         {
             throw HutaoException.InvalidOperation($"游戏文件不存在: {gamePath}");
@@ -81,6 +86,134 @@ internal sealed class GameFpsUnlockInterop : IGameIslandInterop, IDisposable
         await MonitorUnlockerProcessAsync(context, token).ConfigureAwait(false);
     }
 
+    private async ValueTask PrepareUnlockerToDataDirectoryAsync()
+    {
+        // 数据目录中的目标路径
+        string dataDirectoryUnlockerPath = Path.Combine(HutaoRuntime.DataDirectory, UnlockerExecutableName);
+
+        // 安装目录中的源路径
+        string installDirectoryUnlockerPath = Path.Combine(AppContext.BaseDirectory, UnlockerExecutableName);
+
+        // 检查是否需要复制
+        bool needsCopy = false;
+        if (!File.Exists(dataDirectoryUnlockerPath))
+        {
+            needsCopy = true;
+        }
+        else
+        {
+            // 比较文件大小和修改时间，如果不同则更新
+            var sourceInfo = new FileInfo(installDirectoryUnlockerPath);
+            var targetInfo = new FileInfo(dataDirectoryUnlockerPath);
+
+            if (sourceInfo.Length != targetInfo.Length || sourceInfo.LastWriteTime > targetInfo.LastWriteTime)
+            {
+                needsCopy = true;
+            }
+        }
+
+        // 如果需要复制，执行复制操作
+        if (needsCopy)
+        {
+            try
+            {
+                
+                Directory.CreateDirectory(HutaoRuntime.DataDirectory);
+
+                
+                File.Copy(installDirectoryUnlockerPath, dataDirectoryUnlockerPath, true);
+
+                SentrySdk.AddBreadcrumb(
+                    $"unlockfps.exe 已复制到数据目录: {dataDirectoryUnlockerPath}",
+                    category: "fps.unlocker",
+                    level: Sentry.BreadcrumbLevel.Info);
+            }
+            catch (Exception ex)
+            {
+                throw HutaoException.InvalidOperation($"复制 unlockfps.exe 到数据目录失败: {ex.Message}", ex);
+            }
+        }
+    }
+
+    private async ValueTask AddToDefenderExclusionAsync(string executablePath)
+    {
+        try
+        {
+            // 检查是否已经在排除项中
+            ProcessStartInfo checkInfo = new()
+            {
+                FileName = "powershell.exe",
+                Arguments = $"-Command \"(Get-MpPreference).ExclusionPath -split '\"' | Where-Object {{ $_ -eq '{executablePath}' }}\"",
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                WindowStyle = ProcessWindowStyle.Hidden,
+            };
+
+            using (Process checkProcess = new() { StartInfo = checkInfo })
+            {
+                checkProcess.Start();
+                string output = await checkProcess.StandardOutput.ReadToEndAsync().ConfigureAwait(false);
+                await checkProcess.WaitForExitAsync().ConfigureAwait(false);
+
+                // 如果输出包含路径，说明已经在排除项中
+                if (!string.IsNullOrWhiteSpace(output) && output.Trim().Contains(executablePath))
+                {
+                    SentrySdk.AddBreadcrumb(
+                        $"unlockfps.exe 已在 Windows Defender 排除项中",
+                        category: "fps.unlocker",
+                        level: Sentry.BreadcrumbLevel.Info);
+                    return;
+                }
+            }
+
+            // 不在排除项中，尝试添加
+            ProcessStartInfo addInfo = new()
+            {
+                FileName = "powershell.exe",
+                Arguments = $"-Command \"Add-MpPreference -ExclusionPath '{executablePath}'\"",
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                WindowStyle = ProcessWindowStyle.Hidden,
+                Verb = "runas", // 请求管理员权限
+            };
+
+            using (Process addProcess = new() { StartInfo = addInfo })
+            {
+                addProcess.Start();
+                string output = await addProcess.StandardOutput.ReadToEndAsync().ConfigureAwait(false);
+                string error = await addProcess.StandardError.ReadToEndAsync().ConfigureAwait(false);
+                await addProcess.WaitForExitAsync().ConfigureAwait(false);
+
+                if (addProcess.ExitCode == 0)
+                {
+                    SentrySdk.AddBreadcrumb(
+                        $"unlockfps.exe 已成功添加到 Windows Defender 排除项",
+                        category: "fps.unlocker",
+                        level: Sentry.BreadcrumbLevel.Info);
+                }
+                else
+                {
+                    
+                    SentrySdk.AddBreadcrumb(
+                        $"无法添加到 Windows Defender 排除项（需要管理员权限）: {error ?? output}",
+                        category: "fps.unlocker",
+                        level: Sentry.BreadcrumbLevel.Warning);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            
+            SentrySdk.AddBreadcrumb(
+                $"添加 Windows Defender 排除项失败: {ex.Message}",
+                category: "fps.unlocker",
+                level: Sentry.BreadcrumbLevel.Warning);
+        }
+    }
+
     private async ValueTask CreateUnlockerConfigAsync(BeforeLaunchExecutionContext context)
     {
         if (string.IsNullOrEmpty(gamePath))
@@ -88,8 +221,8 @@ internal sealed class GameFpsUnlockInterop : IGameIslandInterop, IDisposable
             throw HutaoException.NotSupported("游戏路径未初始化");
         }
 
-        // 直接在unlocker同目录创建配置文件
-        string unlockerConfigPath = Path.Combine(Path.GetDirectoryName(unlockerPath)!, UnlockerConfigName);
+        // 在应用数据目录中创建配置文件
+        string unlockerConfigPath = Path.Combine(HutaoRuntime.DataDirectory, UnlockerConfigName);
         int targetFps = context.LaunchOptions.TargetFps.Value;
         
         string configContent = $"[Setting]\nPath={gamePath}\nFPS={targetFps}";
@@ -126,7 +259,7 @@ internal sealed class GameFpsUnlockInterop : IGameIslandInterop, IDisposable
         try
         {
 
-            string configPath = Path.Combine(Path.GetDirectoryName(unlockerPath)!, UnlockerConfigName);
+            string configPath = Path.Combine(HutaoRuntime.DataDirectory, UnlockerConfigName);
             if (!File.Exists(configPath))
             {
                 throw HutaoException.InvalidOperation($"配置文件不存在: {configPath}");
@@ -214,6 +347,12 @@ internal sealed class GameFpsUnlockInterop : IGameIslandInterop, IDisposable
             return string.Empty;
         }
 
+        // 获取米游社登录Ticket
+        string? authTicket = default;
+        bool useAuthTicket = launchOptions.UsingHoyolabAccount.Value
+            && context.TryGetOption(LaunchExecutionOptionsKey.LoginAuthTicket, out authTicket)
+            && !string.IsNullOrEmpty(authTicket);
+
         StringBuilder arguments = new();
 
         // 构建与 GameProcessFactory.CreateForDefault 相同的命令行参数
@@ -247,6 +386,12 @@ internal sealed class GameFpsUnlockInterop : IGameIslandInterop, IDisposable
         if (launchOptions.IsPlatformTypeEnabled.Value)
         {
             arguments.Append($" -platform_type {launchOptions.PlatformType.Value:G}");
+        }
+
+        // 添加米游社登录参数
+        if (useAuthTicket)
+        {
+            arguments.Append($" login_auth_ticket={authTicket}");
         }
 
         return arguments.ToString();
@@ -302,7 +447,7 @@ internal sealed class GameFpsUnlockInterop : IGameIslandInterop, IDisposable
 
         try
         {
-            string configPath = Path.Combine(Path.GetDirectoryName(unlockerPath)!, UnlockerConfigName);
+            string configPath = Path.Combine(HutaoRuntime.DataDirectory, UnlockerConfigName);
             if (File.Exists(configPath))
             {
                 string[] lines = await File.ReadAllLinesAsync(configPath).ConfigureAwait(false);

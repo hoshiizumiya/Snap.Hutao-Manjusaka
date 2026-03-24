@@ -64,7 +64,7 @@ jobs:
               -Body $r2Data `
               -ContentType "application/json"
           Write-Output $response2.Content
-      - uses: benc-uk/workflow-dispatch@v1.2.4
+      - uses: benc-uk/workflow-dispatch@v1.3.1
         with:
           workflow: Build
           repo: DGP-Studio/hutao-installer

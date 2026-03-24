@@ -126,6 +126,9 @@ internal static class AvatarIds
     public static readonly AvatarId Nefer = 10000122;
     public static readonly AvatarId Durin = 10000123;
     public static readonly AvatarId Jahoda = 10000124;
+    public static readonly AvatarId Columbina = 10000125;
+    public static readonly AvatarId Zibai = 10000126;
+    public static readonly AvatarId Illuga = 10000127;
 
     private static readonly FrozenSet<AvatarId> StandardWishIds =
     [

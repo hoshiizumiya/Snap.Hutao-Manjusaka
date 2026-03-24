@@ -24,7 +24,7 @@ internal sealed class HutaoResponse : Web.Response.Response, ILocalizableRespons
 
     public override string ToString()
     {
-        return SH.FormatWebResponse(ReturnCode, this.GetLocalizationMessageOrDefault());
+        return SH.FormatWebResponse(ReturnCode, this.GetLocalizationMessageOrMessage());
     }
 }
 
@@ -48,6 +48,6 @@ internal sealed class HutaoResponse<TData> : Response<TData>, ILocalizableRespon
 
     public override string ToString()
     {
-        return SH.FormatWebResponse(ReturnCode, this.GetLocalizationMessageOrDefault());
+        return SH.FormatWebResponse(ReturnCode, this.GetLocalizationMessageOrMessage());
     }
 }

@@ -26,7 +26,7 @@ namespace Snap.Hutao.ViewModel.GachaLog;
 
 [BindableCustomPropertyProvider]
 [Service(ServiceLifetime.Scoped)]
-internal sealed partial class GachaLogViewModel : Abstraction.ViewModel
+internal sealed partial class GachaLogViewModel : Abstraction.ViewModel, IRecipient<GachaLogImportedMessage>
 {
     private readonly IContentDialogFactory contentDialogFactory;
     private readonly IServiceProvider serviceProvider;
@@ -125,6 +125,22 @@ internal sealed partial class GachaLogViewModel : Abstraction.ViewModel
         }
 
         UpdateStatisticsAsync(Archives?.CurrentItem).SafeForget();
+    }
+
+    public async void Receive(GachaLogImportedMessage message)
+    {
+        await RefreshArchiveCollectionAsync().ConfigureAwait(false);
+    }
+
+    private async ValueTask RefreshArchiveCollectionAsync()
+    {
+        using (await EnterCriticalSectionAsync().ConfigureAwait(false))
+        {
+            IAdvancedDbCollectionView<GachaArchive> archives = await gachaLogService.RefreshArchiveCollectionAsync().ConfigureAwait(false);
+            await taskContext.SwitchToMainThreadAsync();
+            Archives = archives;
+            Archives.MoveCurrentTo(Archives.Source.SelectedOrFirstOrDefault());
+        }
     }
 
     [Command("RefreshByWebCacheCommand")]

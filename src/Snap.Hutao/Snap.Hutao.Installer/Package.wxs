@@ -1,25 +1,31 @@
-﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
 	<Package
         Name="Snap.Hutao Manjusaka"
         Manufacturer="Millennium Science Technology R-D Inst"
-        Version="2.1.0"
+        Version="2.1.1"
         UpgradeCode="121203be-60cb-408f-92cc-7080f6598e68"
+        Language="2052"
         Scope="perMachine">
 
-		<!-- MajorUpgrade: 当新版本安装时自动卸载旧的主要版本，阻止降级，发布新版最好不要使用小版本号更新 -->
-		<MajorUpgrade
-            AllowDowngrades="no"
-            AllowSameVersionUpgrades="yes"
-            DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <Property Id="ApplicationFolderName" Value="Snap.Hutao" />
+        <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
 
-		<MediaTemplate EmbedCab="yes" />
+        <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+        <MediaTemplate EmbedCab="yes" />
 
-		<Feature Id="ProductFeature" Title="Snap.Hutao" Level="1">
+		<ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+
+		<Feature Id="MainApp" Title="!(loc.MainAppTitle)" Level="1">
 			<ComponentGroupRef Id="MainAppComponents" />
+		</Feature>
 
-			<!-- 快捷方式组件 -->
-			<ComponentRef Id="ApplicationShortcut" />
+		<Feature Id="DesktopShortcutFeature" Title="!(loc.DesktopShortcutTitle)" Level="1">
 			<ComponentRef Id="DesktopShortcut" />
+		</Feature>
+
+		<Feature Id="StartMenuShortcutFeature" Title="!(loc.StartMenuShortcutTitle)" Level="1">
+			<ComponentRef Id="ApplicationShortcut" />
 		</Feature>
 	</Package>
 

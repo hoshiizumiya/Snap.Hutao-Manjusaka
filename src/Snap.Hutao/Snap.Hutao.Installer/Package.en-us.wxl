@@ -4,5 +4,8 @@ This file contains the declaration of all the localizable strings.
 <WixLocalization xmlns="http://wixtoolset.org/schemas/v4/wxl" Culture="en-US">
 
   <String Id="DowngradeError" Value="A newer version of [ProductName] is already installed." />
+  <String Id="MainAppTitle" Value="Snap.Hutao" />
+  <String Id="DesktopShortcutTitle" Value="Desktop Shortcut" />
+  <String Id="StartMenuShortcutTitle" Value="Start Menu Shortcut" />
 
 </WixLocalization>

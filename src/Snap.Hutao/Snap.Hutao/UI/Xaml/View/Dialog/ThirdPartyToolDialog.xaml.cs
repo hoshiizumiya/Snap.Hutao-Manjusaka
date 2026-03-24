@@ -34,13 +34,20 @@ internal sealed partial class ThirdPartyToolDialog : ContentDialog
     {
         // 在 UI 线程上获取 Tool 的引用，避免后续跨线程访问依赖属性
         ToolInfo? tool = Tool;
-        
+
         try
         {
             IsDownloading = true;
 
-            // 检查工具是否已下载
-            if (tool is not null && !thirdPartyToolService.IsToolDownloaded(tool))
+            if (tool is null)
+            {
+                return;
+            }
+
+            // 检查工具是否需要下载或更新
+            bool needDownload = !thirdPartyToolService.IsToolDownloaded(tool) || thirdPartyToolService.NeedsUpdate(tool);
+
+            if (needDownload)
             {
                 // 下载工具
                 bool downloadSuccess = await thirdPartyToolService.DownloadToolAsync(tool, null).ConfigureAwait(false);
@@ -53,15 +60,12 @@ internal sealed partial class ThirdPartyToolDialog : ContentDialog
             }
 
             // 启动工具
-            if (tool is not null)
+            bool launchSuccess = await thirdPartyToolService.LaunchToolAsync(tool).ConfigureAwait(false);
+            if (launchSuccess)
             {
-                bool launchSuccess = await thirdPartyToolService.LaunchToolAsync(tool).ConfigureAwait(false);
-                if (launchSuccess)
-                {
-                    await contentDialogFactory.TaskContext.SwitchToMainThreadAsync();
-                    Hide();
-                    return;
-                }
+                await contentDialogFactory.TaskContext.SwitchToMainThreadAsync();
+                Hide();
+                return;
             }
         }
         catch (Exception ex)

@@ -23,12 +23,13 @@ internal sealed class YaeNamedPipeServer : IAsyncDisposable
     private readonly TargetNativeConfiguration config;
     private readonly ITaskContext taskContext;
     private readonly IProcess gameProcess;
+    private readonly bool supportsResumeMainThread;
 
     private readonly NamedPipeServerStream serverStream;
 
     private volatile bool disposed;
 
-    public YaeNamedPipeServer(IServiceProvider serviceProvider, IProcess gameProcess, TargetNativeConfiguration config)
+    public YaeNamedPipeServer(IServiceProvider serviceProvider, IProcess gameProcess, TargetNativeConfiguration config, bool supportsResumeMainThread = true)
     {
         Verify.Operation(HutaoRuntime.IsProcessElevated, "Snap Hutao must be elevated to use Yae.");
 
@@ -36,6 +37,7 @@ internal sealed class YaeNamedPipeServer : IAsyncDisposable
 
         this.gameProcess = gameProcess;
         this.config = config;
+        this.supportsResumeMainThread = supportsResumeMainThread;
 
         // Yae is always running elevated, so we don't need to use ACL method.
         serverStream = new(PipeName);
@@ -116,7 +118,10 @@ internal sealed class YaeNamedPipeServer : IAsyncDisposable
 
             case YaeCommandKind.RequestResumeThread:
                 {
-                    gameProcess.ResumeMainThread();
+                    if (supportsResumeMainThread)
+                    {
+                        gameProcess.ResumeMainThread();
+                    }
                     return default;
                 }
 

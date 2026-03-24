@@ -9,6 +9,9 @@ namespace Snap.Hutao.Service.Game.Launching.Invoker;
 
 internal sealed class ConvertOnlyLaunchExecutionInvoker : AbstractLaunchExecutionInvoker
 {
+    protected override bool ShouldWaitForProcessExit { get => false; }
+    protected override bool ShouldSpinWaitGameExitAfterInvoke { get => false; }
+
     public ConvertOnlyLaunchExecutionInvoker()
     {
         Handlers =

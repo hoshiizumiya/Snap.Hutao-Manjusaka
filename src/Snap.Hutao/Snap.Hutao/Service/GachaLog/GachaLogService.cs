@@ -38,6 +38,15 @@ internal sealed partial class GachaLogService : IGachaLogService
         }
     }
 
+    public async ValueTask<IAdvancedDbCollectionView<GachaArchive>> RefreshArchiveCollectionAsync()
+    {
+        using (await archivesLock.LockAsync().ConfigureAwait(false))
+        {
+            archives = null;
+            return archives = gachaLogRepository.GetGachaArchiveCollection().ToAdvancedDbCollectionView(serviceProvider);
+        }
+    }
+
     public async ValueTask<GachaStatistics> GetStatisticsAsync(GachaLogServiceMetadataContext context, GachaArchive archive)
     {
         using (ValueStopwatch.MeasureExecution(logger))

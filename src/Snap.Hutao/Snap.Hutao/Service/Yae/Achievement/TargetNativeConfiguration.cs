@@ -29,6 +29,26 @@ internal sealed class TargetNativeConfiguration
 
     public required uint Decompress { get; init; }
 
+    public static TargetNativeConfiguration Create(uint storeCmdId, uint achievementCmdId, MethodRva methodRva)
+    {
+        return new()
+        {
+            StoreCmdId = storeCmdId,
+            AchievementCmdId = achievementCmdId,
+
+            DoCmd = methodRva.DoCmd,
+            UpdateNormalProperty = methodRva.UpdateNormalProperty,
+            NewString = methodRva.NewString,
+            FindGameObject = methodRva.FindGameObject,
+            EventSystemUpdate = methodRva.EventSystemUpdate,
+            SimulatePointerClick = methodRva.SimulatePointerClick,
+            ToInt32 = methodRva.ToInt32,
+            TcpStatePtr = methodRva.TcpStatePtr,
+            SharedInfoPtr = methodRva.SharedInfoPtr,
+            Decompress = methodRva.Decompress,
+        };
+    }
+
     public static TargetNativeConfiguration Create(NativeConfiguration config, bool isOversea)
     {
         MethodRva methodRva = isOversea ? config.MethodRva.Oversea : config.MethodRva.Chinese;

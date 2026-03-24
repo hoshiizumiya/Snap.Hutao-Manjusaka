@@ -1,4 +1,4 @@
-<shuxc:ScopedPage
+﻿<shuxc:ScopedPage
     x:Class="Snap.Hutao.UI.Xaml.View.Page.FeedbackPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -93,21 +93,21 @@
                                     <cwcont:SettingsExpander.Items>
                                         <cwcont:SettingsCard
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://github.com/hoshiizumiya/Snap.Hutao-rev/issues"
+                                            CommandParameter="https://github.com/hoshiizumiya/Snap.Hutao-Manjusaka/issues"
                                             Description="{shuxm:ResourceString Name=ViewPageFeedbackGithubIssuesDescription}"
                                             Header="GitHub Issues"
                                             IsClickEnabled="True"/>
                                         <cwcont:SettingsCard
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="http://serverjp.wdg.cloudns.ch:3001/status/hts"
+                                            CommandParameter="https://stats.uptimerobot.com/fHxWxdxK61"
                                             Description="{shuxm:ResourceString Name=ViewPageFeedbackServerStatusDescription}"
                                             Header="{shuxm:ResourceString Name=ViewPageFeedbackServerStatusHeader}"
                                             IsClickEnabled="True"/>
-                                        <!--<cwcont:SettingsCard
+                                        <cwcont:SettingsCard
                                             Command="{Binding NavigateToUriCommand}"
-                                            CommandParameter="https://qm.qq.com/q/NTwagkSm0o"
+                                            CommandParameter="https://qm.qq.com/q/uN6N4YBqx2"
                                             Header="QQ Group"
-                                            IsClickEnabled="True"/>-->
+                                            IsClickEnabled="True"/>
                                     </cwcont:SettingsExpander.Items>
                                 </cwcont:SettingsExpander>
                             </Border>

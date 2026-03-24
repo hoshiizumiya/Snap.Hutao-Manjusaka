@@ -51,7 +51,7 @@
 		<AppxPackage>false</AppxPackage>
 		<!-- 不设置打包类型 -->
 		<WindowsPackageType>None</WindowsPackageType>
-		<Version>2.1.0</Version>
+		<Version>2.1.1</Version>
 		<PublishAot>False</PublishAot>
 		<PublishTrimmed>False</PublishTrimmed>
 		<AssemblyName>Snap.Hutao-Manjusaka</AssemblyName>
@@ -96,6 +96,15 @@
     </ItemGroup>
     <Copy SourceFiles="@(UnlockFpsExeSource)" DestinationFolder="$(OutputPath)" ContinueOnError="true" />
   </Target>
+
+  <!-- 声明unlockfps.exe为项目内容，确保MSIX打包时包含此文件 -->
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)..\..\..\bin\unlockfps.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>true</Pack>
+      <PackagePath>unlockfps.exe</PackagePath>
+    </Content>
+  </ItemGroup>
 
   <!-- Analyzer Files -->
   <ItemGroup>

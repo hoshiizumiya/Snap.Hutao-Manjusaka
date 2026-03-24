@@ -1127,11 +1127,20 @@
   <data name="ServiceGameSetMultiChannelUnauthorizedAccess" xml:space="preserve">
     <value>无法读取或保存配置文件，请以管理员模式重试</value>
   </data>
+  <data name="ServiceGitRepositoryCloneReasonForceInvalid" xml:space="preserve">
+    <value>现有元数据仓库更新失败，正在重新下载</value>
+  </data>
+  <data name="ServiceGitRepositoryCloneReasonInvalidRepo" xml:space="preserve">
+    <value>首次下载或仓库损坏，正在下载元数据</value>
+  </data>
   <data name="ServiceGitRepositoryOperationCompleted" xml:space="preserve">
     <value>操作完成</value>
   </data>
   <data name="ServiceGitRepositoryOperationFailed" xml:space="preserve">
     <value>操作失败</value>
+  </data>
+  <data name="ServiceGitRepositoryUpdatingExisting" xml:space="preserve">
+    <value>检查元数据更新</value>
   </data>
   <data name="ServiceHutaoUserGachaLogExpiredAt" xml:space="preserve">
     <value>祈愿记录上传服务有效期至</value>
@@ -1597,6 +1606,9 @@
   </data>
   <data name="ViewDialogThirdPartyToolLaunch" xml:space="preserve">
     <value>启动</value>
+  </data>
+  <data name="ViewDialogThirdPartyToolVersion" xml:space="preserve">
+    <value>版本：</value>
   </data>
   <data name="ViewDialogQRCodeTitle" xml:space="preserve">
     <value>使用米游社扫描二维码</value>

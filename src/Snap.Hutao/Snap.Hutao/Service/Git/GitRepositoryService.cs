@@ -21,6 +21,7 @@ internal sealed partial class GitRepositoryService : IGitRepositoryService
 {
     private readonly AsyncKeyedLock<string> repoLock = new();
     private readonly BackgroundActivityOptions backgroundActivityOptions;
+    private readonly ILogger<GitRepositoryService> logger;
     private readonly IServiceProvider serviceProvider;
     private readonly ITaskContext taskContext;
 
@@ -76,6 +77,7 @@ internal sealed partial class GitRepositoryService : IGitRepositoryService
                         }
                         catch (Exception first)
                         {
+                            logger.LogWarning(first, "[Metadata] Failed to update existing repository, fallback to reclone: Directory={Directory}, Url={Url}", directory, info.HttpsUrl.OriginalString);
                             exceptions.Add(first);
                             return EnsureRepository(activity, directory, info, true);
                         }
@@ -110,6 +112,14 @@ internal sealed partial class GitRepositoryService : IGitRepositoryService
     {
         // Increase & decrease count in the same method, so that crash in the middle can correctly count as failure.
         RepositoryAffinity.IncreaseFailure(info);
+
+        // Debug: Log the initial state
+        bool isRepoValid = Repository.IsValid(directory);
+        bool directoryExists = Directory.Exists(directory);
+
+        logger.LogInformation("[Metadata] Checking repository: Directory={Directory}, Exists={Exists}, IsValid={IsValid}, ForceInvalid={ForceInvalid}",
+            directory, directoryExists, isRepoValid, forceInvalid);
+
         FetchOptions fetchOptions = new()
         {
             Depth = 1,
@@ -142,10 +152,18 @@ internal sealed partial class GitRepositoryService : IGitRepositoryService
             CertificateCheck = static (cert, valid, host) => true,
         };
 
-        if (forceInvalid || !Repository.IsValid(directory))
+        if (forceInvalid || !isRepoValid)
         {
-            if (Directory.Exists(directory))
+            // Debug: Log why we're cloning
+            string reason = forceInvalid
+                ? SH.ServiceGitRepositoryCloneReasonForceInvalid
+                : SH.ServiceGitRepositoryCloneReasonInvalidRepo;
+            logger.LogInformation("[Metadata] Cloning repository: Reason={Reason}, Url={Url}", reason, info.HttpsUrl.OriginalString);
+            activity.Update(taskContext, reason, false, false, false, false);
+
+            if (directoryExists)
             {
+                logger.LogInformation("[Metadata] Deleting existing directory before clone");
                 Directory.SetReadOnly(directory, false);
                 Directory.Delete(directory, true);
             }
@@ -154,9 +172,15 @@ internal sealed partial class GitRepositoryService : IGitRepositoryService
             {
                 Checkout = true,
             });
+
+            logger.LogInformation("[Metadata] Clone completed successfully");
         }
         else
         {
+            // Debug: Log that we're updating
+            logger.LogInformation("[Metadata] Updating existing repository");
+            activity.Update(taskContext, SH.ServiceGitRepositoryUpdatingExisting, false, false, false, false);
+
             // We need to ensure local repo is up to date
             using (Repository repo = new(directory))
             {
@@ -177,17 +201,20 @@ internal sealed partial class GitRepositoryService : IGitRepositoryService
                 repo.Network.Remotes.Update("origin", remote => remote.Url = info.HttpsUrl.OriginalString);
                 repo.RemoveUntrackedFiles();
                 fetchOptions.UpdateFetchHead = false;
-                Commands.Fetch(repo, repo.Head.RemoteName, Array.Empty<string>(), fetchOptions, default);
+                Commands.Fetch(repo, "origin", Array.Empty<string>(), fetchOptions, default);
 
                 // Manually patch .git/shallow file
-                File.WriteAllText(Path.Combine(directory, ".git//shallow"), string.Join("", repo.Branches.Where(static branch => branch.IsRemote).Select(static branch => $"{branch.Tip.Sha}\n")));
+                File.WriteAllText(Path.Combine(directory, ".git", "shallow"), string.Join("", repo.Branches.Where(static branch => branch.IsRemote).Select(static branch => $"{branch.Tip.Sha}\n")));
 
                 Branch remoteBranch = repo.Branches["origin/main"];
                 Branch localBranch = repo.Branches["main"] ?? repo.CreateBranch("main", remoteBranch.Tip);
                 repo.Branches.Update(localBranch, b => b.TrackedBranch = remoteBranch.CanonicalName);
+                Commands.Checkout(repo, localBranch);
                 repo.Reset(ResetMode.Hard, remoteBranch.Tip);
                 repo.RemoveUntrackedFiles();
             }
+
+            logger.LogInformation("[Metadata] Update completed successfully");
         }
 
         RepositoryAffinity.DecreaseFailure(info);

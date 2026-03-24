@@ -34,4 +34,18 @@ internal interface IThirdPartyToolService
     /// <param name="tool">工具信息</param>
     /// <returns>是否已下载</returns>
     bool IsToolDownloaded(ToolInfo tool);
+
+    /// <summary>
+    /// 获取本地工具信息
+    /// </summary>
+    /// <param name="tool">工具信息</param>
+    /// <returns>本地工具信息，如果不存在则返回null</returns>
+    LocalToolInfo? GetLocalToolInfo(ToolInfo tool);
+
+    /// <summary>
+    /// 检查工具是否需要更新
+    /// </summary>
+    /// <param name="tool">工具信息</param>
+    /// <returns>是否需要更新</returns>
+    bool NeedsUpdate(ToolInfo tool);
 }

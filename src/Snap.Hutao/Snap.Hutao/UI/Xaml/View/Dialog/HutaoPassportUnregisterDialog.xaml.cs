@@ -60,7 +60,7 @@ internal sealed partial class HutaoPassportUnregisterDialog : ContentDialog
                 return;
             }
 
-            messenger.Send(InfoBarMessage.Information(response.GetLocalizationMessage()));
+            messenger.Send(InfoBarMessage.Information(response.GetLocalizationMessageOrMessage()));
         }
     }
 

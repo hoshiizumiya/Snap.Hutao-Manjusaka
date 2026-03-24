@@ -21,6 +21,8 @@ internal abstract class AbstractLaunchExecutionInvoker
     private bool invoked;
 
     protected ImmutableArray<ILaunchExecutionHandler> Handlers { get; init; }
+    protected virtual bool ShouldWaitForProcessExit { get => true; }
+    protected virtual bool ShouldSpinWaitGameExitAfterInvoke { get => true; }
 
     public static bool Invoking()
     {
@@ -40,7 +42,7 @@ internal abstract class AbstractLaunchExecutionInvoker
         finally
         {
             Invokers.TryRemove(this, out _);
-            if (!Invoking())
+            if (!Invoking() && ShouldSpinWaitGameExitAfterInvoke)
             {
                 await GameLifeCycle.SpinWaitGameExitAsync(taskContext).ConfigureAwait(false);
             }
@@ -132,7 +134,7 @@ internal abstract class AbstractLaunchExecutionInvoker
                 }
 
                 // 只有在没有启用Island且进程存在时才等待退出
-                if (process is { IsRunning: true })
+                if (ShouldWaitForProcessExit && process is { IsRunning: true })
                 {
                     progress.Report(new(SH.ServiceGameLaunchPhaseWaitingProcessExit));
                     try
@@ -148,7 +150,7 @@ internal abstract class AbstractLaunchExecutionInvoker
                         return;
                     }
                 }
-                else if (beforeContext.LaunchOptions.IsIslandEnabled.Value)
+                else if (ShouldWaitForProcessExit && beforeContext.LaunchOptions.IsIslandEnabled.Value)
                 {
                     progress.Report(new(SH.ServiceGameLaunchPhaseWaitingProcessExit));
                     await taskContext.SwitchToBackgroundAsync();
